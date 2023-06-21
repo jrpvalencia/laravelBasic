@@ -15,6 +15,10 @@ class CreatePagosTable extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger("idPedido");
+
+            $table->unsignedInteger("idFormaDePago");
+
             $table->timestamps();
         });
     }

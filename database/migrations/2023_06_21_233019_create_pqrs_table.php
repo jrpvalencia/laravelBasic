@@ -15,6 +15,9 @@ class CreatePqrsTable extends Migration
     {
         Schema::create('pqrs', function (Blueprint $table) {
             $table->id();
+            $table->text("motivoPqr");
+            $table->unsignedInteger("idPersona");
+
             $table->timestamps();
         });
     }

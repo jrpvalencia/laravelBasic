@@ -15,6 +15,11 @@ class CreateProveesTable extends Migration
     {
         Schema::create('provees', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger("idPersona");
+
+            $table->unsignedInteger("idProducto");
+
+            $table->date("fechaEntrega");
             $table->timestamps();
         });
     }

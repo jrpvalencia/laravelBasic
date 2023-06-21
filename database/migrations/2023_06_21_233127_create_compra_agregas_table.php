@@ -15,6 +15,8 @@ class CreateCompraAgregasTable extends Migration
     {
         Schema::create('compra_agregas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger("idPersona");
+            $table->unsignedInteger("idProducto");
             $table->timestamps();
         });
     }

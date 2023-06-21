@@ -15,6 +15,9 @@ class CreateCarritoDeComprasTable extends Migration
     {
         Schema::create('carrito_de_compras', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('idCompraAgrega');
+
+            $table->integer('cantidadProducto');
             $table->timestamps();
         });
     }
