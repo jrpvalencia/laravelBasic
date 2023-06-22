@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\usuario;
+use App\Http\Controllers\ProductoController;
+use App\Models\producto;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,6 @@ Route::get('/', function () {
 Route::get('ami/{num1}/{num2}', [usuario::class,'amigo']);
 Route::get('pri/{num1}', [usuario::class,'primo']);
 Route::get('par/{num1}', [usuario::class,'par']);
+
+Route::post('productos', [ProductoController::class,'store'])->name('productosStore');
+Route::get('productos/create',[ProductoController::class,'create']);

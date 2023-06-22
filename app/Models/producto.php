@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class producto extends Model
 {
     use HasFactory;
+    public static $snakeAttributes = false;
+    protected $table = "productos";
+    protected $fillable = [
+        "nombre",
+        "descripcion",
+        "imagen",
+        "precio",
+        "idTemporada"
+    ];
+    public $timestamps =false;
 }

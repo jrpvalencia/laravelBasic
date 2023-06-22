@@ -6,6 +6,7 @@ use App\Models\producto;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class ProductoController extends Controller
 {
     /**
@@ -17,7 +18,11 @@ class ProductoController extends Controller
     {
         //
     }
+    public function create()
+    {
+        return view('productos.create');
 
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -27,6 +32,9 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $user = new producto($data);
+        $user -> save();
     }
 
     /**
@@ -38,6 +46,7 @@ class ProductoController extends Controller
     public function show(producto $producto)
     {
         //
+
     }
 
     /**
