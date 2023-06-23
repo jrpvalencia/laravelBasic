@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PqrController;
 use App\Http\Controllers\usuario;
 use App\Http\Controllers\ProductoController;
 use App\Models\producto;
@@ -27,3 +28,7 @@ Route::get('par/{num1}', [usuario::class,'par']);
 
 Route::post('productos', [ProductoController::class,'store'])->name('productosStore');
 Route::get('productos/create',[ProductoController::class,'create']);
+Route::get('pqr',[PqrController::class,'index'])->name('pqr.index');
+
+Route::get('pqr/create',[PqrController::class, 'create'])->name('pqr.create');
+Route::post('pqr',[PqrController::class, 'store'])->name('pqr.store');
