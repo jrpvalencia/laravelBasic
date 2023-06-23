@@ -17,6 +17,9 @@ class PedidoController extends Controller
     {
         //
     }
+    public function create(){
+        return view('pedido.create');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -26,7 +29,16 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $pedido= new pedido();
+        $pedido->concentracionProducto=$request->concentracionProducto;
+        $pedido->idCarrito=$request->idCarrito;
+
+        $pedido->save();
+
+
+
+       
     }
 
     /**

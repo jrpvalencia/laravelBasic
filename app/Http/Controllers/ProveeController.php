@@ -17,6 +17,9 @@ class ProveeController extends Controller
     {
         //
     }
+    public function create(){
+        return view('provee.create');
+    }
 
     /**
      * Store a newly created resource in storage.

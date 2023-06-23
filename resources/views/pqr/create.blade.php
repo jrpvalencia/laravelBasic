@@ -1,3 +1,9 @@
+@extends('layouts.plantilla')
+
+@section('content')
+    
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,3 +39,4 @@
 
 </body>
 </html>
+@endsection

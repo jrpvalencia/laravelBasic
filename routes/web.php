@@ -1,9 +1,19 @@
 <?php
 
+use App\Http\Controllers\CarritoDeCompraController;
+use App\Http\Controllers\CompraAgregaController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\cursosController;
+use App\Http\Controllers\DevolucionController;
+use App\Http\Controllers\FormaDePagoController;
+use App\Http\Controllers\PagoController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PqrController;
 use App\Http\Controllers\usuario;
 use App\Http\Controllers\ProductoController;
-use App\Models\producto;
+use App\Http\Controllers\ProveeController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\TemporadaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,18 +27,73 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-//rutas prueba
+Route::get('/',[Controller::class,'index']);
+
+//ejemplo de la clase 
+Route::get('cursos/create',[cursosController::class, 'create']);
+Route::post('cursos',[cursosController::class, 'store'])->name('cursos.store');
+//tarea de numeros 
 Route::get('ami/{num1}/{num2}', [usuario::class,'amigo']);
 Route::get('pri/{num1}', [usuario::class,'primo']);
 Route::get('par/{num1}', [usuario::class,'par']);
 
+
+//RUTAS DE PRODUCTOS
 Route::post('productos', [ProductoController::class,'store'])->name('productosStore');
 Route::get('productos/create',[ProductoController::class,'create']);
-Route::get('pqr',[PqrController::class,'index'])->name('pqr.index');
 
+//RUTAS DE PQR
+Route::get('pqr',[PqrController::class,'index'])->name('pqr.index');
 Route::get('pqr/create',[PqrController::class, 'create'])->name('pqr.create');
 Route::post('pqr',[PqrController::class, 'store'])->name('pqr.store');
+
+
+//RUTAS DE CARRITO DE COMPRA
+Route::get('carritoDeCompra/create',[CarritoDeCompraController::class, 'create']);
+
+Route::post('carritoDeCompra',[CarritoDeCompraController::class,'store'])->name('carritoDeCompra.store');
+
+//RUTA COMPRA AGREGA
+
+
+Route::get('compraAgrega/create',[CompraAgregaController::class, 'create']);
+
+Route::post('compraAgrega',[CompraAgregaController::class,'store'])->name('compraAgrega.store');
+
+//RUTA DEVOLUCION
+
+Route::get('devolucion/create',[DevolucionController::class, 'create']);
+Route::post('devolucion',[DevolucionController::class,'store'])->name('devolucion.store');
+
+//FORMA DE PAGO 
+
+Route::get('formaDePago/create',[FormaDePagoController::class, 'create']);
+Route::post('formaDePago',[FormaDePagoController::class,'store'])->name('formaDePago.store');
+
+//RUTAS DE PAGO
+
+Route::get('pago/create',[PagoController::class, 'create']);
+Route::post('pago',[PagoController::class,'store'])->name('pago.store');
+
+//RUTAS PEDIDO 
+
+Route::get('pedido/create',[PedidoController::class, 'create']);
+Route::post('pedido',[PedidoController::class,'store'])->name('pedido.store');
+
+//RUTAS  PROVEE 
+Route::get('provee/create',[ProveeController::class, 'create']);
+Route::post('prove',[ProveeController::class,'store'])->name('provee.store');
+
+//RUTAS ROL 
+
+Route::get('rol/create',[RolController::class, 'create']);
+Route::post('rol',[RolController::class,'store'])->name('rol.store');
+//RUTAS TEMPORADA
+
+Route::get('temporada/create',[TemporadaController::class, 'create']);
+Route::post('temporada',[TemporadaController::class,'store'])->name('temporada.store');
+//RUTAS USUARIO
+
+Route::get('usuario/create',[usuario::class, 'create']);
+Route::post('usuario',[usuario::class,'store'])->name('usuario.store');

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\carritoDeCompra;
 use App\Http\Controllers\Controller;
+use App\Models\curso;
 use Illuminate\Http\Request;
 
-class CarritoDeCompraController extends Controller
+class cursosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,14 @@ class CarritoDeCompraController extends Controller
         //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('carritoDeCompra.create');
-
+        return view('cursos.create');
     }
 
     /**
@@ -32,20 +36,31 @@ class CarritoDeCompraController extends Controller
      */
     public function store(Request $request)
     {
-        $carritoDeCompra = new carritoDeCompra();
-        $carritoDeCompra->idCompraAgrega=$request->idCompraAgrega;
-        $carritoDeCompra->cantidadProducto=$request->cantidadProducto;
+        $curso = new curso();
+        $curso->name=$request->name;
+        $curso->descripcion=$request->descripcion;
 
-        $carritoDeCompra->save();
+        $curso->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\carritoDeCompra  $carritoDeCompra
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(carritoDeCompra $carritoDeCompra)
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
@@ -54,10 +69,10 @@ class CarritoDeCompraController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\carritoDeCompra  $carritoDeCompra
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, carritoDeCompra $carritoDeCompra)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -65,10 +80,10 @@ class CarritoDeCompraController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\carritoDeCompra  $carritoDeCompra
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(carritoDeCompra $carritoDeCompra)
+    public function destroy($id)
     {
         //
     }
