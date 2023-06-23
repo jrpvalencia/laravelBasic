@@ -24,9 +24,18 @@ class TemporadaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function create()
+    {
+        return view('temporadas.create');
+
+    }
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $temp = new temporada($data);
+        $temp -> save();
     }
 
     /**

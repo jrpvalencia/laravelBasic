@@ -24,9 +24,17 @@ class RolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function create()
+    {
+        return view('roles.create');
+
+    }
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $rol = new rol($data);
+        $rol -> save();
     }
 
     /**
