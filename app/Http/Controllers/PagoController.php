@@ -17,6 +17,9 @@ class PagoController extends Controller
     {
         //
     }
+    public function create(){
+        return view('pago.create');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -26,7 +29,13 @@ class PagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pago = new pago();
+        $pago->idPedido=$request->idPedido;
+        $pago->idFormaDePago=$request->idFormaDePago;
+
+        $pago->save();
+
+        
     }
 
     /**

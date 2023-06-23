@@ -18,6 +18,9 @@ class FormaDePagoController extends Controller
         //
     }
 
+    public function create(){
+        return view('formaDePago.create');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -26,7 +29,9 @@ class FormaDePagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formaDePago = new formaDePago();
+        $formaDePago->nombre=$request->nombre;
+        $formaDePago->save();
     }
 
     /**

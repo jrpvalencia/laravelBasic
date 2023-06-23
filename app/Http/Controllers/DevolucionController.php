@@ -18,6 +18,9 @@ class DevolucionController extends Controller
         //
     }
 
+    public function create(){
+        return view('devoluciones.create');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -26,7 +29,13 @@ class DevolucionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $devolucion = new devolucion();
+        $devolucion->motivo=$request->motivo;
+        $devolucion->idPedido=$request->idPedido;
+        $devolucion->idPqr=$request->idPqr;
+
+        $devolucion->save();
+
     }
 
     /**

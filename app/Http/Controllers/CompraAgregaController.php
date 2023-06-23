@@ -17,7 +17,10 @@ class CompraAgregaController extends Controller
     {
         //
     }
-
+    public function create()
+    {
+        return view('compraAgrega.create');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -26,7 +29,10 @@ class CompraAgregaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $compraAgrega = new compraAgrega();
+        $compraAgrega->idPersona=$request->idPersona;
+        $compraAgrega->idProducto=$request->idProducto;
+        $compraAgrega->save();
     }
 
     /**

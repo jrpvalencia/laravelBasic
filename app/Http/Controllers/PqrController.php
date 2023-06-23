@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\pqr;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PqrController extends Controller
 {
@@ -15,9 +16,17 @@ class PqrController extends Controller
      */
     public function index()
     {
-        //
-    }
 
+        $pqr = pqr::all();
+
+
+        return view('pqr.index',compact('pqr'));
+    }
+    public function create()
+    {
+        return view('pqr.create');
+
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -26,8 +35,16 @@ class PqrController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pqr = new pqr();
+        $pqr->motivoPqr = $request->motivoPqr;
+        $pqr->idPersona = $request->idPersona;
+     
+
+        $pqr->save();
+
+        return Redirect()->route('pqr.index',$pqr);
     }
+    
 
     /**
      * Display the specified resource.
