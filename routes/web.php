@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\cursosController;
 use App\Http\Controllers\DevolucionController;
 use App\Http\Controllers\FormaDePagoController;
+use App\Http\Controllers\nuevoController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PqrController;
@@ -30,21 +31,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Controller::class,'index']);
 
-//ejemplo de la clase 
-Route::get('cursos/create',[cursosController::class, 'create']);
-Route::post('cursos',[cursosController::class, 'store'])->name('cursos.store');
-//tarea de numeros 
-Route::get('ami/{num1}/{num2}', [usuario::class,'amigo']);
-Route::get('pri/{num1}', [usuario::class,'primo']);
-Route::get('par/{num1}', [usuario::class,'par']);
-
 
 //RUTAS DE PRODUCTOS
 Route::post('productos', [ProductoController::class,'store'])->name('productosStore');
 Route::get('productos/create',[ProductoController::class,'create']);
 
+//RUTAS TEMPORADA
+
 Route::post('temporadas', [TemporadaController::class,'store'])->name('temporadasStore');
 Route::get('temporada/create',[TemporadaController::class,'create']);
+
+//RUTAS ROL
 
 Route::post('roles', [RolController::class,'store'])->name('rolesStore');
 Route::get('rol/create',[RolController::class,'create']);
@@ -95,4 +92,6 @@ Route::post('prove',[ProveeController::class,'store'])->name('provee.store');
 
 Route::get('usuario/create',[usuario::class, 'create']);
 Route::post('usuario',[usuario::class,'store'])->name('usuario.store');
+
+
 
