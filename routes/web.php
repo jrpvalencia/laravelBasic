@@ -96,13 +96,3 @@ Route::post('prove',[ProveeController::class,'store'])->name('provee.store');
 Route::get('usuario/create',[usuario::class, 'create']);
 Route::post('usuario',[usuario::class,'store'])->name('usuario.store');
 
-
-//RUTAS  DE ROL 
- 
-Route::get('rol/create',[RolController::class, 'create']);
-Route::post('rol',[RolController::class,'store'])->name('rol.store');
-
-//RUTAS  DE TEMPORADA
-
-Route::get('temporada/create',[TemporadaController::class, 'create']);
-Route::post('temporada',[TemporadaController::class,'store'])->name('temporada.store');
