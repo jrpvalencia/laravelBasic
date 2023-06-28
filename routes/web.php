@@ -6,12 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\cursosController;
 use App\Http\Controllers\DevolucionController;
 use App\Http\Controllers\FormaDePagoController;
-use App\Http\Controllers\nuevoController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PqrController;
-use App\Http\Controllers\usuario;
-
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveeController;
 use App\Http\Controllers\RolController;
