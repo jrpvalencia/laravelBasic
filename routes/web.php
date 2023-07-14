@@ -14,8 +14,6 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\TemporadaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveeController;
-use App\Http\Controllers\RolController;
-use App\Http\Controllers\TemporadaController;
 use Illuminate\Support\Facades\Route;
 
 /*

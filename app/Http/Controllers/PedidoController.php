@@ -36,9 +36,6 @@ class PedidoController extends Controller
 
         $pedido->save();
 
-
-
-       
     }
 
     /**
