@@ -33,8 +33,9 @@ class TemporadaController extends Controller
     public function store(Request $request)
     {
         //
-        $data = $request->all();
-        $temp = new temporada($data);
+     
+        $temp = new temporada();
+        $temp->nombre=$request->nombre;
         $temp -> save();
     }
 
