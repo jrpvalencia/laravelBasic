@@ -29,7 +29,7 @@
 <label>
     idPersona:
     <br>
-    <input type="text" name="idPersona">
+    <input type="number" name="idPersona">
 </label>
 
 <button type="submit">Enviar formulario</button>
