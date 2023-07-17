@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[Controller::class,'index']);
+Route::get('/',[Controller::class,'index'])->name('home');
 
 
 //RUTAS DE PRODUCTOS
@@ -90,3 +90,9 @@ Route::post('usuario',[usuario::class,'store'])->name('usuario.store');
 
 
 
+//NAVEGABILIDAD
+
+route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
+
+route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
+route::get('registro',[Controller::class,'registro'])->name('registro');

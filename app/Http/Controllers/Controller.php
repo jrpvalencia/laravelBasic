@@ -15,4 +15,19 @@ class Controller extends BaseController
     {
         return view('home');
     }
+
+    public function contactanos()
+    {
+        return view('contactanos');
+    }
+    public function conocenos()
+    {
+        return view('conocenos');
+    }
+    public function registro()
+    {
+        return view('registro');
+    }
+
+
 }
