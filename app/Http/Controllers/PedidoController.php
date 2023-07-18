@@ -36,6 +36,8 @@ class PedidoController extends Controller
 
         $pedido->save();
 
+        return Redirect()->route('pedido.index',$pedido);
+
     }
 
     /**

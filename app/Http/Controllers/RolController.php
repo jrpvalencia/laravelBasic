@@ -32,10 +32,13 @@ class RolController extends Controller
     public function store(Request $request)
     {
         //
-       
+
         $rol = new rol();
         $rol->nombre=$request->nombre;
         $rol -> save();
+
+
+        return Redirect()->route('rol.index',$rol);
     }
 
     /**

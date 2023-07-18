@@ -16,7 +16,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $producto = producto :: all();
+
+        return view('productos.index', compact('producto'));
     }
     public function create()
     {
@@ -31,10 +33,17 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $data = $request->all();
-        $user = new producto($data);
-        $user -> save();
+
+
+        $producto = new producto();
+        $producto->nombre = $request->nombre;
+        $producto->descripcion = $request->descripcion;
+        $producto->imagen = $request->imagen;
+        $producto->precio= $request->precio;
+        $producto->idTemporada = $request->idTemporada;
+        $producto -> save();
+
+        return Redirect()->route('producto.index',$producto);
     }
 
     /**

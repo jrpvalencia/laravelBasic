@@ -1,18 +1,3 @@
-{{-- 
-<body>
-    <h1>desde pqr</h1>
-    <a href="{{route('pqr.create')}}">crear curso</a>
-
-    <ul>
-
-        @foreach ($pqr as $pqrs)
-            <li>{{$pqrs->motivoPqr}}</li>
-        @endforeach
-    </ul>
-</body>
- --}}
-
-
 
     <link rel="stylesheet" href="CSS/style.css">
 
@@ -27,7 +12,7 @@
             </div>
             <div class="export__file">
                 <a href="{{route('home')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
-            
+
             </div>
         </section>
         <section class="table__body">
@@ -38,7 +23,7 @@
                         <th> Motivo<span class="icon-arrow">&UpArrow;</span></th>
                         <th> idPersona<span class="icon-arrow">&UpArrow;</span></th>
                         <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
-         
+
                     </tr>
                 </thead>
                 @foreach ($pqr as $pqrs)
@@ -50,7 +35,7 @@
                         <td>
                          <a href="{{route('pqr.create')}}"><p class="status delivered">Agregar </p></a>
                         </td>
-            
+
                 </tbody>
                 @endforeach</td>
             </table>

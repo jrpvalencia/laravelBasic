@@ -1,15 +1,15 @@
-@extends('layout.plantilla')
+@extends('layouts.plantilla')
 
 @section('content')
 <h1>Crear producto</h1>
 
-<form action="{{ route('productosStore') }}" method="POST">
+<form action="{{ route('producto.store') }}" method="POST">
 
     @csrf
-    
+
 <label>
     Nombre:
-    
+
     <br>
     <input type="text" name="nombre">
 </label>

@@ -33,10 +33,12 @@ class TemporadaController extends Controller
     public function store(Request $request)
     {
         //
-     
+
         $temp = new temporada();
         $temp->nombre=$request->nombre;
         $temp -> save();
+
+        return Redirect()->route('temp.index',$temp);
     }
 
     /**

@@ -28,8 +28,9 @@ Route::get('/',[Controller::class,'index'])->name('home');
 
 
 //RUTAS DE PRODUCTOS
-Route::post('productos', [ProductoController::class,'store'])->name('productosStore');
-Route::get('productos/create',[ProductoController::class,'create']);
+Route::post('productos', [ProductoController::class,'store'])->name('producto.store');
+Route::get('productos/create',[ProductoController::class,'create'])->name('producto.create');
+Route::get('productos',[ProductoController::class,'index'])->name('producto.index');
 
 //RUTAS TEMPORADA
 
@@ -48,9 +49,9 @@ Route::post('pqr',[PqrController::class, 'store'])->name('pqr.store');
 
 
 //RUTAS DE CARRITO DE COMPRA
-Route::get('carritoDeCompra/create',[CarritoDeCompraController::class, 'create']);
-
+Route::get('carritoDeCompra/create',[CarritoDeCompraController::class, 'create'])->name('carritoDeCompra.create');
 Route::post('carritoDeCompra',[CarritoDeCompraController::class,'store'])->name('carritoDeCompra.store');
+Route::get('carritoDeCompra',[CarritoDeCompraController::class, 'index'])->name('carritoDeCompra.index');
 
 //RUTA COMPRA AGREGA
 
@@ -64,7 +65,7 @@ Route::post('compraAgrega',[CompraAgregaController::class,'store'])->name('compr
 Route::get('devolucion/create',[DevolucionController::class, 'create']);
 Route::post('devolucion',[DevolucionController::class,'store'])->name('devolucion.store');
 
-//FORMA DE PAGO 
+//FORMA DE PAGO
 
 Route::get('formaDePago/create',[FormaDePagoController::class, 'create']);
 Route::post('formaDePago',[FormaDePagoController::class,'store'])->name('formaDePago.store');
@@ -74,12 +75,12 @@ Route::post('formaDePago',[FormaDePagoController::class,'store'])->name('formaDe
 Route::get('pago/create',[PagoController::class, 'create']);
 Route::post('pago',[PagoController::class,'store'])->name('pago.store');
 
-//RUTAS PEDIDO 
+//RUTAS PEDIDO
 
 Route::get('pedido/create',[PedidoController::class, 'create']);
 Route::post('pedido',[PedidoController::class,'store'])->name('pedido.store');
 
-//RUTAS  PROVEE 
+//RUTAS  PROVEE
 Route::get('provee/create',[ProveeController::class, 'create']);
 Route::post('prove',[ProveeController::class,'store'])->name('provee.store');
 

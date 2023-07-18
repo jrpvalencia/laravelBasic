@@ -35,7 +35,10 @@ class PagoController extends Controller
 
         $pago->save();
 
-        
+
+        return Redirect()->route('pago.index',$pago);
+
+
     }
 
     /**
