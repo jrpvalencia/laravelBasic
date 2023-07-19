@@ -11,6 +11,8 @@ use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PqrController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveeController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\TemporadaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,12 +37,14 @@ Route::get('productos',[ProductoController::class,'index'])->name('producto.inde
 //RUTAS TEMPORADA
 
 Route::post('temporadas', [TemporadaController::class,'store'])->name('temporadasStore');
-Route::get('temporada/create',[TemporadaController::class,'create']);
+Route::get('temporada/create',[TemporadaController::class,'create'])->name('temporada.create');
+Route::get('temporadas',[TemporadaController::class,'index'])->name('temporadas.index');
 
 //RUTAS ROL
 
 Route::post('roles', [RolController::class,'store'])->name('rolesStore');
-Route::get('rol/create',[RolController::class,'create']);
+Route::get('rol/create',[RolController::class,'create'])->name('roles.create');
+Route::get('roles',[RolController::class,'index'])->name('rol.index');
 
 //RUTAS DE PQR
 Route::get('pqr',[PqrController::class,'index'])->name('pqr.index');
@@ -57,7 +61,6 @@ Route::get('carritoDeCompra',[CarritoDeCompraController::class, 'index'])->name(
 
 
 Route::get('compraAgrega/create',[CompraAgregaController::class, 'create']);
-
 Route::post('compraAgrega',[CompraAgregaController::class,'store'])->name('compraAgrega.store');
 
 //RUTA DEVOLUCION
@@ -65,15 +68,16 @@ Route::post('compraAgrega',[CompraAgregaController::class,'store'])->name('compr
 Route::get('devolucion/create',[DevolucionController::class, 'create']);
 Route::post('devolucion',[DevolucionController::class,'store'])->name('devolucion.store');
 
-//FORMA DE PAGO
+//RUTA DE FORMA DE PAGO
 
 Route::get('formaDePago/create',[FormaDePagoController::class, 'create']);
 Route::post('formaDePago',[FormaDePagoController::class,'store'])->name('formaDePago.store');
 
 //RUTAS DE PAGO
 
-Route::get('pago/create',[PagoController::class, 'create']);
+Route::get('pago/create',[PagoController::class, 'create'])->name('pagos.create');
 Route::post('pago',[PagoController::class,'store'])->name('pago.store');
+Route::get('pago',[PagoController::class, 'index'])->name('pago.index');
 
 //RUTAS PEDIDO
 
@@ -94,6 +98,5 @@ Route::post('usuario',[usuario::class,'store'])->name('usuario.store');
 //NAVEGABILIDAD
 
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
-
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');

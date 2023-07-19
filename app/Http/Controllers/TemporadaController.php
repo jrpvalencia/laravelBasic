@@ -15,7 +15,9 @@ class TemporadaController extends Controller
      */
     public function index()
     {
-        //
+        $temporada = temporada::all();
+
+        return view('temporadas.index', compact('temporada'));
     }
 
     /**
@@ -38,7 +40,7 @@ class TemporadaController extends Controller
         $temp->nombre=$request->nombre;
         $temp -> save();
 
-        return Redirect()->route('temp.index',$temp);
+        return Redirect()->route('temporadas.index',$temp);
     }
 
     /**
