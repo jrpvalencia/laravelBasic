@@ -17,7 +17,7 @@ class CreateCursoTable extends Migration
             $table->id();
             $table->string("name");
             $table->text("descripcion");
-
+            $table->string('urlPdf')->nullable();
             $table->timestamps();
         });
     }

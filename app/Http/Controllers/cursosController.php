@@ -15,7 +15,9 @@ class cursosController extends Controller
      */
     public function index()
     {
-        //
+        $curso = curso :: all();
+
+        return view('cursos.index', compact('curso'));
     }
 
     /**
@@ -37,12 +39,25 @@ class cursosController extends Controller
     public function store(Request $request)
     {
         $curso = new curso();
-        $curso->name=$request->name;
+      $curso->name=$request->name;
         $curso->descripcion=$request->descripcion;
+      
 
         $curso->save();
 
-        return Redirect()->route('curso.index',$curso);
+
+
+        $file=$request->file("urlPdf");
+       $nombreArchivo = "pdf_".time().".".$file->guessExtension();
+       $request->file('urlPdf')->storeAs('public/imagenes',$nombreArchivo);
+       $curso->urlPdf = $nombreArchivo;
+       $curso->save();
+      
+      
+       return Redirect()->route('cursos.index',$curso); 
+       
+
+       
     }
 
     /**
@@ -87,6 +102,6 @@ class cursosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

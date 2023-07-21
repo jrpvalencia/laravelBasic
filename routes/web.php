@@ -29,6 +29,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[Controller::class,'index'])->name('home');
 
 
+Route::get('curso/create',[cursosController::class,'create'])->name('curso.create');
+Route::post('cursos', [cursosController::class,'store'])->name('cursos.store');
+Route::get('cursos',[cursosController::class,'index'])->name('cursos.index');
+Route::get('yo',[cursosController::class,'destroy'])->name('destroy.store');
 //RUTAS DE PRODUCTOS
 Route::post('productos', [ProductoController::class,'store'])->name('producto.store');
 Route::get('productos/create',[ProductoController::class,'create'])->name('producto.create');
@@ -92,6 +96,9 @@ Route::post('prove',[ProveeController::class,'store'])->name('provee.store');
 
 Route::get('usuario/create',[usuario::class, 'create']);
 Route::post('usuario',[usuario::class,'store'])->name('usuario.store');
+
+
+
 
 
 
