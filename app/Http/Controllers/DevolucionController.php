@@ -36,6 +36,9 @@ class DevolucionController extends Controller
 
         $devolucion->save();
 
+
+        return Redirect()->route('devolucion.index',$devolucion);
+
     }
 
     /**

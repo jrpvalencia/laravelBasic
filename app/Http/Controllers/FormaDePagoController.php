@@ -32,6 +32,9 @@ class FormaDePagoController extends Controller
         $formaDePago = new formaDePago();
         $formaDePago->nombre=$request->nombre;
         $formaDePago->save();
+
+
+        return Redirect()->route('formaDePago.index',$formaDePago);
     }
 
     /**

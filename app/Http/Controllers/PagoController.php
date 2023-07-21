@@ -15,7 +15,10 @@ class PagoController extends Controller
      */
     public function index()
     {
-        //
+        $pago = pago::all();
+
+        return view('pago.index',compact('pago'));
+       
     }
     public function create(){
         return view('pago.create');
@@ -35,7 +38,10 @@ class PagoController extends Controller
 
         $pago->save();
 
-        
+
+        return Redirect()->route('pago.index',$pago);
+
+
     }
 
     /**

@@ -20,26 +20,20 @@
             <thead>
                 <tr>
                     <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Nombre<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Descripcion<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Imagen <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Precio <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> idTemporada<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Acciones<span class="icon-arrow">&UpArrow;</span></th>
+                    <th> CantidadProducto<span class="icon-arrow">&UpArrow;</span></th>
+                    <th> idCompraAgrega<span class="icon-arrow">&UpArrow;</span></th>
+                    <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
 
                 </tr>
             </thead>
-            @foreach ($producto as $productos)
+            @foreach ($carritoDeCompra as $carritoDeCompras)
             <tbody>
                 <tr>
-                    <td>{{$productos->id}} </td>
-                    <td>{{$productos->nombre}}</td>
-                    <td>{{$productos->descripcion}}</td>
-                    <td>{{$productos->imagen}}</td>
-                    <td>{{$productos->precio}}</td>
-                    <td>{{$productos->idTemporada}}</td>
+                    <td>{{$carritoDeCompras->id}} </td>
+                    <td>{{$carritoDeCompras->cantidadProducto}}</td>
+                    <td>{{$carritoDeCompras->idCompraAgrega}}</td>
                     <td>
-                    <a href="{{route('producto.create')}}"><p class="status delivered">Agregar </p></a>
+                     <a href="{{route('carritoDeCompra.create')}}"><p class="status delivered">Agregar </p></a>
                     </td>
 
             </tbody>

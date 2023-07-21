@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="CSS/style.css">
 
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -20,26 +19,21 @@
             <thead>
                 <tr>
                     <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Nombre<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Descripcion<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Imagen <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Precio <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> idTemporada<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Acciones<span class="icon-arrow">&UpArrow;</span></th>
-
+                    <th> nombre<span class="icon-arrow">&UpArrow;</span></th>
+                   
+              
+                  
                 </tr>
             </thead>
-            @foreach ($producto as $productos)
+            @foreach ($rol as $roles)
             <tbody>
                 <tr>
-                    <td>{{$productos->id}} </td>
-                    <td>{{$productos->nombre}}</td>
-                    <td>{{$productos->descripcion}}</td>
-                    <td>{{$productos->imagen}}</td>
-                    <td>{{$productos->precio}}</td>
-                    <td>{{$productos->idTemporada}}</td>
+                    <td>{{$roles->id}} </td>
+                    <td>{{$roles->nombre}}</td>
+                  
+                   
                     <td>
-                    <a href="{{route('producto.create')}}"><p class="status delivered">Agregar </p></a>
+                     <a href="{{route('roles.create')}}"><p class="status delivered">Agregar </p></a>
                     </td>
 
             </tbody>

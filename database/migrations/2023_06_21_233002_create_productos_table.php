@@ -17,7 +17,7 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->string("nombre");
             $table->string("descripcion");
-            $table->string("imagen");
+            $table->string("imagen")->nullable();
             $table->integer("precio");
 
             $table->unsignedInteger("idTemporada");

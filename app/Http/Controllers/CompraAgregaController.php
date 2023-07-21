@@ -33,6 +33,8 @@ class CompraAgregaController extends Controller
         $compraAgrega->idPersona=$request->idPersona;
         $compraAgrega->idProducto=$request->idProducto;
         $compraAgrega->save();
+
+        return Redirect()->route('compraAgrega.index',$compraAgrega);
     }
 
     /**

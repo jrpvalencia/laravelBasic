@@ -15,7 +15,9 @@ class CarritoDeCompraController extends Controller
      */
     public function index()
     {
-        //
+        $carritoDeCompra = carritoDeCompra::all();
+
+        return view('carritoDeCompra.index', compact('carritoDeCompra'));
     }
 
     public function create()
@@ -37,6 +39,8 @@ class CarritoDeCompraController extends Controller
         $carritoDeCompra->cantidadProducto=$request->cantidadProducto;
 
         $carritoDeCompra->save();
+
+        return Redirect()->route('carritoDeCompra.index',$carritoDeCompra);
     }
 
     /**

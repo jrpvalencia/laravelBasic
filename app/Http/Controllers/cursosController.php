@@ -41,6 +41,8 @@ class cursosController extends Controller
         $curso->descripcion=$request->descripcion;
 
         $curso->save();
+
+        return Redirect()->route('curso.index',$curso);
     }
 
     /**

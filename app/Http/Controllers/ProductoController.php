@@ -16,9 +16,9 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
-        $productos= producto::orderby('id')->get();
-        return $productos;
+        $producto = producto :: all();
+
+        return view('productos.index', compact('producto'));
     }
     public function create()
     {
@@ -33,10 +33,22 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $data = $request->all();
-        $user = new producto($data);
-        $user -> save();
+
+
+        $producto = new producto();
+        $producto->nombre = $request->nombre;
+        $producto->descripcion = $request->descripcion;
+        //INSERTAR PDF
+        $img= $request->file("imagen");
+        $nombreArchivo= "pdf_".time().".".$img->guessExtension();
+        $request-> file("imagen")->storeAs('public/imagenes', $nombreArchivo);
+        $producto -> imagen = $nombreArchivo;
+
+        $producto->precio= $request->precio;
+        $producto->idTemporada = $request->idTemporada;
+        $producto -> save();
+
+        return Redirect()->route('producto.index',$producto);
     }
 
     /**

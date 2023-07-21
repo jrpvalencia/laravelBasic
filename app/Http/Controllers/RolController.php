@@ -15,7 +15,9 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        $rol = rol::all();
+
+        return view('roles.index',compact('rol'));
     }
 
     /**
@@ -32,10 +34,13 @@ class RolController extends Controller
     public function store(Request $request)
     {
         //
-       
+
         $rol = new rol();
         $rol->nombre=$request->nombre;
         $rol -> save();
+
+
+        return Redirect()->route('rol.index',$rol);
     }
 
     /**
