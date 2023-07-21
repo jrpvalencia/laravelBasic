@@ -24,12 +24,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[Controller::class,'index']);
+Route::get('/',function(){
+    return view('home');
+});
 
 
 //RUTAS DE PRODUCTOS
 Route::post('productos', [ProductoController::class,'store'])->name('productosStore');
 Route::get('productos/create',[ProductoController::class,'create']);
+Route::get('productos/index',[ProductoController::class,'index']);
 
 //RUTAS TEMPORADA
 

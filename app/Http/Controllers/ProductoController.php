@@ -17,6 +17,8 @@ class ProductoController extends Controller
     public function index()
     {
         //
+        $productos= producto::orderby('id')->get();
+        return $productos;
     }
     public function create()
     {

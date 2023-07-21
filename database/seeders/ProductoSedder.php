@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\pedido;
+use App\Models\producto;
 use Illuminate\Database\Seeder;
 
-class PedidoSedder extends Seeder
+class ProductoSedder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class PedidoSedder extends Seeder
     public function run()
     {
         //
-        pedido::factory(20)->create();
+        producto::factory(20)->create();
     }
 }
