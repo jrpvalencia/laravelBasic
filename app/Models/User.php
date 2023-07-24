@@ -41,4 +41,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+//relacion de  uno a uno
+    public function profile(){
+              // $profile = Profile::where('user_id',$this->id)->first(); sin especificar
+       // $profile = Profile::where('foreing_key',$this->local_key)->first(); especificando 
+
+       return $this->hasOne('App\Models\Profile');
+    }
+
+// Relacion Uno a Muchos 
+public function posts(){
+    return $this->hasMany('App\Models\post');
+}
+
+//aqui se pone en que tiene la llave
+
+
 }
