@@ -64,9 +64,9 @@ Route::get('carritoDeCompra',[CarritoDeCompraController::class, 'index'])->name(
 //RUTA COMPRA AGREGA
 
 
-Route::get('compraAgrega/create',[CompraAgregaController::class, 'create']);
+Route::get('compraAgrega/create',[CompraAgregaController::class, 'create'])->name('compraAgrega.create');
 Route::post('compraAgrega',[CompraAgregaController::class,'store'])->name('compraAgrega.store');
-
+Route::get('compraAgrega',[CompraAgregaController::class, 'index'])->name('compraAgrega.index');
 //RUTA DEVOLUCION
 
 Route::get('devolucion/create',[DevolucionController::class, 'create']);

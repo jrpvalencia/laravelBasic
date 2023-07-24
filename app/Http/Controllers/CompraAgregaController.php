@@ -15,7 +15,12 @@ class CompraAgregaController extends Controller
      */
     public function index()
     {
-        //
+        $compraAgrega= compraAgrega::all();
+
+
+        return view('compraAgrega.index',compact('compraAgrega'));
+
+    
     }
     public function create()
     {
