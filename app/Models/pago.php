@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Pago extends Model
 {
     use HasFactory;
+
+    public function formaDePago(){
+        
+        return $this->belongsTo('App\Models\formaDePago');
+     
+     }
 }
