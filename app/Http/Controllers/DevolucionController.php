@@ -15,7 +15,9 @@ class DevolucionController extends Controller
      */
     public function index()
     {
-        //
+        $devolucion = devolucion::all();
+
+        return view('devoluciones.index',compact('devolucion'));
     }
 
     public function create(){
@@ -37,7 +39,7 @@ class DevolucionController extends Controller
         $devolucion->save();
 
 
-        return Redirect()->route('devolucion.index',$devolucion);
+        return Redirect()->route('devoluciones.index',$devolucion);
 
     }
 

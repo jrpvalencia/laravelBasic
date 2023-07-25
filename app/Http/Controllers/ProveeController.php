@@ -15,7 +15,9 @@ class ProveeController extends Controller
      */
     public function index()
     {
-        //
+        $prove = provee::all();
+
+        return view('provee.index', compact('prove'));
     }
     public function create(){
         return view('provee.create');
@@ -29,7 +31,17 @@ class ProveeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $prove = new provee();
+        $prove->idPersona=$request->idPersona;
+        $prove->idProducto=$request->idProducto;
+        $prove->fechaEntrega=$request->fechaEntrega;
+
+        $prove->save();
+
+        return Redirect()->route('provee.index',$prove);
+
+
+
     }
 
     /**

@@ -15,7 +15,9 @@ class FormaDePagoController extends Controller
      */
     public function index()
     {
-        //
+        $formaDePago = formaDePago::all();
+
+        return view('formaDePago.index',compact('formaDePago'));
     }
 
     public function create(){
