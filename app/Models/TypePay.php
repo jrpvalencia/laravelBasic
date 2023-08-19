@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rol extends Model
+class TypePay extends Model
 {
     use HasFactory;
-    
-    public function users(){
-        return $this->hasMany('App\Models\User');
+    public function pago(){
+        return $this->belongsTo('App\Models\Pay');
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PQR;
+use App\Models\Favorite;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PQRController extends Controller
+class FavoriteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class PQRController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show(PQR $pQR)
+    public function show(Favorite $favorite)
     {
         //
     }
@@ -44,10 +44,10 @@ class PQRController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PQR $pQR)
+    public function update(Request $request, Favorite $favorite)
     {
         //
     }
@@ -55,10 +55,10 @@ class PQRController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PQR $pQR)
+    public function destroy(Favorite $favorite)
     {
         //
     }

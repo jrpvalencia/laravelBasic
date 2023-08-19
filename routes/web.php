@@ -33,6 +33,8 @@ Route::get('/',[Controller::class,'index'])->name('home');
 Route::post('productos', [ProductoController::class,'store'])->name('producto.store');
 Route::get('productos/create',[ProductoController::class,'create'])->name('producto.create');
 Route::get('productos/index',[ProductoController::class,'index'])->name('producto.index');
+Route::get('productos/{producto}',[ProductoController::class,'show'])->name('producto.show');
+Route::delete('productos/{producto}',[ProductoController::class,'destroy'])->name('producto.destroy');
 
 //RUTAS TEMPORADA
 

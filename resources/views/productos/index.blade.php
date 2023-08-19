@@ -1,5 +1,5 @@
 
-<link rel="stylesheet" href="CSS/style.css">
+<link href="/public/css/style.css" rel="stylesheet" >
 
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <body>
@@ -40,6 +40,7 @@
                     <td>{{$productos->idTemporada}}</td>
                     <td>
                     <a href="{{route('producto.create')}}"><p class="status delivered">Agregar </p></a>
+                    <a href="{{route('producto.show', $productos->id)}}"><p class="status delivered">Detalle </p></a>
                     </td>
 
             </tbody>

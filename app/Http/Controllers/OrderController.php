@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PQR;
+use App\Models\Order;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PQRController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,6 +17,9 @@ class PQRController extends Controller
     {
         //
     }
+    public function create(){
+        return view('pedido.create');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -26,16 +29,24 @@ class PQRController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $pedido= new Order();
+        $pedido->concentracionProducto=$request->concentracionProducto;
+        $pedido->idCarrito=$request->idCarrito;
+
+        $pedido->save();
+
+        return Redirect()->route('pedido.index',$pedido);
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(PQR $pQR)
+    public function show(Order $order)
     {
         //
     }
@@ -44,10 +55,10 @@ class PQRController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PQR $pQR)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -55,10 +66,10 @@ class PQRController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PQR $pQR)
+    public function destroy(Order $order)
     {
         //
     }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PQR;
+use App\Models\Season;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PQRController extends Controller
+class SeasonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,9 @@ class PQRController extends Controller
      */
     public function index()
     {
-        //
+        $temporada = Season::all();
+
+        return view('temporadas.index', compact('temporada'));
     }
 
     /**
@@ -24,18 +26,30 @@ class PQRController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function create()
+    {
+        return view('temporadas.create');
+
+    }
     public function store(Request $request)
     {
         //
+
+        $temp = new Season();
+        $temp->nombre=$request->nombre;
+        $temp -> save();
+
+        return Redirect()->route('temporadas.index',$temp);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Season  $season
      * @return \Illuminate\Http\Response
      */
-    public function show(PQR $pQR)
+    public function show(Season $season)
     {
         //
     }
@@ -44,10 +58,10 @@ class PQRController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Season  $season
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PQR $pQR)
+    public function update(Request $request, Season $season)
     {
         //
     }
@@ -55,10 +69,10 @@ class PQRController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Season  $season
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PQR $pQR)
+    public function destroy(Season $season)
     {
         //
     }

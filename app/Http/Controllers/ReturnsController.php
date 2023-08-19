@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PQR;
+use App\Models\Returns;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PQRController extends Controller
+class ReturnsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,18 +24,29 @@ class PQRController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function create(){
+        return view('devoluciones.create');
     }
-
     /**
-     * Display the specified resource.
+     * Store a newly created resource in storage.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(PQR $pQR)
+    public function store(Request $request)
+    {
+        $devolucion = new Returns();
+        $devolucion->motivo=$request->motivo;
+        $devolucion->idPedido=$request->idPedido;
+        $devolucion->idPqr=$request->idPqr;
+
+        $devolucion->save();
+
+
+        return Redirect()->route('devolucion.index',$devolucion);
+
+    }
+    public function show(Returns $returns)
     {
         //
     }
@@ -44,10 +55,10 @@ class PQRController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Returns  $returns
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PQR $pQR)
+    public function update(Request $request, Returns $returns)
     {
         //
     }
@@ -55,10 +66,10 @@ class PQRController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  \App\Models\Returns  $returns
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PQR $pQR)
+    public function destroy(Returns $returns)
     {
         //
     }

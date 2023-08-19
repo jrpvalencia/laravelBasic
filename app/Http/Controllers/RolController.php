@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\rol;
+use App\Models\Rol;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,9 +15,7 @@ class RolController extends Controller
      */
     public function index()
     {
-        $rol = rol::all();
-
-        return view('roles.index',compact('rol'));
+        //
     }
 
     /**
@@ -26,30 +24,18 @@ class RolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('roles.create');
-
-    }
     public function store(Request $request)
     {
         //
-
-        $rol = new rol();
-        $rol->nombre=$request->nombre;
-        $rol -> save();
-
-
-        return Redirect()->route('rol.index',$rol);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\rol  $rol
+     * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function show(rol $rol)
+    public function show(Rol $rol)
     {
         //
     }
@@ -58,10 +44,10 @@ class RolController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\rol  $rol
+     * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, rol $rol)
+    public function update(Request $request, Rol $rol)
     {
         //
     }
@@ -69,10 +55,10 @@ class RolController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\rol  $rol
+     * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function destroy(rol $rol)
+    public function destroy(Rol $rol)
     {
         //
     }
