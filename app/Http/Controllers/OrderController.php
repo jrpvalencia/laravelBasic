@@ -15,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $pedido = Order::all();
+
+        return view('pedido.index', compact('pedido'));
     }
     public function create(){
         return view('pedido.create');

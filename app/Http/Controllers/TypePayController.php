@@ -15,7 +15,9 @@ class TypePayController extends Controller
      */
     public function index()
     {
-        //
+        $formaDePago = TypePay::all();
+
+        return view('formaDePago.index',compact('formaDePago'));
     }
     public function create(){
         return view('formaDePago.create');

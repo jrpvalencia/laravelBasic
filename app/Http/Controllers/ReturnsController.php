@@ -15,7 +15,9 @@ class ReturnsController extends Controller
      */
     public function index()
     {
-        //
+        $devolucion = Returns::all();
+
+        return view('devoluciones.index',compact('devolucion'));
     }
 
     /**
@@ -43,7 +45,7 @@ class ReturnsController extends Controller
         $devolucion->save();
 
 
-        return Redirect()->route('devolucion.index',$devolucion);
+        return Redirect()->route('devoluciones.index',$devolucion);
 
     }
     public function show(Returns $returns)

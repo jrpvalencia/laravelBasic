@@ -15,7 +15,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+    
     }
 
     /**
@@ -26,7 +26,8 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+
     }
 
     /**
