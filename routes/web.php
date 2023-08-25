@@ -12,7 +12,10 @@ use App\Http\Controllers\PqrController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveeController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\SeasonController;
+use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\TemporadaController;
+use App\Http\Controllers\TypePayController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,9 +41,9 @@ Route::delete('productos/{producto}',[ProductoController::class,'destroy'])->nam
 
 //RUTAS TEMPORADA
 
-Route::post('temporadas', [TemporadaController::class,'store'])->name('temporadasStore');
-Route::get('temporada/create',[TemporadaController::class,'create'])->name('temporada.create');
-Route::get('temporadas',[TemporadaController::class,'index'])->name('temporadas.index');
+Route::post('temporadas', [SeasonController::class,'store'])->name('temporadasStore');
+Route::get('temporada/create',[SeasonController::class,'create'])->name('temporada.create');
+Route::get('temporadas',[SeasonController::class,'index'])->name('seasons.index');
 
 //RUTAS ROL
 
@@ -55,9 +58,9 @@ Route::post('pqr',[PqrController::class, 'store'])->name('pqr.store');
 
 
 //RUTAS DE CARRITO DE COMPRA
-Route::get('carritoDeCompra/create',[CarritoDeCompraController::class, 'create'])->name('carritoDeCompra.create');
-Route::post('carritoDeCompra',[CarritoDeCompraController::class,'store'])->name('carritoDeCompra.store');
-Route::get('carritoDeCompra',[CarritoDeCompraController::class, 'index'])->name('carritoDeCompra.index');
+Route::get('carritoDeCompra/create',[ShoppingCartController::class, 'create'])->name('shoppingCart.create');
+Route::post('carritoDeCompra',[ShoppingCartController::class,'store'])->name('shoppingCart.store');
+Route::get('carritoDeCompra',[ShoppingCartController::class, 'index'])->name('shoppingCart.index');
 
 //RUTA COMPRA AGREGA
 
@@ -72,8 +75,9 @@ Route::post('devolucion',[DevolucionController::class,'store'])->name('devolucio
 
 //RUTA DE FORMA DE PAGO
 
-Route::get('formaDePago/create',[FormaDePagoController::class, 'create']);
-Route::post('formaDePago',[FormaDePagoController::class,'store'])->name('formaDePago.store');
+Route::get('formaDePago/create',[TypePayController::class, 'create'])->name('typePay.create');;
+Route::post('formaDePago',[TypePayController::class,'store'])->name('typePay.store');
+Route::get('formaDePago',[TypePayController::class, 'index'])->name('typePay.index');
 
 //RUTAS DE PAGO
 

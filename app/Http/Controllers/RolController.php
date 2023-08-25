@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rol;
+
 use App\Http\Controllers\Controller;
+use App\Models\Rol;
 use Illuminate\Http\Request;
 
 class RolController extends Controller
@@ -15,7 +16,9 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        $rol = Rol::all();
+
+        return view('roles.index',compact('rol'));
     }
 
     /**
@@ -26,7 +29,17 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rol = new Rol();
+        $rol->name=$request->name;
+        $rol -> save();
+
+
+        return Redirect()->route('rol.index',$rol);
+    }
+    public function create()
+    {
+        return view('roles.create');
+
     }
 
     /**

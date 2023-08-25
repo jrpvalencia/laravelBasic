@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="CSS/style.css">
 
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -20,20 +19,21 @@
             <thead>
                 <tr>
                     <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> CantidadProducto<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> idCompraAgrega<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
-
+                    <th> nombre<span class="icon-arrow">&UpArrow;</span></th>
+                   
+              
+                  
                 </tr>
             </thead>
-            @foreach ($carritoDeCompra as $carritoDeCompras)
+            @foreach ($typePay as $typePays)
             <tbody>
                 <tr>
-                    <td>{{$carritoDeCompras->id}} </td>
-                    <td>{{$carritoDeCompras->cantidadProducto}}</td>
-                    <td>{{$carritoDeCompras->idCompraAgrega}}</td>
+                    <td>{{$typePays->id}} </td>
+                    <td>{{$typePays->name}}</td>
+                  
+                   
                     <td>
-                     <a href="{{route('carritoDeCompra.create')}}"><p class="status delivered">Agregar </p></a>
+                     <a href="{{route('typePay.create')}}"><p class="status delivered">Agregar </p></a>
                     </td>
 
             </tbody>

@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="CSS/style.css">
 
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -19,21 +20,21 @@
             <thead>
                 <tr>
                     <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> nombre<span class="icon-arrow">&UpArrow;</span></th>
-                   
-              
-                  
+                    <th> CantidadProducto<span class="icon-arrow">&UpArrow;</span></th>
+                    <th> idCompraAgrega<span class="icon-arrow">&UpArrow;</span></th>
+                    <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
+
                 </tr>
             </thead>
-            @foreach ($rol as $rols)
+            @foreach ($shoppingCart as $shoppingCarts)
             <tbody>
                 <tr>
-                    <td>{{$rols->id}} </td>
-                    <td>{{$rols->name}}</td>
-                  
-                   
+                    <td>{{$shoppingCarts->id}} </td>
+                    <td>{{$shoppingCarts->product_quantity}}</td>
+                    <td>{{$shoppingCarts->idUser}}</td>
+                    <td>{{$shoppingCarts->idProduct}}</td>
                     <td>
-                     <a href="{{route('roles.create')}}"><p class="status delivered">Agregar </p></a>
+                     <a href="{{route('shoppingCart.create')}}"><p class="status delivered">Agregar </p></a>
                     </td>
 
             </tbody>

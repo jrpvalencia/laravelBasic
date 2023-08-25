@@ -11,7 +11,7 @@
     Nombre:
     
     <br>
-    <input type="text" name="nombre">
+    <input type="text" name="name">
 </label>
 <br>
 <button type="submit">Enviar:</button>

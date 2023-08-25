@@ -15,10 +15,12 @@ class TypePayController extends Controller
      */
     public function index()
     {
-        //
+        $typePay = TypePay::all();
+
+        return view('typePay.index', compact('typePay'));
     }
     public function create(){
-        return view('formaDePago.create');
+        return view('typePay.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -29,11 +31,11 @@ class TypePayController extends Controller
     public function store(Request $request)
     {
         $formaDePago = new TypePay();
-        $formaDePago->nombre=$request->nombre;
+        $formaDePago->name=$request->name;
         $formaDePago->save();
 
 
-        return Redirect()->route('formaDePago.index',$formaDePago);
+        return Redirect()->route('typePay.index',$formaDePago);
     }
 
     /**

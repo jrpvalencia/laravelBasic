@@ -25,11 +25,11 @@
                   
                 </tr>
             </thead>
-            @foreach ($temporada as $temporadas)
+            @foreach ($season as $seasons)
             <tbody>
                 <tr>
-                    <td>{{$temporadas->id}} </td>
-                    <td>{{$temporadas->nombre}}</td>
+                    <td>{{$seasons->id}} </td>
+                    <td>{{$seasons->name}}</td>
                   
                    
                     <td>

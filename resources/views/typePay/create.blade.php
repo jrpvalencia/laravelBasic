@@ -4,14 +4,14 @@
     
     <h1>forma de pago</h1>
 
-<form action="{{ route('formaDePago.store') }}" method="POST">
+<form action="{{ route('typePay.store') }}" method="POST">
 
     @csrf
   
 <label>
     nombre
     <br>
-    <input type="text" name="nombre">
+    <input type="text" name="name">
 </label>
 
 <button type="submit">Enviar formulario</button>

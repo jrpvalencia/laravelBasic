@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ShoppingCart;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ShoppingCartController extends Controller
@@ -15,7 +17,9 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-        //
+        $shoppingCart = ShoppingCart::all();
+
+        return view('shoppingCart.index', compact('shoppingCart'));
     }
 
     /**
@@ -26,7 +30,22 @@ class ShoppingCartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $shoppingCart = new ShoppingCart();
+        $shoppingCart->product_quantity=$request->product_quantity;
+        $shoppingCart->idUser=$request->idUser;
+        $shoppingCart->idProduct=$request->idProduct;
+        $shoppingCart->save();
+
+
+        return Redirect()->route('shoppingCart.index',$shoppingCart);
+    }
+    public function create()
+
+    {
+        $users = User::all();
+        $products = Product::all();
+        return view('shoppingCart.create',['products'=> $products,'users'=> $users]);
+
     }
 
     /**
