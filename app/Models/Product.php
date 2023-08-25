@@ -29,4 +29,8 @@ class Product extends Model
     public function image(){
         return $this->morphOne('App\Models\Image','images');
     }
+
+    public function comments(){
+        return $this->morphMany('App\Models\Comment','comments');
+    }
 }
