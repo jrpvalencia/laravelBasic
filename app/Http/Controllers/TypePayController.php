@@ -56,9 +56,17 @@ class TypePayController extends Controller
      * @param  \App\Models\TypePay  $typePay
      * @return \Illuminate\Http\Response
      */
+
+     public function edit(TypePay $typePay){
+        return view('typePay.edit',compact('typePay'));
+     }
     public function update(Request $request, TypePay $typePay)
     {
-        //
+        $typePay->name = $request->name;
+
+        $typePay->save();
+
+        return redirect()->route('typePay.index', $typePay);
     }
 
     /**
@@ -69,6 +77,7 @@ class TypePayController extends Controller
      */
     public function destroy(TypePay $typePay)
     {
-        //
+        $typePay->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

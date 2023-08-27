@@ -73,6 +73,7 @@ class RolController extends Controller
      */
     public function destroy(Rol $rol)
     {
-        //
+        $rol->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

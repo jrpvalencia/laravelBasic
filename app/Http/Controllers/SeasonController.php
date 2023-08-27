@@ -74,6 +74,7 @@ class SeasonController extends Controller
      */
     public function destroy(Season $season)
     {
-        //
+        $season->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

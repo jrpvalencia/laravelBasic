@@ -9,6 +9,7 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
+        <a href="{{route('notification.create')}}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
             <a href="{{route('home')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
 
@@ -18,28 +19,29 @@
         <table>
             <thead>
                 <tr>
-                    <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Mensaje<span class="icon-arrow">&UpArrow;</span></th>
-                   
-              
-                  
+                    <th class="icon-arrow"> Id </th>
+                    <th class="icon-arrow"> Mensaje</th>
+                    <th class="icon-arrow"> Acciones</th>
                 </tr>
             </thead>
-            @foreach ($notification as $notifications)
-            <tbody>
+            <tbody> <!-- Abre el cuerpo de la tabla aquí -->
+                @foreach ($notification as $notifications)
                 <tr>
                     <td>{{$notifications->id}} </td>
                     <td>{{$notifications->mensaje}}</td>
-                  
-                   
                     <td>
-                     <a href="{{route('notification.create')}}"><p class="status delivered">Agregar </p></a>
+                        <form action="{{ route('notification.destroy', $notifications->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="status delivered">Eliminar</button>
+                        </form>
                     </td>
-
-            </tbody>
-            @endforeach</td>
+                </tr>
+                @endforeach
+            </tbody> 
         </table>
     </section>
+    
 </main>
 </body>
 

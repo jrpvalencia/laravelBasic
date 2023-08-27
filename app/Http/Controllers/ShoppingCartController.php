@@ -79,6 +79,7 @@ class ShoppingCartController extends Controller
      */
     public function destroy(ShoppingCart $shoppingCart)
     {
-        //
+        $shoppingCart->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

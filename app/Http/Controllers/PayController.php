@@ -55,6 +55,7 @@ class PayController extends Controller
     
     public function destroy(Pay $pay)
     {
-        //
+        $pay->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

@@ -11,4 +11,6 @@ class Image extends Model
     public function images(){
         return $this->morphTo();
     }
+
+   
 }

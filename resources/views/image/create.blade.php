@@ -13,19 +13,20 @@
     <br>
     <input type="text" name="url">
 </label>
+<br>
 <label>
-    Url
+    imagenid
     <br>
     <input type="number" name="images_id">
 </label>
-
+<br>
 <label>
-    Url
+    Tipo de imagen
     <br>
     <input type="text" name="images_type">
 </label>
 
-
+<br><br>
 <button type="submit">Enviar formulario</button>
 </form>
 

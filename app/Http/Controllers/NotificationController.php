@@ -88,8 +88,9 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Notification $notification)
     {
-        //
+        $notification->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

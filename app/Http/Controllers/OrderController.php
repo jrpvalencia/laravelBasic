@@ -76,6 +76,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

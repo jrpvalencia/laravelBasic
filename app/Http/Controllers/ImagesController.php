@@ -89,8 +89,12 @@ class ImagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+   
+
+    public function destroy($images_id, $images_type)
+{
+    // Buscar y eliminar la imagen basada en las claves compuestas
+    Image::where('images_id', $images_id)->where('images_type', $images_type)->delete();
+    return back()->with('success', 'Registro eliminado correctamente');
+}
 }

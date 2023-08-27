@@ -37,25 +37,22 @@ class ProductController extends Controller
     {
 
 
-        $producto = new Product();
-        $producto->name = $request->name;
-        $producto->description = $request->description;
-        $producto->image = $request->image;
-        $producto->price = $request->price;
-        $producto->concentration = $request->concentration;
-        $producto->idSeason = $request->idSeason;
+        $product = new Product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->image = $request->image;
+        $product->price = $request->price;
+        $product->concentration = $request->concentration;
+        $product->idSeason = $request->idSeason;
 
-        //INSERTAR PDF
-       /*  $img= $request->file("imagen");
-        $nombreArchivo= "pdf_".time().".".$img->guessExtension();
-        $request-> file("imagen")->storeAs('public/imagenes', $nombreArchivo);
-        $producto -> imagen = $nombreArchivo;
+        if ($request->hasFile('image')) {
+            $imagenPath = $request->file('image')->store('product', 'public');
+            $product->image = $imagenPath;
+        }
 
-        $producto->precio= $request->precio;
-        $producto->idTemporada = $request->idTemporada; */
-        $producto -> save();
+        $product -> save();
 
-        return Redirect()->route('producto.index',$producto);
+        return Redirect()->route('product.index',$product);
     }
 
     /**
@@ -89,6 +86,16 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }
+
+  //INSERTAR PDF
+       /*  $img= $request->file("imagen");
+        $nombreArchivo= "pdf_".time().".".$img->guessExtension();
+        $request-> file("imagen")->storeAs('public/imagenes', $nombreArchivo);
+        $producto -> imagen = $nombreArchivo;
+
+        $producto->precio= $request->precio;
+        $producto->idTemporada = $request->idTemporada; */

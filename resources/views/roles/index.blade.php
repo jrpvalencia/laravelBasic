@@ -9,37 +9,36 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
+        <a href="{{ route('roles.create') }}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
-            <a href="{{route('home')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
-
+            <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
     </section>
     <section class="table__body">
         <table>
             <thead>
                 <tr>
-                    <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> nombre<span class="icon-arrow">&UpArrow;</span></th>
-                   
-              
-                  
+                    <th class="icon-arrow"> Id </th>
+                    <th class="icon-arrow"> nombre</th>
+                    <th class="icon-arrow"> Acciones</th>
                 </tr>
             </thead>
-            @foreach ($rol as $rols)
             <tbody>
+                @foreach ($rol as $rols)
                 <tr>
-                    <td>{{$rols->id}} </td>
-                    <td>{{$rols->name}}</td>
-                  
-                   
+                    <td>{{ $rols->id }}</td>
+                    <td>{{ $rols->name }}</td>
                     <td>
-                     <a href="{{route('roles.create')}}"><p class="status delivered">Agregar </p></a>
+                        <form action="{{ route('rol.destroy', $rols->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="status delivered">Eliminar</button>
+                        </form>
                     </td>
-
+                </tr>
+                @endforeach
             </tbody>
-            @endforeach</td>
         </table>
     </section>
 </main>
 </body>
-

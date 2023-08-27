@@ -1,57 +1,52 @@
 @extends('layouts.plantilla')
 
 @section('content')
-<h1>Crear producto</h1>
+<h1>Crear rol</h1>
 
-<form action="{{ route('producto.store') }}" method="POST" enctype="multipart/form-data">
-
+<form action="{{ route('product.store') }}" method="POST">
     @csrf
 
-<label>
-    Nombre:
-
+    <label>
+        Nombre:
+        <br>
+        <input type="text" name="name">
+    </label>
     <br>
-    <input type="text" name="name">
-</label>
-<br>
-<label>
-    descripcion:
+    <label>
+        Descripción:
+        <br>
+        <input type="text" name="description">
+    </label>
     <br>
-    <input type="text" name="description">
-</label>
-<br>
-<label>
-    imagen:
+    <label>
+        Imagen:
+        <br>
+        <input type="file" name="image"> 
+    </label>
     <br>
-    <input type="file" name="image" /*accept="pdf/*"*/>
-</label>
-<br>
-<label>
-    precio:
+    <label>
+        Precio:
+        <br>
+        <input type="tel" name="price">
+    </label>
     <br>
-    <input type="number" name="price">
-</label>
-<br>
-<label>
-    concentracion:
+    <label>
+        Concentración:
+        <br>
+        <input type="number" name="concentration">
+    </label>
     <br>
-    <input type="number" name="concentration">
-</label>
-<br>
-<label>
-    idTemporada:
-    <br>
-
-    <select name="idSeason">
-        @foreach($seasons as $season)
-                    <option value="{{ $season->id }}">{{ $season->id }} {{ $season->name }}</option>
-                @endforeach
+    <label>
+        Temporada:
+        <br>
+        <select name="idSeason">
+            @foreach($seasons as $season)
+                <option value="{{ $season->id }}">{{ $season->id }} {{ $season->name }}</option>
+            @endforeach
         </select>
-
-</label>
-<br><br>
+    </label>
+    <br><br>
 <button type="submit">Enviar:</button>
 </form>
 
 @endsection
-

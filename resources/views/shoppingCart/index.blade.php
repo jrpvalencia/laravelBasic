@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="CSS/style.css">
 
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -10,37 +9,40 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
+        <a href="{{ route('shoppingCart.create') }}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
-            <a href="{{route('home')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
-
+            <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
     </section>
     <section class="table__body">
         <table>
             <thead>
                 <tr>
-                    <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> CantidadProducto<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> idCompraAgrega<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
-
+                    <th class="icon-arrow"> Id </th>
+                    <th class="icon-arrow"> CantidadProducto </th>
+                    <th class="icon-arrow"> Persona </th>
+                    <th class="icon-arrow"> Producto </th>
+                    <th class="icon-arrow"> Acciones </th>
                 </tr>
             </thead>
-            @foreach ($shoppingCart as $shoppingCarts)
             <tbody>
+                @foreach ($shoppingCart as $shoppingCarts)
                 <tr>
-                    <td>{{$shoppingCarts->id}} </td>
-                    <td>{{$shoppingCarts->product_quantity}}</td>
-                    <td>{{$shoppingCarts->idUser}}</td>
-                    <td>{{$shoppingCarts->idProduct}}</td>
+                    <td>{{ $shoppingCarts->id }}</td>
+                    <td>{{ $shoppingCarts->product_quantity }}</td>
+                    <td>{{ $shoppingCarts->idUser }}</td>
+                    <td>{{ $shoppingCarts->idProduct }}</td>
                     <td>
-                     <a href="{{route('shoppingCart.create')}}"><p class="status delivered">Agregar </p></a>
+                        <form action="{{ route('shoppingCart.destroy', $shoppingCarts->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="status delivered">Eliminar</button>
+                        </form>
                     </td>
-
+                </tr>
+                @endforeach
             </tbody>
-            @endforeach</td>
         </table>
     </section>
 </main>
 </body>
-

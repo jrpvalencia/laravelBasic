@@ -77,6 +77,7 @@ class ReturnsController extends Controller
      */
     public function destroy(Returns $returns)
     {
-        //
+        $returns->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

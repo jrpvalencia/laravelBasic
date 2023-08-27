@@ -14,7 +14,7 @@
     <input type="text" name="name">
 </label>
 <br>
-<button type="submit">Enviar:</button>
+<button type="submit">Enviar</button>
 </form>
 
 @endsection

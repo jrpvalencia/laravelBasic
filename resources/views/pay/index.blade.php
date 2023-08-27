@@ -9,35 +9,37 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
+        <a href="{{ route('pay.create') }}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
-            <a href="{{route('home')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
-
+            <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
     </section>
     <section class="table__body">
         <table>
             <thead>
                 <tr>
-                    <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> idPedido<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> idFormaDePago<span class="icon-arrow">&UpArrow;</span></th>
-              
-                  
+                    <th class="icon-arrow"> Id </th>
+                    <th class="icon-arrow"> Pedido</th>
+                    <th class="icon-arrow"> Forma De Pago</th>
+                    <th class="icon-arrow"> Acciones</th>
                 </tr>
             </thead>
-            @foreach ($pay as $pays)
             <tbody>
+                @foreach ($pay as $pays)
                 <tr>
                     <td>{{$pays->id}} </td>
                     <td>{{$pays->idOrder}}</td>
                     <td>{{$pays->idTypePay}}</td>
-                   
                     <td>
-                     <a href="{{route('pay.create')}}"><p class="status delivered">Agregar </p></a>
+                        <form action="{{ route('pay.destroy', $pays->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="status delivered">Eliminar</button>
+                        </form>
                     </td>
-
+                </tr>
+                @endforeach
             </tbody>
-            @endforeach</td>
         </table>
     </section>
 </main>

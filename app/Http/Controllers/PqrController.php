@@ -76,8 +76,9 @@ class PQRController extends Controller
      * @param  \App\Models\PQR  $pQR
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PQR $pQR)
+    public function destroy(PQR $pqr)
     {
-        //
+        $pqr->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

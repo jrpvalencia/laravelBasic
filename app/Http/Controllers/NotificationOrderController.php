@@ -79,6 +79,7 @@ class NotificationOrderController extends Controller
      */
     public function destroy(NotificationOrder $notificationOrder)
     {
-        //
+        $notificationOrder->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }
