@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NotificationOrder;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class NotificationOrderController extends Controller
@@ -15,9 +16,19 @@ class NotificationOrderController extends Controller
      */
     public function index()
     {
-        //
+        $notificationOrder = NotificationOrder::all();
+
+        return view('notificationOrder.index',compact('notificationOrder'));
     }
 
+
+
+    public function create(){
+
+        $orders = Order::all();
+        return view('notificationOrder.create',['orders'=> $orders]);
+
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -26,7 +37,15 @@ class NotificationOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $notificationOrder = new NotificationOrder();
+        $notificationOrder->mensaje=$request->mensaje;
+        $notificationOrder->idOrder=$request->idOrder;
+
+        $notificationOrder->save();
+
+
+        return Redirect()->route('notificationOrder.index',$notificationOrder);
+
     }
 
     /**

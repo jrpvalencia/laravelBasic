@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Returns;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\PQR;
 use Illuminate\Http\Request;
 
 class ReturnsController extends Controller
@@ -15,7 +17,9 @@ class ReturnsController extends Controller
      */
     public function index()
     {
-        //
+        $returns = Returns::all();
+
+        return view('returns.index', compact('returns'));
     }
 
     /**
@@ -25,7 +29,9 @@ class ReturnsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('devoluciones.create');
+        $orders = Order::all();
+        $pqrs = PQR::all();
+        return view('returns.create',['orders'=> $orders,'pqrs'=> $pqrs]);
     }
     /**
      * Store a newly created resource in storage.
@@ -35,15 +41,15 @@ class ReturnsController extends Controller
      */
     public function store(Request $request)
     {
-        $devolucion = new Returns();
-        $devolucion->motivo=$request->motivo;
-        $devolucion->idPedido=$request->idPedido;
-        $devolucion->idPqr=$request->idPqr;
+        $returns = new Returns();
+        $returns->reason=$request->reason;
+        $returns->idOrder=$request->idOrder;
+        $returns->idPqr=$request->idPqr;
 
-        $devolucion->save();
+        $returns->save();
 
 
-        return Redirect()->route('devolucion.index',$devolucion);
+        return Redirect()->route('returns.index',$returns);
 
     }
     public function show(Returns $returns)

@@ -1,21 +1,29 @@
 <?php
 
-use App\Http\Controllers\CarritoDeCompraController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CompraAgregaController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\cursosController;
 use App\Http\Controllers\DevolucionController;
-use App\Http\Controllers\FormaDePagoController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\NotificationOrderController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\PayController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PqrController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveeController;
+use App\Http\Controllers\ReturnsController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\ShoppingCartController;
-use App\Http\Controllers\TemporadaController;
 use App\Http\Controllers\TypePayController;
+use App\Http\Controllers\UserController;
+use App\Models\NotificationOrder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,11 +41,11 @@ Route::get('/',[Controller::class,'index'])->name('home');
 
 
 //RUTAS DE PRODUCTOS
-Route::post('productos', [ProductoController::class,'store'])->name('producto.store');
-Route::get('productos/create',[ProductoController::class,'create'])->name('producto.create');
-Route::get('productos/index',[ProductoController::class,'index'])->name('producto.index');
-Route::get('productos/{producto}',[ProductoController::class,'show'])->name('producto.show');
-Route::delete('productos/{producto}',[ProductoController::class,'destroy'])->name('producto.destroy');
+Route::post('productos', [ProductController::class,'store'])->name('producto.store');
+Route::get('productos/create',[ProductController::class,'create'])->name('producto.create');
+Route::get('productos/index',[ProductController::class,'index'])->name('producto.index');
+Route::get('productos/{producto}',[ProductController::class,'show'])->name('producto.show');
+Route::delete('productos/{producto}',[ProductController::class,'destroy'])->name('producto.destroy');
 
 //RUTAS TEMPORADA
 
@@ -62,16 +70,11 @@ Route::get('carritoDeCompra/create',[ShoppingCartController::class, 'create'])->
 Route::post('carritoDeCompra',[ShoppingCartController::class,'store'])->name('shoppingCart.store');
 Route::get('carritoDeCompra',[ShoppingCartController::class, 'index'])->name('shoppingCart.index');
 
-//RUTA COMPRA AGREGA
-
-
-Route::get('compraAgrega/create',[CompraAgregaController::class, 'create']);
-Route::post('compraAgrega',[CompraAgregaController::class,'store'])->name('compraAgrega.store');
-
 //RUTA DEVOLUCION
 
-Route::get('devolucion/create',[DevolucionController::class, 'create']);
-Route::post('devolucion',[DevolucionController::class,'store'])->name('devolucion.store');
+Route::get('devolucion/create',[ReturnsController::class, 'create'])->name('returns.create');
+Route::post('devolucion',[ReturnsController::class,'store'])->name('returns.store');
+Route::get('devolucion',[ReturnsController::class, 'index'])->name('returns.index');
 
 //RUTA DE FORMA DE PAGO
 
@@ -81,25 +84,53 @@ Route::get('formaDePago',[TypePayController::class, 'index'])->name('typePay.ind
 
 //RUTAS DE PAGO
 
-Route::get('pago/create',[PagoController::class, 'create'])->name('pagos.create');
-Route::post('pago',[PagoController::class,'store'])->name('pago.store');
-Route::get('pago',[PagoController::class, 'index'])->name('pago.index');
+Route::get('pago/create',[PayController::class, 'create'])->name('pay.create');
+Route::post('pago',[PayController::class,'store'])->name('pay.store');
+Route::get('pago',[PayController::class, 'index'])->name('pay.index');
 
 //RUTAS PEDIDO
 
-Route::get('pedido/create',[PedidoController::class, 'create']);
-Route::post('pedido',[PedidoController::class,'store'])->name('pedido.store');
+Route::get('pedido/create',[OrderController::class, 'create'])->name('order.create');
+Route::post('pedido',[OrderController::class,'store'])->name('order.store');
+Route::get('pago',[OrderController::class, 'index'])->name('order.index');
 
-//RUTAS  PROVEE
-Route::get('provee/create',[ProveeController::class, 'create']);
-Route::post('prove',[ProveeController::class,'store'])->name('provee.store');
+//RUTAs de notificacion pedido
+
+Route::get('notificacionPedido/create',[NotificationOrderController::class, 'create'])->name('notificationOrder.create');
+Route::post('notificacionPedido',[NotificationOrderController::class,'store'])->name('notificationOrder.store');
+Route::get('notificacionPedido',[NotificationOrderController::class, 'index'])->name('notificationOrder.index');
+
+
+//RUTAs de NOTIFICACION
+
+Route::get('notificacion/create',[NotificationController::class, 'create'])->name('notification.create');
+Route::post('notificacion',[NotificationController::class,'store'])->name('notification.store');
+Route::get('notificacion',[NotificationController::class, 'index'])->name('notification.index');
+
+//RUTAs de Favoritos
+
+Route::get('favoritos/create',[FavoriteController::class, 'create'])->name('favorite.create');
+Route::post('favoritos',[FavoriteController::class,'store'])->name('favorite.store');
+Route::get('favoritos',[FavoriteController::class, 'index'])->name('favorite.index');
 
 //RUTAS USUARIO
 
-Route::get('usuario/create',[usuario::class, 'create']);
-Route::post('usuario',[usuario::class,'store'])->name('usuario.store');
+Route::get('usuario/create',[UserController::class, 'create'])->name('user.create');
+Route::post('usuario',[UserController::class,'store'])->name('user.store');
+Route::get('usuario',[UserController::class, 'index'])->name('user.index');
 
 
+//RUTAS IMAGEN
+
+Route::get('imagen/create',[ImagesController::class, 'create'])->name('image.create');
+Route::post('imagen',[ImagesController::class,'store'])->name('image.store');
+Route::get('imagen',[ImagesController::class, 'index'])->name('image.index');
+
+//RUTAS COMENTARIO
+
+Route::get('comentario/create',[CommentController::class, 'create'])->name('comment.create');
+Route::post('comentario',[CommentController::class,'store'])->name('comment.store');
+Route::get('comentario',[CommentController::class, 'index'])->name('comment.index');
 
 //NAVEGABILIDAD
 

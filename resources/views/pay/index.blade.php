@@ -25,15 +25,15 @@
                   
                 </tr>
             </thead>
-            @foreach ($pago as $pagos)
+            @foreach ($pay as $pays)
             <tbody>
                 <tr>
-                    <td>{{$pagos->id}} </td>
-                    <td>{{$pagos->idPedido}}</td>
-                    <td>{{$pagos->idFormaDePago}}</td>
+                    <td>{{$pays->id}} </td>
+                    <td>{{$pays->idOrder}}</td>
+                    <td>{{$pays->idTypePay}}</td>
                    
                     <td>
-                     <a href="{{route('pagos.create')}}"><p class="status delivered">Agregar </p></a>
+                     <a href="{{route('pay.create')}}"><p class="status delivered">Agregar </p></a>
                     </td>
 
             </tbody>

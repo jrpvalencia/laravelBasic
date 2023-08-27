@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Favorite;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
@@ -15,7 +17,9 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        $favorite = Favorite::all();
+
+        return view('favorite.index', compact('favorite'));
     }
 
     /**
@@ -26,9 +30,22 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $favorite = new Favorite();
+        $favorite->idUser=$request->idUser;
+        $favorite->idProduct=$request->idProduct;
+        $favorite->save();
 
+
+        return Redirect()->route('favorite.index',$favorite);
+    }
+    public function create()
+
+    {
+        $users = User::all();
+        $products = Product::all();
+        return view('favorite.create',['products'=> $products,'users'=> $users]);
+
+    }
     /**
      * Display the specified resource.
      *

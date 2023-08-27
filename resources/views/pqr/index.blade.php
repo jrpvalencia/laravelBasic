@@ -30,8 +30,8 @@
                 <tbody>
                     <tr>
                         <td>{{$pqrs->id}} </td>
-                        <td>{{$pqrs->motivoPqr}}</td>
-                        <td>{{$pqrs->idPersona}}</td>
+                        <td>{{$pqrs->reason}}</td>
+                        <td>{{$pqrs->idUser}}</td>
                         <td>
                          <a href="{{route('pqr.create')}}"><p class="status delivered">Agregar </p></a>
                         </td>

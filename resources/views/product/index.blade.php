@@ -1,5 +1,4 @@
-
-<link href="/public/css/style.css" rel="stylesheet" >
+<link rel="stylesheet" href="CSS/style.css">
 
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <body>
@@ -24,24 +23,27 @@
                     <th> Descripcion<span class="icon-arrow">&UpArrow;</span></th>
                     <th> Imagen <span class="icon-arrow">&UpArrow;</span></th>
                     <th> Precio <span class="icon-arrow">&UpArrow;</span></th>
+                    <th> concentracion <span class="icon-arrow">&UpArrow;</span></th>
                     <th> idTemporada<span class="icon-arrow">&UpArrow;</span></th>
                     <th> Acciones<span class="icon-arrow">&UpArrow;</span></th>
 
                 </tr>
             </thead>
-            @foreach ($producto as $productos)
+            @foreach ($product as $products)
             <tbody>
                 <tr>
-                    <td>{{$productos->id}} </td>
-                    <td>{{$productos->nombre}}</td>
-                    <td>{{$productos->descripcion}}</td>
-                    <td>{{$productos->imagen}}</td>
-                    <td>{{$productos->precio}}</td>
-                    <td>{{$productos->idTemporada}}</td>
+                    <td>{{$products->id}} </td>
+                    <td>{{$products->name}}</td>
+                    <td>{{$products->description}}</td>
+                    <td>{{$products->image}}</td>
+                    <td>{{$products->price}}</td>
+                    <td>{{$products->concentration}}</td>
+                    <td>{{$products->idSeason}}</td>
                     <td>
                     <a href="{{route('producto.create')}}"><p class="status delivered">Agregar </p></a>
-                    <a href="{{route('producto.show', $productos->id)}}"><p class="status delivered">Detalle </p></a>
+                   {{--  <a href="{{route('producto.show', $product->id)}}"><p class="status delivered">Detalle </p></a> --}}
                     </td>
+
 
             </tbody>
             @endforeach</td>
@@ -49,4 +51,3 @@
     </section>
 </main>
 </body>
-

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PQR;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
-class PQRController extends Controller
+class ImagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,20 +15,21 @@ class PQRController extends Controller
      */
     public function index()
     {
-        $pqr = PQR::all();
+        $image = Image::all();
 
-        return view('pqr.index', compact('pqr'));
+        return view('image.index',compact('image'));
     }
 
-
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
-
     {
-        $users = User::all();
-      
-        return view('pqr.create',['users'=> $users]);
-
+        return view('image.create');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,22 +38,35 @@ class PQRController extends Controller
      */
     public function store(Request $request)
     {
-        $pqr = new PQR();
-        $pqr->reason=$request->reason;
-        $pqr->idUser=$request->idUser;
-        $pqr->save();
+        $image = new Image();
+        $image->url=$request->url;
+        $image->images_id=$request->images_id;
+        $image->images_type=$request->images_type;
+
+        $image->save();
 
 
-        return Redirect()->route('pqr.index',$pqr);
+        return Redirect()->route('image.index',$image);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PQR $pQR)
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
@@ -62,10 +75,10 @@ class PQRController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PQR  $pQR
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PQR $pQR)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -73,10 +86,10 @@ class PQRController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PQR  $pQR
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PQR $pQR)
+    public function destroy($id)
     {
         //
     }
