@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\CarritoDeCompraController;
+use App\Http\Controllers\ChatsController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CompraAgregaController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\cursosController;
@@ -113,3 +114,11 @@ Route::post('usuario',[usuario::class,'store'])->name('usuario.store');
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');
+
+//diana
+Route::get('/products/{producto}',[ProductController::class,'show'])->name('products.show');
+Route::get('/products/{id}',[ProductController::class,'show'])->name('products.show');
+
+
+//chat
+Route::get('chats', [ChatsController::class,'chats'])->name('chats.chats');

@@ -58,7 +58,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $producto = $product ;
+         return view('product.show', compact('producto'));
     }
 
     /**
@@ -70,8 +71,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        
     }
+    
 
     /**
      * Remove the specified resource from storage.
