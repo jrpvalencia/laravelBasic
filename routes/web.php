@@ -38,7 +38,7 @@ use JetBrains\PhpStorm\Immutable;
 |
 */
 
-Route::get('/',[Controller::class,'index'])->name('home');
+Route::get('/',[Controller::class,'index'])->name('inicio');
 
 
 //RUTAS DE PRODUCTOS
@@ -156,3 +156,9 @@ Route::delete('comentario/{comment}', [CommentController::class, 'destroy'])->na
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');
+
+route::get('registro2',[Controller::class,'registro2'])->name('registro2');
+
+route::get('carrito',[ShoppingCartController::class,'carrito'])->name('carrito');
+route::get('login2',[Controller::class,'login'])->name('login2');
+route::get('inicio',[Controller::class,'inicio'])->name('inicio');
