@@ -9,7 +9,7 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
-        <a href="{{ route('roles.create') }}"><p class="status delivered">Agregar </p></a>
+        <a href="{{ route('user.create') }}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
             <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
@@ -20,16 +20,30 @@
                 <tr>
                     <th class="icon-arrow"> Id </th>
                     <th class="icon-arrow"> nombre</th>
+                    <th class="icon-arrow"> apellido</th>
+                    <th class="icon-arrow"> tipo de documento</th>
+                    <th class="icon-arrow"> documento</th>
+                    <th class="icon-arrow"> telefono</th>
+                    <th class="icon-arrow"> rol</th>
+                    <th class="icon-arrow"> email</th>
+                    <th class="icon-arrow"> password</th>
                     <th class="icon-arrow"> Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($rol as $rols)
+                @foreach ($user as $users)
                 <tr>
-                    <td>{{ $rols->id }}</td>
-                    <td>{{ $rols->name }}</td>
+                    <td>{{ $users->id }}</td>
+                    <td>{{ $users->name }}</td>
+                    <td>{{ $users->lastName }}</td>
+                    <td>{{ $users->typeDocument }}</td>
+                    <td>{{ $users->document }}</td>
+                    <td>{{ $users->phone }}</td>
+                    <td>{{ $users->idRol }}</td>
+                    <td>{{ $users->email }}</td>
+                    <td>{{ $users->password }}</td>
                     <td>
-                        <form action="{{ route('rol.destroy', $rols->id) }}" method="POST">
+                        <form action="{{ route('user.destroy', $users->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button type="submit" class="status delivered">Eliminar</button>

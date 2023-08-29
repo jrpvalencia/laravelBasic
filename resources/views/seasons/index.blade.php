@@ -9,7 +9,7 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
-        <a href="{{ route('roles.create') }}"><p class="status delivered">Agregar </p></a>
+        <a href="{{ route('temporada.create') }}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
             <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
@@ -19,17 +19,18 @@
             <thead>
                 <tr>
                     <th class="icon-arrow"> Id </th>
-                    <th class="icon-arrow"> nombre</th>
-                    <th class="icon-arrow"> Acciones</th>
+                    <th class="icon-arrow"> nombre </th>
+                    <th class="icon-arrow"> Acciones </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($rol as $rols)
+                @foreach ($season as $seasons)
                 <tr>
-                    <td>{{ $rols->id }}</td>
-                    <td>{{ $rols->name }}</td>
+                    <td>{{ $seasons->id }}</td>
+                    <td>{{ $seasons->name }}</td>
+                    
                     <td>
-                        <form action="{{ route('rol.destroy', $rols->id) }}" method="POST">
+                        <form action="{{ route('season.destroy', $seasons->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button type="submit" class="status delivered">Eliminar</button>

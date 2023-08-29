@@ -1,7 +1,5 @@
-
-    <link rel="stylesheet" href="CSS/style.css">
-
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="CSS/style.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <body>
     <main class="table">
         <section class="table__header">
@@ -10,6 +8,7 @@
                 <input type="search" placeholder="Search Data...">
                 <i class='bx bx-search-alt'></i>
             </div>
+            <a href="{{route('pqr.create')}}"><p class="status delivered">Agregar </p></a>
             <div class="export__file">
                 <a href="{{route('home')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
 
@@ -19,27 +18,31 @@
             <table>
                 <thead>
                     <tr>
-                        <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Motivo<span class="icon-arrow">&UpArrow;</span></th>
-                        <th> idPersona<span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
-
+                        <th class="icon-arrow"> Id</th>
+                        <th class="icon-arrow"> Motivo</th>
+                        <th class="icon-arrow"> idPersona</th>
+                        <th class="icon-arrow"> Acciones</th>
                     </tr>
                 </thead>
-                @foreach ($pqr as $pqrs)
                 <tbody>
+                    @foreach ($pqr as $pqrs)
                     <tr>
                         <td>{{$pqrs->id}} </td>
-                        <td>{{$pqrs->motivoPqr}}</td>
-                        <td>{{$pqrs->idPersona}}</td>
+                        <td>{{$pqrs->reason}}</td>
+                        <td>{{$pqrs->idUser}}</td>
                         <td>
-                         <a href="{{route('pqr.create')}}"><p class="status delivered">Agregar </p></a>
+                            <form action="{{ route('pqr.destroy', $pqrs->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="status delivered">Eliminar</button>
+                            </form>
                         </td>
-
+                    </tr>
+                    @endforeach
                 </tbody>
-                @endforeach</td>
             </table>
         </section>
+        
     </main>
 </body>
 

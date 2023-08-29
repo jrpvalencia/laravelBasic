@@ -15,12 +15,12 @@ class TypePayController extends Controller
      */
     public function index()
     {
-        $formaDePago = TypePay::all();
+        $typePay = TypePay::all();
 
-        return view('formaDePago.index',compact('formaDePago'));
+        return view('typePay.index', compact('typePay'));
     }
     public function create(){
-        return view('formaDePago.create');
+        return view('typePay.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -31,11 +31,11 @@ class TypePayController extends Controller
     public function store(Request $request)
     {
         $formaDePago = new TypePay();
-        $formaDePago->nombre=$request->nombre;
+        $formaDePago->name=$request->name;
         $formaDePago->save();
 
 
-        return Redirect()->route('formaDePago.index',$formaDePago);
+        return Redirect()->route('typePay.index',$formaDePago);
     }
 
     /**
@@ -56,9 +56,17 @@ class TypePayController extends Controller
      * @param  \App\Models\TypePay  $typePay
      * @return \Illuminate\Http\Response
      */
+
+     public function edit(TypePay $typePay){
+        return view('typePay.edit',compact('typePay'));
+     }
     public function update(Request $request, TypePay $typePay)
     {
-        //
+        $typePay->name = $request->name;
+
+        $typePay->save();
+
+        return redirect()->route('typePay.index', $typePay);
     }
 
     /**
@@ -69,6 +77,7 @@ class TypePayController extends Controller
      */
     public function destroy(TypePay $typePay)
     {
-        //
+        $typePay->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

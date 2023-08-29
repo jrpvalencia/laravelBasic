@@ -15,9 +15,9 @@ class SeasonController extends Controller
      */
     public function index()
     {
-        $temporada = Season::all();
+        $season = Season::all();
 
-        return view('temporadas.index', compact('temporada'));
+        return view('seasons.index', compact('season'));
     }
 
     /**
@@ -29,7 +29,7 @@ class SeasonController extends Controller
 
     public function create()
     {
-        return view('temporadas.create');
+        return view('seasons.create');
 
     }
     public function store(Request $request)
@@ -37,10 +37,10 @@ class SeasonController extends Controller
         //
 
         $temp = new Season();
-        $temp->nombre=$request->nombre;
+        $temp->name=$request->name;
         $temp -> save();
 
-        return Redirect()->route('temporadas.index',$temp);
+        return Redirect()->route('seasons.index',$temp);
     }
 
     /**
@@ -74,6 +74,7 @@ class SeasonController extends Controller
      */
     public function destroy(Season $season)
     {
-        //
+        $season->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

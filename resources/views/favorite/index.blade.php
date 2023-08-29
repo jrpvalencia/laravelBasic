@@ -10,6 +10,7 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
+        <a href="{{route('favorite.create')}}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
             <a href="{{route('home')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
 
@@ -19,27 +20,32 @@
         <table>
             <thead>
                 <tr>
-                    <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                    <th> CantidadProducto<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> idCompraAgrega<span class="icon-arrow">&UpArrow;</span></th>
-                    <th> Acciones <span class="icon-arrow">&UpArrow;</span></th>
-
+                    <th class="icon-arrow"> Id </th>
+                    <th class="icon-arrow"> usuario</th>
+                    <th class="icon-arrow"> producto</th>
+                    <th class="icon-arrow"> Acciones</th>
                 </tr>
             </thead>
-            @foreach ($carritoDeCompra as $carritoDeCompras)
+            @foreach ($favorite as $favorites)
             <tbody>
                 <tr>
-                    <td>{{$carritoDeCompras->id}} </td>
-                    <td>{{$carritoDeCompras->cantidadProducto}}</td>
-                    <td>{{$carritoDeCompras->idCompraAgrega}}</td>
+                    <td>{{$favorites->id}} </td>
+                    <td>{{$favorites->idUser}}</td>
+                    <td>{{$favorites->idProduct}}</td>
+    
                     <td>
-                     <a href="{{route('carritoDeCompra.create')}}"><p class="status delivered">Agregar </p></a>
+                        <form action="{{ route('favorite.destroy', $favorites->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="status delivered">Eliminar</button>
+                        </form>
                     </td>
-
+                </tr>
             </tbody>
             @endforeach</td>
         </table>
     </section>
+    
 </main>
 </body>
 

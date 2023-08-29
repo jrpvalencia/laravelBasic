@@ -9,7 +9,7 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
-        <a href="{{ route('roles.create') }}"><p class="status delivered">Agregar </p></a>
+        <a href="{{ route('shoppingCart.create') }}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
             <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
@@ -19,17 +19,21 @@
             <thead>
                 <tr>
                     <th class="icon-arrow"> Id </th>
-                    <th class="icon-arrow"> nombre</th>
-                    <th class="icon-arrow"> Acciones</th>
+                    <th class="icon-arrow"> CantidadProducto </th>
+                    <th class="icon-arrow"> Persona </th>
+                    <th class="icon-arrow"> Producto </th>
+                    <th class="icon-arrow"> Acciones </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($rol as $rols)
+                @foreach ($shoppingCart as $shoppingCarts)
                 <tr>
-                    <td>{{ $rols->id }}</td>
-                    <td>{{ $rols->name }}</td>
+                    <td>{{ $shoppingCarts->id }}</td>
+                    <td>{{ $shoppingCarts->product_quantity }}</td>
+                    <td>{{ $shoppingCarts->idUser }}</td>
+                    <td>{{ $shoppingCarts->idProduct }}</td>
                     <td>
-                        <form action="{{ route('rol.destroy', $rols->id) }}" method="POST">
+                        <form action="{{ route('shoppingCart.destroy', $shoppingCarts->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button type="submit" class="status delivered">Eliminar</button>

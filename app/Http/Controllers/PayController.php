@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Pay;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\TypePay;
 use Illuminate\Http\Request;
 
 class PayController extends Controller
@@ -11,26 +13,30 @@ class PayController extends Controller
     
     public function index()
     {
-        $pago = Pay::all();
+        $pay = Pay::all();
 
-        return view('pago.index',compact('pago'));
+        return view('pay.index',compact('pay'));
     
     }
     public function create(){
-        return view('pago.create');
+
+        $orders = Order::all();
+        $typePays = TypePay::all();
+        return view('pay.create',['orders'=> $orders,'typePays'=> $typePays]);
+
     }
 
     
     public function store(Request $request)
     {
-        $pago = new Pay();
-        $pago->idPedido=$request->idPedido;
-        $pago->idFormaDePago=$request->idFormaDePago;
+        $pay = new Pay();
+        $pay->idOrder=$request->idOrder;
+        $pay->idTypePay=$request->idTypePay;
 
-        $pago->save();
+        $pay->save();
 
 
-        return Redirect()->route('pago.index',$pago);
+        return Redirect()->route('pay.index',$pay);
 
     }
 
@@ -49,6 +55,7 @@ class PayController extends Controller
     
     public function destroy(Pay $pay)
     {
-        //
+        $pay->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

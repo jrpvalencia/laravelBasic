@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Http\Controllers\Controller;
+use App\Models\ShoppingCart;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -15,12 +16,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $pedido = Order::all();
+        $order = Order::all();
 
-        return view('pedido.index', compact('pedido'));
+        return view('order.index',compact('order'));
     }
     public function create(){
-        return view('pedido.create');
+        $shoppingCarts = ShoppingCart::all();
+       
+        return view('order.create',['shoppingCarts'=> $shoppingCarts]);
     }
 
     /**
@@ -32,13 +35,13 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
-        $pedido= new Order();
-        $pedido->concentracionProducto=$request->concentracionProducto;
-        $pedido->idCarrito=$request->idCarrito;
+        $order= new Order();
+        $order->dateOrder=$request->dateOrder;
+        $order->idShoppingCart=$request->idShoppingCart;
 
-        $pedido->save();
+        $order->save();
 
-        return Redirect()->route('pedido.index',$pedido);
+        return Redirect()->route('order.index',$order);
 
     }
 
@@ -73,6 +76,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }

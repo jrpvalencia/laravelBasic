@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Http\Controllers\Controller;
+use App\Models\Season;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,13 +16,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $producto = Product :: all();
+        $product = Product :: all();
 
-        return view('productos.index', compact('producto'));
+        return view('product.index', compact('product'));
     }
     public function create()
     {
-        return view('productos.create');
+       
+        $seasons = Season::all();
+        return view('product.create',['seasons'=> $seasons]);
 
     }
     /**
@@ -34,20 +37,22 @@ class ProductController extends Controller
     {
 
 
-        $producto = new Product();
-        $producto->nombre = $request->nombre;
-        $producto->descripcion = $request->descripcion;
-        //INSERTAR PDF
-        $img= $request->file("imagen");
-        $nombreArchivo= "pdf_".time().".".$img->guessExtension();
-        $request-> file("imagen")->storeAs('public/imagenes', $nombreArchivo);
-        $producto -> imagen = $nombreArchivo;
+        $product = new Product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->image = $request->image;
+        $product->price = $request->price;
+        $product->concentration = $request->concentration;
+        $product->idSeason = $request->idSeason;
 
-        $producto->precio= $request->precio;
-        $producto->idTemporada = $request->idTemporada;
-        $producto -> save();
+        if ($request->hasFile('image')) {
+            $imagenPath = $request->file('image')->store('product', 'public');
+            $product->image = $imagenPath;
+        }
 
-        return Redirect()->route('producto.index',$producto);
+        $product -> save();
+
+        return Redirect()->route('product.index',$product);
     }
 
     /**
@@ -81,6 +86,16 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return back()->with('succes','Registro eliminado correctamente');
     }
 }
+
+  //INSERTAR PDF
+       /*  $img= $request->file("imagen");
+        $nombreArchivo= "pdf_".time().".".$img->guessExtension();
+        $request-> file("imagen")->storeAs('public/imagenes', $nombreArchivo);
+        $producto -> imagen = $nombreArchivo;
+
+        $producto->precio= $request->precio;
+        $producto->idTemporada = $request->idTemporada; */

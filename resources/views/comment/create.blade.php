@@ -16,14 +16,27 @@
     
     <h1>Motivo Pqr</h1>
 
-<form action="{{ route('pqr.store') }}" method="POST">
+<form action="{{ route('comment.store') }}" method="POST">
 
     @csrf
     
 <label>
-    Motivo:
     <br>
-    <input type="text" name="reason">
+    comment_id:
+    <br>
+    <input type="number" name="comment_id">
+</label>
+<br>
+<label>
+    comment_type:
+    <br>
+    <input type="text" name="comment_type">
+</label>
+<br>
+<label>
+    mensaje:
+    <br>
+    <input type="text" name="mensaje">
 </label>
 <br><br>
 <label>
@@ -40,13 +53,8 @@
 <button type="submit">Enviar formulario</button>
 </form>
 
-
-
 </body>
 </html>
 @endsection
-
-
-
 
 
