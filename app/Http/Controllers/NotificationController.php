@@ -65,9 +65,11 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( Notification $notification)
     {
-        //
+     
+            return view('notification.edit',compact('notification'));
+         
     }
 
     /**
@@ -77,9 +79,15 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Notification $notification)
     {
-        //
+        $notification->mensaje=$request->mensaje;
+ 
+
+        $notification->save();
+
+
+        return Redirect()->route('notification.index',$notification);
     }
 
     /**

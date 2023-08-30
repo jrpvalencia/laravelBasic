@@ -49,8 +49,26 @@ class PayController extends Controller
     
     public function update(Request $request, Pay $pay)
     {
-        //
+        $pay->idOrder=$request->idOrder;
+        $pay->idTypePay=$request->idTypePay;
+
+        $pay->save();
+
+
+        return Redirect()->route('pay.index',$pay);
     }
+
+    public function edit(Pay $pay){
+
+        $orders = Order::all();
+        $typePays = TypePay::all();
+
+        return view('pay.edit', compact('pay','orders', 'typePays'));
+
+
+  
+       
+     }
 
     
     public function destroy(Pay $pay)

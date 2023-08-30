@@ -30,27 +30,35 @@
             </thead>
             <tbody>
                 @foreach ($product as $products)
-                <tr>
-                    <td>{{ $products->id }} </td>
-                    <td>{{ $products->name }}</td>
-                    <td>{{ $products->description }}</td>
-                    <td>
-                        <img src="{{ asset('storage/' . $products->image) }}" alt="{{ $products->name }}" width="100">
-                    </td>
-                    <td>{{ $products->price }}</td>
-                    <td>{{ $products->concentration }}</td>
-                    <td>{{ $products->idSeason }}</td>
-                    <td>
-                        <form action="{{ route('product.destroy', $products->id) }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="status delivered">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $products->id }} </td>
+                        <td>{{ $products->name }}</td>
+                        <td>{{ $products->description }}</td>
+                        <td>
+                        
+                             <img src="{{ asset($products->image) }}" alt="{{ $products->name }}" width="100">
+
+
+                        </td>
+                        <td>{{ $products->price }}</td>
+                        <td>{{ $products->concentration }}</td>
+                        <td>{{ $products->idSeason }}</td>
+                        <td>
+                            <form action="{{ route('product.destroy', $products->id) }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="status delivered">Eliminar</button>
+                            </form>
+                        </td>
+                        <td>
+                            <a href="{{ route('product.edit', $products->id) }}"><p class="status delivered">Editar</p></a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
     </section>
 </main>
 </body>
+
+{{-- http://localhost/laravelBasic/public/storage/product/producto1.jpg --}}

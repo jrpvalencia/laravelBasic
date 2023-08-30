@@ -68,8 +68,25 @@ class ShoppingCartController extends Controller
      */
     public function update(Request $request, ShoppingCart $shoppingCart)
     {
-        //
+        $shoppingCart->idUser = $request->idUser;
+        $shoppingCart->idProduct = $request->idProduct;
+        $shoppingCart->product_quantity = $request->product_quantity;
+    
+        $shoppingCart->save();
+
+        return redirect()->route('shoppingCart.index', $shoppingCart);
     }
+    public function edit(ShoppingCart $shoppingCart){
+
+        $users = User::all();
+        $products = Product::all();
+
+        return view('shoppingCart.edit', compact('shoppingCart','users', 'products'));
+
+
+  
+       
+     }
 
     /**
      * Remove the specified resource from storage.

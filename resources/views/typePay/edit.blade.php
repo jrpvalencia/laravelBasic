@@ -4,7 +4,7 @@
     
     <h1>forma de pago</h1>
 
-<form action="{{ route('typePay.update', ['typePay' => $typePay]) ,$typePay->id }}" method="POST">
+<form action="{{ route('typePay.update', $typePay) }}" method="POST">
 
 
     @csrf

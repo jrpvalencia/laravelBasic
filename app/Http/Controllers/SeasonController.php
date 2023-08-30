@@ -63,8 +63,16 @@ class SeasonController extends Controller
      */
     public function update(Request $request, Season $season)
     {
-        //
+        $season->name = $request->name;
+
+        $season->save();
+
+        return redirect()->route('seasons.index', $season);
     }
+    
+    public function edit(Season $season){
+        return view('seasons.edit',compact('season'));
+     }
 
     /**
      * Remove the specified resource from storage.

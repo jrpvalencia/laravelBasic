@@ -10,15 +10,15 @@ class Product extends Model
     use HasFactory;
     public static $snakeAttributes = false;
     protected $table = "products";
-    protected $fillable = [
-        "nombre",
-        "descripcion",
-        "imagen",
-        "precio",
-        "idTemporada"
-    ];
+   
     public $timestamps =false;
+    protected $fillable = ['name', 'description', 'image', 'price', 'concentration', 'idSeason'];
 
+    // Define un atributo de acceso para obtener la URL completa de la imagen
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/' . $this->image);
+    }
     
     public function favoritos(){
         return $this->hasMany('App\Models\Favorite');

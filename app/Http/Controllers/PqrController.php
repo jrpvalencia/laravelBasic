@@ -65,11 +65,24 @@ class PQRController extends Controller
      * @param  \App\Models\PQR  $pQR
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PQR $pQR)
+    public function update(Request $request, PQR $pqr)
     {
-        //
+        $pqr->reason=$request->reason;
+        $pqr->idUser=$request->idUser;
+        $pqr->save();
+
+
+        return Redirect()->route('pqr.index',$pqr);
     }
 
+    public function edit(PQR $pqr){
+
+        $users = User::all();
+
+        return view('pqr.edit', compact('pqr', 'users'));
+
+       
+     }
     /**
      * Remove the specified resource from storage.
      *

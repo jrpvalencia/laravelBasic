@@ -17,9 +17,16 @@ class ProductController extends Controller
     public function index()
     {
         $product = Product :: all();
-
+    
+        foreach ($product as $products) {
+            if ($products->image) {
+                $products->image = asset('storage/' . $products->image);
+            }
+        }
         return view('product.index', compact('product'));
+    
     }
+
     public function create()
     {
        
@@ -45,16 +52,22 @@ class ProductController extends Controller
         $product->concentration = $request->concentration;
         $product->idSeason = $request->idSeason;
 
+        
+
         if ($request->hasFile('image')) {
-            $imagenPath = $request->file('image')->store('product', 'public');
+            $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+            $imagenPath = $request->file('image')->storeAs('product', $imageName, 'public');
             $product->image = $imagenPath;
         }
 
         $product -> save();
 
         return Redirect()->route('product.index',$product);
-    }
 
+        
+    }
+  
+    
     /**
      * Display the specified resource.
      *
@@ -75,9 +88,32 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
-    }
+     
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->image = $request->image;
+        $product->price = $request->price;
+        $product->concentration = $request->concentration;
+        $product->idSeason = $request->idSeason;
 
+        if ($request->hasFile('image')) {
+            $imagenPath = $request->file('image')->store('product', 'public');
+            $product->image = $imagenPath;
+        }
+
+        $product -> save();
+
+        return Redirect()->route('product.index',$product);
+    }
+    public function edit(Product $product){
+
+        $seasons = Season::all();
+
+        return view('product.edit', compact('product', 'seasons'));
+
+       
+     }
+    
     /**
      * Remove the specified resource from storage.
      *

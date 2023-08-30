@@ -65,9 +65,23 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        
+        $order->dateOrder=$request->dateOrder;
+        $order->idShoppingCart=$request->idShoppingCart;
+
+        $order->save();
+
+        return Redirect()->route('order.index',$order);
     }
 
+    public function edit(Order $order){
+
+        $shoppingCarts = ShoppingCart::all();
+
+        return view('order.edit', compact('order', 'shoppingCarts'));
+
+       
+     }
     /**
      * Remove the specified resource from storage.
      *

@@ -4,14 +4,15 @@
     
     <h1>Pago</h1>
 
-<form action="{{ route('notification.store') }}" method="POST">
+<form action="{{ route('notification.update', $notification) }}" method="POST">
 
     @csrf
+    @method('put')
 
     <label>
         mensaje
         <br>
-        <input type="text" name="mensaje">
+        <input type="text" name="mensaje"  value="{{$notification->mensaje}}">
     </label>
     <br>
   <label>

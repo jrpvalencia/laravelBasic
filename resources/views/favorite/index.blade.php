@@ -40,6 +40,9 @@
                             <button type="submit" class="status delivered">Eliminar</button>
                         </form>
                     </td>
+                    <td>
+                        <a href="{{ route('favorite.edit',$favorites->id) }}"><p class="status delivered">Editar </p></a>
+                    </td>
                 </tr>
             </tbody>
             @endforeach</td>

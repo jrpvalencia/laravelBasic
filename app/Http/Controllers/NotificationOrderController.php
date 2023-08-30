@@ -68,9 +68,23 @@ class NotificationOrderController extends Controller
      */
     public function update(Request $request, NotificationOrder $notificationOrder)
     {
-        //
+        $notificationOrder->mensaje=$request->mensaje;
+        $notificationOrder->idOrder=$request->idOrder;
+
+        $notificationOrder->save();
+
+
+        return Redirect()->route('notificationOrder.index',$notificationOrder);
     }
 
+    public function edit(NotificationOrder $notificationOrder){
+
+        $orders = Order::all();
+
+        return view('notificationOrder.edit', compact('notificationOrder', 'orders'));
+
+       
+     }
     /**
      * Remove the specified resource from storage.
      *

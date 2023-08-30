@@ -55,7 +55,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Favorite');
     }
     public function image(){
-        return $this->morphOne('App\Models\Image','images');
+        return $this->morphOne('App\Models\Image','imagesRelacion');
     }
     public function comments(){
         return $this->morphMany('App\Models\Comment','comments');
