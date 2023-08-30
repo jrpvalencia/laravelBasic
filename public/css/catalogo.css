@@ -1,0 +1,118 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+
+}
+
+.columnas{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+    
+}
+
+.conte{
+    height: 510px;
+    box-shadow: 0 0 7px #111;
+    width: 90%;
+    margin: 30px 30px 30px 30px;
+    box-shadow: rgb(0 0 0 / 63%) 2px 2px 11px 0px;
+}
+
+
+
+.conte .card{
+    height: 200px;
+    width: 100%;
+    margin-bottom: 170px;
+
+}
+
+.card img {
+    margin: auto;
+    display: block;
+
+}
+
+.card1 img{
+    height: 330px;
+    width: 330px;
+} 
+ 
+   .conte .card1{
+       background-color: #111;
+   }
+   
+   .conte .card2{
+       background-color: #efb810;
+   }
+   
+
+   .conte .card3{
+    background-color:  #111;
+}
+  
+   
+   .conte .card2 img{
+    height: 330px;
+    width: 330px;
+   
+   }
+   
+   .conte .card3 img{
+    height: 330px;
+    width: 330px;
+   
+   }
+
+   .informacion{
+    height: 80px;
+    width: 100%;
+   }
+
+   .informacion h1{
+    font-family: sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    color: #333;
+    margin-bottom: -10px;
+   }
+
+   .informacion p{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: .9em;
+    color: #555;
+   }
+
+   .precio{
+    height: 50px;
+    width: 85%;
+    margin: auto;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+
+   .box-precio{
+    width: 80px;
+   }
+
+   .precio1{
+    color: red;
+    font-size: .8em;
+   }
+
+   .precio2{
+    font-size: .8em;
+   }
+   #shoping{
+    font-size: 1.5em;
+    color: #555;
+   }
+

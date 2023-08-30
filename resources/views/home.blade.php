@@ -24,7 +24,7 @@
     
     
                         <a href="{{route('home')}}" class="boton"><button><span class="transition"> </span><span class="gradient"></span><span class="label">Inicio</span></button></a>
-                       <a href="menu.html" class="boton"><button><span class="transition"> </span><span class="gradient"></span><span class="label">Productos</span></button></a>
+                       <a href="{{route('catalogo')}}" class="boton"><button><span class="transition"> </span><span class="gradient"></span><span class="label">Productos</span></button></a>
                         <a href="{{route('registro')}}" class="boton"><button><span class="transition"> </span><span class="gradient"></span><span class="label">Registro</span></button></a>
                        <a href="{{route('contactanos')}}" class="boton"><button><span class="transition"> </span><span class="gradient"></span><span class="label">Contacto</span></button></a>
                        <a href="{{route('conocenos')}}" class="boton"><button><span class="transition"> </span><span class="gradient"></span><span class="label">Conocenos</span></button></a>
