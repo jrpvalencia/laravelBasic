@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Season;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductController extends Controller
 {
@@ -24,6 +26,20 @@ class ProductController extends Controller
             }
         }
         return view('product.index', compact('product'));
+    
+    }
+
+
+    public function catalogo()
+    {
+        $product = Product :: all();
+    
+        foreach ($product as $products) {
+            if ($products->image) {
+                $products->image = asset('storage/' . $products->image);
+            }
+        }
+        return view('catalogo.index', compact('product'));
     
     }
 
@@ -96,15 +112,28 @@ class ProductController extends Controller
         $product->concentration = $request->concentration;
         $product->idSeason = $request->idSeason;
 
-        if ($request->hasFile('image')) {
-            $imagenPath = $request->file('image')->store('product', 'public');
-            $product->image = $imagenPath;
-        }
+        
+    if ($request->hasFile('image')) {
+        // Eliminar la imagen actual (opcional) si lo deseas
+        Storage::delete('public/' . $product->image);
 
-        $product -> save();
-
-        return Redirect()->route('product.index',$product);
+        // Guardar la nueva imagen
+        $imagePath = $request->file('image')->store('product', 'public');
+        $product->image = $imagePath;
     }
+
+    $product->save();
+
+    return redirect()->route('product.index')->with('success', 'Producto actualizado correctamente');
+        
+    }
+
+
+
+
+
+
+    
     public function edit(Product $product){
 
         $seasons = Season::all();
