@@ -28,9 +28,7 @@ class Controller extends BaseController
     {
         return view('registro');
     }
-    public function catalogo(){
-        return view('catalogo');
-    }
+  
 
 
 }

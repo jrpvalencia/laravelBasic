@@ -40,6 +40,7 @@ Route::get('productos/index',[ProductController::class,'index'])->name('product.
 Route::delete('productos/{product}',[ProductController::class,'destroy'])->name('product.destroy');
 Route::get('productos/{product}/edit',[ProductController::class, 'edit'])->name('product.edit');
 Route::put('productos/{product}',[ProductController::class, 'update'])->name('product.update');
+route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.index');
 
 //RUTAS TEMPORADA
 
@@ -176,4 +177,4 @@ Route::put('comentario/{comment}',[CommentController::class, 'update'])->name('c
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');
-route::get('catalogo',[Controller::class,'catalogo'])->name('catalogo');
+

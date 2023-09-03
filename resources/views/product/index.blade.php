@@ -34,12 +34,16 @@
                         <td>{{ $products->id }} </td>
                         <td>{{ $products->name }}</td>
                         <td>{{ $products->description }}</td>
+
                         <td>
-                        
-                             <img src="{{ asset($products->image) }}" alt="{{ $products->name }}" width="100">
+                            @if ($products->image)
 
+                            <img src="{{ asset('storage/' . $products->image) }}" alt="{{ $products->name }}" width="100">
 
+                           @endif
                         </td>
+                        
+                    
                         <td>{{ $products->price }}</td>
                         <td>{{ $products->concentration }}</td>
                         <td>{{ $products->idSeason }}</td>
