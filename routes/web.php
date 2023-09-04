@@ -122,3 +122,7 @@ Route::get('/products/{id}',[ProductController::class,'show'])->name('products.s
 
 //chat
 Route::get('chats', [ChatsController::class,'chats'])->name('chats.chats');
+
+Route::get('/login', function () {
+    return view('login');
+});

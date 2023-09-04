@@ -1,0 +1,30 @@
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Estilos para el enlace */
+.whatsapp-icon a {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; /* Color de fondo de WhatsApp */
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+/* Estilos para la imagen dentro del enlace */
+.whatsapp-icon a img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Estilos para el enlace al pasar el cursor */
+.whatsapp-icon a:hover {
+    background-color: #128c7e; /* Color de fondo al pasar el cursor */
+}
