@@ -10,9 +10,10 @@
                 <input type="search" placeholder="Search Data...">
                 <i class='bx bx-search-alt'></i>
             </div>
-            <a href="{{ route('product.create') }}">
-                <p class="status delivered">Agregar </p>
+            <a href="{{ route('product.create') }}"class="btn primary btn-block">
+                Agregar
             </a>
+            
             <div class="export__file">
                 <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn"
                         title="Export File"></label></a>
@@ -53,19 +54,24 @@
                             <td>{{ $products->price }}</td>
                             <td>{{ $products->concentration }}</td>
                             <td>{{ $products->idSeason }}</td>
+
+                            
                             <td>
                                 <form action="{{ route('product.destroy', $products->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="status delivered">Eliminar</button>
+                                    <button type="submit" class="btn danger btn-block">x</button>
                                 </form>
-                                <a href="{{ route('product.edit', $products->id) }}">
-                                    <p class="status delivered">Editar</p>
-                                </a>
+                                <a href="{{ route('product.edit', $products->id) }}" class="btn secondary btn-block">
+                                    <i class='bx bxs-edit-alt'></i> </a>
                             </td>
+                      
+                            
                            
                         </tr>
                     @endforeach
+
+            
                 </tbody>
             </table>
         </section>
