@@ -18,15 +18,18 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product :: all();
-    
+        $product = Product::all();
+
         foreach ($product as $products) {
             if ($products->image) {
-                $products->image = asset('storage/' . $products->image);
+                $products->image = asset('storage/product/' . $products->image);
             }
         }
+        
         return view('product.index', compact('product'));
     
+
+        
     }
 
 
@@ -63,18 +66,22 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $request->name;
         $product->description = $request->description;
-        $product->image = $request->image;
+       
         $product->price = $request->price;
         $product->concentration = $request->concentration;
         $product->idSeason = $request->idSeason;
 
         
-
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
             $imagenPath = $request->file('image')->storeAs('product', $imageName, 'public');
-            $product->image = $imagenPath;
+            $product->image = $imageName; // Almacena solo el nombre del archivo
+           //$product->image = $imagenPath;
+
         }
+        
+
+        
 
         $product -> save();
 
