@@ -40,17 +40,12 @@
                             <td>{{ $products->name }}</td>
                             <td>{{ $products->description }}</td>
 
-                       
-                  
                             <td>
                                 @if ($products->image)
-                                <img src="http://localhost/laravelBasic/storage/app/public/product/1693774074.jpeg" alt="">
+                                <img src="{{ $products->image }}" alt="">
                                 @endif
                             </td>
-                            
-                            
-                            
-
+                        
                             <td>{{ $products->price }}</td>
                             <td>{{ $products->concentration }}</td>
                             <td>{{ $products->idSeason }}</td>

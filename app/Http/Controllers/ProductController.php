@@ -35,16 +35,22 @@ class ProductController extends Controller
 
     public function catalogo()
     {
-        $product = Product :: all();
-    
+        $product = Product::all();
+
         foreach ($product as $products) {
             if ($products->image) {
-                $products->image = asset('storage/' . $products->image);
+                $products->image = asset('storage/product/' . $products->image);
             }
         }
+        
         return view('catalogo.index', compact('product'));
     
     }
+
+
+
+
+
 
     public function create()
     {
