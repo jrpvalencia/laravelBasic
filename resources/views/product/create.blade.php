@@ -46,15 +46,17 @@
 
                     </div>
 
-                    <div class="input-field">
+                    
+                        <div class="input-field select-field"> <!-- Agregamos la clase 'select-field' para estilos específicos del select -->
+                            <select name="idSeason" class="styled-select"> <!-- Agregamos la clase 'styled-select' para estilos específicos del select -->
+                                @foreach ($seasons as $season)
+                                    <option value="{{ $season->id }}">{{ $season->id }} {{ $season->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
 
-                        <select name="idSeason" >
-                            @foreach ($seasons as $season)
-                                <option value="{{ $season->id }}">{{ $season->id }} {{ $season->name }}</option>
-                            @endforeach
-                        </select>
-
-                    </div>
+                    
 
                     <div class="btn-field">
                         <button id="singUp" type="submit">Enviar</button>

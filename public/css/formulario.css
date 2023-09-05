@@ -122,6 +122,49 @@ form p a {
 
 
 
+/* Estilos específicos para el select */
+.select-field {
+    background-color: #515966;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative; /* Agregamos position:relative para estilizar la flecha */
+}
+
+.styled-select {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 18px 15px;
+    color: #ffff;
+    appearance: none; /* Oculta la flecha del select en algunos navegadores */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.styled-select::placeholder {
+    color: #ffff;
+}
+
+/* Estilizar la flecha del select */
+.select-field::after {
+    content: "\25BC"; /* Agregamos una flecha abajo */
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #efb810;
+    pointer-events: none; /* Evita que la flecha sea seleccionable */
+}
+
+/* Estilizar el hover del select */
+.styled-select:hover {
+    background-color: #60636a;
+}
+
 
 
 
