@@ -3,7 +3,7 @@
 @section('content')
 <h1>Crear rol</h1>
 
-<form action="{{ route('rol.update', ['rol' => $rol]) ,$rol->id }}}}" method="POST">
+<form action="{{ route('rol.update', ['rol' => $rol->id]) }}" method="POST">
 
     @csrf
     @method('put')

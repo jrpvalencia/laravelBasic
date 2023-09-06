@@ -3,7 +3,7 @@
 @section('content')
 <h1>Crear temporada</h1>
 
-<form action="{{ route('season.update', ['season' => $season]) ,$season->id }}}}" method="POST">
+<form action="{{ route('season.update', ['season' => $season->id]) }}" method="POST">
 
    
     @csrf

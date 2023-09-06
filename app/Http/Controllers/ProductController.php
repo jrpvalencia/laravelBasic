@@ -36,13 +36,6 @@ class ProductController extends Controller
     public function catalogo()
     {
         $product = Product::all();
-
-        foreach ($product as $products) {
-            if ($products->image) {
-                $products->image = asset('storage/product/' . $products->image);
-            }
-        }
-        
         return view('catalogo.index', compact('product'));
     
     }
@@ -72,26 +65,30 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $request->name;
         $product->description = $request->description;
-       
+       $product->image = $request->image;
         $product->price = $request->price;
         $product->concentration = $request->concentration;
         $product->idSeason = $request->idSeason;
 
-        
-        if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-            $imagenPath = $request->file('image')->storeAs('product', $imageName, 'public');
-            $product->image = $imageName; // Almacena solo el nombre del archivo
-           //$product->image = $imagenPath;
 
+        if ($request->hasFile('image')) {
+            // Generar un nombre de archivo único basado en la marca de tiempo y la extensión original
+            $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+        
+            // Almacenar la imagen en la carpeta 'public/product'
+            $request->file('image')->storeAs('public/product', $imageName);
+        
+            // Asignar el nombre del archivo al atributo 'image' del modelo de producto
+            $product->image = $imageName; // Almacena solo el nombre del archivo
         }
+        
         
 
         
 
         $product -> save();
 
-        return Redirect()->route('product.index',$product);
+        return redirect()->route('product.index',$product);
 
         
     }
@@ -134,6 +131,7 @@ class ProductController extends Controller
         $imagePath = $request->file('image')->store('product', 'public');
         $product->image = $imagePath;
     }
+    
 
     $product->save();
 
@@ -141,12 +139,6 @@ class ProductController extends Controller
         
     }
 
-
-
-
-
-
-    
     public function edit(Product $product){
 
         $seasons = Season::all();
