@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactanos</title>
+@extends('layouts.plantilla')
+
+@section('title','Contactanos')
+
+@section('head')
     <link rel="shortcut icon" href="IMG/LOGO.png" type="image/x-icon">
-    <link rel="stylesheet" href="CSS/contactanos.css">
-    
+    <link rel="stylesheet" href="{{asset('css/contactanos.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville&family=Quicksand:wght@300&display=swap" rel="stylesheet">
-</head>
-<body>
+@endsection()
+@section('content')
+
     <div class="contenerdor">
         <h1 class="titulo1">Contactanos</h1>
         <div class="formulario">
@@ -60,10 +58,10 @@
         </div>
     </div>
   
-    <div class="boton"><a href="{{route('home')}}"><button>
+    <div class="boton"><a href="{{route('inicio')}}"><button>
         <span class="transition">
         </span><span class="gradient"></span>
         <span class="label">Regresar</span></button></a></div>
    
-</body>
+@endsection()
 </html>
