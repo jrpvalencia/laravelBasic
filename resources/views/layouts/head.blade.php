@@ -10,8 +10,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{asset('img/ejlogo.jpg')}}" alt="Logo de la empresa" width="30" height="30" class="d-inline-block align-top">
-                InventSmell
+                <img src="{{asset('img/logoF.png')}}" alt="Logo de la empresa" width="30" height="30" class="d-inline-block align-top">
+                nventSmell
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

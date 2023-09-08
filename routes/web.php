@@ -54,7 +54,7 @@ Route::delete('productos/{product}',[ProductController::class,'destroy'])->name(
 
 //RUTAS TEMPORADA
 
-Route::post('temporadas', [SeasonController::class,'store'])->name('temporadasStore');
+Route::post('temporadas2', [SeasonController::class,'store'])->name('temporadasStore');
 Route::get('temporada/create',[SeasonController::class,'create'])->name('temporada.create');
 Route::get('temporadas',[SeasonController::class,'index'])->name('seasons.index');
 Route::delete('temporadas/{season}', [SeasonController::class, 'destroy'])->name('season.destroy');
@@ -75,21 +75,21 @@ Route::delete('pqr/{pqr}', [PqrController::class, 'destroy'])->name('pqr.destroy
 
 //RUTAS DE CARRITO DE COMPRA
 Route::get('carritoDeCompra/create',[ShoppingCartController::class, 'create'])->name('shoppingCart.create');
-Route::post('carritoDeCompra',[ShoppingCartController::class,'store'])->name('shoppingCart.store');
+Route::post('carritoDeCompra2',[ShoppingCartController::class,'store'])->name('shoppingCart.store');
 Route::get('carritoDeCompra',[ShoppingCartController::class, 'index'])->name('shoppingCart.index');
 Route::delete('carritoDeCompra/{shoppingCart}', [ShoppingCartController::class, 'destroy'])->name('shoppingCart.destroy');
 
 //RUTA DEVOLUCION
 
 Route::get('devolucion/create',[ReturnsController::class, 'create'])->name('returns.create');
-Route::post('devolucion',[ReturnsController::class,'store'])->name('returns.store');
+Route::post('devolucion2',[ReturnsController::class,'store'])->name('returns.store');
 Route::get('devolucion',[ReturnsController::class, 'index'])->name('returns.index');
 Route::delete('devolucion/{returns}', [ReturnsController::class, 'destroy'])->name('returns.destroy');
 
 //RUTA DE FORMA DE PAGO
 
 Route::get('formaDePago/create',[TypePayController::class, 'create'])->name('typePay.create');;
-Route::post('formaDePago',[TypePayController::class,'store'])->name('typePay.store');
+Route::post('formaDePago2',[TypePayController::class,'store'])->name('typePay.store');
 Route::get('formaDePago',[TypePayController::class, 'index'])->name('typePay.index');
 Route::delete('formaDePago/{typePay}', [TypePayController::class, 'destroy'])->name('typePay.destroy');
 Route::get('formaDePago/{typePay}/edit',[TypePayController::class, 'edit'])->name('typePay.edit');
@@ -99,21 +99,21 @@ Route::put('formaDePago/{typePay}',[TypePayController::class, 'update'])->name('
 //RUTAS DE PAGO
 
 Route::get('pago/create',[PayController::class, 'create'])->name('pay.create');
-Route::post('pago',[PayController::class,'store'])->name('pay.store');
+Route::post('pago2',[PayController::class,'store'])->name('pay.store');
 Route::get('pago',[PayController::class, 'index'])->name('pay.index');
 Route::delete('pago/{pay}', [PayController::class, 'destroy'])->name('pay.destroy');
 
 //RUTAS PEDIDO
 
 Route::get('pedido/create',[OrderController::class, 'create'])->name('order.create');
-Route::post('pedido',[OrderController::class,'store'])->name('order.store');
+Route::post('pedido2',[OrderController::class,'store'])->name('order.store');
 Route::get('pedido',[OrderController::class, 'index'])->name('order.index');
 Route::delete('pedido/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
 
 //RUTAs de notificacion pedido
 
 Route::get('notificacionPedido/create',[NotificationOrderController::class, 'create'])->name('notificationOrder.create');
-Route::post('notificacionPedido',[NotificationOrderController::class,'store'])->name('notificationOrder.store');
+Route::post('notificacionPedido2',[NotificationOrderController::class,'store'])->name('notificationOrder.store');
 Route::get('notificacionPedido',[NotificationOrderController::class, 'index'])->name('notificationOrder.index');
 Route::delete('notificacionPedido/{notificationOrder}', [NotificationOrderController::class, 'destroy'])->name('notificationOrder.destroy');
 
@@ -121,21 +121,21 @@ Route::delete('notificacionPedido/{notificationOrder}', [NotificationOrderContro
 //RUTAs de NOTIFICACION
 
 Route::get('notificacion/create',[NotificationController::class, 'create'])->name('notification.create');
-Route::post('notificacion',[NotificationController::class,'store'])->name('notification.store');
+Route::post('notificacion2',[NotificationController::class,'store'])->name('notification.store');
 Route::get('notificacion',[NotificationController::class, 'index'])->name('notification.index');
 Route::delete('notificacion/{notification}', [NotificationController::class, 'destroy'])->name('notification.destroy');
 
 //RUTAs de Favoritos
 
 Route::get('favoritos/create',[FavoriteController::class, 'create'])->name('favorite.create');
-Route::post('favoritos',[FavoriteController::class,'store'])->name('favorite.store');
+Route::post('favoritos2',[FavoriteController::class,'store'])->name('favorite.store');
 Route::get('favoritos',[FavoriteController::class, 'index'])->name('favorite.index');
 Route::delete('favoritos/{favorite}', [FavoriteController::class, 'destroy'])->name('favorite.destroy');
 
 //RUTAS USUARIO
 
 Route::get('usuario/create',[UserController::class, 'create'])->name('user.create');
-Route::post('usuario',[UserController::class,'store'])->name('user.store');
+Route::post('usuario2',[UserController::class,'store'])->name('user.store');
 Route::get('usuario',[UserController::class, 'index'])->name('user.index');
 Route::delete('usuario/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
@@ -143,7 +143,7 @@ Route::delete('usuario/{user}', [UserController::class, 'destroy'])->name('user.
 //RUTAS IMAGEN
 
 Route::get('imagen/create',[ImagesController::class, 'create'])->name('image.create');
-Route::post('imagen',[ImagesController::class,'store'])->name('image.store');
+Route::post('imagen2',[ImagesController::class,'store'])->name('image.store');
 Route::get('imagen',[ImagesController::class, 'index'])->name('image.index');
 Route::delete('imagen/{images_id}/{images_type}', [ImagesController::class, 'destroy'])->name('image.destroy');
 
@@ -151,7 +151,7 @@ Route::delete('imagen/{images_id}/{images_type}', [ImagesController::class, 'des
 //RUTAS COMENTARIO
 
 Route::get('comentario/create',[CommentController::class, 'create'])->name('comment.create');
-Route::post('comentario',[CommentController::class,'store'])->name('comment.store');
+Route::post('comentario2',[CommentController::class,'store'])->name('comment.store');
 Route::get('comentario',[CommentController::class, 'index'])->name('comment.index');
 Route::delete('comentario/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 

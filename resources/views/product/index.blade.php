@@ -11,7 +11,7 @@
         </div>
         <a href="{{ route('product.create') }}"><p class="status delivered">Agregar </p></a>
         <div class="export__file">
-            <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
+            <a href="{{ route('inicio') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
     </section>
     <section class="table__body">
