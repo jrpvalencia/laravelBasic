@@ -24,15 +24,15 @@ class Controller extends BaseController
     {
         return view('conocenos');
     }
-    public function registro2()
+    public function registro()
     {
-        return view('registro2');
+        return view('registro');
     }
 
 
     public function login()
     {
-        return view('login2');
+        return view('login');
     }
     public function inicio()
     {

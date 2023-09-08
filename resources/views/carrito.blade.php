@@ -1,53 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mi carrito</title>
-<!-- Enlace a Bootstrap CSS y Font Awesome -->
+@extends('layouts.plantilla')
+
+@section('title','Mi carrito')
+
+@section('head')
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <link rel="stylesheet" href="{{asset('css/carrito.css')}}">
+@endsection()
 
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="{{asset('img/ejlogo.jpg')}}" alt="Logo de la empresa" width="40" height="40" class="d-inline-block align-top">
-        InventSmell
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Temporadas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Carrito</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="loginLink">Iniciar sesión</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="logoutLink" style="display: none;">Cerrar sesión</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+@section('content')
+
+  @include('layouts.head')
 
   <section class="cart-section">
     <div class="container">
@@ -118,5 +81,5 @@
     toggleLoginStatus(true);
   });
 </script>
-</body>
+@endsection()
 </html>
