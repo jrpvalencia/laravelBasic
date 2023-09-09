@@ -1,0 +1,80 @@
+
+body {
+    background-image: url(../IMG/dia.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    background-color: #b6cf27;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.5s ease; /* Transición de fondo */
+}
+
+body:hover {
+    background-color: #ffcc00; }
+
+.contenedor {
+    max-width: 800px;
+    padding: 20px;
+    background-color: #292927;
+}
+
+.titulo1 {
+    color: #696203;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+}
+
+
+.foto img {
+    max-width: 200px;
+    border-width: 50%;
+    margin-right: 20px;
+    transition: border-radius 0.5s ease; 
+}
+
+.foto img:hover {
+    border-radius: 20%; 
+}
+
+.informacion {
+    flex-grow: 1;
+}
+
+h3 {
+    color: #7e7c00;
+    margin-top: 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.editar-btn {
+    background-color: #6a7505;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.editar-btn:hover {
+    background-color: #4d5c23;
+}
+
+

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="whatsapp-icon">
-        <a href="https://wa.me/3107484513"> <!-- Reemplaza con tu número de WhatsApp -->
+        <a href="https://wa.me/3107484513"> 
             <figure class="imagen">
                 <img src="{{asset('https://image.shutterstock.com/image-vector/green-button-smart-phone-icon-260nw-752946424.jpg')}}" class="imagenes">
             </figure>

@@ -15,6 +15,8 @@ use App\Http\Controllers\ProveeController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\TemporadaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,8 +109,6 @@ Route::post('usuario',[usuario::class,'store'])->name('usuario.store');
 
 
 
-
-
 //NAVEGABILIDAD
 
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
@@ -126,3 +126,6 @@ Route::get('chats', [ChatsController::class,'chats'])->name('chats.chats');
 Route::get('/login', function () {
     return view('login');
 });
+
+//perfil
+Route::get('profile', [ProfileController::class,'index'])->name('profile.profile');
