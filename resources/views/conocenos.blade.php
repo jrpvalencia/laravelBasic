@@ -49,10 +49,10 @@
                 amet consectetur, adipisicing elit. Ipsam, 
                 dolorum maxime recusandae distinctio voluptatum quam id 
                 placeat veniam obcaecati et accusantium delectus corporis
-                 repellendus assumenda porro blanditiis nobis natus doloribus.</p>
+                repellendus assumenda porro blanditiis nobis natus doloribus.</p>
         </div>
     </section>
-    <div class="boton"><a href="{{route('home')}}"><button><span class="transition">
+    <div class="boton"><a href="{{route('login')}}"><button><span class="transition">
     </span><span class="gradient"></span>
     <span class="label">Regresar</span></button></a></div>
     

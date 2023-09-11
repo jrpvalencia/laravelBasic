@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Rol;
 use App\Models\User;
+use Facade\FlareClient\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -29,7 +31,7 @@ class UserController extends Controller
     public function create()
     {
         $rol = Rol::all();
-       
+
         return view('user.create',['rol'=> $rol]);
     }
 
@@ -49,8 +51,8 @@ class UserController extends Controller
         $user->phone=$request->phone;
         $user->idRol=$request->idRol;
         $user->email=$request->email;
-        $user->password=$request->password;
-
+        $user->password=bcrypt($request->password);
+        
         $user->save();
 
         return Redirect()->route('user.index',$user);
@@ -100,5 +102,18 @@ class UserController extends Controller
     {
         $user->delete();
         return back()->with('succes','Registro eliminado correctamente');
+    }
+
+    public function validation(Request $request){
+        $user = request()->only('email','password');
+        
+        if(Auth::attempt($user)){
+            request()->session()->regenerate();
+            return
+            //view('catalogos.index');
+            redirect('inicio');
+        } else{
+            return view('registro');
+        }
     }
 }

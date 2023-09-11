@@ -13,13 +13,14 @@
         <div class="login-container">
           <div class="login-form">
             <h2 class="text-center mb-4"><i class="fas fa-user-circle"></i> Iniciar Sesión</h2>
-            <form>
+            <form method="POST" action="{{ route('loginValidation') }}">
+              @csrf
               <div class="form-group">
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
-                  <input type="email" class="form-control" id="email" placeholder="Correo Electrónico">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electrónico">
                 </div>
               </div>
               <div class="form-group">
@@ -27,7 +28,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
                 </div>
               </div>
               <button type="submit" class="btn btn-neon btn-block"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>

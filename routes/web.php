@@ -161,6 +161,9 @@ route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos')
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');
 
-route::get('carrito',[ShoppingCartController::class,'carrito'])->name('carrito');
+route::get('carrito',[ShoppingCartController::class,'index'])->name('carrito');
+
 route::get('login',[Controller::class,'login'])->name('login');
+route::post('login',[UserController::class,'validation'])->name('loginValidation');
+
 route::get('inicio',[Controller::class,'inicio'])->name('inicio');
