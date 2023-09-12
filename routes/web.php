@@ -30,7 +30,7 @@ use JetBrains\PhpStorm\Immutable;
 |
 */
 
-Route::get('/',[Controller::class,'index'])->name('home');
+Route::get('/',[Controller::class,'index'])->name('inicio');
 
 
 Route::get('curso/create',[cursosController::class,'create'])->name('curso.create');
@@ -49,7 +49,7 @@ route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.ind
 
 //RUTAS TEMPORADA
 
-Route::post('temporadas', [SeasonController::class,'store'])->name('temporadasStore');
+Route::post('temporadas2', [SeasonController::class,'store'])->name('temporadasStore');
 Route::get('temporada/create',[SeasonController::class,'create'])->name('temporada.create');
 Route::get('temporadas',[SeasonController::class,'index'])->name('seasons.index');
 Route::delete('temporadas/{season}', [SeasonController::class, 'destroy'])->name('season.destroy');
@@ -76,7 +76,7 @@ Route::put('pqr/{pqr}',[PqrController::class, 'update'])->name('pqr.update');
 
 //RUTAS DE CARRITO DE COMPRA
 Route::get('carritoDeCompra/create',[ShoppingCartController::class, 'create'])->name('shoppingCart.create');
-Route::post('carritoDeCompra',[ShoppingCartController::class,'store'])->name('shoppingCart.store');
+Route::post('carritoDeCompra2',[ShoppingCartController::class,'store'])->name('shoppingCart.store');
 Route::get('carritoDeCompra',[ShoppingCartController::class, 'index'])->name('shoppingCart.index');
 Route::delete('carritoDeCompra/{shoppingCart}', [ShoppingCartController::class, 'destroy'])->name('shoppingCart.destroy');
 Route::get('carritoDeCompra/{shoppingCart}/edit',[ShoppingCartController::class, 'edit'])->name('shoppingCart.edit');
@@ -85,7 +85,7 @@ Route::put('carritoDeCompra/{shoppingCart}',[ShoppingCartController::class, 'upd
 //RUTA DEVOLUCION
 
 Route::get('devolucion/create',[ReturnsController::class, 'create'])->name('returns.create');
-Route::post('devolucion',[ReturnsController::class,'store'])->name('returns.store');
+Route::post('devolucion2',[ReturnsController::class,'store'])->name('returns.store');
 Route::get('devolucion',[ReturnsController::class, 'index'])->name('returns.index');
 Route::delete('devolucion/{returns}', [ReturnsController::class, 'destroy'])->name('returns.destroy');
 Route::get('devolucion/{returns}/edit',[ReturnsController::class, 'edit'])->name('returns.edit');
@@ -94,7 +94,7 @@ Route::put('devolucion/{returns}',[ReturnsController::class, 'update'])->name('r
 //RUTA DE FORMA DE PAGO
 
 Route::get('formaDePago/create',[TypePayController::class, 'create'])->name('typePay.create');;
-Route::post('formaDePago',[TypePayController::class,'store'])->name('typePay.store');
+Route::post('formaDePago2',[TypePayController::class,'store'])->name('typePay.store');
 Route::get('formaDePago',[TypePayController::class, 'index'])->name('typePay.index');
 Route::delete('formaDePago/{typePay}', [TypePayController::class, 'destroy'])->name('typePay.destroy');
 Route::get('formaDePago/{typePay}/edit',[TypePayController::class, 'edit'])->name('typePay.edit');
@@ -104,7 +104,7 @@ Route::put('formaDePago/{typePay}',[TypePayController::class, 'update'])->name('
 //RUTAS DE PAGO
 
 Route::get('pago/create',[PayController::class, 'create'])->name('pay.create');
-Route::post('pago',[PayController::class,'store'])->name('pay.store');
+Route::post('pago2',[PayController::class,'store'])->name('pay.store');
 Route::get('pago',[PayController::class, 'index'])->name('pay.index');
 Route::delete('pago/{pay}', [PayController::class, 'destroy'])->name('pay.destroy');
 Route::get('pago/{pay}/edit',[PayController::class, 'edit'])->name('pay.edit');
@@ -113,7 +113,7 @@ Route::put('pago/{pay}',[PayController::class, 'update'])->name('pay.update');
 //RUTAS PEDIDO
 
 Route::get('pedido/create',[OrderController::class, 'create'])->name('order.create');
-Route::post('pedido',[OrderController::class,'store'])->name('order.store');
+Route::post('pedido2',[OrderController::class,'store'])->name('order.store');
 Route::get('pedido',[OrderController::class, 'index'])->name('order.index');
 Route::delete('pedido/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
 Route::get('pedido/{order}/edit',[OrderController::class, 'edit'])->name('order.edit');
@@ -122,7 +122,7 @@ Route::put('pedido/{order}',[OrderController::class, 'update'])->name('order.upd
 //RUTAs de notificacion pedido
 
 Route::get('notificacionPedido/create',[NotificationOrderController::class, 'create'])->name('notificationOrder.create');
-Route::post('notificacionPedido',[NotificationOrderController::class,'store'])->name('notificationOrder.store');
+Route::post('notificacionPedido2',[NotificationOrderController::class,'store'])->name('notificationOrder.store');
 Route::get('notificacionPedido',[NotificationOrderController::class, 'index'])->name('notificationOrder.index');
 Route::delete('notificacionPedido/{notificationOrder}', [NotificationOrderController::class, 'destroy'])->name('notificationOrder.destroy');
 Route::get('notificacionPedido/{notificationOrder}/edit',[NotificationOrderController::class, 'edit'])->name('notificationOrder.edit');
@@ -132,7 +132,7 @@ Route::put('notificacionPedido/{notificationOrder}',[NotificationOrderController
 //RUTAs de NOTIFICACION
 
 Route::get('notificacion/create',[NotificationController::class, 'create'])->name('notification.create');
-Route::post('notificacion',[NotificationController::class,'store'])->name('notification.store');
+Route::post('notificacion2',[NotificationController::class,'store'])->name('notification.store');
 Route::get('notificacion',[NotificationController::class, 'index'])->name('notification.index');
 Route::delete('notificacion/{notification}', [NotificationController::class, 'destroy'])->name('notification.destroy');
 Route::get('notificacion/{notification}/edit',[NotificationController::class, 'edit'])->name('notification.edit');
@@ -141,7 +141,7 @@ Route::put('notificacion/{notification}',[NotificationController::class, 'update
 //RUTAs de Favoritos
 
 Route::get('favoritos/create',[FavoriteController::class, 'create'])->name('favorite.create');
-Route::post('favoritos',[FavoriteController::class,'store'])->name('favorite.store');
+Route::post('favoritos2',[FavoriteController::class,'store'])->name('favorite.store');
 Route::get('favoritos',[FavoriteController::class, 'index'])->name('favorite.index');
 Route::delete('favoritos/{favorite}', [FavoriteController::class, 'destroy'])->name('favorite.destroy');
 Route::get('favoritos/{favorite}/edit',[FavoriteController::class, 'edit'])->name('favorite.edit');
@@ -150,7 +150,7 @@ Route::put('favoritos/{favorite}',[FavoriteController::class, 'update'])->name('
 //RUTAS USUARIO
 
 Route::get('usuario/create',[UserController::class, 'create'])->name('user.create');
-Route::post('usuario',[UserController::class,'store'])->name('user.store');
+Route::post('usuario2',[UserController::class,'store'])->name('user.store');
 Route::get('usuario',[UserController::class, 'index'])->name('user.index');
 Route::delete('usuario/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('usuario/{user}/edit',[UserController::class, 'edit'])->name('user.edit');
@@ -159,10 +159,9 @@ Route::put('usuario/{user}',[UserController::class, 'update'])->name('user.updat
 
 //RUTAS IMAGEN
 
-
-Route::get('imagen/create', [ImagesController::class, 'create'])->name('image.create');
-Route::post('imagen', [ImagesController::class, 'store'])->name('image.store');
-Route::get('imagen', [ImagesController::class, 'index'])->name('image.index');
+Route::get('imagen/create',[ImagesController::class, 'create'])->name('image.create');
+Route::post('imagen',[ImagesController::class,'store'])->name('image.store');
+Route::get('imagen',[ImagesController::class, 'index'])->name('image.index');
 Route::delete('imagen/{images_id}/{images_type}', [ImagesController::class, 'destroy'])->name('image.destroy');
 Route::get('imagen/{images_id}/{images_type}/edit', [ImagesController::class, 'edit'])->name('image.edit');
 Route::put('imagen/{images_id}/{images_type}', [ImagesController::class, 'update'])->name('image.update');
@@ -171,7 +170,7 @@ Route::put('imagen/{images_id}/{images_type}', [ImagesController::class, 'update
 //RUTAS COMENTARIO
 
 Route::get('comentario/create',[CommentController::class, 'create'])->name('comment.create');
-Route::post('comentario',[CommentController::class,'store'])->name('comment.store');
+Route::post('comentario2',[CommentController::class,'store'])->name('comment.store');
 Route::get('comentario',[CommentController::class, 'index'])->name('comment.index');
 Route::delete('comentario/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 Route::get('comentario/{comment}/edit',[CommentController::class, 'edit'])->name('comment.edit');
@@ -183,3 +182,10 @@ route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos')
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');
 
+
+route::get('carrito',[ShoppingCartController::class,'index'])->name('carrito');
+
+route::get('login',[Controller::class,'login'])->name('login');
+route::post('login',[UserController::class,'validation'])->name('loginValidation');
+
+route::get('inicio',[Controller::class,'inicio'])->name('inicio');

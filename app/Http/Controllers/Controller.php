@@ -13,7 +13,7 @@ class Controller extends BaseController
 
     public function index()
     {
-        return view('home');
+        return view('inicio');
     }
 
     public function contactanos()
@@ -29,6 +29,22 @@ class Controller extends BaseController
         return view('registro');
     }
   
+
+
+    public function login()
+    {
+        return view('login');
+    }
+    public function inicio()
+    {
+        return view('inicio');
+    }
+
+    public function carrito()
+    {
+        return view('carrito');
+    }
+
 
 
 }
