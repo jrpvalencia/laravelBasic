@@ -1,40 +1,42 @@
 @extends('layouts.plantilla')
 
 @section('content')
-    
-    <h1>Devoluciones</h1>
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Devoluciones</h1>
 
-<form action="{{ route('returns.store') }}" method="POST">
+            <form action="{{ route('returns.store') }}" method="POST">
 
-    @csrf
-  
-<label>
-    motivo
-    <br>
-    <input type="text" name="reason">
-</label>
-<br><br>
-<label>
-    idPedido
-    <br>
-    <select name="idOrder">
-        @foreach($orders as $order)
-                    <option value="{{ $order->id }}">{{ $order->id }} {{ $order->name }}</option>
-                @endforeach
-        </select>
-</label>
-<br><br>
-<label>
-    idPqr
-    <br>
-    <select name="idPqr">
-        @foreach($pqrs as $pqr)
-                    <option value="{{ $pqr->id }}">{{ $pqr->id }} {{ $pqr->name }}</option>
-                @endforeach
-        </select>
-</label>
+                @csrf
+                <div class="input-group">
 
-<button type="submit">Enviar formulario</button>
-</form>
 
+                    <div class="input-field">
+                        <input type="text" name="reason" placeholder="motivo">
+                    </div>
+
+                    <div class="input-field select-field">
+                        <select name="idOrder" class="styled-select">
+                            @foreach ($orders as $order)
+                                <option value="{{ $order->id }}">{{ $order->id }} {{ $order->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="input-field select-field">
+                        <select name="idPqr" class="styled-select">
+                            @foreach ($pqrs as $pqr)
+                                <option value="{{ $pqr->id }}">{{ $pqr->id }} {{ $pqr->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

@@ -1,48 +1,44 @@
 @extends('layouts.plantilla')
 
 @section('content')
-    
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Comentario</h1>
 
-    <h1>Editar</h1>
+            <form action="{{ route('comment.update', $comment) }}" method="POST">
 
-<form action="{{ route('comment.update', $comment) }}" method="POST">
+                @csrf
+                @method('put')
+                <div class="input-group">
 
-    @csrf
-    @method('put')
-    
-<label>
-    <br>
-    comment_id:
-    <br>
-    <input type="number" name="comment_id" value="{{$comment->comment_id}}">
-</label>
-<br>
-<label>
-    comment_type:
-    <br>
-    <input type="text" name="comment_type" value="{{$comment->comment_type}}">
-</label>
-<br>
-<label>
-    mensaje:
-    <br>
-    <input type="text" name="mensaje" value="{{$comment->mensaje}}">
-</label>
-<br><br>
-<label>
-    id persona
-    <br>
-    <select name="idUser" value="{{$comment->idUser}}">
-    @foreach($users as $user)
-                <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>
-            @endforeach
-    </select>
-   
-</label>
 
-<button type="submit">Enviar formulario</button>
-</form>
+                    <div class="input-field">
+                        <input type="number" name="comment_id" value="{{ $comment->comment_id }}">
+                    </div>
 
-</body>
-</html>
+                    <div class="input-field">
+                        <input type="text" name="comment_type" value="{{ $comment->comment_type }}">
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" name="mensaje" value="{{ $comment->mensaje }}">
+                    </div>
+
+                    <div class="input-field select-field">
+                        <select name="idUser" value="{{ $comment->idUser }}" class="styled-select">
+                            @foreach ($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

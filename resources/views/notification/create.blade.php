@@ -1,23 +1,24 @@
 @extends('layouts.plantilla')
 
 @section('content')
-    
-    <h1>Pago</h1>
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Notificacion</h1>
 
-<form action="{{ route('notification.store') }}" method="POST">
+            <form action="{{ route('notification.store') }}" method="POST">
 
-    @csrf
+                @csrf
+                <div class="input-group">
 
-    <label>
-        mensaje
-        <br>
-        <input type="text" name="mensaje">
-    </label>
-    <br>
-  <label>
+                    <div class="input-field">
+                        <input type="text" name="mensaje" placeholder="mensaje">
+                    </div>
 
-
-<button type="submit">Enviar formulario</button>
-</form>
-
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

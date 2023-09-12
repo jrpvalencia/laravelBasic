@@ -1,42 +1,37 @@
 @extends('layouts.plantilla')
 
 @section('content')
-    
-    
-    <h1>Formulario Pqr</h1>
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Pqr</h1>
 
-<form action="{{ route('pqr.update', $pqr) }}" method="POST">
+            <form action="{{ route('pqr.update', $pqr) }}" method="POST">
 
-    @csrf
-    @method('put')
-    
-<label>
-    Motivo:
-    <br>
-    <input type="text" name="reason" value="{{$pqr->reason}}">
-</label>
-<br><br>
-<label>
-    id persona
-    <br>
-    <select name="idUser" value="{{$pqr->idUser}}">
-    @foreach($users as $user)
-                <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>
-            @endforeach
-    </select>
-   
-</label>
+                @csrf
+                @method('put')
+                <div class="input-group">
 
-<button type="submit">Enviar formulario</button>
-</form>
+                    <div class="input-field">
+                        <input type="text" name="reason" value="{{ $pqr->reason }}">
+                    </div>
+
+                    <div class="input-field select-field">
+                        <select name="idUser" value="{{ $pqr->idUser }}" class="styled-select">
+                            @foreach ($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
 
 
-</body>
-</html>
-@endsection
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
 
+            <div></div>
 
-
-
-
+        </div>
+    @endsection

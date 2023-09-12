@@ -168,3 +168,55 @@ form p a {
 
 
 
+
+
+/* Agregar una nueva clase para las columnas */
+.column {
+    flex-basis: 50%; /* Dividir en dos columnas */
+    margin-right: 10px; /* Espacio entre columnas */
+}
+
+/* Establecer estilos para los elementos en la primera columna */
+.column:nth-child(odd) {
+    margin-right: 5px; /* Menos espacio entre columnas impares */
+}
+
+/* Establecer estilos para los elementos en la segunda columna */
+.column:nth-child(even) {
+    margin-left: 5px; /* Menos espacio entre columnas pares */
+}
+
+/* Ajustar el estilo de los campos de entrada */
+.input-field {
+    background-color: #515966;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    transition: max-height 0.5s;
+    overflow: hidden;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan a la siguiente línea */
+}
+
+/* Redefinir el estilo del input */
+.input-field input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 10px 15px; /* Reducir el padding vertical y horizontal */
+    color: #ffff;
+}
+
+/* Redefinir el estilo del select */
+.select-field select {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 10px 15px; /* Reducir el padding vertical y horizontal */
+    color: #ffff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}

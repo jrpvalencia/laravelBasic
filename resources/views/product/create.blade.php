@@ -11,39 +11,25 @@
                 <div class="input-group">
 
 
-
-
                     <div class="input-field" id="nameId">
                         <input type="text" name="name" placeholder="name">
                     </div>
 
                     <div class="input-field">
-
-
                         <input type="text" name="description" placeholder="Descripción">
-
-
                     </div>
 
 
                     <div class="input-field">
-
-
                         <input type="file" name="image" placeholder="Imagen">
-
                     </div>
 
                     <div class="input-field">
-
                         <input type="tel" name="price" placeholder="Precio">
-
                     </div>
 
                     <div class="input-field">
-
-
                         <input type="number" name="concentration" placeholder="Concentración">
-
                     </div>
 
                     

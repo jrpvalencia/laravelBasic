@@ -335,3 +335,16 @@ thead th.active,tbody td.active {
   a {
     text-decoration: none; /* Elimina la decoración de subrayado */
 }
+
+
+.button-container {
+    display: flex; /* Utilizamos flexbox para alinear los botones horizontalmente */
+    justify-content: space-between; /* Distribuye los botones de manera uniforme en el espacio disponible */
+}
+
+.btn {
+    /* Ajusta los estilos de tus botones según tus preferencias */
+    /* Puedes personalizar estos estilos según tus necesidades */
+    padding: 5px 20px ;
+    margin: 0 1px;
+}

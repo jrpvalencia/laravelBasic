@@ -1,21 +1,26 @@
 @extends('layouts.plantilla')
 
 @section('content')
-<h1>Crear rol</h1>
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Rol</h1>
 
-<form action="{{ route('rol.update', ['rol' => $rol->id]) }}" method="POST">
+            <form action="{{ route('rol.update', ['rol' => $rol->id]) }}" method="POST">
 
-    @csrf
-    @method('put')
-    
-<label>
-    Nombre:
-    
-    <br>
-    <input type="text" name="name" value="{{$rol->name}}">
-</label>
-<br>
-<button type="submit">Enviar</button>
-</form>
+                @csrf
+                @method('put')
+                <div class="input-group">
 
+
+                    <div class="input-field">
+                        <input type="text" name="name" value="{{ $rol->name }}">
+                    </div>
+
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

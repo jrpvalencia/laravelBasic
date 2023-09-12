@@ -1,21 +1,27 @@
 @extends('layouts.plantilla')
 
 @section('content')
-<h1>Crear temporada</h1>
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Temporada</h1>
 
-<form action="{{ route('season.update', ['season' => $season->id]) }}" method="POST">
+            <form action="{{ route('season.update', ['season' => $season->id]) }}" method="POST">
 
-   
-    @csrf
-    @method('put')
-<label>
-    Nombre:
-    
-    <br>
-    <input type="text" name="name" value="{{$season->name}}">
-</label>
-<br>
-<button type="submit">Enviar:</button>
-</form>
 
+                @csrf
+                @method('put')
+                <div class="input-group">
+
+
+                    <div class="input-field">
+                        <input type="text" name="name" value="{{ $season->name }}">
+                    </div>
+
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

@@ -1,69 +1,72 @@
-@extends('layouts.plantilla')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/formularioUser.css') }}">
     
-    <h1>Pedido</h1>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Usuario</h1>
 
-<form action="{{ route('user.update', $user) }}" method="POST">
+            <form action="{{ route('user.update', $user) }}" method="POST">
 
-    @csrf
-    @method('put')
-  <label>
-    Nombre
-    <br>
-    <input type="text" name="name"  value="{{$user->name}}">
-</label>
-<br> <br>
-<label>
-    Apellido
-    <br>
-    <input type="text" name="lastName"  value="{{$user->lastName}}">
-</label>
-<br> <br>
-<label>
-Tipo de documeto
-    <br>
-    <input type="text" name="typeDocument"value="{{$user->typeDocument}}">
-</label>
-<br> <br>
-<label>
-    documeto
-        <br>
-        <input type="tel" name="document"value="{{$user->document}}">
-    </label>
-    <br> <br>
-    <label>
-        Telefono
-            <br>
-            <input type="tel" name="phone"value="{{$user->phone}}">
-        </label>
-        <br> <br>
-        
-    <label>
-        Rol
-        <br>
-    <select name="idRol" value="{{$user->idRol}}">
-      @foreach($rol as $rols)
-                  <option value="{{ $rols->id }}">{{ $rols->id }} {{ $rols->name }}</option>
-              @endforeach
-      </select>
-</label>
-<br>
+                @csrf
+                @method('put')
+                <div class="input-group">
 
-<label>
-    email
-        <br>
-        <input type="email" name="email"value="{{$user->email}}">
-    </label>
-    <br> <br>
-    <label>
-        contraseña
-            <br>
-            <input type="password" name="password"value="{{$user->password}}">
-        </label>
-        <br> <br>
+                    <div class="input-field">
+                        <input type="text" name="name" value="{{ $user->name }}">
+                    </div>
 
-<button type="submit">Enviar formulario</button>
-</form>
+                    <div class="input-field">
+                        <input type="text" name="lastName" value="{{ $user->lastName }}">
+                    </div>
 
+                    <div class="input-field">
+                        <input type="text" name="typeDocument"value="{{ $user->typeDocument }}">
+                    </div>
+
+                    <div class="input-field">
+                        <input type="tel" name="document"value="{{ $user->document }}">
+                    </div>
+
+                    <div class="input-field">
+                        <input type="tel" name="phone"value="{{ $user->phone }}">
+                    </div>
+
+
+
+                    <div class="input-field select-field">
+                        <select name="idRol" value="{{ $user->idRol }}" class="styled-select">
+                            @foreach ($rol as $rols)
+                                <option value="{{ $rols->id }}">{{ $rols->id }} {{ $rols->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+
+                    <div class="input-field">
+                        <input type="email" name="email"value="{{ $user->email }}">
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" name="password"value="{{ $user->password }}">
+                    </div>
+
+
+
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

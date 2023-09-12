@@ -13,7 +13,7 @@
             <a href="{{ route('product.create') }}"class="btn primary btn-block">
                 Agregar
             </a>
-            
+
             <div class="export__file">
                 <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn"
                         title="Export File"></label></a>
@@ -42,16 +42,16 @@
 
                             <td>
                                 @if ($products->image)
-                                <img src="{{ $products->image }}" alt="">
+                                    <img src="{{ $products->image }}" alt="">
                                 @endif
                             </td>
-                        
+
                             <td>{{ $products->price }}</td>
                             <td>{{ $products->concentration }}</td>
                             <td>{{ $products->idSeason }}</td>
 
-                            
-                            <td>
+
+                            <td  class="button-container">
                                 <form action="{{ route('product.destroy', $products->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -59,14 +59,16 @@
                                 </form>
                                 <a href="{{ route('product.edit', $products->id) }}" class="btn secondary btn-block">
                                     <i class='bx bxs-edit-alt'></i> </a>
+                                <a href="{{ route('product.show', $products->id) }}" class="btn secondary btn-block">
+                                    <i class='bx bx-show-alt'></i> </a>
                             </td>
-                      
-                            
-                           
+
+
+
                         </tr>
                     @endforeach
 
-            
+
                 </tbody>
             </table>
         </section>
@@ -74,5 +76,5 @@
 </body>
 {{-- <img src="http://localhost/laravelBasic/storage/app/public/product/1693764410.jpeg" alt=""> --}}
 {{-- php artisan storage:link --}}
-{{--  <p>URL de la imagen: {{ asset('storage/product/' . $products->image) }}</p>--}}
+{{--  <p>URL de la imagen: {{ asset('storage/product/' . $products->image) }}</p> --}}
 {{-- <img src="http://localhost/laravelBasic/storage/app/public/product/{{ $products->image }}" alt="Imagen de producto"> --}}
