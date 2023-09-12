@@ -116,7 +116,7 @@
 
                 inputImagen.style.display = "none";
 
-                n
+                
                 botonEditarImagen.style.display = "block";
             });
             
