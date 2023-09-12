@@ -1,68 +1,66 @@
-@extends('layouts.plantilla')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/formularioUser.css') }}">
     
-    <h1>Pedido</h1>
+    <title>Document</title>
+</head>
+<body>
+    
 
-<form action="{{ route('user.store') }}" method="POST">
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Usuario</h1>
+            <form action="{{ route('user.store') }}" method="POST">
+                @csrf
+                <div class="input-group">
 
-    @csrf
-  <label>
-    Nombre
-    <br>
-    <input type="text" name="name">
-</label>
-<br> <br>
-<label>
-    Apellido
-    <br>
-    <input type="text" name="lastName">
-</label>
-<br> <br>
-<label>
-Tipo de documeto
-    <br>
-    <input type="text" name="typeDocument">
-</label>
-<br> <br>
-<label>
-    documeto
-        <br>
-        <input type="tel" name="document">
-    </label>
-    <br> <br>
-    <label>
-        Telefono
-            <br>
-            <input type="tel" name="phone">
-        </label>
-        <br> <br>
-        
-    <label>
-        Rol
-        <br>
-    <select name="idRol">
-      @foreach($rol as $rols)
-                  <option value="{{ $rols->id }}">{{ $rols->id }} {{ $rols->name }}</option>
-              @endforeach
-      </select>
-</label>
-<br>
 
-<label>
-    email
-        <br>
-        <input type="email" name="email">
-    </label>
-    <br> <br>
-    <label>
-        contraseña
-            <br>
-            <input type="password" name="password">
-        </label>
-        <br> <br>
+                    <div class="input-field">
+                        <input type="text" name="name" placeholder="Nombre">
+                    </div>
 
-<button type="submit">Enviar formulario</button>
-</form>
+                    <div class="input-field">
+                        <input type="text" name="lastName" placeholder="Apellido">
+                    </div>
 
-@endsection
+                    <div class="input-field">
+                        <input type="text" name="typeDocument" placeholder="Tipo de documeto">
+                    </div>
+
+                    <div class="input-field">
+                        <input type="tel" name="document" placeholder="documeto">
+                    </div>
+
+                    <div class="input-field">
+                        <input type="tel" name="phone" placeholder="Telefono">
+                    </div>
+
+                    <div class="input-field select-field">
+                        <select name="idRol" class="styled-select">
+                            @foreach ($rol as $rols)
+                                <option value="{{ $rols->id }}">{{ $rols->id }} {{ $rols->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
+                    <div class="input-field">
+                        <input type="email" name="email" placeholder="email">
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" name="password" placeholder="contraseña">
+                    </div>
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -73,10 +73,15 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    public function edit(Comment $comment){
+
+        $users = User::all();
+
+        return view('comment.edit', compact('comment', 'users'));
+
+       
+     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -85,9 +90,17 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comment $comment)
     {
-        //
+        $comment->comment_id=$request->comment_id;
+        $comment->comment_type=$request->comment_type;
+        $comment->mensaje=$request->mensaje;
+        $comment->idUser=$request->idUser;
+
+        $comment->save();
+
+
+        return Redirect()->route('comment.index',$comment);
     }
 
     /**

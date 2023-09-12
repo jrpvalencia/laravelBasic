@@ -8,17 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    public static $snakeAttributes = false;
-    protected $table = "products";
-    protected $fillable = [
-        "nombre",
-        "descripcion",
-        "imagen",
-        "precio",
-        "idTemporada"
-    ];
-    public $timestamps =false;
-
+   
     
     public function favoritos(){
         return $this->hasMany('App\Models\Favorite');

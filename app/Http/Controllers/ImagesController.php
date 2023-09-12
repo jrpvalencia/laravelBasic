@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Image;
+use App\Models\Season;
 use Illuminate\Http\Request;
 
 class ImagesController extends Controller
@@ -66,23 +67,32 @@ class ImagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+    
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+     public function edit($images_id, $images_type) {
+        dd($images_id, $images_type);
+        $image = Image::where('images_id', $images_id)->where('images_type', $images_type)->firstOrFail();
+        $seasons = Season::all(); 
+        return view('image.edit', compact('image', 'seasons'));
     }
+    
+    public function update(Request $request, $images_id, $images_type)
+    {
 
+        dd($images_id, $images_type, $request->all());
+        $image = Image::where('images_id', $images_id)->where('images_type', $images_type)->firstOrFail();
+    
+        $image->url = $request->url;
+        $image->images_id = $request->images_id;
+        $image->images_type = $request->images_type;
+    
+        $image->save();
+    
+        return redirect()->route('image.index')->with('success', 'Imagen actualizada exitosamente.');
+    }
+    
+
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -93,7 +103,7 @@ class ImagesController extends Controller
 
     public function destroy($images_id, $images_type)
 {
-    // Buscar y eliminar la imagen basada en las claves compuestas
+   
     Image::where('images_id', $images_id)->where('images_type', $images_type)->delete();
     return back()->with('success', 'Registro eliminado correctamente');
 }

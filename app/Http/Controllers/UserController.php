@@ -73,10 +73,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -85,10 +82,28 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->name = $request->name;
+        $user->lastName = $request->lastName;
+        $user->typeDocument = $request->typeDocument;
+        $user->document = $request->document;
+        $user->idRol = $request->idRol;
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+        $user->save();
+
+        return redirect()->route('user.index', $user);
     }
+    public function edit(User $user){
+
+        $rol = Rol::all();
+
+        return view('user.edit', compact('user', 'rol'));
+
+       
+     }
 
     /**
      * Remove the specified resource from storage.

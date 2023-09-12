@@ -36,6 +36,9 @@
                             <button type="submit" class="status delivered">Eliminar</button>
                         </form>
                     </td>
+                    <td>
+                        <a href="{{ route('season.edit',$seasons->id) }}"><p class="status delivered">Editar </p></a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

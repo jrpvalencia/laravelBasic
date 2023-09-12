@@ -62,8 +62,15 @@ class RolController extends Controller
      */
     public function update(Request $request, Rol $rol)
     {
-        //
+        $rol->name = $request->name;
+
+        $rol->save();
+
+        return redirect()->route('rol.index', $rol);
     }
+    public function edit(Rol $rol){
+        return view('roles.edit',compact('rol'));
+     }
 
     /**
      * Remove the specified resource from storage.

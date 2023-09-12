@@ -1,20 +1,25 @@
 @extends('layouts.plantilla')
 
 @section('content')
-<h1>Crear rol</h1>
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Rol</h1>
 
-<form action="{{ route('rolesStore') }}" method="POST">
+            <form action="{{ route('rolesStore') }}" method="POST">
 
-    @csrf
-    
-<label>
-    Nombre:
-    
-    <br>
-    <input type="text" name="name">
-</label>
-<br>
-<button type="submit">Enviar</button>
-</form>
+                @csrf
+                <div class="input-group">
 
+
+                    <div class="input-field">
+                        <input type="text" name="name" placeholder="Nombre">
+                    </div>
+
+                    <div class="btn-field">
+                        <button id="singUp" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection

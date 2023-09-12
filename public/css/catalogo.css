@@ -1,0 +1,187 @@
+body {
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.columnas {
+    display: grid;
+    
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    column-gap: 10px;
+    row-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px;
+    
+}
+
+.conte {
+    height: 450px;
+    box-shadow: 0 0 7px #111;
+    width: 60%;
+    margin: 0px 10px 10px 0px; /* Reducir el margen inferior para reducir el espacio entre las tarjetas */
+    box-shadow: rgba(0, 0, 0, 0.63) 2px 2px 11px 0px;
+}
+
+
+
+
+.conte .card {
+    height: 150px;
+    width: 100%;
+    
+    margin-bottom: 170px;
+}
+
+.card img {
+    margin: auto;
+    display: block;
+}
+
+.card1 img {
+    height: 238px;
+    width: 238px;
+}
+
+.conte .card1 {
+    background-color: #111;
+}
+
+.conte .card2 {
+    background-color: #efb810;
+}
+
+.conte .card3 {
+    background-color: #111;
+}
+
+.conte .card2 img {
+    height: 238px;
+    width: 238px;
+}
+
+.conte .card3 img {
+    height: 238px;
+    width: 238px;
+}
+
+.informacion {
+    height: 80px;
+    width: 100%;
+}
+
+.informacion h1 {
+    font-family: sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    color: #333;
+}
+
+.informacion p {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    color: #555;
+    height: 10px;
+}
+
+.precio {
+    height: 50px;
+    width: 85%;
+    margin: auto;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box-precio {
+    width: 80px;
+}
+
+.precio1 {
+    color: red;
+    font-size: 0.8em;
+}
+
+.precio2 {
+    font-size: 0.8em;
+}
+
+#shoping {
+    font-size: 1.5em;
+    color: #555;
+}
+
+.navbar {
+    background-color: rgb(224, 7, 7);
+}
+
+.navbar .fa-shopping-cart {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.cart-section {
+    padding: 80px 0;
+   
+   
+}
+
+
+@media screen and (max-width: 1400px) {
+    .columnas {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
+    }
+
+    .conte {
+        width: 23%;
+        margin: 10px auto; 
+    }
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .conte {
+        width: 30%;
+        margin: 20px auto; 
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .columnas {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+
+    .conte {
+        width: 38%;
+        margin: 10px auto;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .columnas {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
+    }
+
+    .conte {
+        width: 60%;
+        margin: 10px auto; 
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .columnas {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+
+    .conte {
+        width: 100%; 
+        margin: 10px auto;
+    }
+}

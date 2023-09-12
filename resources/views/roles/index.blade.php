@@ -35,6 +35,9 @@
                             <button type="submit" class="status delivered">Eliminar</button>
                         </form>
                     </td>
+                    <td>
+                        <a href="{{ route('rol.edit',$rols->id) }}"><p class="status delivered">Editar </p></a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

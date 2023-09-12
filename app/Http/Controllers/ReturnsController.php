@@ -66,9 +66,26 @@ class ReturnsController extends Controller
      */
     public function update(Request $request, Returns $returns)
     {
-        //
+        $returns->reason = $request->reason;
+        $returns->idOrder = $request->idOrder;
+        $returns->idPqr = $request->idPqr;
+    
+        $returns->save();
+
+        return redirect()->route('returns.index', $returns);
     }
 
+    public function edit(Returns $returns){
+
+        $orders = Order::all();
+        $pqrs = PQR::all();
+
+        return view('returns.edit', compact('returns','orders', 'pqrs'));
+
+
+  
+       
+     }
     /**
      * Remove the specified resource from storage.
      *

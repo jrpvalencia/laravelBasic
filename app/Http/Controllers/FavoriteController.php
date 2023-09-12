@@ -66,8 +66,25 @@ class FavoriteController extends Controller
      */
     public function update(Request $request, Favorite $favorite)
     {
-        //
+        $favorite->idUser=$request->idUser;
+        $favorite->idProduct=$request->idProduct;
+        $favorite->save();
+
+
+        return Redirect()->route('favorite.index',$favorite);
     }
+
+    public function edit(Favorite $favorite){
+
+        $users = User::all();
+        $products = Product::all();
+
+        return view('favorite.edit', compact('favorite','users', 'products'));
+
+
+  
+       
+     }
 
     /**
      * Remove the specified resource from storage.

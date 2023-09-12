@@ -39,6 +39,9 @@
                             <button type="submit" class="status delivered">Eliminar</button>
                         </form>
                     </td>
+                    <td>
+                        <a href="{{ route('shoppingCart.edit',$shoppingCarts->id) }}"><p class="status delivered">Editar </p></a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

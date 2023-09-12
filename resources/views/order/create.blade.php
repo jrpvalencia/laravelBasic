@@ -1,31 +1,34 @@
 @extends('layouts.plantilla')
 
 @section('content')
-    
-    <h1>Pedido</h1>
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title">Pedido</h1>
 
-<form action="{{ route('order.store') }}" method="POST">
+            <form action="{{ route('order.store') }}" method="POST">
 
-    @csrf
-  <label>
-    fecha de orden
-    <br>
-    <input type="date" name="dateOrder">
-</label>
-<br> <br>
-<label>
-  id carrito
-    <br>
-    
+                @csrf
+                <div class="input-group">
 
-    <select name="idShoppingCart">
-      @foreach($shoppingCarts as $shoppingCart)
-                  <option value="{{ $shoppingCart->id }}">{{ $shoppingCart->id }} {{ $shoppingCart->name }}</option>
-              @endforeach
-      </select>
-</label>
+                    <div class="input-field">
+                        <input type="date" name="dateOrder" placeholder="fecha de orden">
+                    </div>
 
-<button type="submit">Enviar formulario</button>
-</form>
+                    <div class="input-field select-field">
+                        <select name="idShoppingCart" class="styled-select">
+                            @foreach ($shoppingCarts as $shoppingCart)
+                                <option value="{{ $shoppingCart->id }}">{{ $shoppingCart->id }} {{ $shoppingCart->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
 
+
+                    <div class="btn-field">
+                      <button id="singUp" type="submit">Enviar</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
