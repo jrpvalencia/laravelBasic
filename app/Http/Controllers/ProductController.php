@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $product = Product::all();
 
-      
+    
         
         return view('product.index', compact('product'));
     
