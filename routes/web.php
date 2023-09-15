@@ -33,10 +33,6 @@ use JetBrains\PhpStorm\Immutable;
 Route::get('/',[Controller::class,'index'])->name('inicio');
 
 
-Route::get('curso/create',[cursosController::class,'create'])->name('curso.create');
-Route::post('cursos', [cursosController::class,'store'])->name('cursos.store');
-Route::get('cursos',[cursosController::class,'index'])->name('cursos.index');
-Route::get('yo',[cursosController::class,'destroy'])->name('destroy.store');
 //RUTAS DE PRODUCTOS
 Route::post('productos', [ProductController::class,'store'])->name('product.store');
 Route::get('productos/create',[ProductController::class,'create'])->name('product.create');
