@@ -46,7 +46,7 @@ class TypePayController extends Controller
      */
     public function show(TypePay $typePay)
     {
-        //
+        return view('typePay.show');
     }
 
     /**

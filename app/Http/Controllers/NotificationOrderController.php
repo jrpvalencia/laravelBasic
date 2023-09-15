@@ -56,7 +56,7 @@ class NotificationOrderController extends Controller
      */
     public function show(NotificationOrder $notificationOrder)
     {
-        //
+        return view('notificationOrder.show');
     }
 
     /**

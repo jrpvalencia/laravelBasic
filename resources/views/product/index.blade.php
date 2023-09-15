@@ -36,8 +36,9 @@
                     <td>{{ $products->name }}</td>
                     <td>{{ $products->description }}</td>
                     <td>
-                        <img src="{{ asset('storage/' . $products->image) }}" alt="{{ $products->name }}" width="100">
+                        <img src="{{ asset('storage/product/' . $products->image) }}" alt="Imagen del Producto">
                     </td>
+                    
                     <td>{{ $products->price }}</td>
                     <td>{{ $products->concentration }}</td>
                     <td>{{ $products->idSeason }}</td>

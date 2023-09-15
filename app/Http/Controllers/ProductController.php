@@ -20,11 +20,7 @@ class ProductController extends Controller
     {
         $product = Product::all();
 
-        foreach ($product as $products) {
-            if ($products->image) {
-                $products->image = asset('storage/product/' . $products->image);
-            }
-        }
+      
         
         return view('product.index', compact('product'));
     
@@ -105,10 +101,23 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
-    {
-        return view('product.show');
-    }
+  
+     public function show($id)
+     {
+         // Obtener el producto con el ID proporcionado
+         $product = Product::find($id);
+ 
+         if (!$product) {
+             // Manejar el caso en que el producto no se encuentre
+             abort(404);
+         }
+ 
+         return view('product.show', compact('product'));
+     }
+    
+      
+/*         return view('product.show', ['product' => $product]); */
+    
 
     /**
      * Update the specified resource in storage.

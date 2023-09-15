@@ -56,7 +56,7 @@ class ShoppingCartController extends Controller
      */
     public function show(ShoppingCart $shoppingCart)
     {
-        //
+        return view('shoppingCart.show');
     }
 
     /**

@@ -25,10 +25,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{{route('home')}}">Inicio</a>
+            <a class="nav-link" href="{{route('inicio')}}">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Productos</a>
+            <a class="nav-link" href=""#>Productos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Temporadas</a>
@@ -58,8 +58,6 @@
   
 
   <section class="cart-section">
-
-
     <div class="columnas">
         @php
         $cardClasses = ['card1', 'card2'];
@@ -68,12 +66,9 @@
 
         @foreach ($product as $products)
         <div class="conte">
-            <div class="card {{ $cardClasses[$currentCardIndex] }}">
-              
-
-                   <img src="{{ $products->image }}" alt="Imagen"> 
-
-            </div>
+            <a href="{{ route('product.show', ['id' => $products->id]) }}" class="card {{ $cardClasses[$currentCardIndex] }}" data-card-index="{{ $products->id }}">
+                <img src="{{ $products->image }}" alt="Imagen">
+            </a>
             <div class="informacion">
                 <h1>{{$products->name}}</h1>
                 <p class="fecha">{{$products->description}}</p>
@@ -94,15 +89,8 @@
 
         @endforeach
     </div>
-
-
-   
-  </section>
-
-
+</section>
 </body>
 </html>
-
-
 
 

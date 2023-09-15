@@ -43,7 +43,7 @@ class PayController extends Controller
     
     public function show(Pay $pay)
     {
-        //
+        return view('pay.show');
     }
 
     
