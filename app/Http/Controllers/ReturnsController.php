@@ -54,7 +54,7 @@ class ReturnsController extends Controller
     }
     public function show(Returns $returns)
     {
-        //
+        return view('returns.show');
     }
 
     /**

@@ -55,7 +55,7 @@ class PQRController extends Controller
      */
     public function show(PQR $pQR)
     {
-        //
+        return view('pqr.show');
     }
 
     /**

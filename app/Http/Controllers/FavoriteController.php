@@ -54,7 +54,7 @@ class FavoriteController extends Controller
      */
     public function show(Favorite $favorite)
     {
-        //
+        return view('favorite.show');
     }
 
     /**

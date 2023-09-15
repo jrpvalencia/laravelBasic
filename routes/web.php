@@ -40,7 +40,9 @@ Route::get('productos/index',[ProductController::class,'index'])->name('product.
 Route::delete('productos/{product}',[ProductController::class,'destroy'])->name('product.destroy');
 Route::get('productos/{product}/edit',[ProductController::class, 'edit'])->name('product.edit');
 Route::put('productos/{product}',[ProductController::class, 'update'])->name('product.update');
-Route::get('productos',[ProductController::class, 'show'])->name('product.show');
+
+
+Route::get('productos/show/{id}',[ProductController::class, 'show'])->name('product.show');
 route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.index');
 
 //RUTAS TEMPORADA
@@ -51,6 +53,7 @@ Route::get('temporadas',[SeasonController::class,'index'])->name('seasons.index'
 Route::delete('temporadas/{season}', [SeasonController::class, 'destroy'])->name('season.destroy');
 Route::get('temporadas/{season}/edit',[SeasonController::class, 'edit'])->name('season.edit');
 Route::put('temporadas/{season}',[SeasonController::class, 'update'])->name('season.update');
+Route::get('temporadas',[SeasonController::class, 'show'])->name('season.show');
 
 //RUTAS ROL
 
@@ -60,6 +63,7 @@ Route::get('roles',[RolController::class,'index'])->name('rol.index');
 Route::delete('roles/{rol}', [RolController::class, 'destroy'])->name('rol.destroy');
 Route::get('roles/{rol}/edit',[RolController::class, 'edit'])->name('rol.edit');
 Route::put('roles/{rol}',[RolController::class, 'update'])->name('rol.update');
+Route::get('roles',[RolController::class, 'show'])->name('rol.show');
 
 //RUTAS DE PQR
 Route::get('pqr',[PqrController::class,'index'])->name('pqr.index');
@@ -68,6 +72,7 @@ Route::post('pqr',[PqrController::class, 'store'])->name('pqr.store');
 Route::delete('pqr/{pqr}', [PqrController::class, 'destroy'])->name('pqr.destroy');
 Route::get('pqr/{pqr}/edit',[PqrController::class, 'edit'])->name('pqr.edit');
 Route::put('pqr/{pqr}',[PqrController::class, 'update'])->name('pqr.update');
+Route::get('pqr',[PqrController::class, 'show'])->name('pqr.show');
 
 
 //RUTAS DE CARRITO DE COMPRA
@@ -77,6 +82,7 @@ Route::get('carritoDeCompra',[ShoppingCartController::class, 'index'])->name('sh
 Route::delete('carritoDeCompra/{shoppingCart}', [ShoppingCartController::class, 'destroy'])->name('shoppingCart.destroy');
 Route::get('carritoDeCompra/{shoppingCart}/edit',[ShoppingCartController::class, 'edit'])->name('shoppingCart.edit');
 Route::put('carritoDeCompra/{shoppingCart}',[ShoppingCartController::class, 'update'])->name('shoppingCart.update');
+Route::get('carritoDeCompra',[ShoppingCartController::class, 'show'])->name('shoppingCart.show');
 
 //RUTA DEVOLUCION
 
@@ -86,6 +92,7 @@ Route::get('devolucion',[ReturnsController::class, 'index'])->name('returns.inde
 Route::delete('devolucion/{returns}', [ReturnsController::class, 'destroy'])->name('returns.destroy');
 Route::get('devolucion/{returns}/edit',[ReturnsController::class, 'edit'])->name('returns.edit');
 Route::put('devolucion/{returns}',[ReturnsController::class, 'update'])->name('returns.update');
+Route::get('devolucion',[ReturnsController::class, 'show'])->name('returns.show');
 
 //RUTA DE FORMA DE PAGO
 
@@ -95,7 +102,7 @@ Route::get('formaDePago',[TypePayController::class, 'index'])->name('typePay.ind
 Route::delete('formaDePago/{typePay}', [TypePayController::class, 'destroy'])->name('typePay.destroy');
 Route::get('formaDePago/{typePay}/edit',[TypePayController::class, 'edit'])->name('typePay.edit');
 Route::put('formaDePago/{typePay}',[TypePayController::class, 'update'])->name('typePay.update');
-
+Route::get('formaDePago',[TypePayController::class, 'show'])->name('typePay.show');
 
 //RUTAS DE PAGO
 
@@ -105,6 +112,7 @@ Route::get('pago',[PayController::class, 'index'])->name('pay.index');
 Route::delete('pago/{pay}', [PayController::class, 'destroy'])->name('pay.destroy');
 Route::get('pago/{pay}/edit',[PayController::class, 'edit'])->name('pay.edit');
 Route::put('pago/{pay}',[PayController::class, 'update'])->name('pay.update');
+Route::get('pago',[PayController::class, 'show'])->name('pay.show');
 
 //RUTAS PEDIDO
 
@@ -114,6 +122,7 @@ Route::get('pedido',[OrderController::class, 'index'])->name('order.index');
 Route::delete('pedido/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
 Route::get('pedido/{order}/edit',[OrderController::class, 'edit'])->name('order.edit');
 Route::put('pedido/{order}',[OrderController::class, 'update'])->name('order.update');
+Route::get('pedido',[OrderController::class, 'show'])->name('order.show');
 
 //RUTAs de notificacion pedido
 
@@ -123,7 +132,7 @@ Route::get('notificacionPedido',[NotificationOrderController::class, 'index'])->
 Route::delete('notificacionPedido/{notificationOrder}', [NotificationOrderController::class, 'destroy'])->name('notificationOrder.destroy');
 Route::get('notificacionPedido/{notificationOrder}/edit',[NotificationOrderController::class, 'edit'])->name('notificationOrder.edit');
 Route::put('notificacionPedido/{notificationOrder}',[NotificationOrderController::class, 'update'])->name('notificationOrder.update');
-
+Route::get('notificacionPedido',[NotificationOrderController::class, 'show'])->name('notificationOrder.show');
 
 //RUTAs de NOTIFICACION
 
@@ -133,6 +142,7 @@ Route::get('notificacion',[NotificationController::class, 'index'])->name('notif
 Route::delete('notificacion/{notification}', [NotificationController::class, 'destroy'])->name('notification.destroy');
 Route::get('notificacion/{notification}/edit',[NotificationController::class, 'edit'])->name('notification.edit');
 Route::put('notificacion/{notification}',[NotificationController::class, 'update'])->name('notification.update');
+Route::get('notificacion',[NotificationController::class, 'show'])->name('notification.show');
 
 //RUTAs de Favoritos
 
@@ -142,6 +152,7 @@ Route::get('favoritos',[FavoriteController::class, 'index'])->name('favorite.ind
 Route::delete('favoritos/{favorite}', [FavoriteController::class, 'destroy'])->name('favorite.destroy');
 Route::get('favoritos/{favorite}/edit',[FavoriteController::class, 'edit'])->name('favorite.edit');
 Route::put('favoritos/{favorite}',[FavoriteController::class, 'update'])->name('favorite.update');
+Route::get('favoritos',[FavoriteController::class, 'show'])->name('favorite.show');
 
 //RUTAS USUARIO
 
@@ -151,6 +162,7 @@ Route::get('usuario',[UserController::class, 'index'])->name('user.index');
 Route::delete('usuario/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('usuario/{user}/edit',[UserController::class, 'edit'])->name('user.edit');
 Route::put('usuario/{user}',[UserController::class, 'update'])->name('user.update');
+Route::get('usuario',[UserController::class, 'show'])->name('user.show');
 
 
 //RUTAS IMAGEN
@@ -162,7 +174,7 @@ Route::get('imagen', [ImagesController::class, 'index'])->name('image.index');
 Route::delete('imagen/{images_id}/{images_type}', [ImagesController::class, 'destroy'])->name('image.destroy');
 Route::get('imagen/{images_id}/{images_type}/edit', [ImagesController::class, 'edit'])->name('image.edit');
 Route::put('imagen/{images_id}/{images_type}', [ImagesController::class, 'update'])->name('image.update');
-
+Route::get('imagen',[ImagesController::class, 'show'])->name('image.show');
 
 //RUTAS COMENTARIO
 
@@ -172,7 +184,7 @@ Route::get('comentario',[CommentController::class, 'index'])->name('comment.inde
 Route::delete('comentario/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 Route::get('comentario/{comment}/edit',[CommentController::class, 'edit'])->name('comment.edit');
 Route::put('comentario/{comment}',[CommentController::class, 'update'])->name('comment.update');
-
+Route::get('comentario',[CommentController::class, 'show'])->name('comment.show');
 //NAVEGABILIDAD
 
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');

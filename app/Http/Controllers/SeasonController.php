@@ -51,7 +51,7 @@ class SeasonController extends Controller
      */
     public function show(Season $season)
     {
-        //
+        return view('seasons.show');
     }
 
     /**
