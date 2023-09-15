@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+@extends('layouts.formulario')
 
 @section('content')
 <h1>Crear prove</h1>
