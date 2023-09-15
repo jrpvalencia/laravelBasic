@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.plantilla')
+
+@section('title','Conocenos')
+
+@section('head')
     <title>Conocenos</title>
     <link rel="shortcut icon" href="IMG/LOGO.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/conocenos.css">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville&family=Quicksand:wght@300&display=swap" rel="stylesheet">
-</head>
-<body>
+@endsection()
+
+@section('content')
     <header>
         <div class="Principal"> 
             <h1 class="titulo1">Quienes somos</h1>
@@ -49,12 +49,13 @@
                 amet consectetur, adipisicing elit. Ipsam, 
                 dolorum maxime recusandae distinctio voluptatum quam id 
                 placeat veniam obcaecati et accusantium delectus corporis
-                 repellendus assumenda porro blanditiis nobis natus doloribus.</p>
+                repellendus assumenda porro blanditiis nobis natus doloribus.</p>
         </div>
     </section>
-    <div class="boton"><a href="{{route('home')}}"><button><span class="transition">
+    <div class="boton"><a href="{{route('login')}}"><button><span class="transition">
     </span><span class="gradient"></span>
     <span class="label">Regresar</span></button></a></div>
     
-</body>
+@endsection()
+
 </html>
