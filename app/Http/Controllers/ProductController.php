@@ -20,11 +20,7 @@ class ProductController extends Controller
     {
         $product = Product::all();
 
-        foreach ($product as $products) {
-            if ($products->image) {
-                $products->image = asset('storage/product/' . $products->image);
-            }
-        }
+      
         
         return view('product.index', compact('product'));
     
