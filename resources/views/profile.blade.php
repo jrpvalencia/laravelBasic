@@ -5,6 +5,14 @@
 <link rel="stylesheet" href="{{asset('css/profile.css')}}">
 
 </head>
+<style>
+    p {
+        color: white; 
+        margin-bottom: 10px; 
+    }
+
+ 
+</style>
 <body>
     <div class="contenedor">
         <h1 class="titulo1">Perfil</h1>

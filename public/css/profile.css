@@ -19,11 +19,18 @@ body {
 body:hover {
     background-color: #ffcc00; }
 
-.contenedor {
-    max-width: 800px;
-    padding: 20px;
-    background-color: #292927;
-}
+    .contenedor {
+        max-width: 800px;
+        padding: 20px;
+        background-color: #252525;
+        border-radius: 10px;
+        transition: border-radius 0.9s ease; 
+    }
+    
+    
+    .contenedor:hover {
+        border-radius: 20px; 
+    }
 
 .titulo1 {
     color: #696203;
@@ -33,6 +40,7 @@ body:hover {
     display: flex;
     align-items: center;
 }
+
 
 
 .foto img {
@@ -73,8 +81,13 @@ span {
     cursor: pointer;
 }
 
-.editar-btn:hover {
-    background-color: #4d5c23;
+.editar-imagen-btn {
+    background-color: #6a7505;
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
 }
 
 

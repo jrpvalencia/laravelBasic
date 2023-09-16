@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\producto;
+use App\Models\Returns;
 use Illuminate\Database\Seeder;
 
-class ProductoSedder extends Seeder
+class returnSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,6 @@ class ProductoSedder extends Seeder
      */
     public function run()
     {
-        //
-        producto::factory(20)->create();
+        Returns::factory(9)->create();
     }
 }
