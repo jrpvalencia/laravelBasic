@@ -1,21 +1,22 @@
 @extends('layouts.formulario')
 @section('content')
     <div class="container">
-        <div class="form-content">
-            <h1 id="title">Forma de Pago</h1>
+        
+            <h1 class="mt-4"> Forma de Pago </h1>
 
             <form action="{{ route('typePay.store') }}" method="POST">
 
                 @csrf
-                <div class="input-group">
+                <div class="mb-3">
 
 
-                    <div class="input-field">
+                    <div class="mb-3">
+                        <label for="Nombre" class="form-label">Nombre:</label>
                         <input type="text" name="name" placeholder="nombre">
                     </div>
 
-                    <div class="btn-field">
-                        <button id="singUp" type="submit">Enviar</button>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">  Enviar  </i></button>
                     </div>
                 </div>
             </form>

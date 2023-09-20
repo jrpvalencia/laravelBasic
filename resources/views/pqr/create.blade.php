@@ -2,35 +2,37 @@
 
 @section('content')
     <div class="container">
-        <div class="form-content">
-            <h1 id="title">Pqr</h1>
+        
+            <h1 class="mt-4">PQR</h1>
 
             <form action="{{ route('pqr.store') }}" method="POST">
 
                 @csrf
-                <div class="input-group">
+                <div class="mb-3">
 
 
-                    <div class="input-field">
-                        <input type="text" name="reason" placeholder="Motivo">
+                    <div class="mb-3">
+                        <label for="concentracion" class="form-label">Motivo:</label>
+                        <input type="text" name="reason" >
                     </div>
 
                     <div class="input-field select-field">
-                        <select name="idUser" class="styled-select">
+                        <select name="idUser" class="form-control">
                             @foreach ($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>
                             @endforeach
                         </select>
                     </div>
 
+                    <br>
 
-                    <div class="btn-field">
-                        <button id="singUp" type="submit">Enviar</button>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Enviar </i></button>
                     </div>
                 </div>
             </form>
 
-        </div>
+        
 
     </div>
 @endsection

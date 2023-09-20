@@ -2,24 +2,25 @@
 
 @section('content')
     <div class="container">
-        <div class="form-content">
-            <h1 id="title">Rol</h1>
+        
+            <h1 id="mt4">Rol</h1>
 
             <form action="{{ route('rolesStore') }}" method="POST">
 
                 @csrf
-                <div class="input-group">
+                <div class="mb-3">
 
 
-                    <div class="input-field">
-                        <input type="text" name="name" placeholder="Nombre">
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Nombre:</label>
+                        <input type="text" name="name" >
                     </div>
 
                     <div class="btn-field">
-                        <button id="singUp" type="submit">Enviar</button>
+                        <button type="submit" class="btn btn-primary">Enviar </i></button>
                     </div>
                 </div>
             </form>
-        </div>
+        
     </div>
 @endsection

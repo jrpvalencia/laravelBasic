@@ -2,39 +2,41 @@
 
 @section('content')
     <div class="container">
-        <div class="form-content">
-            <h1 id="title">Devoluciones</h1>
+        
+            <h1 class="mb-3">Devoluciones</h1>
 
             <form action="{{ route('returns.store') }}" method="POST">
 
                 @csrf
-                <div class="input-group">
+                <div class="mb-3">
 
 
-                    <div class="input-field">
+                    <div class="mb-3">
+                        <label for="motivo" class="form-label">Motivo:</label>
                         <input type="text" name="reason" placeholder="motivo">
                     </div>
 
                     <div class="input-field select-field">
-                        <select name="idOrder" class="styled-select">
+                        <select name="idOrder" class="form-control">
                             @foreach ($orders as $order)
                                 <option value="{{ $order->id }}">{{ $order->id }} {{ $order->name }}</option>
                             @endforeach
                         </select>
                     </div>
 
+                    <br>
+
                     <div class="input-field select-field">
-                        <select name="idPqr" class="styled-select">
+                        <select name="idPqr" class="form-control">
                             @foreach ($pqrs as $pqr)
                                 <option value="{{ $pqr->id }}">{{ $pqr->id }} {{ $pqr->name }}</option>
                             @endforeach
                         </select>
                     </div>
 
+                    <br>
 
-                    <div class="btn-field">
-                        <button id="singUp" type="submit">Enviar</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary">  Enviar </i></button>
                 </div>
             </form>
         </div>
