@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     use HasFactory;
-    public function productos(){
-        return $this->hasMany('App\Models\Product');
+   
+    public function products()
+    {
+        return $this->hasMany('App\Models\Product', 'idSeason');
     }
 }

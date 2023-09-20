@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-   
-    
+ 
     public function favoritos(){
         return $this->hasMany('App\Models\Favorite');
     }
@@ -23,4 +22,11 @@ class Product extends Model
     public function comments(){
         return $this->morphMany('App\Models\Comment','comments');
     }
+    public function season()
+{
+    return $this->belongsTo('App\Models\Season', 'idSeason');
+}
+
+
+
 }
