@@ -9,7 +9,7 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
-        <a href="{{ route('shoppingCart.create') }}"><p class="status delivered">Agregar </p></a>
+        <a href="{{ route('shoppingCart.create') }}"><p class="add-button">Agregar </p></a>
         <div class="export__file">
             <a href="{{ route('inicio') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
@@ -33,15 +33,19 @@
                     <td>{{ $shoppingCarts->idUser }}</td>
                     <td>{{ $shoppingCarts->idProduct }}</td>
                     <td>
+                        <div class="button-group">
                         <form action="{{ route('shoppingCart.destroy', $shoppingCarts->id) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="status delivered">Eliminar</button>
+                            <button type="submit" class="delete-button">X</button>
                         </form>
+                    
+                        <a href="{{ route('shoppingCart.edit',$shoppingCarts->id) }}"class="edit-button"><i
+                            class='bx bxs-edit-alt'></i></a>
+                    </div>
                     </td>
-                    <td>
-                        <a href="{{ route('shoppingCart.edit',$shoppingCarts->id) }}"><p class="status delivered">Editar </p></a>
-                    </td>
+
+          
                 </tr>
                 @endforeach
             </tbody>

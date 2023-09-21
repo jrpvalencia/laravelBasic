@@ -8,7 +8,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\NotificationOrderController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PayController;
-use App\Http\Controllers\PqrController;
+use App\Http\Controllers\PQRController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReturnsController;
 use App\Http\Controllers\RolController;
@@ -49,7 +49,7 @@ route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.ind
 
 Route::post('temporadas2', [SeasonController::class,'store'])->name('temporadasStore');
 Route::get('temporada/create',[SeasonController::class,'create'])->name('temporada.create');
-Route::get('temporadas',[SeasonController::class,'index'])->name('seasons.index');
+Route::get('temporada',[SeasonController::class,'index'])->name('seasons.index');
 Route::delete('temporadas/{season}', [SeasonController::class, 'destroy'])->name('season.destroy');
 Route::get('temporadas/{season}/edit',[SeasonController::class, 'edit'])->name('season.edit');
 Route::put('temporadas/{season}',[SeasonController::class, 'update'])->name('season.update');
@@ -63,16 +63,16 @@ Route::get('roles',[RolController::class,'index'])->name('rol.index');
 Route::delete('roles/{rol}', [RolController::class, 'destroy'])->name('rol.destroy');
 Route::get('roles/{rol}/edit',[RolController::class, 'edit'])->name('rol.edit');
 Route::put('roles/{rol}',[RolController::class, 'update'])->name('rol.update');
-Route::get('roles',[RolController::class, 'show'])->name('rol.show');
+Route::get('rol',[RolController::class, 'show'])->name('rol.show');
 
 //RUTAS DE PQR
-Route::get('pqr',[PqrController::class,'index'])->name('pqr.index');
-Route::get('pqr/create',[PqrController::class, 'create'])->name('pqr.create');
-Route::post('pqr',[PqrController::class, 'store'])->name('pqr.store');
-Route::delete('pqr/{pqr}', [PqrController::class, 'destroy'])->name('pqr.destroy');
-Route::get('pqr/{pqr}/edit',[PqrController::class, 'edit'])->name('pqr.edit');
-Route::put('pqr/{pqr}',[PqrController::class, 'update'])->name('pqr.update');
-Route::get('pqr',[PqrController::class, 'show'])->name('pqr.show');
+Route::post('pqr',[PQRController::class, 'store'])->name('pqr.store');
+Route::get('pqr/create',[PQRController::class, 'create'])->name('pqr.create');
+Route::delete('pqr/{pqr}', [PQRController::class, 'destroy'])->name('pqr.destroy');
+Route::get('pqr/{pqr}/edit',[PQRController::class, 'edit'])->name('pqr.edit');
+Route::put('pqr/{pqr}',[PQRController::class, 'update'])->name('pqr.update');
+Route::get('pqrs',[PQRController::class,'index'])->name('pqrs.index');
+Route::get('pqr',[PQRController::class, 'show'])->name('pqr.show');
 
 
 //RUTAS DE CARRITO DE COMPRA
@@ -82,7 +82,7 @@ Route::get('carritoDeCompra',[ShoppingCartController::class, 'index'])->name('sh
 Route::delete('carritoDeCompra/{shoppingCart}', [ShoppingCartController::class, 'destroy'])->name('shoppingCart.destroy');
 Route::get('carritoDeCompra/{shoppingCart}/edit',[ShoppingCartController::class, 'edit'])->name('shoppingCart.edit');
 Route::put('carritoDeCompra/{shoppingCart}',[ShoppingCartController::class, 'update'])->name('shoppingCart.update');
-Route::get('carritoDeCompra',[ShoppingCartController::class, 'show'])->name('shoppingCart.show');
+Route::get('carritoDeCompras',[ShoppingCartController::class, 'show'])->name('shoppingCart.show');
 
 //RUTA DEVOLUCION
 
@@ -92,13 +92,13 @@ Route::get('devolucion',[ReturnsController::class, 'index'])->name('returns.inde
 Route::delete('devolucion/{returns}', [ReturnsController::class, 'destroy'])->name('returns.destroy');
 Route::get('devolucion/{returns}/edit',[ReturnsController::class, 'edit'])->name('returns.edit');
 Route::put('devolucion/{returns}',[ReturnsController::class, 'update'])->name('returns.update');
-Route::get('devolucion',[ReturnsController::class, 'show'])->name('returns.show');
+Route::get('devoluciones',[ReturnsController::class, 'show'])->name('returns.show');
 
 //RUTA DE FORMA DE PAGO
 
 Route::get('formaDePago/create',[TypePayController::class, 'create'])->name('typePay.create');;
 Route::post('formaDePago2',[TypePayController::class,'store'])->name('typePay.store');
-Route::get('formaDePago',[TypePayController::class, 'index'])->name('typePay.index');
+Route::get('formaDePagoS',[TypePayController::class, 'index'])->name('typePay.index');
 Route::delete('formaDePago/{typePay}', [TypePayController::class, 'destroy'])->name('typePay.destroy');
 Route::get('formaDePago/{typePay}/edit',[TypePayController::class, 'edit'])->name('typePay.edit');
 Route::put('formaDePago/{typePay}',[TypePayController::class, 'update'])->name('typePay.update');
@@ -112,13 +112,13 @@ Route::get('pago',[PayController::class, 'index'])->name('pay.index');
 Route::delete('pago/{pay}', [PayController::class, 'destroy'])->name('pay.destroy');
 Route::get('pago/{pay}/edit',[PayController::class, 'edit'])->name('pay.edit');
 Route::put('pago/{pay}',[PayController::class, 'update'])->name('pay.update');
-Route::get('pago',[PayController::class, 'show'])->name('pay.show');
+Route::get('pagos',[PayController::class, 'show'])->name('pay.show');
 
 //RUTAS PEDIDO
 
 Route::get('pedido/create',[OrderController::class, 'create'])->name('order.create');
 Route::post('pedido2',[OrderController::class,'store'])->name('order.store');
-Route::get('pedido',[OrderController::class, 'index'])->name('order.index');
+Route::get('pedidos',[OrderController::class, 'index'])->name('order.index');
 Route::delete('pedido/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
 Route::get('pedido/{order}/edit',[OrderController::class, 'edit'])->name('order.edit');
 Route::put('pedido/{order}',[OrderController::class, 'update'])->name('order.update');

@@ -8,9 +8,9 @@
                 <input type="search" placeholder="Search Data...">
                 <i class='bx bx-search-alt'></i>
             </div>
-            <a href="{{route('pqr.create')}}"><p class="status delivered">Agregar </p></a>
+            <a href="{{route('pqr.create')}}"><p class="add-button">Agregar </p></a>
             <div class="export__file">
-                <a href="{{route('home')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
+                <a href="{{route('inicio')}}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
 
             </div>
         </section>
@@ -31,15 +31,17 @@
                         <td>{{$pqrs->reason}}</td>
                         <td>{{$pqrs->idUser}}</td>
                         <td>
-                            <form action="{{ route('pqr.destroy', $pqrs->id) }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="status delivered">Eliminar</button>
-                            </form>
+                            <div class="button-group">
+                                <form action="{{ route('pqr.destroy', $pqrs->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="delete-button">x</button>
+                                </form>
+                                <a href="{{ route('pqr.edit',$pqrs->id) }}" class="edit-button"><i class='bx bxs-edit-alt'></i></a>
+                            </div>
                         </td>
-                        <td>
-                            <a href="{{ route('pqr.edit',$pqrs->id) }}"><p class="status delivered">Editar </p></a>
-                        </td>
+                        
+                        
                     </tr>
                     @endforeach
                 </tbody>

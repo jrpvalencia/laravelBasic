@@ -16,7 +16,7 @@
                         <input type="text" name="reason" >
                     </div>
 
-                    <div class="input-field select-field">
+                    <div>
                         <select name="idUser" class="form-control">
                             @foreach ($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>

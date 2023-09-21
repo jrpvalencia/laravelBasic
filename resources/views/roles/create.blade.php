@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         
-            <h1 id="mt4">Rol</h1>
+            <h1 class="mt-4">Rol</h1>
 
             <form action="{{ route('rolesStore') }}" method="POST">
 

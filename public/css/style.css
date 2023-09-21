@@ -174,8 +174,8 @@ tbody tr.hide td img {
 }
 
 .status.delivered {
-    background-color: #86e49d;
-    color: #006b21;
+    background-color: 	#343a40;
+    color: 	#343a40;
 }
 
 .status.cancelled {
@@ -295,7 +295,7 @@ thead th.active,tbody td.active {
 
 .export__file .export__file-options label:first-of-type{
     padding: 1rem 0;
-    background-color: #86e49d !important;
+    background-color: 	#343a40!important;
 }
 
 .export__file .export__file-options label:hover{
@@ -326,8 +326,8 @@ thead th.active,tbody td.active {
   .primary:hover {background: #0b7dda;}
   .secondary {background-color: #e7e7e7; color: black;} 
   .secondary:hover {background: #ddd;}
-  .success {background-color: #04AA6D;} 
-  .success:hover {background-color: #46a049;}
+  .success {background-color: 	#343a40;} 
+  .success:hover {background-color: 	#343a40;}
   .warning {background-color: #ff9800;} 
   .warning:hover {background: #e68a00;}
   .danger {background-color: #f44336;} 
@@ -348,3 +348,57 @@ thead th.active,tbody td.active {
     padding: 5px 20px ;
     margin: 0 1px;
 }
+
+
+.button-group {
+    display: flex; /* Utiliza flexbox para alinear los elementos horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.button-group form,
+.button-group a {
+    margin: 0; /* Elimina el margen predeterminado en los elementos */
+}
+
+
+    /* Estilo base para los botones */
+    .button-group button,
+    .button-group a {
+        background-color: #3498db; /* Color de fondo */
+        color: #fff; /* Color del texto */
+        border: none; /* Elimina el borde */
+        padding: 10px 20px; /* Espaciado interno (ajusta según tus necesidades) */
+        border-radius: 5px; /* Bordes redondeados */
+        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+        text-decoration: none; /* Elimina la subrayado de los enlaces */
+    }
+
+    /* Estilo al pasar el mouse por encima de los botones */
+    .button-group button:hover,
+    .button-group a:hover {
+        background-color: #2980b9; /* Cambia el color de fondo al pasar el mouse */
+    }
+
+    /* Estilo para el botón de "Eliminar" */
+    .button-group .delete-button {
+        background-color: #e74c3c; /* Cambia el color de fondo específico para "Eliminar" */
+    }
+
+    /* Estilo para el botón de "Editar" */
+    .button-group .edit-button {
+        background-color: 	#343a40; /* Cambia el color de fondo específico para "Editar" */
+    }
+
+    .add-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-button:hover {
+        background-color: #2980b9;
+    }

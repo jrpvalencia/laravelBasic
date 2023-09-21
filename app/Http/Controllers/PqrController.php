@@ -39,13 +39,15 @@ class PQRController extends Controller
     public function store(Request $request)
     {
         $pqr = new PQR();
-        $pqr->reason=$request->reason;
-        $pqr->idUser=$request->idUser;
+        $pqr->reason = $request->reason;
+        $pqr->idUser = $request->idUser;
         $pqr->save();
-
-
-        return Redirect()->route('pqr.index',$pqr);
+    
+        
+        return redirect()->route('pqrs.index',$pqr);
+     
     }
+    
 
     /**
      * Display the specified resource.
@@ -71,8 +73,7 @@ class PQRController extends Controller
         $pqr->idUser=$request->idUser;
         $pqr->save();
 
-
-        return Redirect()->route('pqr.index',$pqr);
+        return redirect()->route('pqrs.index',$pqr);
     }
 
     public function edit(PQR $pqr){
