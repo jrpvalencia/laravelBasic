@@ -40,10 +40,10 @@
         <h2>Hombre</h2>
         <div class="row">
           <div class="col-md-6">
-            <img src="producto1.webp" alt="Ropa para hombre 1">
+            <img src="{{asset('img/hombre.jpg')}}" alt="Perfume para hombre 1">
           </div>
           <div class="col-md-6">
-            <img src="producto2.avif" alt="Ropa para hombre 2">
+            <img src="{{asset('img/hombre1.jpeg')}}" alt="Perfume para hombre 2">
           </div>
         </div>
       </div>
@@ -54,10 +54,10 @@
         <h2>Mujer</h2>
         <div class="row">
           <div class="col-md-6">
-            <img src="ropa-mujer-1.jpg" alt="Ropa para mujer 1">
+            <img src="{{asset('img/mujer.jpg')}}" alt="Perfume para mujer 1">
           </div>
           <div class="col-md-6">
-            <img src="ropa-mujer-2.jpg" alt="Ropa para mujer 2">
+            <img src="{{asset('img/mujer2.jpg')}}" alt="Perfume para mujer 2">
           </div>
         </div>
       </div>
@@ -69,19 +69,19 @@
         <div class="row">
           <div class="col-md-3">
             <h4>Primavera</h4>
-            <img src="primavera.jpg" alt="Primavera">
+            <img src="{{asset('img/primavera.png')}}" alt="Primavera">
           </div>
           <div class="col-md-3">
             <h4>Verano</h4>
-            <img src="verano.jpg" alt="Verano">
+            <img src="{{asset('img/verano.jpg')}}" alt="Verano">
           </div>
           <div class="col-md-3">
             <h4>Otoño</h4>
-            <img src="otono.jpg" alt="Otoño">
+            <img src="{{asset('img/otoño.png')}}" alt="Otoño">
           </div>
           <div class="col-md-3">
             <h4>Invierno</h4>
-            <img src="invierno.jpg" alt="Invierno">
+            <img src="{{asset('img/invierno.jpg')}}" alt="Invierno">
           </div>
         </div>
       </div>
