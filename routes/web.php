@@ -162,7 +162,7 @@ Route::get('usuario',[UserController::class, 'index'])->name('user.index');
 Route::delete('usuario/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('usuario/{user}/edit',[UserController::class, 'edit'])->name('user.edit');
 Route::put('usuario/{user}',[UserController::class, 'update'])->name('user.update');
-Route::get('usuario',[UserController::class, 'show'])->name('user.show');
+Route::get('usuarios',[UserController::class, 'show'])->name('user.show');
 
 
 //RUTAS IMAGEN

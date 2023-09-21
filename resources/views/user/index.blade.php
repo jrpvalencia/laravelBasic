@@ -9,9 +9,9 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
-        <a href="{{ route('user.create') }}"><p class="status delivered">Agregar </p></a>
+        <a href="{{ route('user.create') }}"><p class="add-button">Agregar </p></a>
         <div class="export__file">
-            <a href="{{ route('home') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
+            <a href="{{ route('inicio') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
     </section>
     <section class="table__body">
@@ -43,15 +43,19 @@
                     <td>{{ $users->email }}</td>
                     <td>{{ $users->password }}</td>
                     <td>
+                        <div class="button-group">
                         <form action="{{ route('user.destroy', $users->id) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="status delivered">Eliminar</button>
+                            <button type="submit"  class="delete-button">X</button>
                         </form>
+                   
+                        <a href="{{ route('user.edit',$users->id) }}"class="edit-button"><i
+                            class='bx bxs-edit-alt'></i></a>
+                    </div>
                     </td>
-                    <td>
-                        <a href="{{ route('user.edit',$users->id) }}"><p class="status delivered">Editar </p></a>
-                    </td>
+
+                    
                 </tr>
                 @endforeach
             </tbody>
