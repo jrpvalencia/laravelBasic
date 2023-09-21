@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
 
     protected $fillable = [
         'name',
@@ -19,9 +18,6 @@ class Product extends Model
         'idSeason',
     ];
     
-=======
- 
->>>>>>> 3a4a8b9bb4ed40dc25e3ff1ecd26fa20e3d5d52e
     public function favoritos(){
         return $this->hasMany('App\Models\Favorite');
     }

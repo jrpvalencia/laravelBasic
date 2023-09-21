@@ -20,6 +20,10 @@ class Controller extends BaseController
     {
         return view('contactanos');
     }
+    public function pago()
+    {
+        return view('formadepago');
+    }
     public function conocenos()
     {
         return view('conocenos');

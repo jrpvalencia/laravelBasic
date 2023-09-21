@@ -33,11 +33,25 @@
                         <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('pago')}}">Forma de pago</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{route('carrito')}}" ><i class="fas fa-shopping-cart"></i> Carrito</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('login')}}"id="">Iniciar sesión</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Productos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="productosDropdown">
+                            <a class="dropdown-item" href="#">Categoría 1</a>
+                            <a class="dropdown-item" href="#">Categoría 2</a>
+                            <a class="dropdown-item" href="#">Categoría 3</a>
+                        </div>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="logoutLink" style="display: none;">Cerrar sesión</a>
                     </li>
@@ -50,6 +64,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 <script>
   // Función para cambiar el estado de inicio de sesión
   function toggleLoginStatus(isLoggedIn) {
