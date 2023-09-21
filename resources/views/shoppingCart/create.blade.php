@@ -2,18 +2,18 @@
 
 @section('content')
     <div class="container">
-        <div class="form-content">
-            <h1 id="title">Carrito de compra</h1>
+        
+            <h1 class="mb-3">Carrito de compra</h1>
 
             <form action="{{ route('shoppingCart.store') }}" method="POST">
 
                 @csrf
-                <div class="input-group">
+                <div class="mb-3">
 
 
 
-                    <div class="input-field select-field">
-                        <select name="idUser" class="styled-select">
+                    <div class="mb-3">
+                        <select name="idUser" class="form-control">
                             @foreach ($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>
                             @endforeach
@@ -22,20 +22,25 @@
 
 
                     <div class="input-field select-field">
-                        <select name="idProduct" class="styled-select">
+                        <label for="archivo" class="form-label">Producto:</label>
+                        <select name="idProduct" class="form-control">
                             @foreach ($products as $product)
                                 <option value="{{ $product->id }}">{{ $product->id }} {{ $product->name }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    <div class="input-field">
+                    <br>
+
+                    <div class="mb-3">
+                        <label for="archivo" class="form-label">Cantidad:</label>
                         <input type="number" name="product_quantity">
                     </div>
 
 
                     <div class="btn-field">
-                        <button id="singUp" type="submit">Enviar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</i></button>
+                    </form>
                     </div>
                 </div>
             </form>

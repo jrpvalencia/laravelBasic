@@ -2,21 +2,22 @@
 
 @section('content')
     <div class="container">
-        <div class="form-content">
-            <h1 id="title">Temporada</h1>
+        
+            <h1 class="mt-4">Temporada</h1>
 
             <form action="{{ route('temporadasStore') }}" method="POST">
 
                 @csrf
-                <div class="input-group">
+                <div class="mb-3">
 
 
                     <div class="input-field">
-                        <input type="text" name="name" placeholder="nombre">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" name="name" >
                     </div>
 
                     <div class="btn-field">
-                        <button id="singUp" type="submit">Enviar</button>
+                        <button type="submit" class="btn btn-primary">Enviar:</button>
                     </div>
                 </div>
             </form>

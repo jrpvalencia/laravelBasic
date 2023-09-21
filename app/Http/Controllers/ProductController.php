@@ -45,7 +45,6 @@ class ProductController extends Controller
 
 
 
-
     public function create()
     {
        
@@ -107,11 +106,7 @@ class ProductController extends Controller
          // Obtener el producto con el ID proporcionado
          $product = Product::find($id);
  
-         if (!$product) {
-             // Manejar el caso en que el producto no se encuentre
-             abort(404);
-         }
- 
+    
          return view('product.show', compact('product'));
      }
     
@@ -126,32 +121,40 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
-    {
-     
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->image = $request->image;
-        $product->price = $request->price;
-        $product->concentration = $request->concentration;
-        $product->idSeason = $request->idSeason;
+ 
 
-        
+     public function update(Request $request, Product $product)
+{
+    // Actualiza los campos del producto
+    $product->name = $request->name;
+    $product->description = $request->description;
+    $product->price = $request->price;
+    $product->concentration = $request->concentration;
+    $product->idSeason = $request->idSeason;
+
+    // Verifica si se ha cargado una nueva imagen
     if ($request->hasFile('image')) {
-        // Eliminar la imagen actual (opcional) si lo deseas
-        Storage::delete('public/' . $product->image);
+        // Generar un nombre de archivo único basado en la marca de tiempo y la extensión original
+        $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+        
+        // Almacenar la imagen en la carpeta 'public/product'
+        $request->file('image')->storeAs('public/product', $imageName);
+        
+        // Eliminar la imagen anterior (opcional) si lo deseas
+        if ($product->image) {
+            Storage::delete('public/product/' . $product->image);
+        }
 
-        // Guardar la nueva imagen
-        $imagePath = $request->file('image')->store('product', 'public');
-        $product->image = $imagePath;
+        // Asignar el nombre del archivo al atributo 'image' del modelo de producto
+        $product->image = $imageName; // Almacena solo el nombre del archivo
     }
-    
 
+    // Guarda el producto actualizado en la base de datos
     $product->save();
 
     return redirect()->route('product.index')->with('success', 'Producto actualizado correctamente');
-        
-    }
+}
+
 
     public function edit(Product $product){
 
@@ -170,10 +173,53 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        
+        if ($product->image) {
+            Storage::delete('public/product/' . $product->image);
+        }
+    
         $product->delete();
-        return back()->with('succes','Registro eliminado correctamente');
+        
+        return back()->with('success', 'Registro eliminado correctamente');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //INSERTAR PDF
        /*  $img= $request->file("imagen");

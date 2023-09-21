@@ -9,11 +9,11 @@
 
                 @csrf
                 @method('put')
-                <div class="input-group">
+                <div class="mb-3">
 
 
-                    <div class="input-field select-field">
-                        <select name="idUser" value="{{ $shoppingCart->idUser }}">
+                    <div class="mb-3">
+                        <select name="idUser" value="{{ $shoppingCart->idUser }}" class="form-control">
                             @foreach ($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>
                             @endforeach
@@ -21,19 +21,21 @@
                     </div>
 
                     <div class="input-field select-field">
-                        <select name="idProduct" value="{{ $shoppingCart->idProduct }}">
+                        <label for="archivo" class="form-label">Producto:</label>
+                        <select name="idProduct" value="{{ $shoppingCart->idProduct }}" class="form-control">
                             @foreach ($products as $product)
                                 <option value="{{ $product->id }}">{{ $product->id }} {{ $product->name }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    <div class="input-field">
+                    <div class="mb-3">
+                        <label for="archivo" class="form-label">Cantidad:</label>
                         <input type="number" name="product_quantity" value="{{ $shoppingCart->product_quantity }}">
                     </div>
 
-                    <div class="btn-field">
-                        <button id="singUp" type="submit">Enviar</button>
+                    <div class="mb-3">
+                        <button class="btn btn-primary"type="submit">Enviar</button>
                     </div>
                 </div>
             </form>
