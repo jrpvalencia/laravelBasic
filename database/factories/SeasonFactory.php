@@ -13,8 +13,6 @@ class SeasonFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name'=>$this->
-                ];
+        
     }
 }

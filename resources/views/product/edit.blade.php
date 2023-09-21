@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container">
-        <div class="form-content">
+        
             <h1 class="mt-4">Productos<i class="fas fa-box-open"></i></h1>
 
             <form action="{{ route('product.update', $product) }}" method="POST">
                 @csrf
                 @method('put')
-                <div class="input-group">
+                <div class="mb-3">
 
 
                     <div class="mb-3">
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <select name="idSeason" value="{{ $product->idSeason }}" class="styled-select">
+                        <select name="idSeason" value="{{ $product->idSeason }}" class="form-control">
                             @foreach ($seasons as $season)
                                 <option value="{{ $season->id }}">{{ $season->id }} {{ $season->name }}</option>
                             @endforeach
@@ -43,10 +43,10 @@
                     </div>
 
                     <div class="mb-3">
-                        <button id="singUp" type="submit">Enviar</button>
+                        <button type="submit" class="btn btn-primary">Crear Producto </i></button>
                     </div>
                 </div>
             </form>
-        </div>
+        
     </div>
 @endsection

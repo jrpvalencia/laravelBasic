@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="descripcion" class="form-label">Descripción <i class="fas fa-info-circle"></i>:</label>
+                        <label for="descripcion" class="form-label">Descripción </i>:</label>
                         {{-- <input type="text" name="description" placeholder="Descripción"> --}}
                         <textarea class="form-control" id="descripcion" name="description" rows="4" required></textarea>
                     </div>
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="precio" class="form-label">Precio <i class="fas fa-dollar-sign"></i>:</label>
+                        <label for="precio" class="form-label">Precio </i>:</label>
                         <input type="tel" class="form-control" name="price" placeholder="Precio"  step="0.01" required>
                     </div>
 
@@ -40,9 +40,9 @@
                     </div>
 
                     
-                        <div class="mb-3"> <!-- Agregamos la clase 'select-field' para estilos específicos del select -->
+                        <div class="mb-3"> <!-- Agregamos la clase 'mb-3' para estilos específicos del select -->
                             <label for="temporada" class="form-label">Temporada:</label>
-                            <select name="idSeason" class="form-control"> <!-- Agregamos la clase 'styled-select' para estilos específicos del select -->
+                            <select name="idSeason" class="form-control"> <!-- Agregamos la clase 'form-control' para estilos específicos del select -->
                                 @foreach ($seasons as $season)
                                     <option value="{{ $season->id }}">{{ $season->id }} {{ $season->name }}</option>
                                 @endforeach
