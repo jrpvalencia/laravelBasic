@@ -2,42 +2,55 @@
 
 @section('head')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="{{asset('css/login2.css')}}">
+    <title>Iniciar Sesión - Perfumería</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="stylesheet" href="{{asset('css/login2.css')}}">
 @endsection()
 @section('title','Login')
 
 <body>
-    <div class="container">
-        <div class="login-container">
-          <div class="login-form">
-            <h2 class="text-center mb-4"><i class="fas fa-user-circle"></i> Iniciar Sesión</h2>
+  <div class="container login-container">
+    <div class="row justify-content-center">
+        <div class="col-md-12 text-center">
+            <img src="{{asset('img/logo.jpeg')}}" alt="Logo de Perfumería" class="perfume-image">
+            <h2 class="mb-4">¡Bienvenido a nuestra Perfumería!</h2>
             <form method="POST" action="{{ route('loginValidation') }}">
-              @csrf
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                  </div>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Correo Electrónico">
+              @csrf 
+              <form>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Correo Electrónico" required>
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                  </div>
-                  <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Contraseña" required>
                 </div>
-              </div>
-              <button type="submit" class="btn btn-neon btn-block"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block btn-login">Iniciar Sesión</button>
             </form>
-            <p class="text-center mt-3">¿No tienes una cuenta? <a href="{{route('registro')}}" class="toggle-form"><i class="fas fa-user-plus"></i> Registrarse</a></p>
-          </div>
+            <div class="mt-3">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="mt-3">
+                <span>¿No tienes una cuenta?</span>
+                <a href="{{route('registro')}}" class="register-link">Regístrate aquí</a>
+            </div>
+            <div class="social-buttons mt-4">
+                <span class="social-button">
+                    <i class="fab fa-facebook-f social-icon"></i>
+                </span>
+                <span class="social-button">
+                    <i class="fab fa-google social-icon"></i>
+                </span>
+                <span class="social-button">
+                    <i class="fab fa-twitter social-icon"></i>
+                </span>
+            </div>
         </div>
-      </div>
+    </div>
+</div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
+
