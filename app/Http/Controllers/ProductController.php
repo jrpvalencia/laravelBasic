@@ -106,11 +106,7 @@ class ProductController extends Controller
          // Obtener el producto con el ID proporcionado
          $product = Product::find($id);
  
-         if (!$product) {
-             // Manejar el caso en que el producto no se encuentre
-             abort(404);
-         }
- 
+    
          return view('product.show', compact('product'));
      }
     
@@ -125,33 +121,7 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-   /*  public function update(Request $request, Product $product)
-    {
-        // Actualiza los campos del producto
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->price = $request->price;
-        $product->concentration = $request->concentration;
-        $product->idSeason = $request->idSeason;
-    
-        // Verifica si se ha cargado una nueva imagen
-        if ($request->hasFile('image')) {
-            // Eliminar la imagen actual (opcional) si lo deseas
-            Storage::delete('public/' . $product->image);
-    
-            // Guardar la nueva imagen
-
-            
-            $imagePath = $request->file('image')->store('public/product');
-            $product->image = str_replace('public/', '', $imagePath); // Almacena la ruta relativa en la base de datos
-        }
-    
-        // Guarda el producto actualizado en la base de datos
-        $product->save();
-    
-        return redirect()->route('product.index')->with('success', 'Producto actualizado correctamente');
-    }
-     */
+ 
 
      public function update(Request $request, Product $product)
 {
@@ -203,10 +173,53 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        
+        if ($product->image) {
+            Storage::delete('public/product/' . $product->image);
+        }
+    
         $product->delete();
-        return back()->with('succes','Registro eliminado correctamente');
+        
+        return back()->with('success', 'Registro eliminado correctamente');
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //INSERTAR PDF
        /*  $img= $request->file("imagen");

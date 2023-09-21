@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-warning">Crear Producto</button>
+                        <button type="submit" class="btn btn-warning">Editar Producto</button>
                     </div>
                 </div>
             </form>
