@@ -30,7 +30,7 @@ body {
 }
 
 .custom-file-input::-webkit-file-upload-button:hover {
-    background-color: #034993;
+    background-color: #ffb700;
 }
 
 .btn-enviar {
@@ -46,7 +46,7 @@ body {
 }
 
 .btn-enviar:hover {
-    background-color: #0056b3; 
+    background-color: #dfec26; 
 }
 
 .icono {

@@ -5,7 +5,7 @@
         
             <h1 class="mt-4">Productos<i class="fas fa-box-open"></i></h1>
 
-            <form action="{{ route('product.update', $product) }}" method="POST">
+            <form action="{{ route('product.update', $product) }}" method="POST"  enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="mb-3">
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Crear Producto </i></button>
+                        <button type="submit" class="btn btn-warning">Crear Producto</button>
                     </div>
                 </div>
             </form>
