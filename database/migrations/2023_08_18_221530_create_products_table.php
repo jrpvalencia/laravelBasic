@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->string("image")->nullable();
             $table->integer("price");
             $table->String("concentration");
-
             $table->unsignedBigInteger("idSeason")->nullable();
             $table->foreign("idSeason")->references("id")->on("seasons")->onDelete("cascade");
             $table->timestamps();

@@ -97,33 +97,6 @@
       <p id="loginMessage"></p>
     </div>
   
-  <!-- Enlaces a los scripts de Bootstrap y Font Awesome -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-    // Función para cambiar el estado de inicio de sesión
-    function toggleLoginStatus(isLoggedIn) {
-      if (isLoggedIn) {
-        document.getElementById('loginLink').style.display = 'none';
-        document.getElementById('logoutLink').style.display = 'block';
-        document.getElementById('loginMessage').textContent = '¡Has iniciado sesión!';
-      } else {
-        document.getElementById('loginLink').style.display = 'block';
-        document.getElementById('logoutLink').style.display = 'none';
-        document.getElementById('loginMessage').textContent = 'Por favor, inicia sesión.';
-      }
-    }
   
-    // Evento para cambiar el estado de inicio de sesión al hacer clic en "Cerrar sesión"
-    document.getElementById('logoutLink').addEventListener('click', function() {
-      toggleLoginStatus(false);
-    });
-  
-    // Evento para cambiar el estado de inicio de sesión al hacer clic en "Iniciar sesión"
-    document.getElementById('loginLink').addEventListener('click', function() {
-      toggleLoginStatus(true);
-    });
-  </script>
   @endsection()
   </html>

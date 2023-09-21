@@ -99,4 +99,24 @@ class ShoppingCartController extends Controller
         $shoppingCart->delete();
         return back()->with('succes','Registro eliminado correctamente');
     }
+
+    public function añadir(){
+        $id = $_POST['id_product'];
+        $product = Product::find($id);
+        
+        $cantidad  = $_POST['cantidad'];
+        $userID = auth()->id();
+
+        $shoppingCart = new ShoppingCart();
+        $shoppingCart->product_quantity=$cantidad;
+        $shoppingCart->idUser=$userID;
+        $shoppingCart->idProduct=$id;
+        $shoppingCart->save();
+        $shoppingCart = ShoppingCart::where('idUser', $userID)->get();
+        
+        $pro = $shoppingCart->idProduct;
+        // $prod = ShoppingCart::with('producto')->find($id, 'id' )->get();
+        return view('carrito', compact('shoppingCart', 'pro'));
+
+    }
 }

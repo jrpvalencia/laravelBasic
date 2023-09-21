@@ -16,6 +16,7 @@ use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\TypePayController;
 use App\Http\Controllers\UserController;
+use App\Models\ShoppingCart;
 use Illuminate\Support\Facades\Route;
 use JetBrains\PhpStorm\Immutable;
 
@@ -78,11 +79,12 @@ Route::get('pqr',[PqrController::class, 'show'])->name('pqr.show');
 //RUTAS DE CARRITO DE COMPRA
 Route::get('carritoDeCompra/create',[ShoppingCartController::class, 'create'])->name('shoppingCart.create');
 Route::post('carritoDeCompra2',[ShoppingCartController::class,'store'])->name('shoppingCart.store');
-Route::get('carritoDeCompra',[ShoppingCartController::class, 'index'])->name('shoppingCart.index');
+Route::get('carritoCompra',[ShoppingCartController::class, 'index'])->name('shoppingCart.index');
 Route::delete('carritoDeCompra/{shoppingCart}', [ShoppingCartController::class, 'destroy'])->name('shoppingCart.destroy');
 Route::get('carritoDeCompra/{shoppingCart}/edit',[ShoppingCartController::class, 'edit'])->name('shoppingCart.edit');
 Route::put('carritoDeCompra/{shoppingCart}',[ShoppingCartController::class, 'update'])->name('shoppingCart.update');
 Route::get('carritoDeCompra',[ShoppingCartController::class, 'show'])->name('shoppingCart.show');
+Route::post('carrito',[ShoppingCartController::class, 'añadir'])->name('shoppPre');
 
 //RUTA DEVOLUCION
 

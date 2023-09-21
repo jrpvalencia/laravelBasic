@@ -33,7 +33,7 @@
                     {{-- <span class="precio1"><strike>{{$products->price}}</strike></span> --}}
                     <span class="precio2"><b>${{$products->price}}</b></span>
                 </div>
-                <i class='bx bxs-cart' id="shoping"></i>
+                <i class='bx bxs-cart' id="shoping" ></i>
             </div>
         </div>
 

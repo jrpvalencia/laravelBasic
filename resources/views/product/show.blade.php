@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pagina Producto</title>
+    <title>Detalle de {{$product->name}}</title>
     <link rel="stylesheet" href="{{ asset('css/detalle.css') }}" />
 </head>
 
@@ -27,45 +27,24 @@
             </div>
 
             <div class="container-details-product">
-                <div class="form-group">
-                    <label for="colour">Color</label>
-                    <select name="colour" id="colour">
-                        <option disabled selected value="">
-                            Escoge una opción
-                        </option>
-                        <option value="rojo">Rojo</option>
-                        <option value="blanco">Blanco</option>
-                        <option value="beige">Beige</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="size">Talla</label>
-                    <select name="size" id="size">
-                        <option disabled selected value="">
-                            Escoge una opción
-                        </option>
-                        <option value="40">40</option>
-                        <option value="42">42</option>
-                        <option value="43">43</option>
-                        <option value="44">44</option>
-                    </select>
-                </div>
-                <button class="btn-clean">Limpiar</button>
             </div>
-            <div class="container-add-cart">
-                <div class="container-quantity">
-                    <input type="number" placeholder="1" value="1" min="1" class="input-quantity" />
-                    <div class="btn-increment-decrement">
-                        <i class="fa-solid fa-chevron-up" id="increment"></i>
-                        <i class="fa-solid fa-chevron-down" id="decrement"></i>
+            <form action="{{route('shoppPre')}}" method="post">
+                @csrf
+                <input type="hidden" name="id_product" value="{{ $product->id }}">
+                <div class="container-add-cart">
+                    <div class="container-quantity">
+                        <input type="number" placeholder="1" value="1" min="1" class="input-quantity" id="cantidad" name="cantidad"/>
+                        <div class="btn-increment-decrement">
+                            <i class="fa-solid fa-chevron-up" id="increment"></i>
+                            <i class="fa-solid fa-chevron-down" id="decrement"></i>
+                        </div>
                     </div>
+                    <button type="submit" class="btn-add-to-cart" id="carrito" >
+                        <i class="fa-solid fa-plus"></i>
+                        Añadir al carrito
+                    </button>
                 </div>
-                <button class="btn-add-to-cart">
-                    <i class="fa-solid fa-plus"></i>
-                    Añadir al carrito
-                </button>
-            </div>
-
+            </form>
             <div class="container-description">
                 <div class="title-description">
                     <h4>Descripción</h4>
@@ -73,26 +52,6 @@
                 </div>
                 <div class="text-description">
                     <p>{{ $product->description }}</p>
-                </div>
-            </div>
-
-            <div class="container-additional-information">
-                <div class="title-additional-information">
-                    <h4>Información adicional</h4>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="text-additional-information hidden">
-                    <p>-----------</p>
-                </div>
-            </div>
-
-            <div class="container-reviews">
-                <div class="title-reviews">
-                    <h4>Reseñas</h4>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="text-reviews hidden">
-                    <p>-----------</p>
                 </div>
             </div>
 

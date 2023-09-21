@@ -13,17 +13,23 @@
   @include('layouts.head')
 
   <section class="cart-section">
+
     <div class="container">
       <div class="cart-items">
+@foreach($shoppingCart as $shoppingCarts)
+<?php 
+$shoppingCart->idProduct=$pro;
+?>
         <div class="cart-item">
-          <img src="{{asset('img/producto1.webp')}}" alt="Producto 1">
+          {{-- <img src="{{ $prod->image }}" alt="Producto 1"> --}}
           <div>
             <h4 class="cart-item-title">Producto 1</h4>
-            <p>Precio: $100</p>
+            <p>{{ $shoppingCart->price }}</p>
             <button class="btn btn-danger">Eliminar</button>
           </div>
         </div>
-        <div class="cart-item">
+@endforeach
+        {{-- <div class="cart-item">
           <img src="{{asset('img/producto1.webp')}}" alt="Producto 2">
           <div>
             <h4 class="cart-item-title">Producto 2</h4>
@@ -38,7 +44,7 @@
             <p>Precio: $120</p>
             <button class="btn btn-danger">Eliminar</button>
           </div>
-        </div>
+        </div> --}}
       </div>
     </div>
   </section>

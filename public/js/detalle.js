@@ -33,20 +33,25 @@ const toggleReviews = document.querySelector('.title-reviews');
 const contentDescription = document.querySelector(
 	'.text-description'
 );
-const contentAdditionalInformation = document.querySelector(
-	'.text-additional-information'
-);
-const contentReviews = document.querySelector('.text-reviews');
+// const contentAdditionalInformation = document.querySelector(
+// 	'.text-additional-information'
+// );
+// const contentReviews = document.querySelector('.text-reviews');
 
 // Funciones Toggle
 toggleDescription.addEventListener('click', () => {
 	contentDescription.classList.toggle('hidden');
 });
 
-toggleAdditionalInformation.addEventListener('click', () => {
-	contentAdditionalInformation.classList.toggle('hidden');
-});
+// toggleAdditionalInformation.addEventListener('click', () => {
+// 	contentAdditionalInformation.classList.toggle('hidden');
+// });
 
-toggleReviews.addEventListener('click', () => {
-	contentReviews.classList.toggle('hidden');
+// toggleReviews.addEventListener('click', () => {
+// 	contentReviews.classList.toggle('hidden');
+// });
+
+const carrito = document.getElementById('carrito');
+carrito.addEventListener('click', () =>{
+	
 });
