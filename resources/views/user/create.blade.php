@@ -1,66 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/formularioUser.css') }}">
-    
-    <title>Document</title>
-</head>
-<body>
-    
-
+@extends('layouts.formulario')
+@section('content')
     <div class="container">
-        <div class="form-content">
-            <h1 id="title">Usuario</h1>
-            <form action="{{ route('user.store') }}" method="POST">
-                @csrf
-                <div class="input-group">
+
+        <h1 class="mt-4"> Usuario </h1>
+        <form action="{{ route('user.store') }}" method="POST">
+            @csrf
+            <div class="mb-3">
 
 
-                    <div class="input-field">
-                        <input type="text" name="name" placeholder="Nombre">
-                    </div>
-
-                    <div class="input-field">
-                        <input type="text" name="lastName" placeholder="Apellido">
-                    </div>
-
-                    <div class="input-field">
-                        <input type="text" name="typeDocument" placeholder="Tipo de documeto">
-                    </div>
-
-                    <div class="input-field">
-                        <input type="tel" name="document" placeholder="documeto">
-                    </div>
-
-                    <div class="input-field">
-                        <input type="tel" name="phone" placeholder="Telefono">
-                    </div>
-
-                    <div class="input-field select-field">
-                        <select name="idRol" class="styled-select">
-                            @foreach ($rol as $rols)
-                                <option value="{{ $rols->id }}">{{ $rols->id }} {{ $rols->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-
-                    <div class="input-field">
-                        <input type="email" name="email" placeholder="email">
-                    </div>
-
-                    <div class="input-field">
-                        <input type="password" name="password" placeholder="contraseña">
-                    </div>
-                    <div class="btn-field">
-                        <button id="singUp" type="submit">Enviar</button>
-                    </div>
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Nombre:</label>
+                    <input type="text"  class="form-control" name="name" placeholder="Nombre">
                 </div>
-            </form>
-        </div>
+
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Apellido:</label>
+                    <input type="text" class="form-control" name="lastName" placeholder="Apellido">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Tipo de documeto:</label>
+                    <input type="text" class="form-control" name="typeDocument" placeholder="Tipo de documeto">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Documeto:</label>
+                    <input type="tel" class="form-control" name="document" placeholder="documeto">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Telefono:</label>
+                    <input type="tel" class="form-control" name="phone" placeholder="Telefono">
+                </div>
+
+                <div class="input-field select-field">
+                    <label for="archivo" class="form-label">Rol:</label>
+                    <select name="idRol" class="form-control">
+                        @foreach ($rol as $rols)
+                            <option value="{{ $rols->id }}">{{ $rols->id }} {{ $rols->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+<br>
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">Email:</label>
+                    <input type="email" class="form-control" name="email" placeholder="email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Nombre" class="form-label">contraseña:</label>
+                    <input type="password" class="form-control" name="password" placeholder="contraseña">
+                </div>
+                <div class="btn-field">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
     </div>
-</body>
-</html>
+@endsection
