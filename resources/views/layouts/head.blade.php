@@ -20,12 +20,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
+                    
+                    
                     <li class="nav-item active">
                         <a class="nav-link" href="{{route('inicio')}}">Inicio</a>
                     </li>
+                    @auth
+                        
+
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('catalogo.index')}}">Productos</a>
+                        <a class="nav-link" href="{{route('catalogo.index')}}">Catalogo</a>
                     </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('product.index')}}"id="">Productos</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Temporadas</a>
                     </li>
@@ -36,25 +45,22 @@
                         <a class="nav-link" href="{{route('pago')}}">Forma de pago</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('carrito')}}" ><i class="fas fa-shopping-cart"></i> Carrito</a>
+                        <a class="nav-link" href="{{route('carritoC')}}" ><i class="fas fa-shopping-cart"></i> Carrito</a>
                     </li>
+                    @endauth
+                    @guest
+                        
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}"id="">Iniciar sesión</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Productos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="productosDropdown">
-                            <a class="dropdown-item" href="#">Categoría 1</a>
-                            <a class="dropdown-item" href="#">Categoría 2</a>
-                            <a class="dropdown-item" href="#">Categoría 3</a>
-                        </div>
+                        <a class="nav-link" href="{{route('login')}}"id="loginLink">Iniciar sesión</a>
                     </li>
                     
+                    @endguest
+                    @auth
+                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="logoutLink" style="display: none;">Cerrar sesión</a>
+                        <a class="nav-link" href="#" id="logoutLink" >Cerrar sesión</a>
                     </li>
+                    @endauth
                 </ul>
             </div>
         </div>

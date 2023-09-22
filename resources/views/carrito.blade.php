@@ -18,13 +18,15 @@
       <div class="cart-items">
 @foreach($shoppingCart as $shoppingCarts)
 <?php 
-$shoppingCart->idProduct=$pro;
+// use App\Models\Product;
+// $pro=$shoppingCarts->idProduct;
+// $product = Product::find($pro);
 ?>
         <div class="cart-item">
           {{-- <img src="{{ $prod->image }}" alt="Producto 1"> --}}
           <div>
             <h4 class="cart-item-title">Producto 1</h4>
-            <p>{{ $shoppingCart->price }}</p>
+            {{-- <p>{{ $product->price }}</p> --}}
             <button class="btn btn-danger">Eliminar</button>
           </div>
         </div>
