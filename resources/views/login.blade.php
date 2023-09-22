@@ -19,10 +19,10 @@
               @csrf 
               <form>
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Correo Electrónico" required>
+                    <input type="email" class="form-control" placeholder="Correo Electrónico" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Contraseña" required>
+                    <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block btn-login">Iniciar Sesión</button>
             </form>

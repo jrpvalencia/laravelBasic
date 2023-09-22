@@ -114,9 +114,9 @@ class ShoppingCartController extends Controller
         $shoppingCart->save();
         $shoppingCart = ShoppingCart::where('idUser', $userID)->get();
         
-        $pro = $shoppingCart->idProduct;
-        // $prod = ShoppingCart::with('producto')->find($id, 'id' )->get();
-        return view('carrito', compact('shoppingCart', 'pro'));
-
+        // $pro = $shoppingCart->idProduct;
+        // return view('carrito', compact('shoppingCart', 'pro'));
+        return 
+        redirect()->route('carritoC');
     }
 }
