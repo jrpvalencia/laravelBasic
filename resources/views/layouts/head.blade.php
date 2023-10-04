@@ -35,9 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('product.index')}}"id="">Productos</a>
                     </li>
-                    <li class="nav-item">
+                {{--     <li class="nav-item">
                         <a class="nav-link" href="">Temporadas</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>
                     </li>
