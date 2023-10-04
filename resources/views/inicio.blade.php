@@ -9,7 +9,7 @@
 @endsection()
 
 @section('content')
-    @include('layouts.head')
+  
   {{-- <pre>{{auth()->id()}}</pre> --}}
   
     <div class="container-fluid p-0">

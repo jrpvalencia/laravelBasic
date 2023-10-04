@@ -11,7 +11,6 @@
 
 @section('content')
 
-  @include('layouts.head')
 
       <title>Catálogo de Perfumes</title>
 

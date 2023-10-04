@@ -131,4 +131,10 @@ class UserController extends Controller
             return view('registro');
         }
     }
+    public function destroySesion(Request $request){
+Auth::guard('web')->logout();
+$request->session()->invalidate();
+$request->session()->regenerateToken();
+        return redirect()->route('login');;
+    }
 }
