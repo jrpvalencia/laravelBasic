@@ -10,7 +10,7 @@
 body {
     min-height: 100vh;
   
-    background: url(../IMG/imagen2.jpg) center / cover;
+    background: url(../IMG/per2.jpg) center / cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +125,7 @@ thead th {
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #efb810;
+    background-color:  rgba(66, 65, 65, 0.74);
     cursor: pointer;
     text-transform: capitalize;
 }
