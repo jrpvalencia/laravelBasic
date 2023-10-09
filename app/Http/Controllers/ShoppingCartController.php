@@ -74,7 +74,7 @@ class ShoppingCartController extends Controller
     
         $shoppingCart->save();
 
-        return redirect()->route('shoppingCart.index', $shoppingCart);
+        return redirect()->route('carritoC', $shoppingCart);
     }
     public function edit(ShoppingCart $shoppingCart){
 

@@ -1,7 +1,12 @@
+@extends('layouts.plantilla')
+
+@section('title','Pedidos')
+@section('head')
 <link rel="stylesheet" href="CSS/style.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+@endsection()
 
-<body>
+@section('content')
     <main class="table">
         <section class="table__header">
             <h1>Registros</h1>
@@ -53,4 +58,4 @@
             </table>
         </section>
     </main>
-</body>
+@endsection()

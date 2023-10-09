@@ -1,6 +1,7 @@
 @extends('layouts.formulario')
 
 @section('content')
+@include('layouts.head')
     <div class="container">
         
             <h1 class="mt-4">Pedido</h1>

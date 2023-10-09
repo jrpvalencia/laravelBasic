@@ -9,9 +9,7 @@
 
 body {
     min-height: 100vh;
-  
     background: url(../IMG/imagen2.jpg) center / cover;
-    display: flex;
     justify-content: center;
     align-items: center;
 }

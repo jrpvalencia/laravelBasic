@@ -1,6 +1,12 @@
+@extends('layouts.plantilla')
+
+@section('title','PQR')
+@section('head')
 <link rel="stylesheet" href="CSS/style.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<body>
+@endsection()
+
+@section('content')
     <main class="table">
         <section class="table__header">
             <h1>Registros</h1>
