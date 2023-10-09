@@ -36,9 +36,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('product.index')}}"id="">Productos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Temporadas</a>
-                    </li>
+                 
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>
                     </li>
@@ -53,7 +51,7 @@
                         Cruds
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('temporada.create')}}">Seasons</a>
+                        <a class="dropdown-item" href="{{route('temporada.create')}}">Temporada</a>
                         <a class="dropdown-item" href="{{route('pago')}}">Forma de pago </a>
                        {{--  <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
