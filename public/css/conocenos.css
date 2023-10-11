@@ -7,10 +7,10 @@
 header{
     width: 100%;
     height: 100vh;
-    background: #ad5389;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, hsla(279, 68%, 19%, 0.658), hsla(324, 35%, 50%, 0.63));  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, hsla(279, 68%, 19%, 0.705), #ad5389a4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 
     background-size: cover;
     background-attachment: fixed;
@@ -39,7 +39,7 @@ section{
     
 }
 .titulo{
-    color:  #a365c4;
+    color:  #efb810;
     font-size: 30px;
     text-align: center;
     margin-bottom: 60px;
