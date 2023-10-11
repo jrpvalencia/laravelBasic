@@ -3,7 +3,7 @@
 @section('title','Conocenos')
 
 @section('head')
-    <title>Conocenos</title>
+    
     <link rel="shortcut icon" href="IMG/LOGO.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/conocenos.css">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville&family=Quicksand:wght@300&display=swap" rel="stylesheet">

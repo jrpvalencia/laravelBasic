@@ -1,7 +1,7 @@
-@extends('layouts.formulario')
+@extends('layouts.plantilla')
 
 @section('content')
-@include('layouts.head')
+
     <div class="container">
         
             <h1 class="mt-4">Productos<i class="fas fa-box-open"></i></h1>
