@@ -10,7 +10,6 @@
 
 @section('content')
 
-  @include('layouts.head')
 
   <section class="cart-section">
 

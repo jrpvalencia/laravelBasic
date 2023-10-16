@@ -8,9 +8,8 @@
 @endsection()
 
 @section('content')
-    {{-- @include('layouts.head') --}}
 
-    <div class="container">
+    <div class="container1">
         <h1>Formas de Pago</h1>
 
         <form {{-- action="procesar_pago.php" method="POST" --}}>

@@ -1,8 +1,12 @@
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+@extends('layouts.plantilla')
 
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+@section('title','Productos')
+@section('head')
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+@endsection()
 
-<body>
+@section('content')
 <main class="table">
     <section class="table__header">
         <h1>Registros</h1>
@@ -62,7 +66,7 @@
         </table>
     </section>
 </main>
-</body>
+@endsection()
 {{-- <img src="http://localhost/laravelBasic/storage/app/public/product/1693764410.jpeg" alt=""> --}}
 {{-- php artisan storage:link --}}
 {{--  <p>URL de la imagen: {{ asset('storage/product/' . $products->image) }}</p> --}}

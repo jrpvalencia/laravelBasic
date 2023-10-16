@@ -1,5 +1,5 @@
 @extends('layouts.formulario')
-
+<link rel="stylesheet" href="{{asset('css/formulario.css')}}">
 @section('content')
     <div class="container">
         
@@ -23,14 +23,19 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="descripcion" class="form-label">Imagen:</label>
                         <input type="file" name="image" value="{{ $product->image }}">
                     </div>
 
                     <div class="mb-3">
+                        <label for="descripcion" class="form-label">Precio:</label>
+
                         <input type="tel" name="price" value="{{ $product->price }}">
                     </div>
 
                     <div class="mb-3">
+                        <label for="descripcion" class="form-label">Concentracion:</label>
+
                         <input type="number" name="concentration" value="{{ $product->concentration }}">
                     </div>
 
