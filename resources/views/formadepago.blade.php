@@ -8,6 +8,7 @@
 @endsection()
 
 @section('content')
+    
 
     <div class="container1">
         <h1>Formas de Pago</h1>

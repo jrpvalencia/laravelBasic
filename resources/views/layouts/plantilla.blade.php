@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{asset('IMG')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     @yield('head')
     <title>@yield('title')</title>
 </head>
@@ -38,27 +40,28 @@
                         <a class="nav-link" href="{{route('product.index')}}"id="">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Temporadas</a>
+                        <a class="nav-link" href="{{route('conocenos')}}"id="">conocenos</a>
                     </li>
+                 
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>
                     </li>
-                    <li class="nav-item">
+                  {{--   <li class="nav-item">
                         <a class="nav-link" href="{{route('pago')}}">Forma de pago</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('carritoC')}}" ><i class="fas fa-shopping-cart"></i> Carrito</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        Cruds
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{route('temporada.create')}}">Temporada</a>
+                        <a class="dropdown-item" href="{{route('pago')}}">Forma de pago </a>
+                       {{--  <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                        </div> --}}
                     </li>
                     @endauth
                     @guest
@@ -80,6 +83,61 @@
     </nav>
 
     @yield('content')
+
+
+
+    
+    
+    <footer>
+    
+        <div class="container__footer">
+            <div class="box__footer">
+                <div class="logo">
+                    <img src="{{asset('img/logoF.png')}}" alt="">
+                </div>
+                <div class="terms">
+                    <h3>InventSmell</h3>
+                    <p>Inventa el aroma de tus sueños</p>
+                    <p>Somos una empresa comprometida con nuestros usuarios y su satisfaccion</p>    
+                </div>
+            </div>
+            <div class="box__footer">
+                <h2>Soluciones</h2>
+                <a href="https://www.google.com">App Desarrollo</a>
+                <a href="#">App Marketing</a>
+                <a href="#">IOS Desarrollo</a>
+                <a href="#">Android Desarrollo</a>
+            </div>
+
+            <div class="box__footer">
+                <h2>Empresa</h2>
+                <a href="#">Acerca de</a>
+                <a href="#">Trabajos</a>
+                <a href="#">Procesos</a>
+                <a href="#">Servicios</a>              
+            </div>
+
+            <div class="box__footer">
+                <h2>Redes Sociales</h2>
+                <a href="#"> <i class="fab fa-facebook-square"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter-square"></i> Twitter</a>
+                <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
+                <a href="#"><i class="fab fa-instagram-square"></i> Instagram</a>
+            </div>
+
+        </div>
+
+        <div class="box__copyright">
+            <hr>
+            <p>Todos los derechos reservados © 2023 <b>InventSmell</b></p>
+        </div>
+    </footer>
+
+
+
+<div class="login-status text-center">
+  <p id="loginMessage"></p>
+</div>
 
 
     

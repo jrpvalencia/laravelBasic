@@ -2,6 +2,7 @@
 * {
     margin: 0;
     padding: 0;
+   
 
     box-sizing: border-box;
     font-family: sans-serif;
@@ -9,10 +10,12 @@
 
 body {
     min-height: 100vh;
-    background: url(../IMG/imagen2.jpg) center / cover;
+    background: url(../IMG/fondosss.jpg) center / cover;
     justify-content: center;
     align-items: center;
+  
 }
+
 
 main.table {
     width: 82vw;
@@ -23,7 +26,9 @@ main.table {
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
     border-radius: .8rem;
-    align-items: center;
+    margin-top: 20px;
+    margin-left: 200px;
+
     overflow: hidden;
 }
 
@@ -124,7 +129,7 @@ thead th {
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #efb810;
+    background-color:  rgba(66, 65, 65, 0.74);
     cursor: pointer;
     text-transform: capitalize;
 }

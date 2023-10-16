@@ -1,6 +1,7 @@
-@extends('layouts.formulario')
-<link rel="stylesheet" href="{{asset('css/formulario.css')}}">
+@extends('layouts.plantilla')
+
 @section('content')
+
     <div class="container">
         
             <h1 class="mt-4">Productos<i class="fas fa-box-open"></i></h1>

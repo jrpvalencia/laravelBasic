@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 <link rel="stylesheet" href="{{asset('css/inicio.css')}}">
 
+<script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 @endsection()
 
 @section('content')
@@ -87,17 +88,6 @@
         </div>
       </div>
     </section>
-  
-    <footer class="footer">
-      <div class="container">
-        <p>Derechos de autor © 2023. Todos los derechos reservados.</p>
-      </div>
-    </footer>
-  
-    <div class="login-status text-center">
-      <p id="loginMessage"></p>
-    </div>
-  
   
   @endsection()
   </html>
