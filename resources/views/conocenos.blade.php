@@ -52,10 +52,64 @@
                 repellendus assumenda porro blanditiis nobis natus doloribus.</p>
         </div>
     </section>
-    <div class="boton"><a href="{{route('inicio')}}"><button><span class="transition">
-    </span><span class="gradient"></span>
-    <span class="label">Regresar</span></button></a></div>
+
+
+
+    <link rel="stylesheet" href="{{ asset('css/inte.css') }}">
+
+
+        <div class="container__cards">
     
+            <div class="cards">
+                <div class="covers">
+                    <img src="IMG/p1.png" alt="">
+                    <div class="img__back"></div>
+                </div>
+                <div class="description">
+                    <h2>Dayana Pipicano</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <input type="button" value="Leer Más">
+                </div>
+            </div>
+    
+            <div class="cards">
+                <div class="covers">
+                    <img src="IMG/p2.png" alt="">
+                    <div class="img__back"></div>
+                </div>
+                <div class="description">
+                    <h2>Robinson Puliche</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <input type="button" value="Leer Más">
+                </div>
+            </div>
+    
+            <div class="cards">
+                <div class="covers">
+                    <img src="IMG/p3.png" alt="">
+                    <div class="img__back"></div>
+                </div>
+                <div class="description">
+                    <h2>Valentina Narvaez</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <input type="button" value="Leer Más">
+                </div>
+            </div>
+            <div class="cards">
+                <div class="covers">
+                    <img src="IMG/p3.png" alt="">
+                    <div class="img__back"></div>
+                </div>
+                <div class="description">
+                    <h2>Diana Rebolledo</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <input type="button" value="Leer Más">
+                </div>
+            </div>
+    
+        </div>
+        
+ 
 @endsection()
 
 </html>
