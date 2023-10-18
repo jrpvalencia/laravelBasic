@@ -42,7 +42,7 @@
   
   footer{
       width: 100%;
-      padding: 50px 0px;
+      padding: 30px 0px 10px 0px;
       background-image: url(../IMG/background-footer.svg);
       background-size: cover;
       
@@ -73,7 +73,7 @@
   }
   
   .box__footer .terms{
-      max-width: 350px;
+      max-width: 300px;
       margin-top: 20px;
       font-weight: 500;
       color: #7a7a7a;
@@ -118,8 +118,8 @@
       background-color: #7a7a7a;
   }
   .footer {
-      background-color: #2d2525;
-      color: white;
+      background-color: #4f5613;
+      color: rgb(229, 245, 7);
       padding: 20px 0;
       text-align: center;
     }

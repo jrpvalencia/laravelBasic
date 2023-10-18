@@ -50,11 +50,7 @@
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>Derechos de autor © 2023. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+  
 
 @endsection()
 </html>

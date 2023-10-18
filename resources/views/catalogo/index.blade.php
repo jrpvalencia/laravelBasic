@@ -36,8 +36,6 @@
                       <p><i class="fas fa-tint icono"></i>{{$products->concentration}}</p>
                       <p class="precio">${{$products->price}}</p>
                       <p class="temporada"><i class="fas fa-calendar-alt icono"></i>{{ $products->season->name }}</p>
-
-                      <button class="btn btn-comprar">Agregar al carrito</button>
                   </div>
               </div>
      @endforeach
