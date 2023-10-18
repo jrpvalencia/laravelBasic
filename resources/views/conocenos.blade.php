@@ -52,9 +52,7 @@
                 repellendus assumenda porro blanditiis nobis natus doloribus.</p>
         </div>
     </section>
-    <div class="boton"><a href="{{route('inicio')}}"><button><span class="transition">
-    </span><span class="gradient"></span>
-    <span class="label">Regresar</span></button></a></div>
+    
     
 @endsection()
 

@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -11,7 +9,7 @@
 
 <body>
     <header>
-        <h1>Logo</h1>
+        <h1>InvetSmell</h1>
     </header>
 
     <div class="container-title">{{$product->name}}</div>

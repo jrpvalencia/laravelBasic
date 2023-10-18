@@ -40,7 +40,7 @@
                         <a class="nav-link" href="{{route('product.index')}}"id="">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('conocenos')}}"id="">conocenos</a>
+                        <a class="nav-link" href="{{route('conocenos')}}"id="">Conocenos</a>
                     </li>
                  
                     <li class="nav-item">
