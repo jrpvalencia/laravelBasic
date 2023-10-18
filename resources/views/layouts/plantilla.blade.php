@@ -25,13 +25,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
 
-
                     <li class="nav-item active">
                         <a class="nav-link" href="{{route('inicio')}}">Inicio</a>
                     </li>
                     @auth
-
-
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('catalogo.index')}}">Catalogo</a>
@@ -42,13 +39,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('conocenos')}}"id="">conocenos</a>
                     </li>
-                 
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>
                     </li>
-                  {{--   <li class="nav-item">
-                        <a class="nav-link" href="{{route('pago')}}">Forma de pago</a>
-                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('carritoC')}}" ><i class="fas fa-shopping-cart"></i> Carrito</a>
                     </li>
@@ -59,20 +52,17 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('temporada.create')}}">Temporada</a>
                         <a class="dropdown-item" href="{{route('pago')}}">Forma de pago </a>
-                       {{--  <div class="dropdown-divider"></div>
+                        {{--  <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a>
                         </div> --}}
                     </li>
                     @endauth
                     @guest
-
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('login')}}"id="loginLink">Iniciar sesión</a>
                     </li>
-
                     @endguest
                     @auth
-
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('loginDestroy')}}" id="logoutLink" >Cerrar sesión</a>
                     </li>
@@ -84,12 +74,7 @@
 
     @yield('content')
 
-
-
-    
-    
     <footer>
-    
         <div class="container__footer">
             <div class="box__footer">
                 <div class="logo">
@@ -124,7 +109,6 @@
                 <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
                 <a href="#"><i class="fab fa-instagram-square"></i> Instagram</a>
             </div>
-
         </div>
 
         <div class="box__copyright">

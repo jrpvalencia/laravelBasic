@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.plantilla')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalle de {{$product->name}}</title>
+@section('head')
+<title>Detalle de {{$product->name}}</title>
     <link rel="stylesheet" href="{{ asset('css/detalle.css') }}" />
-</head>
+@endsection()
 
-<body>
-    <header>
-        <h1>Logo</h1>
-    </header>
+@section('content')
 
     <div class="container-title">{{$product->name}}</div>
     
@@ -20,6 +13,7 @@
         <div class="container-img">
             <img src="{{ asset('storage/product/' . $product->image) }}" alt="imagen-producto">
         </div>
+        
         <div class="container-info-product">
             <div class="container-price">
                 <span>${{ $product->price }}</span>
@@ -126,12 +120,7 @@
         </div>
     </section>
 
-    <footer>
-        <p>Footer</p>
-    </footer>
 
     <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/detalle.js') }}"></script>
-</body>
-
-</html>
+    @endsection()

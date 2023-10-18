@@ -6,22 +6,17 @@
 	box-sizing: border-box;
 }
 
-body {
+main{
 	font-family: 'Ubuntu';
 	max-width: 1200px;
-	margin: 0 auto;
-}
-
-img {
-	max-width: 100%;
-}
-
-header {
 	display: flex;
-	align-items: center;
-	padding: 30px;
-	justify-content: center;
+	margin: auto;
 }
+img {
+	max-width: 98%;
+}
+
+
 
 .container-title {
 	padding: 30px;
@@ -30,11 +25,7 @@ header {
 	color: #222;
 }
 
-main {
-	display: flex;
-	gap: 30px;
-	margin-bottom: 80px;
-}
+
 
 .container-img {
 	background-color: #f7f7f9;
@@ -236,7 +227,12 @@ main {
 .container-buttons-social a:hover {
 	color: #1bbeb4;
 }
-
+.container-related-products{
+	font-family: 'Ubuntu';
+	max-width: 1200px;
+	margin: auto;
+	margin-top: 2%;
+}
 .container-related-products h2 {
 	text-align: center;
 	margin-bottom: 30px;
@@ -293,9 +289,3 @@ main {
     color: #1bbeb4;
 }
 
-footer {
-	padding: 30px;
-	background-color: #eee;
-	margin-top: 50px;
-	color: #222;
-}
