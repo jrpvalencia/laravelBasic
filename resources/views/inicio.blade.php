@@ -40,7 +40,7 @@
 
     <section class="section">
       <div class="container">
-        <h1>Temporadas</h1>
+        <h1 class="titulo1">Temporadas</h1>
         <div class="contenedor-tarjetas">
           <div class="contenedor-cart">
               <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
