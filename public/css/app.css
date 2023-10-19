@@ -3,7 +3,6 @@
 
 
 
-
   :root{
       --color-esqueleto:#7a771f;
   }
@@ -60,6 +59,7 @@
       max-width: 1200px;
       margin: auto;
       margin-top: 100px;
+      
   }
   
   .box__footer{
