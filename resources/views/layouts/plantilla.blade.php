@@ -46,6 +46,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('perfil')}}">Perfil</a>
+                    </li>
                   {{--   <li class="nav-item">
                         <a class="nav-link" href="{{route('pago')}}">Forma de pago</a>
                     </li> --}}

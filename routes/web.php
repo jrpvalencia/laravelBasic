@@ -190,6 +190,7 @@ Route::get('comentario',[CommentController::class, 'show'])->name('comment.show'
 //NAVEGABILIDAD
 
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
+route::get('perfil',[Controller::class,'perfil'])->name('perfil');
 route::get('formaPago',[Controller::class,'pago'])->name('pago');
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');
