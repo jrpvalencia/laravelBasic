@@ -12,6 +12,20 @@
       height: 60px;
       background: var(--color-esqueleto);
   }
+
+  .active-link {
+    color: rgb(173, 162, 64) !important;
+}
+
+
+  .inv{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 50px;
+  }
+  #inv{
+    font-family: 'Kaushan Script', cursive;
+    
+  }
   
   .cover{
       width: 100%;

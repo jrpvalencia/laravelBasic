@@ -23,7 +23,7 @@
                     <img class="d-block w-100" src="{{ asset('img/inicio1.jpg') }}" alt="Imagen 2">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ asset('img/inicio2.jpg') }}" alt="Imagen 3">
+                    <img class="d-block w-100" src="{{ asset('img/portada.jpg') }}" alt="Imagen 3">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

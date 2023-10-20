@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="{{asset('IMG')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville&family=Quicksand:wght@300&display=swap" rel="stylesheet">
     @yield('head')
     <title>@yield('title')</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{asset('img/logoF.png')}}" alt="Logo de la empresa" width="30" height="30" class="d-inline-block align-top">
-                nventSmell
+            <a class="navbar-brand" href="{{asset('inicio')}}" id="inv">
+                <img src="{{asset('img/logoF.png')}}" alt="Logo de la empresa" width="30" height="30" class="d-inline-block align-top">nventSmell
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,46 +26,48 @@
                 <ul class="navbar-nav ml-auto">
 
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{route('inicio')}}">Inicio</a>
+                    <li class="nav-item @if(request()->is('inicio')) active @endif">
+                        <a class="nav-link @if(request()->is('inicio')) active-link @endif" href="{{ route('inicio') }}">Inicio</a>
                     </li>
+                    
                     @auth
 
+                    <li class="nav-item @if(request()->is('catalogo')) active @endif">
+                        <a class="nav-link @if(request()->is('catalogo')) active-link @endif" href="{{ route('catalogo.index') }}">Catalogo</a>
+                    </li>
 
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('catalogo.index')}}">Catalogo</a>
+                  
+                    <li class="nav-item @if(request()->is('product*')) active @endif">
+                        <a class="nav-link @if(request()->is('product*')) active-link @endif" href="{{ route('product.index') }}">Productos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('product.index')}}"id="">Productos</a>
+                    
+                    <li class="nav-item @if(request()->is('conocenos')) active @endif">
+                        <a class="nav-link @if(request()->is('conocenos')) active-link @endif" href="{{ route('conocenos') }}">Conocenos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('conocenos')}}"id="">Conocenos</a>
+                    
+                    <li class="nav-item @if(request()->is('contactanos')) active @endif">
+                        <a class="nav-link @if(request()->is('contactanos')) active-link @endif" href="{{ route('contactanos') }}">Contacto</a>
                     </li>
-                 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('contactanos')}}">Contacto</a>
+                    
+                    <li class="nav-item @if(request()->is('perfil')) active @endif">
+                        <a class="nav-link @if(request()->is('perfil')) active-link @endif" href="{{ route('perfil') }}">Perfil</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('perfil')}}">Perfil</a>
+                    
+                  
+                    <li class="nav-item @if(request()->is('carritoC')) active @endif">
+                        <a class="nav-link @if(request()->is('carritoC')) active-link @endif" href="{{ route('carritoC') }}"><i class="fas fa-shopping-cart"></i> Carrito</a>
                     </li>
-                  {{--   <li class="nav-item">
-                        <a class="nav-link" href="{{route('pago')}}">Forma de pago</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('carritoC')}}" ><i class="fas fa-shopping-cart"></i> Carrito</a>
-                    </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Cruds
+                        <a class="nav-link dropdown-toggle @if(request()->is('temporada*') || request()->is('pago')) active @endif" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cruds
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('temporada.create')}}">Temporada</a>
-                        <a class="dropdown-item" href="{{route('pago')}}">Forma de pago </a>
-                       {{--  <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        </div> --}}
+                            <a class="dropdown-item @if(request()->is('temporada*')) active-link @endif" href="{{route('temporada.create')}}">Temporada</a>
+                            <a class="dropdown-item @if(request()->is('pago')) active-link @endif" href="{{route('pago')}}">Forma de pago</a>
+                        </div>
                     </li>
+                    
                     @endauth
                     @guest
 
@@ -99,7 +101,7 @@
                     <img src="{{asset('img/logoF.png')}}" alt="">
                 </div>
                 <div class="terms">
-                    <h3>InventSmell</h3>
+                    <h3 class="inv">InventSmell</h3>
                     <p>Inventa el aroma de tus sueños</p>
                     <p>Somos una empresa comprometida con nuestros usuarios y su satisfaccion</p>    
                 </div>

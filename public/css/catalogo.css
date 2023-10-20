@@ -6,7 +6,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: white;
   
-        min-height: 100vh;
+       
         background: url(../IMG/fn12.jpg) center / cover;
         justify-content: center;
         align-items: center;
@@ -29,8 +29,10 @@ body {
 
 .containers {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
 }
+
+
 
 .producto {
     background-color: #fff;
