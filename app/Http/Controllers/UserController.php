@@ -8,6 +8,7 @@ use App\Models\User;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -103,6 +104,22 @@ class UserController extends Controller
          $user->document = $request->document;
          $user->email = $request->email;
          $user->password = $request->password;
+          // Verifica si se ha cargado una nueva imagen
+    if ($request->hasFile('image')) {
+        // Generar un nombre de archivo único basado en la marca de tiempo y la extensión original
+        $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+        
+        // Almacenar la imagen en la carpeta 'public/product'
+        $request->file('image')->storeAs('public/product', $imageName);
+        
+        // Eliminar la imagen anterior (opcional) si lo deseas
+        if ($user->image) {
+            Storage::delete('public/product/' . $user->image);
+        }
+
+        // Asignar el nombre del archivo al atributo 'image' del modelo de producto
+        $user->image = $imageName; // Almacena solo el nombre del archivo
+    }
  
          $user->save();
  
