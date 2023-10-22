@@ -49,7 +49,7 @@
               <div class="card" id="cont">
                   <div class="overlay">
                       <h1>Invierno</h1>
-                      <a href="#" class="btn">View Profile</a>
+                      <a href="{{ route('invierno') }}" class="btn">View Profile</a>
                   </div>
               </div>
   
@@ -57,7 +57,9 @@
               <div class="card" id="cont1">
                   <div class="overlay" >
                       <h1>Primavera</h1>
-                      <a href="#" class="btn">View Profile</a>
+                      <a href="{{ route('primavera') }}" class="btn">View Profile</a>
+                
+
                   </div>
               </div>
   
@@ -66,7 +68,7 @@
               <div class="card" id="cont2">
                   <div class="overlay">
                       <h1>Verano</h1>
-                      <a href="#" class="btn">View Profile</a>
+                      <a href="{{ route('verano') }}" class="btn">View Profile</a>
                   </div>
               </div>
   
@@ -76,7 +78,7 @@
                 
                   <div class="overlay">
                       <h1>Otoño</h1>
-                      <a href="#" class="btn">View Profile</a>
+                      <a href="{{ route('otoño') }}" class="btn">View Profile</a>
                   </div>
                 
               </div>

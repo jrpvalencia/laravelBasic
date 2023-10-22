@@ -29,7 +29,7 @@
                     <th class="icon-arrow"> Imagen </th>
                     <th class="icon-arrow"> Precio</th>
                     <th class="icon-arrow"> Concentracion </th>
-                    <th class="icon-arrow"> idTemporada</th>
+                    <th class="icon-arrow"> Temporada</th>
                     <th class="icon-arrow"> Acciones</th>
                 </tr>
             </thead>
@@ -45,7 +45,8 @@
                     
                     <td>{{ $products->price }}</td>
                     <td>{{ $products->concentration }}</td>
-                    <td>{{ $products->idSeason }}</td>
+                    <td>{{ $products->season->name }}</td>
+
                     <td>
                         <div class="button-group">
                         <form action="{{ route('product.destroy', $products->id) }}" method="POST">

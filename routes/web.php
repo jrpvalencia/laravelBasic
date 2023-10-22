@@ -41,10 +41,13 @@ Route::get('productos/index',[ProductController::class,'index'])->name('product.
 Route::delete('productos/{product}',[ProductController::class,'destroy'])->name('product.destroy');
 Route::get('productos/{product}/edit',[ProductController::class, 'edit'])->name('product.edit');
 Route::put('productos/{product}',[ProductController::class, 'update'])->name('product.update');
-
-
 Route::get('productos/show/{id}',[ProductController::class, 'show'])->name('product.show');
 route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.index');
+Route::get('productos/primavera', [ProductController::class,'primavera'])->name('primavera');
+Route::get('productos/verano', [ProductController::class,'verano'])->name('verano');
+Route::get('productos/otoño', [ProductController::class,'otoño'])->name('otoño');
+Route::get('productos/invierno', [ProductController::class,'invierno'])->name('invierno');
+
 
 //RUTAS TEMPORADA
 
@@ -55,6 +58,7 @@ Route::delete('temporadas/{season}', [SeasonController::class, 'destroy'])->name
 Route::get('temporadas/{season}/edit',[SeasonController::class, 'edit'])->name('season.edit');
 Route::put('temporadas/{season}',[SeasonController::class, 'update'])->name('season.update');
 Route::get('temporadas',[SeasonController::class, 'show'])->name('season.show');
+
 
 //RUTAS ROL
 
