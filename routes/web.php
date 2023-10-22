@@ -160,11 +160,13 @@ Route::get('favoritos',[FavoriteController::class, 'show'])->name('favorite.show
 //RUTAS USUARIO
 
 Route::get('usuario/create',[UserController::class, 'create'])->name('user.create');
+Route::get('perfil', [UserController::class, 'shows'])->name('perfil');
 Route::post('usuario2',[UserController::class,'store'])->name('user.store');
 Route::get('usuario',[UserController::class, 'index'])->name('user.index');
 Route::delete('usuario/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('usuario/{user}/edit',[UserController::class, 'edit'])->name('user.edit');
 Route::put('usuario/{user}',[UserController::class, 'update'])->name('user.update');
+Route::put('usuario/{user}',[UserController::class, 'updatePerfil'])->name('user.updatePerfil');
 Route::get('usuarios',[UserController::class, 'show'])->name('user.show');
 
 
@@ -190,7 +192,7 @@ Route::get('comentario',[CommentController::class, 'show'])->name('comment.show'
 //NAVEGABILIDAD
 
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
-route::get('perfil',[Controller::class,'perfil'])->name('perfil');
+
 route::get('formaPago',[Controller::class,'pago'])->name('pago');
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');

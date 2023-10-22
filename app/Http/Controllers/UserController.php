@@ -68,6 +68,15 @@ class UserController extends Controller
     {
         return view('user.show');
     }
+    
+    public function shows()
+    {
+        $user = Auth::user();
+        
+        $rol = Rol::all();
+        return view('perfil', compact('user','rol'));
+    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -84,6 +93,21 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+     public function updatePerfil(Request $request, User $user)
+     {
+         $user->name = $request->name;
+         $user->lastName = $request->lastName;
+         $user->typeDocument = $request->typeDocument;
+         $user->document = $request->document;
+         $user->email = $request->email;
+         $user->password = $request->password;
+ 
+         $user->save();
+ 
+         return redirect()->route('perfil', $user);
+     }
     public function update(Request $request, User $user)
     {
         $user->name = $request->name;
@@ -106,6 +130,20 @@ class UserController extends Controller
 
        
      }
+     public function perfil()
+     {
+         return view('perfil');
+     }
+
+     public function perfils(User $user){
+
+        $rol = Rol::all();
+
+        return view('perfil', compact('user', 'rol'));
+
+       
+     }
+    
 
     /**
      * Remove the specified resource from storage.

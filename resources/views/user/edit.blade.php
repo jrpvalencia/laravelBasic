@@ -32,7 +32,7 @@
 
                 <div class="mb-3">
                     <label for="Nombre" class="form-label">Telefono:</label>
-                    <input type="tel" class="form-control" name="phone"value="{{ $user->phone }}">
+                    <input type="tel" class="form-control" name="phone" value="{{ $user->phone }}">
                 </div>
 
 
