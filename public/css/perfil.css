@@ -5,7 +5,9 @@ body {
     background: url(../IMG/fn19.jpg) center / cover;
     justify-content: center;
     align-items: center;
+   
 }
+
 
 .ui-w-80 {
     width : 80px !important;

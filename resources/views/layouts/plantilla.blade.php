@@ -87,6 +87,8 @@
         </div>
     </nav>
 
+
+    
     @yield('content')
 
 
@@ -138,7 +140,9 @@
         </div>
     </footer>
 
-
+<body>
+    
+</body>
 
 <div class="login-status text-center">
   <p id="loginMessage"></p>

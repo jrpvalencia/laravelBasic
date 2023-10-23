@@ -4,13 +4,17 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	
 }
 
-body {
+.container8{
 	font-family: 'Ubuntu';
 	max-width: 1200px;
 	margin: 0 auto;
+	margin-top: 70px;
 }
+
+
 
 img {
 	max-width: 100%;
@@ -21,6 +25,8 @@ header {
 	align-items: center;
 	padding: 30px;
 	justify-content: center;
+	
+	
 }
 
 .container-title {
@@ -33,6 +39,7 @@ header {
 main {
 	display: flex;
 	gap: 30px;
+	
 	margin-bottom: 80px;
 }
 
