@@ -10,16 +10,14 @@ use Illuminate\Http\Request;
 
 class ShoppingCartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        $shoppingCart = ShoppingCart::all();
+        $userID = auth()->id();
+        $shoppingCart = ShoppingCart::where('idUser', $userID)->get();
 
-        return view('shoppingCart.index', compact('shoppingCart'));
+        // return view('shoppingCart.index', compact('shoppingCart'));
+        return view('shoppingCart.carrito', compact('shoppingCart'));
     }
 
     /**

@@ -44,7 +44,7 @@
                             <label for="temporada" class="form-label">Temporada:</label>
                             <select name="idSeason" class="form-control"> <!-- Agregamos la clase 'form-control' para estilos específicos del select -->
                                 @foreach ($seasons as $season)
-                                    <option value="{{ $season->id }}">{{ $season->id }} {{ $season->name }}</option>
+                                    <option value="{{ $season->id }}">{{ $season->name }}</option>
                                 @endforeach
                             </select>
 

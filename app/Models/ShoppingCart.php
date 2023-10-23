@@ -18,8 +18,8 @@ class ShoppingCart extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
-    public function producto(){
-        return $this->belongsTo('App\Models\Product');
+    public function product(){
+        return $this->belongsTo('App\Models\Product', 'idProduct', 'id');
     }
     public function pedido(){
         return $this->hasOne('App\Models\Order');

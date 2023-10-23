@@ -15,21 +15,30 @@
 
     <div class="container">
       <div class="cart-items">
+        <?php 
+          $pedido = 0 
+        ?>
 @foreach($shoppingCart as $shoppingCarts)
-<?php 
-// use App\Models\Product;
-// $pro=$shoppingCarts->idProduct;
-// $product = Product::find($pro);
-?>
+
         <div class="cart-item">
-          {{-- <img src="{{ $prod->image }}" alt="Producto 1"> --}}
+          <img src="{{ $shoppingCarts->product->image }}">
           <div>
-            <h4 class="cart-item-title">Producto 1</h4>
-            {{-- <p>{{ $product->price }}</p> --}}
+            <h4 class="cart-item-title">{{ $shoppingCarts->product->name }}</h4>
+            <p class="precio">Precio del producto: {{ $shoppingCarts->product->price }}</p>
+            <p>cantidad de productos: {{ $shoppingCarts->product_quantity }}</p>
+            <?php 
+              
+              $valor1 = intval($shoppingCarts->product->price);
+              $valor2 = intval($shoppingCarts->product_quantity);
+              $precioF = $valor1 * $valor2;
+              $pedido = $precioF + $pedido
+            ?>
+            <p>Precio: {{ $precioF }}</p>
             <button class="btn btn-danger">Eliminar</button>
           </div>
         </div>
 @endforeach
+<h2>{{$pedido}}</h2>
         {{-- <div class="cart-item">
           <img src="{{asset('img/producto1.webp')}}" alt="Producto 2">
           <div>

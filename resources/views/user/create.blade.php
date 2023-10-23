@@ -37,7 +37,7 @@
                     <label for="archivo" class="form-label">Rol:</label>
                     <select name="idRol" class="form-control">
                         @foreach ($rol as $rols)
-                            <option value="{{ $rols->id }}">{{ $rols->id }} {{ $rols->name }}</option>
+                            <option value="{{ $rols->id }}">{{ $rols->name }}</option>
                         @endforeach
                     </select>
                 </div>
