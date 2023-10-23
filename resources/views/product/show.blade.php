@@ -56,7 +56,7 @@
                                 <i class="fa-solid fa-chevron-down" id="decrement"></i>
                             </div>
                         </div>
-                        <button type="submit" class="btn-add-to-cart" id="carrito">
+                        <button type="submit" class="btn-add-to-cardDe" id="carrito">
                             <i class="fa-solid fa-plus"></i>
                             Añadir al carrito
                         </button>
@@ -87,13 +87,13 @@
 
         <section class="container-related-products">
             <h2>Productos Relacionados</h2>
-            <div class="card-list-products">
-                <div class="card">
-                    <div class="card-img">
+            <div class="cardDe-list-products">
+                <div class="cardDe">
+                    <div class="cardDe-img">
                         <img src="https://images.unsplash.com/photo-1662376569449-cf6cae79defe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVmdW1lc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
                             alt="producto-1" />
                     </div>
-                    <div class="info-card">
+                    <div class="info-cardDe">
                         <div class="text-product">
                             <h3>Carolina Herrera</h3>
                             <p class="category">Footwear, Sneakers</p>
@@ -101,12 +101,12 @@
                         <div class="price">$85.00</div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-img">
+                <div class="cardDe">
+                    <div class="cardDe-img">
                         <img src="https://images.unsplash.com/photo-1617839400561-d55457a29da2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHBlcmZ1bWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
                             alt="producto-2" />
                     </div>
-                    <div class="info-card">
+                    <div class="info-cardDe">
                         <div class="text-product">
                             <h3>Dior</h3>
                             <p class="category">Footwear, Sneakers</p>
@@ -114,12 +114,12 @@
                         <div class="price">$255.00</div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-img">
+                <div class="cardDe">
+                    <div class="cardDe-img">
                         <img src="https://images.unsplash.com/photo-1592914610354-fd354ea45e48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBlcmZ1bWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
                             alt="producto-3" />
                     </div>
-                    <div class="info-card">
+                    <div class="info-cardDe">
                         <div class="text-product">
                             <h3>Chanel</h3>
                             <p class="category">Footwear, Sneakers</p>
@@ -127,12 +127,12 @@
                         <div class="price">$105.00</div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-img">
+                <div class="cardDe">
+                    <div class="cardDe-img">
                         <img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlcmZ1bWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
                             alt="producto-4" />
                     </div>
-                    <div class="info-card">
+                    <div class="info-cardDe">
                         <div class="text-product">
                             <h3>Common Projects Achilles</h3>
                             <p class="category">Footwear, Sneakers</p>

@@ -159,7 +159,7 @@ main {
 	color: #1bbeb4;
 }
 
-.btn-add-to-cart {
+.btn-add-to-cardDe {
 	border: none;
 	background-color: #252525;
 	padding: 10px;
@@ -172,7 +172,7 @@ main {
 	cursor: pointer;
 }
 
-.btn-add-to-cart:hover {
+.btn-add-to-cardDe:hover {
 	color: #1bbeb4;
 }
 
@@ -249,28 +249,28 @@ main {
 	margin-bottom: 30px;
 }
 
-.card-list-products {
+.cardDe-list-products {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 25px;
 }
 
-.card {
+.cardDe {
 	cursor: pointer;
 }
 
-.card-img {
+.cardDe-img {
 	background: transparent;
 	margin-bottom: 15px;
 }
 
-.card-img img {
+.cardDe-img img {
 	height: 400px;
 	object-fit: cover;
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.info-card {
+.info-cardDe {
 	display: flex;
 	justify-content: space-between;
 }
@@ -302,7 +302,7 @@ main {
 
 footer {
 	padding: 30px;
-	background-color: #eee;
+	background-color: #fff;
 	margin-top: 50px;
 	color: #222;
 }
