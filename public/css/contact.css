@@ -21,6 +21,9 @@ body{
     align-items: center;
    
 }
+.body{
+  margin-left: 200px;
+}
 
 input::placeholder{
     color: #fff;
