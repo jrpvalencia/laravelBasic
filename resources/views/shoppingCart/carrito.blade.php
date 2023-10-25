@@ -32,7 +32,7 @@
                         <form action="{{ route('shoppingCart.destroy', $shoppingCartItem->id) }}" method="post">
                           @csrf
                           @method('delete')
-                          <button type="submit" class="delete-button">X</button>
+                          <button type="submit" class="btn btn-danger">Eliminar</button>
                       </form>
                       
                       
