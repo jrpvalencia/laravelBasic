@@ -35,6 +35,7 @@
                           <button type="submit" class="delete-button">X</button>
                       </form>
                       
+                      
                     </div>
                 </div>
             @endforeach
@@ -90,7 +91,20 @@
 
 
 
-    {{-- <div class="cart-item">
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {{-- <div class="cart-item">
           <img src="{{asset('img/producto1.webp')}}" alt="Producto 2">
           <div>
             <h4 class="cart-item-title">Producto 2</h4>

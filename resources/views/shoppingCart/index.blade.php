@@ -46,7 +46,7 @@
                             @method('delete')
                             <button type="submit" class="delete-button">X</button>
                         </form>
-                    
+                       
                         <a href="{{ route('shoppingCart.edit',$shoppingCarts->id) }}"class="edit-button"><i
                             class='bx bxs-edit-alt'></i></a>
                     </div>
