@@ -13,6 +13,30 @@ class SeasonFactory extends Factory
      */
     public function definition()
     {
-        
-    }
+            return [
+                'name' => 'Primavera', // Comienza con Primavera
+            ]; 
+        }
+    
+        public function verano()
+        {
+            return $this->state([
+                'name' => 'Verano',
+            ]);
+        }
+    
+        public function otoño()
+        {
+            return $this->state([
+                'name' => 'Otoño',
+            ]);
+        }
+    
+        public function invierno()
+        {
+            return $this->state([
+                'name' => 'Invierno',
+            ]);
+        }
+    
 }

@@ -1,26 +1,36 @@
 @extends('layouts.plantilla')
 
 @section('content')
-    <div class="container">
+
+  
+   
+    <link rel="stylesheet" href="{{asset('css/form.css')}}">
+    
+
+
+
+    <div class="container6">
         
-            <h1 class="mt-4">Temporada</h1>
+        <h1 class="mt-4">Temporada</h1>
 
-            <form action="{{ route('temporadasStore') }}" method="POST">
+        <form action="{{ route('temporadasStore') }}" method="POST">
 
-                @csrf
+            @csrf
+            <div class="mb-3">
+
                 <div class="mb-3">
-
-
-                    <div class="input-field">
-                        <label for="nombre" class="form-label">Nombre:</label>
-                        <input type="text" name="name" >
-                    </div>
-
-                    <div class="btn-field">
-                        <button type="submit" class="btn btn-primary">Enviar:</button>
-                    </div>
+                    <label for="name" class="form-label">Nombre:</label>
+                    <input type="text" name="name">
                 </div>
-            </form>
-        </div>
+
+                <br>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Enviar</i></button>
+                </div>
+            </div>
+        </form>
+        
     </div>
-@endsection
+
+
+    @endsection()

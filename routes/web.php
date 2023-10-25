@@ -41,10 +41,13 @@ Route::get('productos/index',[ProductController::class,'index'])->name('product.
 Route::delete('productos/{product}',[ProductController::class,'destroy'])->name('product.destroy');
 Route::get('productos/{product}/edit',[ProductController::class, 'edit'])->name('product.edit');
 Route::put('productos/{product}',[ProductController::class, 'update'])->name('product.update');
-
-
 Route::get('productos/show/{id}',[ProductController::class, 'show'])->name('product.show');
 route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.index');
+Route::get('productos/primavera', [ProductController::class,'primavera'])->name('primavera');
+Route::get('productos/verano', [ProductController::class,'verano'])->name('verano');
+Route::get('productos/otoño', [ProductController::class,'otoño'])->name('otoño');
+Route::get('productos/invierno', [ProductController::class,'invierno'])->name('invierno');
+
 
 //RUTAS TEMPORADA
 
@@ -55,6 +58,7 @@ Route::delete('temporadas/{season}', [SeasonController::class, 'destroy'])->name
 Route::get('temporadas/{season}/edit',[SeasonController::class, 'edit'])->name('season.edit');
 Route::put('temporadas/{season}',[SeasonController::class, 'update'])->name('season.update');
 Route::get('temporadas',[SeasonController::class, 'show'])->name('season.show');
+
 
 //RUTAS ROL
 
@@ -160,11 +164,13 @@ Route::get('favoritos',[FavoriteController::class, 'show'])->name('favorite.show
 //RUTAS USUARIO
 
 Route::get('usuario/create',[UserController::class, 'create'])->name('user.create');
+Route::get('perfil', [UserController::class, 'shows'])->name('perfil');
 Route::post('usuario2',[UserController::class,'store'])->name('user.store');
 Route::get('usuario',[UserController::class, 'index'])->name('user.index');
 Route::delete('usuario/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('usuario/{user}/edit',[UserController::class, 'edit'])->name('user.edit');
 Route::put('usuario/{user}',[UserController::class, 'update'])->name('user.update');
+Route::put('usuario/{user}',[UserController::class, 'updatePerfil'])->name('user.updatePerfil');
 Route::get('usuarios',[UserController::class, 'show'])->name('user.show');
 
 
@@ -190,6 +196,7 @@ Route::get('comentario',[CommentController::class, 'show'])->name('comment.show'
 //NAVEGABILIDAD
 
 route::get('contactanos',[Controller::class,'contactanos'])->name('contactanos');
+
 route::get('formaPago',[Controller::class,'pago'])->name('pago');
 route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');

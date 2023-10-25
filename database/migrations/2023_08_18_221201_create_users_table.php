@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('typeDocument');
             $table->integer('document');
             $table->integer('phone');
-
+            $table->string("image")->nullable();
             $table->unsignedBigInteger('idRol');
             $table->foreign("idRol")->references("id")->on("rols")->onDelete("cascade");
             $table->string('email')->unique();

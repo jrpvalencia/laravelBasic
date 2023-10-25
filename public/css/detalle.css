@@ -4,13 +4,37 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	
 }
 
+<<<<<<< HEAD
 main{
 	font-family: 'Ubuntu';
 	max-width: 1200px;
 	display: flex;
 	margin: auto;
+=======
+.container8{
+	font-family: 'Ubuntu';
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-top: 70px;
+}
+
+
+
+img {
+	max-width: 100%;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	padding: 30px;
+	justify-content: center;
+	
+	
+>>>>>>> 3ecc44cada22b473b393cccff8121c9f15bdbc6e
 }
 img {
 	max-width: 98%;
@@ -25,7 +49,16 @@ img {
 	color: #222;
 }
 
+<<<<<<< HEAD
 
+=======
+main {
+	display: flex;
+	gap: 30px;
+	
+	margin-bottom: 80px;
+}
+>>>>>>> 3ecc44cada22b473b393cccff8121c9f15bdbc6e
 
 .container-img {
 	background-color: #f7f7f9;
@@ -143,7 +176,7 @@ img {
 	color: #1bbeb4;
 }
 
-.btn-add-to-cart {
+.btn-add-to-cardDe {
 	border: none;
 	background-color: #252525;
 	padding: 10px;
@@ -156,7 +189,7 @@ img {
 	cursor: pointer;
 }
 
-.btn-add-to-cart:hover {
+.btn-add-to-cardDe:hover {
 	color: #1bbeb4;
 }
 
@@ -238,28 +271,28 @@ img {
 	margin-bottom: 30px;
 }
 
-.card-list-products {
+.cardDe-list-products {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 25px;
 }
 
-.card {
+.cardDe {
 	cursor: pointer;
 }
 
-.card-img {
+.cardDe-img {
 	background: transparent;
 	margin-bottom: 15px;
 }
 
-.card-img img {
+.cardDe-img img {
 	height: 400px;
 	object-fit: cover;
 	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.info-card {
+.info-cardDe {
 	display: flex;
 	justify-content: space-between;
 }
@@ -289,3 +322,12 @@ img {
     color: #1bbeb4;
 }
 
+<<<<<<< HEAD
+=======
+footer {
+	padding: 30px;
+	background-color: #fff;
+	margin-top: 50px;
+	color: #222;
+}
+>>>>>>> 3ecc44cada22b473b393cccff8121c9f15bdbc6e

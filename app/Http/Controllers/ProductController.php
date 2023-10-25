@@ -182,6 +182,42 @@ class ProductController extends Controller
         
         return back()->with('success', 'Registro eliminado correctamente');
     }
+
+    public function primavera()
+    {
+        $productosPrimavera = Product::where('idSeason', 1)->get();
+    
+      
+    
+        return view('product.primavera', ['productosPrimavera' => $productosPrimavera]);
+    }
+    
+    public function verano()
+    {
+        $productosVerano = Product::where('idSeason', 2)->get(); 
+    
+      
+    
+        return view('product.verano', ['productosVerano' => $productosVerano]);
+    }
+    public function otoño()
+    {
+        $productosOtoño = Product::where('idSeason', 3)->get(); 
+    
+      
+    
+        return view('product.otoño', ['productosOtoño' => $productosOtoño]);
+    }
+    public function invierno()
+    {
+        $productosInvierno = Product::where('idSeason', 4)->get(); 
+    
+      
+    
+        return view('product.invierno', ['productosInvierno' => $productosInvierno]);
+    }
+    
+    
 }
 
 

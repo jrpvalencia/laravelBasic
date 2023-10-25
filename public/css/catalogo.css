@@ -5,10 +5,20 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: white;
+  
+       
+        background: url(../IMG/fn12.jpg) center / cover;
+        justify-content: center;
+        align-items: center;
+       
+    
 }
 
 
-
+.mb-4{
+    color: #fff;
+    font-family: 'Kaushan Script', cursive;
+}
 .navbar {
     background-color: #090909;
 }
@@ -17,10 +27,12 @@ body {
     color: #fff;
 }
 
-.container {
+.containers {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
 }
+
+
 
 .producto {
     background-color: #fff;
@@ -37,6 +49,7 @@ body {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
+
 .producto img {
     max-width: 100%;
     height: 150px; 
@@ -44,6 +57,11 @@ body {
     margin: 0 auto;
     border-radius: 5px;
     object-fit: cover; 
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    
+        
 }
 
 .producto h3 {

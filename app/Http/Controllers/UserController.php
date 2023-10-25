@@ -8,6 +8,7 @@ use App\Models\User;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -68,6 +69,15 @@ class UserController extends Controller
     {
         return view('user.show');
     }
+    
+    public function shows()
+    {
+        $user = Auth::user();
+        
+        $rol = Rol::all();
+        return view('perfil', compact('user','rol'));
+    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -84,6 +94,37 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+     public function updatePerfil(Request $request, User $user)
+     {
+         $user->name = $request->name;
+         $user->lastName = $request->lastName;
+         $user->typeDocument = $request->typeDocument;
+         $user->document = $request->document;
+         $user->email = $request->email;
+         $user->password = $request->password;
+          // Verifica si se ha cargado una nueva imagen
+    if ($request->hasFile('image')) {
+        // Generar un nombre de archivo único basado en la marca de tiempo y la extensión original
+        $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
+        
+        // Almacenar la imagen en la carpeta 'public/product'
+        $request->file('image')->storeAs('public/product', $imageName);
+        
+        // Eliminar la imagen anterior (opcional) si lo deseas
+        if ($user->image) {
+            Storage::delete('public/product/' . $user->image);
+        }
+
+        // Asignar el nombre del archivo al atributo 'image' del modelo de producto
+        $user->image = $imageName; // Almacena solo el nombre del archivo
+    }
+ 
+         $user->save();
+ 
+         return redirect()->route('perfil', $user);
+     }
     public function update(Request $request, User $user)
     {
         $user->name = $request->name;
@@ -106,6 +147,20 @@ class UserController extends Controller
 
        
      }
+     public function perfil()
+     {
+         return view('perfil');
+     }
+
+     public function perfils(User $user){
+
+        $rol = Rol::all();
+
+        return view('perfil', compact('user', 'rol'));
+
+       
+     }
+    
 
     /**
      * Remove the specified resource from storage.
