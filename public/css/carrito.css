@@ -37,7 +37,10 @@ background: linear-gradient(to right, #414345, #232526ab); /* W3C, IE 10+/ Edge,
     align-items: center;
     margin-bottom: 20px;
   }
-
+.btnCarrito{
+  margin-left: 1300px;
+  margin-top: 60px;
+}
   .cart-item img {
     max-width: 100px;
     height: auto;

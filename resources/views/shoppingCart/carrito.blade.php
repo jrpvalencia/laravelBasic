@@ -10,6 +10,9 @@
 
 @section('content')
 <section class="cart-section">
+  <div class="btnCarrito">
+    <a href="{{route('catalogo.index')}}"><button  class="btn btn-primary">Continuar Comprando</button></a>
+  </div>
     <div class="container">
         <div class="cart-items">
             <?php $pedido = 0 ?>
@@ -38,10 +41,13 @@
                       
                     </div>
                 </div>
+              
+              
             @endforeach
             <h2>Total: ${{ $pedido }}</h2>
         </div>
     </div>
+ 
 </section>
 @endsection
 
