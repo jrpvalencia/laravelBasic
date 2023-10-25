@@ -1,23 +1,40 @@
 @extends('layouts.plantilla')
 
+@section('title', 'Contacto - Perfumería')
+
 @section('head')
-<title>Detalle de {{$product->name}}</title>
-    <link rel="stylesheet" href="{{ asset('css/detalle.css') }}" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville&family=Quicksand:wght@300&display=swap"
+        rel="stylesheet">
+
 @endsection()
 
 @section('content')
-<div class="container8">
-    <div class="container-title">{{$product->name}}</div>
-    
-    <main>
-        <div class="container-img">
-            <img src="{{ asset('storage/product/' . $product->image) }}" alt="imagen-producto">
-        </div>
-        
-        <div class="container-info-product">
-            <div class="container-price">
-                <span>${{ $product->price }}</span>
-                <i class="fa-solid fa-angle-right"></i>
+
+
+
+
+    <head>
+
+
+        <title>Detalle de {{ $product->name }}</title>
+        <link rel="stylesheet" href="{{ asset('css/detalle.css') }}" />
+    </head>
+
+
+
+    <div class="container8">
+
+
+        <div class="container-title">{{ $product->name }}</div>
+
+        <main>
+            <div class="container-img">
+                <img src="{{ asset('storage/product/' . $product->image) }}" alt="imagen-producto">
             </div>
             <div class="container-info-product">
                 <div class="container-price">

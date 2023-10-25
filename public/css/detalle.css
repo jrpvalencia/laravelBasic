@@ -7,13 +7,6 @@
 	
 }
 
-<<<<<<< HEAD
-main{
-	font-family: 'Ubuntu';
-	max-width: 1200px;
-	display: flex;
-	margin: auto;
-=======
 .container8{
 	font-family: 'Ubuntu';
 	max-width: 1200px;
@@ -34,13 +27,7 @@ header {
 	justify-content: center;
 	
 	
->>>>>>> 3ecc44cada22b473b393cccff8121c9f15bdbc6e
 }
-img {
-	max-width: 98%;
-}
-
-
 
 .container-title {
 	padding: 30px;
@@ -49,16 +36,12 @@ img {
 	color: #222;
 }
 
-<<<<<<< HEAD
-
-=======
 main {
 	display: flex;
 	gap: 30px;
 	
 	margin-bottom: 80px;
 }
->>>>>>> 3ecc44cada22b473b393cccff8121c9f15bdbc6e
 
 .container-img {
 	background-color: #f7f7f9;
@@ -260,12 +243,7 @@ main {
 .container-buttons-social a:hover {
 	color: #1bbeb4;
 }
-.container-related-products{
-	font-family: 'Ubuntu';
-	max-width: 1200px;
-	margin: auto;
-	margin-top: 2%;
-}
+
 .container-related-products h2 {
 	text-align: center;
 	margin-bottom: 30px;
@@ -322,12 +300,9 @@ main {
     color: #1bbeb4;
 }
 
-<<<<<<< HEAD
-=======
 footer {
 	padding: 30px;
 	background-color: #fff;
 	margin-top: 50px;
 	color: #222;
 }
->>>>>>> 3ecc44cada22b473b393cccff8121c9f15bdbc6e
