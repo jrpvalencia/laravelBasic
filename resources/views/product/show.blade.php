@@ -15,17 +15,12 @@
 
 @section('content')
 
-
-
-
     <head>
 
 
         <title>Detalle de {{ $product->name }}</title>
         <link rel="stylesheet" href="{{ asset('css/detalle.css') }}" />
     </head>
-
-
 
     <div class="container8">
 
@@ -62,15 +57,42 @@
                         </button>
                     </div>
                 </form>
+
+
+
                 <div class="container-description">
                     <div class="title-description">
                         <h4>Descripción</h4>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="text-description">
-                        <p>{{ $product->description }}</p>
+                        <p>
+                            {{ $product->description }}
+                        </p>
                     </div>
                 </div>
+
+
+                <div class="container-additional-information">
+                    <div class="title-additional-information">
+                        <h4>Información adicional</h4>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="text-additional-information hidden">
+                        <p>-----------</p>
+                    </div>
+                </div>
+
+                <div class="container-reviews">
+                    <div class="title-reviews">
+                        <h4>Reseñas</h4>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="text-reviews hidden">
+                        <p>-----------</p>
+                    </div>
+                </div>
+
 
                 <div class="container-social">
                     <span>Compartir</span>
@@ -84,7 +106,6 @@
                 </div>
             </div>
         </main>
-
         <section class="container-related-products">
             <h2>Productos Relacionados</h2>
             <div class="cardDe-list-products">
@@ -148,6 +169,7 @@
         <script src="https://kit.fontawesome.com/81581fb069.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js/detalle.js') }}"></script>
     </div>
+
 
 
 @endsection()
