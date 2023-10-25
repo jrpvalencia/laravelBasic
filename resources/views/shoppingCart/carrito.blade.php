@@ -34,7 +34,14 @@
               $pedido = $precioF + $pedido
             ?>
             <p>Precio: {{ $precioF }}</p>
-            <button class="btn btn-danger">Eliminar</button>
+            
+            
+            <form action="{{ route('shoppingCart.destroy', $shoppingCarts->id) }}" method="POST">
+              @csrf
+              @method('delete')
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
+            
           </div>
         </div>
 @endforeach
