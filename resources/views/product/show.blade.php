@@ -75,7 +75,7 @@
 
                 <div class="container-additional-information">
                     <div class="title-additional-information">
-                        <h4>Información adicional</h4>
+                        <h4>Calificacion</h4>
                         <i class="fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="text-additional-information hidden">
