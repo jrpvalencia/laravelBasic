@@ -112,7 +112,7 @@ class ShoppingCartController extends Controller
     public function destroy(ShoppingCart $shoppingCart)
     {
         $shoppingCart->delete();
-        return back()->with('succes','Registro eliminado correctamente');
+        return redirect()->route('carritoC')->with('success', 'Producto actualizado correctamente');
     }
 
     public function añadir(){
