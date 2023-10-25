@@ -16,9 +16,23 @@ class ShoppingCartController extends Controller
         $userID = auth()->id();
         $shoppingCart = ShoppingCart::where('idUser', $userID)->get();
 
-        // return view('shoppingCart.index', compact('shoppingCart'));
+        
         return view('shoppingCart.carrito', compact('shoppingCart'));
     }
+
+    public function indexAdmin()
+    {
+        $shoppingCart = ShoppingCart::all();
+
+    
+        
+        return view('shoppingCart.index', compact('shoppingCart'));
+    
+
+        
+    }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -72,8 +86,11 @@ class ShoppingCartController extends Controller
     
         $shoppingCart->save();
 
-        return redirect()->route('carritoC', $shoppingCart);
+        /* return redirect()->route('carritoC', $shoppingCart); */
+        return redirect()->route('shoppingCart.index');
     }
+
+
     public function edit(ShoppingCart $shoppingCart){
 
         $users = User::all();
@@ -117,7 +134,7 @@ class ShoppingCartController extends Controller
         $shoppingCart = ShoppingCart::where('idUser', $userID)->get();
     
         // Pasa la información del producto a la vista
-        return view('carrito', compact('shoppingCart', 'product'));
+        return view('shoppingCart.carrito', compact('shoppingCart', 'product'));
     }
     
     

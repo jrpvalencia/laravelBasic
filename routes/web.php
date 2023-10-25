@@ -83,7 +83,7 @@ Route::get('pqr',[PQRController::class, 'show'])->name('pqr.show');
 //RUTAS DE CARRITO DE COMPRA
 Route::get('carritoDeCompra/create',[ShoppingCartController::class, 'create'])->name('shoppingCart.create');
 Route::post('carritoDeCompra2',[ShoppingCartController::class,'store'])->name('shoppingCart.store');
-// Route::get('carritoCompra',[ShoppingCartController::class, 'index'])->name('shoppingCart.index');
+ Route::get('carritoCompra',[ShoppingCartController::class, 'indexAdmin'])->name('shoppingCart.index');
 route::get('carritoC',[ShoppingCartController::class,'index'])->name('carritoC');
 Route::delete('carritoDeCompra/{shoppingCart}', [ShoppingCartController::class, 'destroy'])->name('shoppingCart.destroy');
 Route::get('carritoDeCompra/{shoppingCart}/edit',[ShoppingCartController::class, 'edit'])->name('shoppingCart.edit');
