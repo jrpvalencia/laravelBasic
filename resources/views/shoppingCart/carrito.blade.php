@@ -21,7 +21,9 @@
 @foreach($shoppingCart as $shoppingCarts)
 
         <div class="cart-item">
-          <img src="{{ $shoppingCarts->product->image }}">
+         {{--  <img src="{{ $shoppingCarts->product->image }}"> --}}
+         <img src="{{ asset('storage/product/' . $shoppingCarts->product->image) }}" class="img-producto">
+
           <div>
             <h4 class="cart-item-title">{{ $shoppingCarts->product->name }}</h4>
             <p class="precio">Precio del producto: {{ $shoppingCarts->product->price }}</p>
@@ -35,7 +37,7 @@
             ?>
             <p>Precio: {{ $precioF }}</p>
             
-            
+
             <form action="{{ route('shoppingCart.destroy', $shoppingCarts->id) }}" method="POST">
               @csrf
               @method('delete')

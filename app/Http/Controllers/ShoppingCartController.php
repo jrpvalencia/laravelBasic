@@ -101,20 +101,24 @@ class ShoppingCartController extends Controller
     public function añadir(){
         $id = $_POST['id_product'];
         $product = Product::find($id);
-        
+    
         $cantidad  = $_POST['cantidad'];
         $userID = auth()->id();
-
+    
         $shoppingCart = new ShoppingCart();
-        $shoppingCart->product_quantity=$cantidad;
-        $shoppingCart->idUser=$userID;
-        $shoppingCart->idProduct=$id;
+        $shoppingCart->product_quantity = $cantidad;
+        $shoppingCart->idUser = $userID;
+        $shoppingCart->idProduct = $id;
         $shoppingCart->save();
+    
+        // Carga la información del producto para pasarlo a la vista
+        $product = Product::find($id);
+    
         $shoppingCart = ShoppingCart::where('idUser', $userID)->get();
-        
-        
-        // return view('carrito', compact('shoppingCart'));
-        return 
-        redirect()->route('carritoC');
+    
+        // Pasa la información del producto a la vista
+        return view('carrito', compact('shoppingCart', 'product'));
     }
+    
+    
 }
