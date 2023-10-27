@@ -51,4 +51,9 @@ class Controller extends BaseController
     {
         return view('carrito');
     }
+
+    public function registro2()
+    {
+        return view('registro2');
+    }
 }

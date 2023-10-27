@@ -214,3 +214,5 @@ route::post('login',[UserController::class,'validation'])->name('loginValidation
 route::get('logout',[UserController::class,'destroySesion'])->name('loginDestroy');
 
 route::get('inicio',[Controller::class,'inicio'])->name('inicio');
+
+route::get('registro2',[Controller::class,'registro2'])->name('registro2');

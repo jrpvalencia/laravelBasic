@@ -21,27 +21,5 @@
                   </div>
                   <input type="text" class="form-control" id="username" placeholder="Nombre de Usuario">
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                  </div>
-                  <input type="email" class="form-control" id="email" placeholder="Correo Electrónico">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                  </div>
-                  <input type="password" class="form-control" id="password" placeholder="Contraseña">
-                </div>
-              </div>
-              <button type="submit" class="btn btn-register btn-block"><i class="fas fa-user-plus"></i> Registrarse</button>
-            </form>
-            <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="#" class="toggle-form"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></p>
-          </div>
-        </div>
-      </div>
+             
 @endsection()
