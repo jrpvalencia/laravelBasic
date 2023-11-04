@@ -112,6 +112,8 @@ class ShoppingCartController extends Controller
     public function destroy(ShoppingCart $shoppingCart)
     {
         $shoppingCart->delete();
+
+        //Aqui debes de tener cuidado porque funciona para carrito de compra pero no te va a servir para la vista de eliminar para usuario
         return redirect()->route('carritoC')->with('success', 'Producto actualizado correctamente');
     }
 
