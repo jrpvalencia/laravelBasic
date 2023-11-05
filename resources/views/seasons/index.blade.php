@@ -33,21 +33,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($season as $seasons)
+                    @foreach ($data as $seasons)
                         <tr>
-                            <td>{{ $seasons->id }}</td>
-                            <td>{{ $seasons->name }}</td>
+                            <td>{{ $seasons['id']}}</td>
+                            <td>{{ $seasons['name']}}</td>
 
                             <td>
                                 <div class="button-group">
-                                    <form action="{{ route('season.destroy', $seasons->id) }}" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="delete-button">X</button>
-                                    </form>
+                                  
 
-                                    <a href="{{ route('season.edit', $seasons->id) }}"class="edit-button"><i
-                                        class='bx bxs-edit-alt'></i></a>
+                                 <a class="delete-button" href="{{ route('season.destroy',  $seasons['id']) }}">x </a>
+
+                                 <a href="{{ route('season.edit', $seasons['id']) }}" class="edit-button"><i class='bx bxs-edit-alt'></i></a>
+
                             </div>
                                 
                             </td>

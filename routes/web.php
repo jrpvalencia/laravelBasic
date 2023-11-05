@@ -1,5 +1,7 @@
 <?php
 
+
+use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FavoriteController;
@@ -31,7 +33,8 @@ use JetBrains\PhpStorm\Immutable;
 |
 */
 
-Route::get('/',[Controller::class,'index'])->name('inicio');
+
+ Route::get('/',[Controller::class,'index'])->name('inicio');
 
 
 //RUTAS DE PRODUCTOS
@@ -54,9 +57,9 @@ Route::get('productos/invierno', [ProductController::class,'invierno'])->name('i
 Route::post('temporadas2', [SeasonController::class,'store'])->name('temporadasStore');
 Route::get('temporada/create',[SeasonController::class,'create'])->name('temporada.create');
 Route::get('temporada',[SeasonController::class,'index'])->name('seasons.index');
-Route::delete('temporadas/{season}', [SeasonController::class, 'destroy'])->name('season.destroy');
-Route::get('temporadas/{season}/edit',[SeasonController::class, 'edit'])->name('season.edit');
-Route::put('temporadas/{season}',[SeasonController::class, 'update'])->name('season.update');
+Route::get('temporada/{id}', [SeasonController::class, 'destroy'])->name('season.destroy');
+Route::get('temporadas/{idSeason}',[SeasonController::class, 'edit'])->name('season.edit');
+Route::post('/temporadas/update',[SeasonController::class, 'update'])->name('season.update');
 Route::get('temporadas',[SeasonController::class, 'show'])->name('season.show');
 
 

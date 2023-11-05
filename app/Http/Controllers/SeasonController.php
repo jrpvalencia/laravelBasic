@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Season;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class SeasonController extends Controller
 {
@@ -15,9 +16,13 @@ class SeasonController extends Controller
      */
     public function index()
     {
-        $season = Season::all();
 
-        return view('seasons.index', compact('season'));
+        $url = env('URL_SERVER_API','http://127.0.0.1');
+        $response = Http::get($url.'/temporada');
+        $data = $response->json();
+
+
+        return view('seasons.index', compact('data'));
     }
 
     /**
@@ -36,11 +41,15 @@ class SeasonController extends Controller
     {
         //
 
-        $temp = new Season();
-        $temp->name=$request->name;
-        $temp -> save();
+        $url = env('URL_SERVER_API','http://127.0.0.1');
+        $response = Http::post($url.'/temporadas2',[
 
-        return Redirect()->route('seasons.index',$temp);
+            'name' => $request->name
+
+        ]);
+       
+
+        return Redirect()->route('seasons.index'); 
     }
 
     /**
@@ -61,18 +70,30 @@ class SeasonController extends Controller
      * @param  \App\Models\Season  $season
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Season $season)
+    public function update(Request $request)
     {
-        $season->name = $request->name;
 
-        $season->save();
+        $url = env('URL_SERVER_API', 'http://127.0.0.1');
+        $response = Http::put($url.'/temporadas/'.$request->id,[
 
-        return redirect()->route('seasons.index', $season);
+            'name' => $request->name
+
+        ]);
+
+        return redirect()->route('seasons.index');
     }
     
-    public function edit(Season $season){
-        return view('seasons.edit',compact('season'));
-     }
+    public function edit($idSeason){
+        $url = env('URL_SERVER_API', 'http://127.0.0.1');
+        $response = Http::get($url.'/temporadas/'.$idSeason);
+        $season = $response->json();
+    
+        // Utiliza dd para imprimir los datos antes de pasarlos a la vista
+        
+    
+        return view('seasons.edit', compact('season'));
+    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -80,9 +101,13 @@ class SeasonController extends Controller
      * @param  \App\Models\Season  $season
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Season $season)
+    public function destroy($idSeason)
     {
-        $season->delete();
-        return back()->with('succes','Registro eliminado correctamente');
+
+     
+         $url = env('URL_SERVER_API', 'http://127.0.0.1');
+        $response = Http::delete($url .'/temporada/'.$idSeason); // Convertir el objeto a un array
+        return redirect()->route('seasons.index'); 
     }
+    
 }

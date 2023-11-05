@@ -5,19 +5,21 @@
         <div class="form-content">
             <h1 class="mt-4">Temporada</h1>
 
-            <form action="{{ route('season.update', ['season' => $season->id]) }}" method="POST">
+            <form action="{{ route('season.update')}}" method="POST">
 
 
                 @csrf
-                @method('put')
+             
 
                 <div class="mb-3">
 
 
-
+                    <input type="hidden" name="id" value="{{ $season['id']}}"> {{--  hay que ocultar el id --}}
                     <div class="input-field">
                         <label for="nombre" class="form-label">Nombre:</label>
-                        <input type="text" name="name" value="{{ $season->name }}">
+                        <input type="text" name="name" value="{{ $season['name'] }}">
+
+
                     </div>
 
                     <div class="btn-field">
