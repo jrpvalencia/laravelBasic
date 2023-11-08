@@ -18,7 +18,7 @@ use App\Http\Controllers\SeasonController;
 use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\TypePayController;
 use App\Http\Controllers\UserController;
-use App\Models\ShoppingCart;
+
 use Illuminate\Support\Facades\Route;
 use JetBrains\PhpStorm\Immutable;
 
@@ -33,8 +33,15 @@ use JetBrains\PhpStorm\Immutable;
 |
 */
 
-
- Route::get('/',[Controller::class,'index'])->name('inicio');
+/* Route::get('/',function(){
+    $response =Http::get('http://127.0.0.1:8000/api/temporadas');
+    $data = $response->json();
+    foreach($data as $temporada){
+        echo $temporada['name'];
+    }
+    
+});  */
+ Route::get('/',[Controller::class,'index'])->name('inicio');  
 
 
 //RUTAS DE PRODUCTOS
@@ -54,24 +61,24 @@ Route::get('productos/invierno', [ProductController::class,'invierno'])->name('i
 
 //RUTAS TEMPORADA
 
-Route::post('temporadas2', [SeasonController::class,'store'])->name('temporadasStore');
-Route::get('temporada/create',[SeasonController::class,'create'])->name('temporada.create');
-Route::get('temporada',[SeasonController::class,'index'])->name('seasons.index');
-Route::get('temporada/{id}', [SeasonController::class, 'destroy'])->name('season.destroy');
-Route::get('temporadas/{idSeason}',[SeasonController::class, 'edit'])->name('season.edit');
-Route::post('/temporadas/update',[SeasonController::class, 'update'])->name('season.update');
-Route::get('temporadas',[SeasonController::class, 'show'])->name('season.show');
+Route::post('/temporada/store', [SeasonController::class,'store'])->name('season.store');
+Route::get('/temporada/create',[SeasonController::class,'create'])->name('season.create');
+Route::get('/temporadas',[SeasonController::class,'index'])->name('seasons.index');
+Route::get('/temporada/destroy/{idSeason}', [SeasonController::class, 'destroy'])->name('season.destroy');
+Route::get('/temporada/edit/{idSeason}',[SeasonController::class, 'edit'])->name('season.edit');
+Route::post('/temporada/update',[SeasonController::class, 'update'])->name('season.update');
+Route::get('/temporada/show',[SeasonController::class, 'show'])->name('season.show');
 
 
 //RUTAS ROL
 
-Route::post('roles', [RolController::class,'store'])->name('rolesStore');
-Route::get('rol/create',[RolController::class,'create'])->name('roles.create');
+Route::post('/rol/store', [RolController::class,'store'])->name('rol.store');
+Route::get('/rol/create',[RolController::class,'create'])->name('rol.create');
 Route::get('roles',[RolController::class,'index'])->name('rol.index');
-Route::delete('roles/{rol}', [RolController::class, 'destroy'])->name('rol.destroy');
-Route::get('roles/{rol}/edit',[RolController::class, 'edit'])->name('rol.edit');
-Route::put('roles/{rol}',[RolController::class, 'update'])->name('rol.update');
-Route::get('rol',[RolController::class, 'show'])->name('rol.show');
+Route::get('/rol/destroy/{idRol}', [RolController::class, 'destroy'])->name('rol.destroy');
+Route::get('/rol/edit/{idRol}',[RolController::class, 'edit'])->name('rol.edit');
+Route::post('/rol/update',[RolController::class, 'update'])->name('rol.update');
+Route::get('/rol/show',[RolController::class, 'show'])->name('rol.show');
 
 //RUTAS DE PQR
 Route::post('pqr',[PQRController::class, 'store'])->name('pqr.store');
@@ -171,17 +178,16 @@ Route::get('favoritos',[FavoriteController::class, 'show'])->name('favorite.show
 
 //RUTAS USUARIO
 
-Route::get('usuario/create',[UserController::class, 'create'])->name('user.create');
-Route::get('perfil', [UserController::class, 'shows'])->name('perfil');
-Route::post('usuario2',[UserController::class,'store'])->name('user.store');
-Route::get('usuario',[UserController::class, 'index'])->name('user.index');
-Route::delete('usuario/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-Route::get('usuario/{user}/edit',[UserController::class, 'edit'])->name('user.edit');
-Route::put('usuario/{user}',[UserController::class, 'update'])->name('user.update');
+Route::post('/usuario/store',[UserController::class,'store'])->name('user.store');
+Route::get('/usuario/create',[UserController::class, 'create'])->name('user.create');
+Route::get('usuarios',[UserController::class, 'index'])->name('user.index');
+Route::get('/usuario/destroy/{idUser}', [UserController::class, 'destroy'])->name('user.destroy');
+Route::get('/usuario/edit/{userId}', [UserController::class, 'edit'])->name('user.edit');
+Route::post('/usuario/update',[UserController::class, 'update'])->name('user.update');
+Route::get('/usuario/show',[UserController::class, 'show'])->name('user.show'); 
+
 Route::put('usuario/{user}',[UserController::class, 'updatePerfil'])->name('user.updatePerfil');
-Route::get('usuarios',[UserController::class, 'show'])->name('user.show');
-
-
+Route::get('perfil', [UserController::class, 'shows'])->name('perfil');
 //RUTAS IMAGEN
 
 Route::get('imagen/create',[ImagesController::class, 'create'])->name('image.create');

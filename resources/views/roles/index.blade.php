@@ -9,7 +9,7 @@
             <input type="search" placeholder="Search Data...">
             <i class='bx bx-search-alt'></i>
         </div>
-        <a href="{{ route('roles.create') }}"><p class="add-button">Agregar </p></a>
+        <a href="{{ route('rol.create') }}"><p class="add-button">Agregar </p></a>
         <div class="export__file">
             <a href="{{ route('inicio') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
         </div>
@@ -24,19 +24,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($rol as $rols)
+                @foreach ($data as $rols)
                 <tr>
-                    <td>{{ $rols->id }}</td>
-                    <td>{{ $rols->name }}</td>
+                    <td>{{ $rols['id'] }}</td>
+                    <td>{{ $rols['name'] }}</td>
                     <td>
                         <div class="button-group">
-                        <form action="{{ route('rol.destroy', $rols->id) }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="delete-button">X</button>
-                        </form>
+                        <a class="delete-button" href="{{ route('rol.destroy',  $rols['id']) }}">x </a>
                     
-                        <a href="{{ route('rol.edit',$rols->id) }} "class="edit-button"><i
+                        <a href="{{ route('rol.edit',$rols['id']) }} "class="edit-button"><i
                             class='bx bxs-edit-alt'></i></a>
                     </td>
                 </tr>

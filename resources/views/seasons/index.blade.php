@@ -15,7 +15,7 @@
                 <input type="search" placeholder="Search Data...">
                 <i class='bx bx-search-alt'></i>
             </div>
-            <a href="{{ route('temporada.create') }}">
+            <a href="{{ route('season.create') }}">
                 <p class="add-button">Agregar </p>
             </a>
             <div class="export__file">
@@ -56,3 +56,14 @@
         </section>
     </main>
 @endsection()
+ 
+
+
+{{--  @foreach($data as $season)
+    <div>
+        <h2>Temporada: {{ $season['name'] }}</h2>
+        <p>ID: {{ $season['id'] }}</p>
+        <p>Fecha de Creación: {{ $season['created_at'] }}</p>
+        <p>Fecha de Actualización: {{ $season['updated_at'] }}</p>
+    </div>
+@endforeach --}}

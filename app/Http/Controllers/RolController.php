@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Rol;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class RolController extends Controller
 {
@@ -16,9 +17,13 @@ class RolController extends Controller
      */
     public function index()
     {
-        $rol = Rol::all();
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
-        return view('roles.index',compact('rol'));
+        $response = HTTP::get($url.'roles');
+        $data = $response->json();
+
+
+        return view('roles.index',compact('data'));
     }
 
     /**
@@ -29,17 +34,21 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        $rol = new Rol();
-        $rol->name=$request->name;
-        $rol -> save();
 
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
-        return Redirect()->route('rol.index',$rol);
+        $response = Http::post($url. 'rol/store',[
+            'name' => $request->name
+        ]);
+
+        return redirect()->route('rol.index');
+     
+  
     }
+
     public function create()
     {
         return view('roles.create');
-
     }
 
     /**
@@ -48,10 +57,10 @@ class RolController extends Controller
      * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function show(Rol $rol)
+  /*   public function show(Rol $rol)
     {
         return view('roles.show');
-    }
+    } */
 
     /**
      * Update the specified resource in storage.
@@ -60,17 +69,33 @@ class RolController extends Controller
      * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rol $rol)
+    public function update(Request $request)
     {
-        $rol->name = $request->name;
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
-        $rol->save();
 
-        return redirect()->route('rol.index', $rol);
+        $response = Http::put($url.'rol/update/'.$request->id,[
+            'name' => $request->name
+        ]);
+
+        return redirect()->route('rol.index');
+
     }
-    public function edit(Rol $rol){
-        return view('roles.edit',compact('rol'));
+
+
+
+    public function edit($idRol){
+       
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        $response = Http::get($url.'rol/edit/'.$idRol);
+
+        $rol = $response->json();
+
+        return view('roles.edit', compact('rol'));
      }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -78,9 +103,13 @@ class RolController extends Controller
      * @param  \App\Models\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rol $rol)
+    public function destroy($idRol)
     {
-        $rol->delete();
-        return back()->with('succes','Registro eliminado correctamente');
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        $response = Http::delete($url. 'rol/destroy/'. $idRol);
+
+        return redirect()->route('rol.index');
+
     }
 }

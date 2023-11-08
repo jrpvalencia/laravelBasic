@@ -13,7 +13,7 @@
         
         <h1 class="mt-4">Temporada</h1>
 
-        <form action="{{ route('temporadasStore') }}" method="POST">
+        <form action="{{ route('season.store') }}" method="POST">
 
             @csrf
             <div class="mb-3">

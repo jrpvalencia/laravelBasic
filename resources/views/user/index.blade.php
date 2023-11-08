@@ -31,27 +31,29 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($user as $users)
+                @foreach ($data as $users)
                 <tr>
-                    <td>{{ $users->id }}</td>
-                    <td>{{ $users->name }}</td>
-                    <td>{{ $users->lastName }}</td>
-                    <td>{{ $users->typeDocument }}</td>
-                    <td>{{ $users->document }}</td>
-                    <td>{{ $users->phone }}</td>
-                    <td>{{ $users->idRol }}</td>
-                    <td>{{ $users->email }}</td>
-                    <td>{{ $users->password }}</td>
+                    <td>{{ $users['id']}}</td>
+                    <td>{{ $users['name'] }}</td>
+                    <td>{{ $users['lastName'] }}</td>
+                    <td>{{ $users['typeDocument'] }}</td>
+                    <td>{{ $users['document'] }}</td>
+                    <td>{{ $users['phone'] }}</td>
+                    <td>{{ $users['role']['name'] }}</td>
+                    <td>{{ $users['email'] }}</td>
+                    @if (array_key_exists('password', $users))
+                    <td>{{ $users['password'] }}</td>
+                @else
+                    <td>Password no disponible</td>
+                @endif
+                
+
                     <td>
                         <div class="button-group">
-                        <form action="{{ route('user.destroy', $users->id) }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit"  class="delete-button">X</button>
-                        </form>
-                   
-                        <a href="{{ route('user.edit',$users->id) }}"class="edit-button"><i
-                            class='bx bxs-edit-alt'></i></a>
+                            <a class="delete-button" href="{{ route('user.destroy',  $users['id']) }}">x </a>
+
+                            <a href="{{ route('user.edit', $users['id']) }}" class="edit-button"><i class='bx bxs-edit-alt'></i></a>
+
                     </div>
                     </td>
 

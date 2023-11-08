@@ -49,8 +49,8 @@
                 <div class="mb-3">
                     <label for="archivo" class="form-label" ></label>
                     <select name="idRol" class="form-control" >
-                        @foreach ($rol as $rols)
-                            <option value="{{ $rols->id }}">{{ $rols->name }}</option>
+                        @foreach ($roles as $rols)
+                            <option value="{{ $rols['id']}}">{{ $rols['name'] }}</option>
                         @endforeach
                     </select>
                 </div>

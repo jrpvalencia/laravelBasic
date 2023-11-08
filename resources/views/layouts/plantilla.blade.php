@@ -30,8 +30,8 @@
                         <a class="nav-link @if(request()->is('inicio')) active-link @endif" href="{{ route('inicio') }}">Inicio</a>
                     </li>
                     
-                    @auth
-
+                  {{--   @auth
+ --}}
                     <li class="nav-item @if(request()->is('catalogo')) active @endif">
                         <a class="nav-link @if(request()->is('catalogo')) active-link @endif" href="{{ route('catalogo.index') }}">Catalogo</a>
                     </li>
@@ -63,12 +63,12 @@
                             Cruds
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item @if(request()->is('temporada*')) active-link @endif" href="{{route('temporada.create')}}">Temporada</a>
+                            <a class="dropdown-item @if(request()->is('temporada*')) active-link @endif" href="{{route('season.create')}}">Temporada</a>
                             <a class="dropdown-item @if(request()->is('pago')) active-link @endif" href="{{route('pago')}}">Forma de pago</a>
                         </div>
                     </li>
                     
-                    @endauth
+                {{--     @endauth
                     @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('login')}}"id="loginLink">Iniciar sesión</a>
@@ -78,7 +78,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('loginDestroy')}}" id="logoutLink" >Cerrar sesión</a>
                     </li>
-                    @endauth
+                    @endauth --}}
                 </ul>
             </div>
         </div>

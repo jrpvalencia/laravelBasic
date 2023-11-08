@@ -9,6 +9,7 @@ use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
@@ -19,9 +20,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
-        return view('user.index',compact('user'));
+        $response = HTTP::get($url.'usuarios');
+        $data = $response->json();
+       
+
+        return view('user.index',compact('data'));
     }
 
     /**
@@ -31,10 +36,17 @@ class UserController extends Controller
      */
     public function create()
     {
-        $rol = Rol::all();
-
-        return view('user.create',['rol'=> $rol]);
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $response = Http::get($url . 'usuarios');
+        $data = $response->json();
+    
+        $responseRoles = Http::get($url . 'roles'); // Obtener la lista de roles de la API
+        $roles = $responseRoles->json();
+    
+        return view('user.create', ['usuarios' => $data, 'roles' => $roles]);
     }
+    
+    
 
     /**
      * Store a newly created resource in storage.
@@ -44,19 +56,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
-        $user->name=$request->name;
-        $user->lastName=$request->lastName;
-        $user->typeDocument=$request->typeDocument;
-        $user->document=$request->document;
-        $user->phone=$request->phone;
-        $user->idRol=$request->idRol;
-        $user->email=$request->email;
-        $user->password=bcrypt($request->password);
-        
-        $user->save();
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
-        return Redirect()->route('login');
+        $response = Http::post($url . 'usuario/store',[
+
+            'name' => $request->name,
+            'lastName' => $request->lastName,
+            'typeDocument' => $request->typeDocument,
+            'document' => $request->document,
+            'phone' => $request->phone,
+            'idRol' => $request->idRol,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+       
+
+        return redirect()->route('user.index');
+
     }
 
     /**
@@ -70,126 +87,87 @@ class UserController extends Controller
         return view('user.show');
     }
     
-    public function shows()
+
+    public function update(Request $request)
     {
-        $user = Auth::user();
-        
-        $rol = Rol::all();
-        return view('perfil', compact('user','rol'));
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+    
+        $response = Http::put($url . 'usuario/update/' . $request->id, [
+            'name' => $request->name,
+            'lastName' => $request->lastName,
+            'typeDocument' => $request->typeDocument,
+            'document' => $request->document,
+            'phone' => $request->phone,
+          'idRol' => $request->idRol, 
+            'email' => $request->email,
+             'password' => $request->password, 
+        ]);
+
+      
+    
+        return redirect()->route('user.index');
     }
+
+
     
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+ /*     public function edit($userId)
+     {
+         $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+         
+         $response = Http::get($url . 'usuario/edit/' . $userId);
+         
+         if ($response->successful()) {
+             $user = $response->json();
+        
+           
+             return view('user.edit', compact('user'));
+         } else {
+             // Manejo de error si la solicitud a la API no tiene éxito
+             return redirect()->back()->with('error', 'No se pudo obtener los datos del usuario');
+         }
+
+
+     
+     }
+      */
+      public function edit($userId)
+      {
+          $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+          
+          $response = Http::get($url . 'usuario/edit/' . $userId);
+      
+          if ($response->successful()) {
+              $user = $response->json();
+      
+              // Obtener todos los roles disponibles
+              $rolesResponse = Http::get($url . 'roles');
+              $roles = $rolesResponse->json();
+      
+              $idRol = $user['idRol']; // Establecer el rol actual del usuario
+      
+              return view('user.edit', compact('user', 'roles', 'idRol'));
+      
+          } else {
+              // Manejo de error si la solicitud a la API no tiene éxito
+              return redirect()->back()->with('error', 'No se pudo obtener los datos del usuario');
+          }
+      }
+      
    
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-
-     public function updatePerfil(Request $request, User $user)
-     {
-         $user->name = $request->name;
-         $user->lastName = $request->lastName;
-         $user->typeDocument = $request->typeDocument;
-         $user->document = $request->document;
-         $user->email = $request->email;
-         $user->password = $request->password;
-          // Verifica si se ha cargado una nueva imagen
-    if ($request->hasFile('image')) {
-        // Generar un nombre de archivo único basado en la marca de tiempo y la extensión original
-        $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-        
-        // Almacenar la imagen en la carpeta 'public/product'
-        $request->file('image')->storeAs('public/product', $imageName);
-        
-        // Eliminar la imagen anterior (opcional) si lo deseas
-        if ($user->image) {
-            Storage::delete('public/product/' . $user->image);
-        }
-
-        // Asignar el nombre del archivo al atributo 'image' del modelo de producto
-        $user->image = $imageName; // Almacena solo el nombre del archivo
-    }
- 
-         $user->save();
- 
-         return redirect()->route('perfil', $user);
-     }
-    public function update(Request $request, User $user)
+   
+    public function destroy($idUser)
     {
-        $user->name = $request->name;
-        $user->lastName = $request->lastName;
-        $user->typeDocument = $request->typeDocument;
-        $user->document = $request->document;
-        $user->idRol = $request->idRol;
-        $user->email = $request->email;
-        $user->password = $request->password;
 
-        $user->save();
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $response = Http::delete($url . 'usuario/destroy/' . $idUser);
 
-        return redirect()->route('user.index', $user);
-    }
-    public function edit(User $user){
+        return redirect()->route('user.index');
 
-        $rol = Rol::all();
 
-        return view('user.edit', compact('user', 'rol'));
-
-       
-     }
-     public function perfil()
-     {
-         return view('perfil');
-     }
-
-     public function perfils(User $user){
-
-        $rol = Rol::all();
-
-        return view('perfil', compact('user', 'rol'));
-
-       
-     }
-    
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        $user->delete();
-        return back()->with('succes','Registro eliminado correctamente');
-    }
-
-    public function validation(Request $request){
-        $user = request()->only('email','password');
         
-        if(Auth::attempt($user)){
-            request()->session()->regenerate();
-            return
-            //view('catalogos.index');
-            redirect('inicio');
-        } else{
-            return view('registro');
-        }
     }
-    public function destroySesion(Request $request){
-Auth::guard('web')->logout();
-$request->session()->invalidate();
-$request->session()->regenerateToken();
-        return redirect()->route('inicio');;
-    }
+      
+
 }

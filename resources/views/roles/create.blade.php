@@ -5,7 +5,7 @@
         
             <h1 class="mt-4">Rol</h1>
 
-            <form action="{{ route('rolesStore') }}" method="POST">
+            <form action="{{ route('rol.store') }}" method="POST">
 
                 @csrf
                 <div class="mb-3">
