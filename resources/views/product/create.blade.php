@@ -23,11 +23,11 @@
                     </div>
 
 
-                    <div class="input-field">
+                 {{--    <div class="input-field">
                         <label for="archivo" class="form-label">Subir Archivo <i class="fas fa-upload"></i>:</label>
                         <input type="file" class="form-control custom-file-input" name="image" placeholder="Imagen" required>
                         <label class="custom-file-label" for="archivo">Selecciona un archivo</label>
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
                         <label for="precio" class="form-label">Precio </i>:</label>
@@ -40,15 +40,14 @@
                     </div>
 
                     
-                        <div class="mb-3"> <!-- Agregamos la clase 'mb-3' para estilos específicos del select -->
-                            <label for="temporada" class="form-label">Temporada:</label>
-                            <select name="idSeason" class="form-control"> <!-- Agregamos la clase 'form-control' para estilos específicos del select -->
-                                @foreach ($seasons as $season)
-                                    <option value="{{ $season->id }}">{{ $season->name }}</option>
-                                @endforeach
-                            </select>
-
-                        </div>
+                     <div class="mb-3">
+                        <label for="archivo" class="form-label" ></label>
+                        <select name="idSeason" class="form-control" >
+                            @foreach ($temporadas as $seasons)
+                                <option value="{{ $seasons['id']}}">{{ $seasons['name'] }}</option>
+                            @endforeach
+                        </select>
+                    </div> 
                         
 
                         <button type="submit" class="btn btn-primary">Crear Producto </i></button>

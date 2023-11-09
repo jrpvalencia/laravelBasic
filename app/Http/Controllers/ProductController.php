@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+
 use App\Http\Controllers\Controller;
-use App\Models\Season;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Http;
 
 class ProductController extends Controller
 {
@@ -18,170 +18,143 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
 
-    
-        
-        return view('product.index', compact('product'));
-    
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
-        
+        $response =  Http::get($url.'productos');
+
+        $data = $response->json();
+
+        return view('product.index', compact('data'));
+
     }
-
-
-    public function catalogo()
-    {
-        $product = Product::all();
-        foreach ($product as $products) {
-            if ($products->image) {
-                $products->image = asset('storage/product/' . $products->image);
-            }
-        }
-        return view('catalogo.index', compact('product'));
-    
-    }
-
-
-
-
 
     public function create()
     {
-       
-        $seasons = Season::all();
-        return view('product.create',['seasons'=> $seasons]);
-
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        
+        // Obtener productos desde la API
+        $responseProductos = Http::get($url . 'productos');
+        $productos = $responseProductos->json();
+        
+        // Obtener temporadas desde la API
+        $responseTemporadas = Http::get($url . 'temporadas');
+        
+        // Verificar si la respuesta es exitosa y obtener los datos
+        $temporadas = $responseTemporadas->successful() ? $responseTemporadas->json() : null;
+        
+        return view('product.create', ['productos' => $productos, 'temporadas' => $temporadas]);
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
+    
+
+  /*   public function create()
+    {
+        return view('product.create');
+
+    } */
+
     public function store(Request $request)
     {
-
-
-        $product = new Product();
-        $product->name = $request->name;
-        $product->description = $request->description;
-       $product->image = $request->image;
-        $product->price = $request->price;
-        $product->concentration = $request->concentration;
-        $product->idSeason = $request->idSeason;
-
-
-        if ($request->hasFile('image')) {
-            // Generar un nombre de archivo único basado en la marca de tiempo y la extensión original
-            $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-        
-            // Almacenar la imagen en la carpeta 'public/product'
-            $request->file('image')->storeAs('public/product', $imageName);
-        
-            // Asignar el nombre del archivo al atributo 'image' del modelo de producto
-            $product->image = $imageName; // Almacena solo el nombre del archivo
+        try {
+            $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+    
+            $response = Http::post($url.'producto/store', [
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'concentration' => $request->concentration,
+                'idSeason' => $request->idSeason, 
+            ]);
+    
+            // Verificar si la solicitud fue exitosa
+            if ($response->successful()) {
+                // La solicitud fue exitosa
+                return redirect()->route('product.index');
+            } else {
+                // La solicitud no fue exitosa, manejar el error
+                return view('error')->with('error', 'Error al almacenar el producto en la API.');
+            }
+        } catch (\Exception $e) {
+            // Capturar cualquier excepción
+            return view('error')->with('error', 'Error al realizar la solicitud a la API.');
         }
-        
-        
-
-        
-
-        $product -> save();
-
-        return redirect()->route('product.index',$product);
-
-        
     }
-  
-    
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-  
-     public function show($id)
-     {
-         // Obtener el producto con el ID proporcionado
-         $product = Product::find($id);
- 
-    
-         return view('product.show', compact('product'));
-     }
-    
-      
-/*         return view('product.show', ['product' => $product]); */
     
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
- 
-
-     public function update(Request $request, Product $product)
-{
-    // Actualiza los campos del producto
-    $product->name = $request->name;
-    $product->description = $request->description;
-    $product->price = $request->price;
-    $product->concentration = $request->concentration;
-    $product->idSeason = $request->idSeason;
-
-    // Verifica si se ha cargado una nueva imagen
-    if ($request->hasFile('image')) {
-        // Generar un nombre de archivo único basado en la marca de tiempo y la extensión original
-        $imageName = time() . '.' . $request->file('image')->getClientOriginalExtension();
-        
-        // Almacenar la imagen en la carpeta 'public/product'
-        $request->file('image')->storeAs('public/product', $imageName);
-        
-        // Eliminar la imagen anterior (opcional) si lo deseas
-        if ($product->image) {
-            Storage::delete('public/product/' . $product->image);
-        }
-
-        // Asignar el nombre del archivo al atributo 'image' del modelo de producto
-        $product->image = $imageName; // Almacena solo el nombre del archivo
-    }
-
-    // Guarda el producto actualizado en la base de datos
-    $product->save();
-
-    return redirect()->route('product.index')->with('success', 'Producto actualizado correctamente');
-}
 
 
-    public function edit(Product $product){
 
-        $seasons = Season::all();
-
-        return view('product.edit', compact('product', 'seasons'));
-
-       
-     }
-    
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
+    public function show($id)
     {
-        
-        if ($product->image) {
-            Storage::delete('public/product/' . $product->image);
-        }
-    
-        $product->delete();
-        
-        return back()->with('success', 'Registro eliminado correctamente');
+        return view('user.show');
     }
+
+
+
+    public function update(Request $request)
+    {
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        $response = Http::put($url . 'producto/update/' . $request->id, [
+
+            'name' => $request->name,
+            'description' => $request->description,
+           /*  'image' => $request->image, */
+            'price' => $request->price,
+            'concentration' => $request->concentration,
+            'idSeason' => $request->idSeason,
+
+           
+
+        ]);
+
+      
+
+      
+
+
+        return redirect()->route('product.index');
+    }
+
+
+    public function edit($idProduct)
+    {
+
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        $response = Http::get($url . 'producto/edit/' . $idProduct);
+
+        if ($response->successful()) {
+            $product = $response->json();
+
+            // Obtener todos los season disponibles
+            $seasonResponse = Http::get($url . 'temporadas');
+            $temporadas = $seasonResponse->json();
+
+            $idSeason = $product['idSeason']; // Establecer el season actual del usuario
+
+            return view('product.edit', compact('product', 'temporadas', 'idSeason'));
+        } else {
+            // Manejo de error si la solicitud a la API no tiene éxito
+            return redirect()->back()->with('error', 'No se pudo obtener los datos del usuario');
+        } 
+    }
+
+    public function destroy($idProduct)
+    {
+
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $response = Http::delete($url . 'producto/destroy/' . $idProduct);
+
+        return redirect()->route('product.index');
+    }
+
+
+
+
+
+    /* 
 
     public function primavera()
     {
@@ -216,8 +189,7 @@ class ProductController extends Controller
     
         return view('product.invierno', ['productosInvierno' => $productosInvierno]);
     }
-    
-    
+     */
 }
 
 

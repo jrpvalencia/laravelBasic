@@ -69,7 +69,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ]);
-
+     
        
 
         return redirect()->route('user.index');
@@ -109,29 +109,7 @@ class UserController extends Controller
     }
 
 
-    
 
-
- /*     public function edit($userId)
-     {
-         $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
-         
-         $response = Http::get($url . 'usuario/edit/' . $userId);
-         
-         if ($response->successful()) {
-             $user = $response->json();
-        
-           
-             return view('user.edit', compact('user'));
-         } else {
-             // Manejo de error si la solicitud a la API no tiene éxito
-             return redirect()->back()->with('error', 'No se pudo obtener los datos del usuario');
-         }
-
-
-     
-     }
-      */
       public function edit($userId)
       {
           $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');

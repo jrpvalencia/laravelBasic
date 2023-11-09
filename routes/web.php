@@ -44,20 +44,23 @@ use JetBrains\PhpStorm\Immutable;
  Route::get('/',[Controller::class,'index'])->name('inicio');  
 
 
-//RUTAS DE PRODUCTOS
-Route::post('productos', [ProductController::class,'store'])->name('product.store');
-Route::get('productos/create',[ProductController::class,'create'])->name('product.create');
-Route::get('productos/index',[ProductController::class,'index'])->name('product.index');
-Route::delete('productos/{product}',[ProductController::class,'destroy'])->name('product.destroy');
-Route::get('productos/{product}/edit',[ProductController::class, 'edit'])->name('product.edit');
-Route::put('productos/{product}',[ProductController::class, 'update'])->name('product.update');
-Route::get('productos/show/{id}',[ProductController::class, 'show'])->name('product.show');
-route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.index');
-Route::get('productos/primavera', [ProductController::class,'primavera'])->name('primavera');
-Route::get('productos/verano', [ProductController::class,'verano'])->name('verano');
-Route::get('productos/otoño', [ProductController::class,'otoño'])->name('otoño');
-Route::get('productos/invierno', [ProductController::class,'invierno'])->name('invierno');
 
+
+//RUTAS DE PRODUCTOS
+Route::post('/producto/store', [ProductController::class,'store'])->name('product.store');
+Route::get('/producto/create',[ProductController::class,'create'])->name('product.create');
+Route::get('productos',[ProductController::class,'index'])->name('product.index');
+Route::get('/producto/destroy/{idProduct}',[ProductController::class,'destroy'])->name('product.destroy');
+Route::get('/producto/edit/{idProduct}', [ProductController::class, 'edit'])->name('product.edit');
+
+Route::post('/producto/update',[ProductController::class, 'update'])->name('product.update');
+Route::get('/producto/show',[ProductController::class, 'show'])->name('product.show');
+
+route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.index');
+Route::get('/producto/primavera', [ProductController::class,'primavera'])->name('primavera');
+Route::get('/producto/verano', [ProductController::class,'verano'])->name('verano');
+Route::get('/producto/otoño', [ProductController::class,'otoño'])->name('otoño');
+Route::get('/producto/invierno', [ProductController::class,'invierno'])->name('invierno');
 
 //RUTAS TEMPORADA
 
