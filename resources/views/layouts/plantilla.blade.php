@@ -30,8 +30,7 @@
                         <a class="nav-link @if(request()->is('inicio')) active-link @endif" href="{{ route('inicio') }}">Inicio</a>
                     </li>
                     
-                  {{--   @auth
- --}}
+                  
                     <li class="nav-item @if(request()->is('catalogo')) active @endif">
                         <a class="nav-link @if(request()->is('catalogo')) active-link @endif" href="{{ route('catalogo.index') }}">Catalogo</a>
                     </li>
@@ -67,6 +66,28 @@
                             <a class="dropdown-item @if(request()->is('pago')) active-link @endif" href="{{route('pago')}}">Forma de pago</a>
                         </div>
                     </li>
+                    @if(session('isLoggedIn') && !is_null(session('userData')))
+                    <li class="nav-item">
+                        <a class="nav-link" href="" id="loginMessage">Hi {{ session('userData')['name'] }} </a>
+                    </li>
+                @endif
+                
+                
+                @if(session('isLoggedIn') && !is_null(session('userData')))
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('logout') }}" id="loginMessage">Logout</a>
+    </li>
+@else
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}">Login</a>
+    </li>
+@endif
+
+                    
+                    
+              
+
+                    
                     
                 {{--     @endauth
                     @guest

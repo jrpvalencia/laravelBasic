@@ -18,7 +18,7 @@
             <div class="col-md-12 text-center">
                 <img src="{{asset('img/logo.jpeg')}}" alt="Logo de Perfumería" class="perfume-image">
                 <h2 class="mb-4">Crear cuenta</h2>
-                <form action="{{ route('user.store') }}" method="POST">
+                <form action="{{ route('register') }}" method="POST">
                  @csrf
 
                 <div class="mb-3">

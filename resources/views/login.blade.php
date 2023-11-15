@@ -16,7 +16,7 @@
         <div class="col-md-12 text-center">
             <img src="{{asset('img/logo.jpeg')}}" alt="Logo de Perfumería" class="perfume-image">
             <h2 class="mb-4">¡Bienvenido a nuestra Perfumería!</h2>
-            <form method="POST" action="{{ route('loginValidation') }}">
+            <form method="POST" action="{{ route('logins') }}">
               @csrf 
               <form>
                 <div class="mb-3">
@@ -32,7 +32,7 @@
             </div>
             <div class="mt-3">
                 <span>¿No tienes una cuenta?</span>
-                <a href="{{route('user.create')}}" class="register-link">Regístrate aquí</a>
+                <a href="{{route('register')}}" class="register-link">Regístrate aquí</a>
             </div>
             <div class="social-buttons mt-4">
                 <span class="social-button">

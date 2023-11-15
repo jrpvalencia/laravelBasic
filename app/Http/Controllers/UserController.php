@@ -34,7 +34,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+ /*    public function create()
     {
         $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
         $response = Http::get($url . 'usuarios');
@@ -45,7 +45,7 @@ class UserController extends Controller
     
         return view('user.create', ['usuarios' => $data, 'roles' => $roles]);
     }
-    
+     */
     
 
     /**

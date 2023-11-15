@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Controller;
@@ -182,7 +182,7 @@ Route::get('favoritos',[FavoriteController::class, 'show'])->name('favorite.show
 //RUTAS USUARIO
 
 Route::post('/usuario/store',[UserController::class,'store'])->name('user.store');
-Route::get('/usuario/create',[UserController::class, 'create'])->name('user.create');
+/* Route::get('/usuario/create',[UserController::class, 'create'])->name('user.create'); */
 Route::get('usuarios',[UserController::class, 'index'])->name('user.index');
 Route::get('/usuario/destroy/{idUser}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('/usuario/edit/{userId}', [UserController::class, 'edit'])->name('user.edit');
@@ -219,12 +219,12 @@ route::get('conocenos',[Controller::class,'conocenos'])->name('conocenos');
 route::get('registro',[Controller::class,'registro'])->name('registro');
 
 
+Route::get('/usuario/create',[AuthController::class, 'createUser'])->name('user.create');
+route::post('register',[AuthController::class,'register'])->name('register');
+route::get('login',[AuthController::class,'login'])->name('login');
+route::post('logins',[AuthController::class,'logins'])->name('logins');
 
-
-route::get('login',[Controller::class,'login'])->name('login');
-route::post('login',[UserController::class,'validation'])->name('loginValidation');
-route::get('logout',[UserController::class,'destroySesion'])->name('loginDestroy');
+route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 route::get('inicio',[Controller::class,'inicio'])->name('inicio');
 
-route::get('registro2',[Controller::class,'registro2'])->name('registro2');

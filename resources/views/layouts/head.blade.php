@@ -63,7 +63,7 @@
                     @guest
                         
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}"id="loginLink">Iniciar sesión</a>
+                        <a class="nav-link" href="{{route('logins')}}"id="loginLink">Iniciar sesión</a>
                     </li>
                     
                     @endguest
