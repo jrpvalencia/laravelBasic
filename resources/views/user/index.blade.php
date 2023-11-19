@@ -39,27 +39,30 @@
                     <td>{{ $users['typeDocument'] }}</td>
                     <td>{{ $users['document'] }}</td>
                     <td>{{ $users['phone'] }}</td>
-                    <td>{{ $users['role']['name'] }}</td>
+                    <td>
+                        @foreach ($users['roles'] as $role)
+                            {{ $role['name'] }}
+                            @if (!$loop->last)
+                                ,
+                            @endif
+                        @endforeach
+                    </td>
                     <td>{{ $users['email'] }}</td>
                     @if (array_key_exists('password', $users))
-                    <td>{{ $users['password'] }}</td>
-                @else
-                    <td>Password no disponible</td>
-                @endif
-                
-
+                        <td>{{ $users['password'] }}</td>
+                    @else
+                        <td>Password no disponible</td>
+                    @endif
+            
                     <td>
                         <div class="button-group">
-                            <a class="delete-button" href="{{ route('user.destroy',  $users['id']) }}">x </a>
-
+                            <a class="delete-button" href="{{ route('user.destroy', $users['id']) }}">x </a>
                             <a href="{{ route('user.edit', $users['id']) }}" class="edit-button"><i class='bx bxs-edit-alt'></i></a>
-
-                    </div>
+                        </div>
                     </td>
-
-                    
                 </tr>
-                @endforeach
+            @endforeach
+            
             </tbody>
         </table>
     </section>

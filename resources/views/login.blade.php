@@ -32,7 +32,7 @@
             </div>
             <div class="mt-3">
                 <span>¿No tienes una cuenta?</span>
-                <a href="{{route('register')}}" class="register-link">Regístrate aquí</a>
+                <a href="{{route('user.create')}}" class="register-link">Regístrate aquí</a>
             </div>
             <div class="social-buttons mt-4">
                 <span class="social-button">

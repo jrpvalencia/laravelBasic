@@ -48,11 +48,6 @@ class ProductController extends Controller
     
     
 
-  /*   public function create()
-    {
-        return view('product.create');
-
-    } */
 
     public function store(Request $request)
     {
@@ -98,6 +93,7 @@ class ProductController extends Controller
 
         $response = Http::put($url . 'producto/update/' . $request->id, [
 
+           
             'name' => $request->name,
             'description' => $request->description,
            /*  'image' => $request->image, */
@@ -105,11 +101,11 @@ class ProductController extends Controller
             'concentration' => $request->concentration,
             'idSeason' => $request->idSeason,
 
-           
+          
 
         ]);
 
-      
+        return $response;
 
       
 
@@ -125,9 +121,11 @@ class ProductController extends Controller
 
         $response = Http::get($url . 'producto/edit/' . $idProduct);
 
+        
+
         if ($response->successful()) {
             $product = $response->json();
-
+       
             // Obtener todos los season disponibles
             $seasonResponse = Http::get($url . 'temporadas');
             $temporadas = $seasonResponse->json();

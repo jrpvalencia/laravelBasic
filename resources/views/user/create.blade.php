@@ -47,10 +47,10 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="archivo" class="form-label" ></label>
-                    <select name="idRol" class="form-control" >
-                        @foreach ($roles as $rols)
-                            <option value="{{ $rols['id']}}">{{ $rols['name'] }}</option>
+                    <label for="archivo" class="form-label"></label>
+                    <select name="idRol" class="form-control">
+                        @foreach ($roles as $role)
+                            <option value="{{ $role['id'] }}">{{ $role['name'] }}</option>
                         @endforeach
                     </select>
                 </div>

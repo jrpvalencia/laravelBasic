@@ -13,14 +13,18 @@ class AuthController extends Controller
     public function createUser()
     {
         $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        
+        // Obtener usuarios
         $response = Http::get($url . 'usuarios');
-        $data = $response->json();
-
+        $usuarios = $response->json();
+    
+        // Obtener roles
         $responseRoles = Http::get($url . 'roles'); 
         $roles = $responseRoles->json();
-
-        return view('user.create', ['usuarios' => $data, 'roles' => $roles]);
+    
+        return view('user.create', compact('usuarios', 'roles'));
     }
+    
 
     public function register(Request $request)
     {
@@ -32,10 +36,12 @@ class AuthController extends Controller
             'typeDocument' => $request->typeDocument,
             'document' => $request->document,
             'phone' => $request->phone,
-            'idRol' => $request->idRol,
+            'idRol' => $request->idRol, 
             'email' => $request->email,
             'password' => $request->password,
         ]);
+
+    
 
         // Verificar la respuesta de la API
         if ($response->successful()) {
