@@ -20,14 +20,23 @@ class UserController extends Controller
      */
     public function index()
     {
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
-
-        $response = HTTP::get($url.'usuarios');
-        $data = $response->json();
-       
-
-        return view('user.index',compact('data'));
+        // Verificar si el usuario está autenticado y tiene el rol "admin"
+        
+            $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+    
+            $response = Http::get($url . 'usuarios');
+    
+    
+            if ($response->successful()) {
+                $data = $response->json();
+                return view('user.index', compact('data'));
+            } else {
+                // Manejar el error, por ejemplo, redirigir o mostrar un mensaje
+                return view('error')->with('message', 'Error al obtener datos de usuarios: ' . $response->status());
+            }
+        
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -76,17 +85,12 @@ class UserController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+  
+   /*  public function show($id)
     {
         return view('user.show');
     }
-    
+     */
 
     public function update(Request $request)
     {
@@ -146,6 +150,8 @@ class UserController extends Controller
 
         
     }
-      
+
+
+   
 
 }

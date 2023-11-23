@@ -26,19 +26,19 @@
         <h1 class="mb-4">Catálogo de Perfumes</h1>
 
         <div class="row">
-            @foreach ($product as $products)
+            @foreach ($data as $products)
                 <div class="col-md-4">
 
                     <div class="producto">
-                        <a href="{{ route('product.show', ['id' => $products->id]) }}"
-                            class="card {{ $cardClasses[$currentCardIndex] }}" data-card-index="{{ $products->id }}">
-                            <img src="{{ $products->image }}" alt="Imagen">
+                        <a href="{{ route('product.show', ['id' => $products['id']]) }}"
+                            class="card {{ $cardClasses[$currentCardIndex] }}" data-card-index="{{ $products['id']}}">
+                            <img src="{{ $products['image'] }}" alt="Imagen"> 
                         </a>
-                        <h3>{{ $products->name }}</h3>
-                        <p><i class="fas fa-sun icono"></i>{{ $products->description }}</p>
-                        <p><i class="fas fa-tint icono"></i>{{ $products->concentration }}</p>
-                        <p class="precio">${{ $products->price }}</p>
-                        <p class="temporada"><i class="fas fa-calendar-alt icono"></i>{{ $products->season->name }}</p>
+                        <h3>{{ $products['name'] }}</h3>
+                        <p><i class="fas fa-sun icono"></i>{{ $products['description'] }}</p>
+                        <p><i class="fas fa-tint icono"></i>{{ $products['concentration'] }}</p>
+                        <p class="precio">${{ $products['price'] }}</p>
+                        <p class="temporada"><i class="fas fa-calendar-alt icono"></i> {{ $products['temporada']['name'] }}</p>
                     </div>
                 </div>
             @endforeach

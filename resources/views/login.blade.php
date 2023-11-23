@@ -18,7 +18,7 @@
             <h2 class="mb-4">¡Bienvenido a nuestra Perfumería!</h2>
             <form method="POST" action="{{ route('logins') }}">
               @csrf 
-              <form>
+              
                 <div class="mb-3">
                     <input type="email" class="form-control" placeholder="Correo Electrónico" name="email" required>
                 </div>

@@ -6,9 +6,10 @@
         
             <h1 class="mt-4">Productos<i class="fas fa-box-open"></i></h1>
 
-            <form action="{{ route('product.update') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('product.update', $product['id']) }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
+            
               
                 <div class="mb-3">
 
@@ -24,11 +25,11 @@
                         
                         <input type="text" name="description" value="{{ $product['description'] }}">
                     </div>
-
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Imagen:</label>
-                        <input type="file" name="image" value="{{ $product['image'] }}">
+                        <input type="file" name="image">
                     </div>
+                    
 
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Precio:</label>

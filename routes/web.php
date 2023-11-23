@@ -41,8 +41,10 @@ use JetBrains\PhpStorm\Immutable;
     }
     
 });  */
- Route::get('/',[Controller::class,'index'])->name('inicio');  
+ Route::get('/',[Controller::class,'inicio'])->name('inicio');  
 
+
+ route::get('inicio',[Controller::class,'inicio'])->name('inicio');
 
 
 
@@ -187,10 +189,11 @@ Route::get('usuarios',[UserController::class, 'index'])->name('user.index');
 Route::get('/usuario/destroy/{idUser}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('/usuario/edit/{userId}', [UserController::class, 'edit'])->name('user.edit');
 Route::post('/usuario/update',[UserController::class, 'update'])->name('user.update');
-Route::get('/usuario/show',[UserController::class, 'show'])->name('user.show'); 
+/* Route::get('/usuario/show',[UserController::class, 'show'])->name('user.show'); */ 
 
-Route::put('usuario/{user}',[UserController::class, 'updatePerfil'])->name('user.updatePerfil');
-Route::get('perfil', [UserController::class, 'shows'])->name('perfil');
+Route::put('usuario/{user}',[AuthController::class, 'updatePerfil'])->name('user.updatePerfil');
+Route::get('perfil', [AuthController::class, 'getPerfil'])->name('perfil');
+Route::get('/perfil/usuario', [AuthController::class, 'Perfil'])->name('perfil.Update');
 //RUTAS IMAGEN
 
 Route::get('imagen/create',[ImagesController::class, 'create'])->name('image.create');
@@ -226,5 +229,5 @@ route::post('logins',[AuthController::class,'logins'])->name('logins');
 
 route::get('logout',[AuthController::class,'logout'])->name('logout');
 
-route::get('inicio',[Controller::class,'inicio'])->name('inicio');
+
 

@@ -42,9 +42,9 @@
                             <td>{{ $products['id'] }} </td>
                             <td>{{ $products['name'] }}</td>
                             <td>{{ $products['description'] }}</td>
-                            {{--    <td>
-                        <img src="{{ asset('storage/product/' . $products['image']) }}" alt="Imagen del Producto">
-                    </td> --}}
+                             <td>
+                        <img src="{{$products['image'] }}" alt="Imagen del Producto">
+                    </td> 
 
                             <td>{{ $products['price'] }}</td>
                             <td>{{ $products['concentration'] }}</td>
