@@ -6,7 +6,7 @@
         
             <h1 class="mt-4">Productos<i class="fas fa-box-open"></i></h1>
 
-            <form action="{{ route('product.update', $product['id']) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('product.update', ['id' => $product['id']]) }}" method="post" enctype="multipart/form-data">
 
                 @csrf
             
@@ -14,6 +14,7 @@
                 <div class="mb-3">
 
                     <input type="hidden" name="id" value="{{ $product['id'] }}">
+                    
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre del Producto:</label>
