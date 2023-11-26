@@ -160,25 +160,25 @@ class AuthController extends Controller
     {
         // Obtener el token de la sesión
         $token = session('auth_token');
-    
+
         // Verificar si el token existe
         if (!$token) {
             return response()->json(['error' => 'Token de autenticación no encontrado'], 401);
         }
-    
+
         try {
             // Realizar una solicitud a la API para obtener los datos del perfil
             $apiUrl = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
             $response = Http::withHeaders(['Authorization' => 'Bearer ' . $token])->get($apiUrl . 'perfil');
-    
+
             // Verificar si la solicitud fue exitosa (código de estado 2xx)
             if (!$response->successful()) {
                 return response()->json(['error' => 'Error al obtener datos del perfil'], $response->status());
             }
-    
+
             // Obtener los datos del usuario desde la respuesta JSON
             $user = $response->json();
-    
+
             // Pasar los datos del usuario a la vista 'perfil'
             return view('perfil', compact('user'));
         } catch (\Exception $e) {
@@ -186,12 +186,41 @@ class AuthController extends Controller
             return response()->json(['error' => 'Error al obtener datos del perfil'], 500);
         }
     }
-    
 
 
-
-    public function perfil()
+    public function perfil(Request $request)
     {
-        return "hola desde perfil update";
+        // Obtener el token de la sesión
+        $token = session('auth_token');
+
+        // Verificar si el token está presente
+        if (!$token) {
+            return back()->with('error', 'No se encontró el token de autenticación.');
+        }
+
+        // Definir la URL base de la API
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        // Realizar la solicitud HTTP con el token en la cabecera
+        $response = Http::withToken($token)->put($url . 'usuario/update/' . $request->id, [
+            'name' => $request->name,
+            'lastName' => $request->lastName,
+            'typeDocument' => $request->typeDocument,
+            'document' => $request->document,
+            'phone' => $request->phone,
+            'idRol' => $request->idRol,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+        // Después de verificar que la solicitud fue exitosa
+        if ($response->successful()) {
+            // Actualizar la sesión con los nuevos datos del usuario
+            session(['userData' => $response->json()['user']]);
+            return redirect()->route('perfil');
+        } else {
+            // La solicitud no fue exitosa, maneja el error según tus necesidades.
+            return back()->with('error', 'Hubo un problema al actualizar el perfil.');
+        }
     }
 }

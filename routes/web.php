@@ -191,13 +191,13 @@ Route::post('/usuario/store',[UserController::class,'store'])->name('user.store'
 /* Route::get('/usuario/create',[UserController::class, 'create'])->name('user.create'); */
 Route::get('usuarios',[UserController::class, 'index'])->name('user.index');
 Route::get('/usuario/destroy/{idUser}', [UserController::class, 'destroy'])->name('user.destroy');
-Route::get('/usuario/edit/{userId}', [UserController::class, 'edit'])->name('user.edit');
-Route::post('/usuario/update',[UserController::class, 'update'])->name('user.update');
+Route::get('/usuario/edit/{userId}', [UserController::class, 'edit'])->name('user.edit'); 
+/* Route::post('/usuario/update',[UserController::class, 'update'])->name('user.update'); */
 /* Route::get('/usuario/show',[UserController::class, 'show'])->name('user.show'); */ 
 
 Route::put('usuario/{user}',[AuthController::class, 'updatePerfil'])->name('user.updatePerfil');
 Route::get('perfil', [AuthController::class, 'getPerfil'])->name('perfil');
-Route::get('/perfil/usuario', [AuthController::class, 'Perfil'])->name('perfil.Update');
+Route::post('/perfil/usuario', [AuthController::class, 'Perfil'])->name('perfil.Update');
 //RUTAS IMAGEN
 
 Route::get('imagen/create',[ImagesController::class, 'create'])->name('image.create');

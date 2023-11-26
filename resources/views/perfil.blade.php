@@ -48,10 +48,10 @@
 
                         <div class="tab-pane fade active show" id="account-general">
 
-                            <form action="{{ route('perfil.Update', $user) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('perfil.Update') }}" method="POST" enctype="multipart/form-data">
 
                                 @csrf
-                                @method('put')
+                            
 
                                 {{--  <div class="card-body media align-items-center">
                                 
