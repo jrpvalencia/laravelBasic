@@ -18,22 +18,24 @@
     <head>
 
 
-        <title>Detalle de {{ $product->name }}</title>
+        <title>Detalle de {{ $product['name'] }}</title>
         <link rel="stylesheet" href="{{ asset('css/detalle.css') }}" />
     </head>
 
     <div class="container8">
 
 
-        <div class="container-title">{{ $product->name }}</div>
+        <div class="container-title">{{ $product['name'] }}</div>
 
         <main>
             <div class="container-img">
-                <img src="{{ asset('storage/product/' . $product->image) }}" alt="imagen-producto">
+                <img src="{{ $product['image'] }}" alt="Imagen"> 
             </div>
+            
             <div class="container-info-product">
                 <div class="container-price">
-                    <span>${{ $product->price }}</span>
+                    <span>${{ $product['price'] }}</span>
+                  
                     <i class="fa-solid fa-angle-right"></i>
                 </div>
 
@@ -41,7 +43,7 @@
                 </div>
                 <form action="{{ route('shoppPre') }}" method="post">
                     @csrf
-                    <input type="hidden" name="id_product" value="{{ $product->id }}">
+                    <input type="hidden" name="id_product" value="{{ $product['id'] }}">
                     <div class="container-add-cart">
                         <div class="container-quantity">
                             <input type="number" placeholder="1" value="1" min="1" class="input-quantity"
@@ -67,7 +69,7 @@
                     </div>
                     <div class="text-description">
                         <p>
-                            {{ $product->description }}
+                            {{ $product['description'] }}
                         </p>
                     </div>
                 </div>

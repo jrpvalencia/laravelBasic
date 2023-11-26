@@ -115,7 +115,15 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        return view('user.show');
+
+       
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        $response =  Http::get($url.'producto/show/'.$id);
+
+        $product = $response->json();
+
+        return view('product.show', compact('product'));
     }
 
  
@@ -203,9 +211,9 @@ public function update(Request $request)
 
 
 
-    /* 
+    
 
-    public function primavera()
+/*     public function primavera()
     {
         $productosPrimavera = Product::where('idSeason', 1)->get();
     
@@ -237,8 +245,8 @@ public function update(Request $request)
       
     
         return view('product.invierno', ['productosInvierno' => $productosInvierno]);
-    }
-     */
+    } */
+     
 }
 
 

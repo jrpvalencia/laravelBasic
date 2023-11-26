@@ -26,21 +26,21 @@
         <h1 class="mb-4">Temporada Verano</h1>
 
         <div class="row">
-            @foreach ($productosVerano as $productoVerano)
+            @foreach ($product as $productoVerano)
             <div class="col-md-4">
                 <div class="producto">
-                    <a href="{{ route('product.show', ['id' => $productoVerano->id]) }}"  class="card {{ $cardClasses[$currentCardIndex] }}" data-card-index="{{ $productoVerano->id }}">
-                        <img src="{{ asset('storage/product/' . $productoVerano->image) }}" alt="Imagen">
+                    <a href="{{ route('product.show', ['id' => $productoVerano['id']]) }}"  class="card {{ $cardClasses[$currentCardIndex] }}" data-card-index="{{ $productoVerano['id'] }}">
+                        <img src="{{$productoVerano['image'] }}" alt="Imagen">
                     </a>
 
 
                     
 
-                    <h3>{{ $productoVerano->name }}</h3>
-                    <p><i class="fas fa-sun icono"></i>{{ $productoVerano->description }}</p>
-                    <p><i class="fas fa-tint icono"></i>{{ $productoVerano->concentration }}</p>
-                    <p class="precio">${{ $productoVerano->price }}</p>
-                    <p class="temporada"><i class="fas fa-calendar-alt icono"></i>{{ $productoVerano->season->name }}</p>
+                    <h3>{{ $productoVerano['name'] }}</h3>
+                    <p><i class="fas fa-sun icono"></i>{{ $productoVerano['description'] }}</p>
+                    <p><i class="fas fa-tint icono"></i>{{ $productoVerano['concentration'] }}</p>
+                    <p class="precio">${{ $productoVerano['price'] }}</p>
+                <p class="temporada"><i class="fas fa-calendar-alt icono"></i>{{ $productoVerano['temporada']['name'] }}</p>
                 </div>
             </div>
         @endforeach

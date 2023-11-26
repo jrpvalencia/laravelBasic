@@ -56,7 +56,7 @@ Route::get('/producto/destroy/{idProduct}',[ProductController::class,'destroy'])
 Route::get('/producto/edit/{idProduct}', [ProductController::class, 'edit'])->name('product.edit');
 
 Route::post('/producto/update',[ProductController::class, 'update'])->name('product.update');
-Route::get('/producto/show',[ProductController::class, 'show'])->name('product.show');
+Route::get('/producto/show/{id}',[ProductController::class, 'show'])->name('product.show');
 
 route::get('catalogo',[ProductController::class,'catalogo'])->name('catalogo.index');
 Route::get('/producto/primavera', [ProductController::class,'primavera'])->name('primavera');
@@ -73,6 +73,9 @@ Route::get('/temporada/destroy/{idSeason}', [SeasonController::class, 'destroy']
 Route::get('/temporada/edit/{idSeason}',[SeasonController::class, 'edit'])->name('season.edit');
 Route::post('/temporada/update',[SeasonController::class, 'update'])->name('season.update');
 Route::get('/temporada/show',[SeasonController::class, 'show'])->name('season.show');
+
+//FILTRO
+Route::get('/producto/temporada/{seasonId}', [SeasonController::class, 'productTemporada'])->name('temporadas');
 
 
 //RUTAS ROL

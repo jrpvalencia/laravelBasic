@@ -58,24 +58,7 @@ class SeasonController extends Controller
         return Redirect()->route('seasons.index'); 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Season  $season
-     * @return \Illuminate\Http\Response
-     */
-  /*   public function show(Season $season)
-    {
-        return view('seasons.show');
-    } */
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Season  $season
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(Request $request)
     {
 
@@ -120,5 +103,35 @@ class SeasonController extends Controller
         
         return redirect()->route('seasons.index'); 
     }
+    public function productTemporada($seasonId)
+    {
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $response = Http::get($url.'producto/temporada/'.$seasonId);
+        $product = $response->json();
+    
+        // Determinar el nombre de la vista según la temporada
+        $viewName = '';
+    
+        switch ($seasonId) {
+            case 1:
+                $viewName = 'product.primavera';
+                break;
+            case 2:
+                $viewName = 'product.verano';
+                break;
+            case 3:
+                $viewName = 'product.otoño';
+                break;
+            case 4:
+                $viewName = 'product.invierno';
+                break;
+        
+        }
+    
+        return view($viewName, compact('product'));
+    }
+    
+    
+
     
 }

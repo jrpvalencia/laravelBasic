@@ -30,10 +30,11 @@
                 <div class="col-md-4">
 
                     <div class="producto">
-                        <a href="{{ route('product.show', ['id' => $products['id']]) }}"
-                            class="card {{ $cardClasses[$currentCardIndex] }}" data-card-index="{{ $products['id']}}">
+                        <a href="{{ route('product.show', ['id' => $products['id']]) }}" class="product-link card {{ $cardClasses[$currentCardIndex] }}" data-card-index="{{ $products['id']}}">
                             <img src="{{ $products['image'] }}" alt="Imagen"> 
                         </a>
+                        
+                        
                         <h3>{{ $products['name'] }}</h3>
                         <p><i class="fas fa-sun icono"></i>{{ $products['description'] }}</p>
                         <p><i class="fas fa-tint icono"></i>{{ $products['concentration'] }}</p>
