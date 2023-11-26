@@ -181,71 +181,71 @@ class AuthController extends Controller
   
 
 
-    public function perfil(Request $request)
-    {
-        $token = session('auth_token');
-    
-        if (!$token) {
-            return back()->with('error', 'No se encontró el token de autenticación.');
-        }
-    
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
-    
-        // Validación de los campos del formulario
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'lastName' => 'required|string|max:255',
-            'typeDocument' => 'required|string|max:255',
-            'document' => 'required|integer',
-            'phone' => 'required|integer',
-            'current_password' => 'sometimes|required|string|min:8',
-            'new_password' => $request->filled('current_password') ? 'required|string|min:8|confirmed' : '',
-        ]);
-    
-        // Verificar si se proporciona una nueva contraseña
-        if ($request->filled('new_password')) {
-            // Verificar si las contraseñas coinciden
-            if ($request->new_password !== $request->new_password_confirmation) {
-                return back()->with('error', 'Las contraseñas no coinciden.');
-            }
-        }
-    
-        // Preparar los datos para la solicitud HTTP
-        $requestData = [
-            'name' => $request->name,
-            'lastName' => $request->lastName,
-            'typeDocument' => $request->typeDocument,
-            'document' => $request->document,
-            'phone' => $request->phone,
-            'idRol' => $request->idRol,
-            'email' => $request->email,
-        ];
-    
-        // Agregar datos relacionados con la contraseña si se proporciona una nueva
-        if ($request->filled('new_password')) {
-            $requestData['current_password'] = $request->current_password;
-            $requestData['new_password'] = $request->new_password;
-            $requestData['new_password_confirmation'] = $request->new_password_confirmation;
-        }
-    
-        // Realizar la solicitud HTTP con los datos preparados
-        $response = Http::withToken($token)->put($url . 'usuario/update/' . $request->id, $requestData);
-    
-        if (!$response->successful()) {
-            // La solicitud no fue exitosa, maneja el error según tus necesidades.
-            return back()->with('error', 'Hubo un problema al actualizar el perfil.');
-        }
-    
-        // Actualizar la sesión con los nuevos datos del usuario
-        session(['userData' => $response->json()['user']]);
-    
-        // Mensaje de éxito para la actualización de la contraseña
-        Log::info('Contraseña actualizada con éxito');
-    
-        // Ambas actualizaciones fueron exitosas, puedes redirigir o realizar otras acciones según tus necesidades.
-        return redirect()->route('perfil')->with('success', 'Perfil actualizado con éxito.');
+public function perfil(Request $request)
+{
+    $token = session('auth_token');
+
+    if (!$token) {
+        return back()->with('error', 'No se encontró el token de autenticación.');
     }
-    
+
+    $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+    // Validación de los campos del formulario
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'lastName' => 'required|string|max:255',
+        'typeDocument' => 'required|string|max:255',
+        'document' => 'required|integer',
+        'phone' => 'required|integer',
+        'current_password' => 'sometimes|required|string|min:8',
+        'new_password' => $request->filled('current_password') ? 'required|string|min:8|confirmed' : '',
+    ]);
+
+    // Verificar si se proporciona una nueva contraseña
+    if ($request->filled('new_password')) {
+        // Verificar si las contraseñas coinciden
+        if ($request->new_password !== $request->new_password_confirmation) {
+            return back()->with('error', 'Las contraseñas no coinciden.');
+        }
+    }
+
+    // Preparar los datos para la solicitud HTTP
+    $requestData = [
+        'name' => $request->name,
+        'lastName' => $request->lastName,
+        'typeDocument' => $request->typeDocument,
+        'document' => $request->document,
+        'phone' => $request->phone,
+        'idRol' => $request->idRol,
+        'email' => $request->email,
+    ];
+
+    // Agregar datos relacionados con la contraseña si se proporciona una nueva
+    if ($request->filled('new_password')) {
+        $requestData['current_password'] = $request->current_password;
+        $requestData['new_password'] = $request->new_password;
+        $requestData['new_password_confirmation'] = $request->new_password_confirmation;
+    }
+
+    // Realizar la solicitud HTTP con los datos preparados
+    $response = Http::withToken($token)->put($url . 'usuario/update/' . $request->id, $requestData);
+
+    if (!$response->successful()) {
+        // La solicitud no fue exitosa, maneja el error según tus necesidades.
+        return back()->with('error', 'Hubo un problema al actualizar el perfil.');
+    }
+
+    // Actualizar la sesión con los nuevos datos del usuario
+    session(['userData' => $response->json()['user']]);
+
+    // Mensaje de éxito para la actualización de la contraseña
+    Log::info('Contraseña actualizada con éxito');
+
+    // Ambas actualizaciones fueron exitosas, puedes redirigir o realizar otras acciones según tus necesidades.
+    return redirect()->route('perfil')->with('success', 'Perfil actualizado con éxito.');
+}
+
  
     
     

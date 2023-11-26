@@ -118,38 +118,41 @@
                                         <input type="text" class="form-control" name="phone"
                                             value="{{ $user['user']['phone'] ?? '' }}">
                                     </div>
+                                    <!-- Agregar un interruptor (switch) en tu formulario -->
+                                    <div class="switch-button">
+                                        <!-- Checkbox -->
+                                        <input type="checkbox" name="activar_validacion" id="activar_validacion"
+                                            class="switch-button__checkbox">
+                                        <!-- Etiqueta del botón -->
+                                        <label for="activar_validacion" class="switch-button__label"></label>
+                                        <!-- Texto descriptivo -->
+                                        <span>Activar Actualizacion de contraseña</span>
+                                    </div>
 
-
-
-                                    <div class="form-group">
+                                    <!-- Campos de contraseña -->
+                                    <div class="form-group" id="currentPasswordSection">
                                         <label class="form-label">Current password</label>
                                         <input type="password" name="current_password"
                                             class="form-control @error('current_password') is-invalid @enderror">
-                                            <div id="currentPasswordError" class="invalid-feedback"></div>
-                                            <div id="passwordError" class="invalid-feedback"></div>
+                                        <div id="currentPasswordError" class="invalid-feedback"></div>
+                                        <div id="passwordError" class="invalid-feedback"></div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" id="newPasswordSection">
                                         <label class="form-label">New password</label>
                                         <input type="password" name="new_password"
                                             class="form-control @error('new_password') is-invalid @enderror">
-                                            <div id="currentPasswordError" class="invalid-feedback"></div>
-                                            <div id="passwordError" class="invalid-feedback"></div>
-                                          
+                                        <div id="currentPasswordError" class="invalid-feedback"></div>
+                                        <div id="passwordError" class="invalid-feedback"></div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" id="repeatPasswordSection">
                                         <label class="form-label">Repeat new password</label>
                                         <input type="password" name="new_password_confirmation"
                                             class="form-control @error('new_password_confirmation') is-invalid @enderror">
                                         <div id="currentPasswordError" class="invalid-feedback"></div>
                                         <div id="passwordError" class="invalid-feedback"></div>
-
-
-
-                                   
                                     </div>
-
 
                                 </div>
 
@@ -177,89 +180,119 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- En la sección de scripts de tu vista -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- En la sección de scripts de tu vista -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- En la sección de scripts de tu vista -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Agregar el script para manejar el interruptor y la validación de contraseña -->
+    <script>
+        $(document).ready(function() {
+            // ...
 
-<script>
-    $(document).ready(function () {
-        // Manejar el evento de cambio en el campo de contraseña de confirmación
-        $('input[name=new_password_confirmation]').on('input', function () {
-            // Obtener los valores de las contraseñas
-            var newPassword = $('input[name=new_password]').val();
-            var newPasswordConfirmation = $(this).val();
+            // Ocultar y deshabilitar los campos de contraseña al cargar la página
+            $('#currentPasswordSection, #newPasswordSection, #repeatPasswordSection').hide().find(':input').prop(
+                'disabled', true);
 
-            // Verificar la longitud de la nueva contraseña
-            var minLength = 8;
-            var isLengthValid = newPassword.length >= minLength;
+            // Agregar un evento al interruptor para mostrar u ocultar y habilitar o deshabilitar los campos de contraseña
+            $('#activar_validacion').change(function() {
+                isValidationActive = $(this).is(':checked');
 
-            // Comparar las contraseñas y actualizar el estilo del campo y el mensaje de error
-            if (newPassword === newPasswordConfirmation && isLengthValid) {
-                $(this).removeClass('is-invalid');
-                $(this).addClass('is-valid');
-                $('#passwordError').text(''); // Limpiar el mensaje de error
-            } else {
-                $(this).removeClass('is-valid');
-                $(this).addClass('is-invalid');
-                $('#passwordError').text('Las contraseñas no coinciden o no cumplen con la longitud mínima.');
-            }
-        });
-
-        // Manejar el evento de cambio en el campo de nueva contraseña
-        $('input[name=new_password]').on('input', function () {
-            // Verificar la longitud de la nueva contraseña
-            var minLength = 8;
-            var isLengthValid = $(this).val().length >= minLength;
-
-            // Actualizar el estilo del campo
-            if (isLengthValid) {
-                $(this).removeClass('is-invalid');
-                $(this).addClass('is-valid');
-            } else {
-                $(this).removeClass('is-valid');
-                $(this).addClass('is-invalid');
-            }
-        });
-
-        // Manejar el evento de cambio en el campo de contraseña actual
-        $('input[name=current_password]').on('input', function () {
-            // Verificar la longitud de la contraseña actual
-            var minLength = 8;
-            var isLengthValid = $(this).val().length >= minLength;
-
-            // Obtener el valor del campo de contraseña actual
-            var currentPassword = $(this).val();
-
-            // Validar la contraseña actual solo si es válida en longitud
-            if (isLengthValid) {
-                // Reemplaza esto con tu lógica real para verificar la contraseña actual en tu backend
-                var isCurrentPasswordValid = true;
-
-                if (isCurrentPasswordValid) {
-                    $(this).removeClass('is-invalid');
-                    $(this).addClass('is-valid');
-                    $('#currentPasswordError').text(''); // Limpiar el mensaje de error
+                // Mostrar u ocultar y habilitar o deshabilitar los campos de contraseña según el estado del interruptor
+                if (isValidationActive) {
+                    $('#currentPasswordSection, #newPasswordSection, #repeatPasswordSection').show().find(
+                        ':input').prop('disabled', false);
                 } else {
-                    $(this).removeClass('is-valid');
-                    $(this).addClass('is-invalid');
-                    $('#currentPasswordError').text('La contraseña actual no es válida.');
+                    $('#currentPasswordSection, #newPasswordSection, #repeatPasswordSection').hide().find(
+                        ':input').prop('disabled', true);
+                    // Limpiar los estilos y mensajes de error cuando se ocultan los campos
+                    clearValidationStyles();
                 }
-            } else {
-                $(this).removeClass('is-valid');
-                $(this).addClass('is-invalid');
-                $('#currentPasswordError').text('La contraseña actual no es válida o no cumple con la longitud mínima.');
+            });
+
+            // Variable para controlar si el usuario está cambiando la contraseña
+            var isChangingPassword = false;
+
+            // Variable para activar o desactivar la validación
+            var isValidationActive = false;
+
+            // Agregar un evento al interruptor para activar o desactivar la validación de contraseña
+            $('#activar_validacion').change(function() {
+                isValidationActive = $(this).is(':checked');
+
+                // Limpiar los estilos y mensajes de error cuando se cambia el interruptor
+                clearValidationStyles();
+            });
+
+            // Agregar un evento al formulario para indicar que se está cambiando la contraseña
+            $('form').submit(function() {
+                isChangingPassword = false;
+
+                // Limpiar los estilos y mensajes de error cuando se envía el formulario
+                clearValidationStyles();
+            });
+
+            // Manejar el evento de clic en cualquier campo de contraseña
+            $('input[name=new_password], input[name=new_password_confirmation], input[name=current_password]').on(
+                'click',
+                function() {
+                    // Verificar si el interruptor está activado
+                    if (isValidationActive) {
+                        // El usuario está cambiando la contraseña
+                        isChangingPassword = true;
+                    } else {
+                        // El usuario no quiere cambiar la contraseña, limpiar los estilos y mensajes de error
+                        clearValidationStyles();
+                    }
+                });
+
+            // Manejar el evento de cambio en el campo de contraseña de confirmación
+            $('input[name=new_password_confirmation]').on('input', function() {
+                // Verificar si el usuario está cambiando la contraseña y si la validación está activa
+                if (isChangingPassword && isValidationActive) {
+                    validatePasswords();
+                }
+            });
+
+            // Manejar el evento de cambio en cualquier campo de contraseña
+            $('input[name=new_password], input[name=new_password_confirmation], input[name=current_password]').on(
+                'input',
+                function() {
+                    // Verificar si el usuario está cambiando la contraseña y si la validación está activa
+                    if (isChangingPassword && isValidationActive) {
+                        // Validar las contraseñas solo si la nueva contraseña tiene una longitud válida
+                        if ($('input[name=new_password]').val().length >= 8) {
+                            validatePasswords();
+                        }
+                    }
+                });
+
+            // Función para validar las contraseñas
+            function validatePasswords() {
+                var newPassword = $('input[name=new_password]').val();
+                var newPasswordConfirmation = $('input[name=new_password_confirmation]').val();
+
+                // Verificar la longitud de la nueva contraseña
+                var minLength = 8;
+                var isLengthValid = newPassword.length >= minLength;
+
+                // Comparar las contraseñas y actualizar el estilo del campo y el mensaje de error
+                if (newPassword === newPasswordConfirmation && isLengthValid) {
+                    $('input[name=new_password_confirmation]').removeClass('is-invalid');
+                    $('input[name=new_password_confirmation]').addClass('is-valid');
+                    $('#passwordError').text(''); // Limpiar el mensaje de error
+                } else {
+                    $('input[name=new_password_confirmation]').removeClass('is-valid');
+                    $('input[name=new_password_confirmation]').addClass('is-invalid');
+                    $('#passwordError').text('Las contraseñas no coinciden o no cumplen con la longitud mínima.');
+                }
+            }
+
+            // Función para limpiar los estilos y mensajes de error
+            function clearValidationStyles() {
+                $('input[name=new_password_confirmation]').removeClass('is-invalid is-valid');
+                $('#passwordError').text('');
             }
         });
-    });
-</script>
+    </script>
+
 
 
 
