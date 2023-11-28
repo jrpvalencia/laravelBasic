@@ -52,22 +52,25 @@
 
                                 @csrf
 
-
-                                {{--  <div class="card-body media align-items-center">
+                        
+                                <div class="card-body media align-items-center">
                                 
-
-                                    <img src="{{ asset('storage/product/' . $user->image) }}"  class="img-perfil" >
+                                    @if (isset($user['user']['image']))
+                                    <img src="{{ $user['user']['image'] }}" class="img-perfil" alt="Imagen de Perfil">
+                                @endif
+                                
+                                
                                 <div class="media-body ml-4">
                                     <label class="btn btn-outline-primary">
                                         Subir nueva foto
                                
 
-                                        <input type="file" name="image" value="{{ $user->image }}"  class="account-settings-fileinput">
-                                    </label> &nbsp;
-                                  <button type="button" class="btn btn-default md-btn-flat">Reset</button> 
+                                        <input type="file" name="image" class="account-settings-fileinput">
+                                    </label> 
+                                  
 
                                 </div>
-                                 </div> --}}
+                                 </div> 
                                 <hr class="border-light m-0">
 
 
