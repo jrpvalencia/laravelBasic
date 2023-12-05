@@ -26,7 +26,7 @@
 
                  <div class="input-field">
                         <label for="archivo" class="form-label">Subir Archivo <i class="fas fa-upload"></i>:</label>
-                        <input type="file" class="form-control custom-file-input" name="image" placeholder="Imagen" required>
+                        <input type="file"  name="image" placeholder="Imagen" required>
                         <label class="custom-file-label" for="archivo">Selecciona un archivo</label>
                     </div> 
 

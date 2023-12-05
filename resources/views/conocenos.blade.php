@@ -20,15 +20,8 @@
     <section class="nosotros">
         <div class="texto">
             <h2 class="titulo"> Mis<span>ion</span></h2>
-            <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, 
-                dolorum maxime recusandae distinctio voluptatum quam id placeat veniam obcaecati 
-                et accusantium delectus corporis repellendus assumenda porro 
-                blanditiis nobis natus doloribus.</p>
-            <p class="parrafo">Lorem ipsum dolor sit 
-                amet consectetur, adipisicing elit. Ipsam, 
-                dolorum maxime recusandae distinctio voluptatum quam id 
-                placeat veniam obcaecati et accusantium delectus corporis
-                 repellendus assumenda porro blanditiis nobis natus doloribus.</p>
+            <p class="parrafo">Ser un sistema de información referente en la organización de productos y venta de perfumes, aumentando la productividad de las pequeñas y mediana empresas (perfumerías) a nivel local, proporcionándoles una ayuda tecnológica para la mayor organización y distribución de sus productos.</p>
+
         </div>
 
         <figure class="imagen">
@@ -41,15 +34,8 @@
 
         <div class="texto">
             <h2 class="titulo"> Vis<span>ion</span></h2>
-            <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, 
-                dolorum maxime recusandae distinctio voluptatum quam id placeat veniam obcaecati 
-                et accusantium delectus corporis repellendus assumenda porro 
-                blanditiis nobis natus doloribus.</p>
-            <p class="parrafo">Lorem ipsum dolor sit 
-                amet consectetur, adipisicing elit. Ipsam, 
-                dolorum maxime recusandae distinctio voluptatum quam id 
-                placeat veniam obcaecati et accusantium delectus corporis
-                repellendus assumenda porro blanditiis nobis natus doloribus.</p>
+            <p class="parrafo">Convertirnos en el software de organización y ventas más aceptado a nivel nacional para el 2025, siendo el impulso idóneo para las pequeñas y mediana empresas que son respaldadas con la mayor seguridad y difusión web.</p>
+           
         </div>
     </section>
 
