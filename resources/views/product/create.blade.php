@@ -1,7 +1,7 @@
-@extends('layouts.formulario')
-
+@extends('layouts.plantilla')
 
 @section('content')
+
     <div class="container">
         
             <h1 class="mt-4">Crear Producto<i class="fas fa-box-open"></i></h1>
@@ -63,4 +63,5 @@
         </div>
 
     </div>
-@endsection
+    @endsection()
+

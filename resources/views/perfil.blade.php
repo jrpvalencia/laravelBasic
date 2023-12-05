@@ -76,12 +76,6 @@
 
 
 
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label class="form-label">Usuario</label>
-                                        <input type="text" class="form-control mb-1" name="email"
-                                            value="{{ $user['user']['email'] ?? '' }}">
-                                    </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Nombre</label>
@@ -107,15 +101,7 @@
                                         <input type="text" class="form-control"
                                             name="document"value="{{ $user['user']['document'] ?? '' }}">
                                     </div>
-                                    <div class="form-group">
-                                        <label class="form-label">E-mail</label>
-                                        <input type="text" class="form-control mb-1" name="email"
-                                            value="{{ $user['user']['email'] ?? '' }}">
-                                        <div class="alert alert-warning mt-3">
-                                            Your email is not confirmed. Please check your inbox.<br>
-                                            <a href="javascript:void(0)">Resend confirmation</a>
-                                        </div>
-                                    </div>
+                                
                                     <div class="form-group">
                                         <label class="form-label">Telefono</label>
                                         <input type="text" class="form-control" name="phone"
@@ -156,6 +142,7 @@
                                         <div id="currentPasswordError" class="invalid-feedback"></div>
                                         <div id="passwordError" class="invalid-feedback"></div>
                                     </div>
+                                    
 
                                 </div>
 
