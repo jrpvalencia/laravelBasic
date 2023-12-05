@@ -1,3 +1,19 @@
+@extends('layouts.plantilla')
+
+    @section('title','Contacto - Perfumería')
+    
+    @section('head')
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    
+@endsection()
+
+@section('content')
+
+
+
 <link rel="stylesheet" href="CSS/style.css">
 
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -7,12 +23,14 @@
         <h1>Registros</h1>
         <div class="input-group">
             <input type="search" placeholder="Search Data...">
-            <i class='bx bx-search-alt'></i>
+         
         </div>
+
+
         <a href="{{ route('user.create') }}"><p class="add-button">Agregar </p></a>
-        <div class="export__file">
-            <a href="{{ route('inicio') }}"><label for="export-file" class="export__file-btn" title="Export File"></label></a>
-        </div>
+
+        
+   
     </section>
     <section class="table__body">
         <table>
@@ -68,3 +86,5 @@
     </section>
 </main>
 </body>
+
+@endsection()

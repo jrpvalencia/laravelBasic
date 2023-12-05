@@ -1,26 +1,31 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Productos')
-@section('head')
+    @section('title','Contacto - Perfumería')
+    
+    @section('head')
+   
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
 @endsection()
-
+    
 @section('content')
+
     <main class="table">
         <section class="table__header">
             <h1>Registros</h1>
             <div class="input-group">
                 <input type="search" placeholder="Search Data...">
-                <i class='bx bx-search-alt'></i>
+            
             </div>
             <a href="{{ route('product.create') }}">
                 <p class="add-button">Agregar </p>
             </a>
-            <div class="export__file">
-                <a href="{{ route('inicio') }}"><label for="export-file" class="export__file-btn"
-                        title="Export File"></label></a>
-            </div>
+
+        
         </section>
         <section class="table__body">
             <table>

@@ -1,15 +1,19 @@
 @extends('layouts.plantilla')
 
-@section('title','Conocenos')
-
-@section('head')
+    @section('title','Contacto - Perfumería')
     
+    @section('head')
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="shortcut icon" href="IMG/LOGO.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/conocenos.css">
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    
 @endsection()
 
 @section('content')
+
     <header>
         <div class="Principal"> 
             <h1 class="titulo1">Quienes somos</h1>
@@ -53,7 +57,7 @@
                 </div>
                 <div class="description">
                     <h2>Dayana Pipicano</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Desarrollador, Documentador</p>
                     <input type="button" value="Leer Más">
                 </div>
             </div>
@@ -65,7 +69,7 @@
                 </div>
                 <div class="description">
                     <h2>Robinson Puliche</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Desarrollador, Documentador</p>
                     <input type="button" value="Leer Más">
                 </div>
             </div>
@@ -77,7 +81,7 @@
                 </div>
                 <div class="description">
                     <h2>Valentina Narvaez</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Desarrollador, Documentador</p>
                     <input type="button" value="Leer Más">
                 </div>
             </div>
@@ -88,7 +92,7 @@
                 </div>
                 <div class="description">
                     <h2>Diana Rebolledo</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, laboriosam.</p>
+                    <p>Desarrollador, Documentador </p>
                     <input type="button" value="Leer Más">
                 </div>
             </div>
