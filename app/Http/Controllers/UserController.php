@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         // Verificar si el usuario está autenticado y tiene el rol "admin"
         
-            $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+            $url = env('URL_SERVER_API');
     
             $response = Http::get($url . 'usuarios');
     
@@ -38,115 +38,10 @@ class UserController extends Controller
     }
     
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
- /*    public function create()
-    {
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
-        $response = Http::get($url . 'usuarios');
-        $data = $response->json();
-    
-        $responseRoles = Http::get($url . 'roles'); // Obtener la lista de roles de la API
-        $roles = $responseRoles->json();
-    
-        return view('user.create', ['usuarios' => $data, 'roles' => $roles]);
-    }
-     */
-    
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
-
-        $response = Http::post($url . 'usuario/store',[
-
-            'name' => $request->name,
-            'lastName' => $request->lastName,
-            'typeDocument' => $request->typeDocument,
-            'document' => $request->document,
-            'phone' => $request->phone,
-            'idRol' => $request->idRol,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
-     
-       
-
-        return redirect()->route('user.index');
-
-    }
-
-  
-   /*  public function show($id)
-    {
-        return view('user.show');
-    }
-     */
-
-    public function update(Request $request)
-    {
-
-
-    return "hoka desde update";
-
-       /*  $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
-    
-        $response = Http::put($url . 'usuario/update/' . $request->id, [
-            'name' => $request->name,
-            'lastName' => $request->lastName,
-            'typeDocument' => $request->typeDocument,
-            'document' => $request->document,
-            'phone' => $request->phone,
-          'idRol' => $request->idRol, 
-            'email' => $request->email,
-             'password' => $request->password, 
-        ]);
-
-      
-    
-        return redirect()->route('user.index'); */
-    }
-
-
-
-      public function edit($userId)
-      {
-          $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
-          
-          $response = Http::get($url . 'usuario/edit/' . $userId);
-      
-          if ($response->successful()) {
-              $user = $response->json();
-      
-              // Obtener todos los roles disponibles
-              $rolesResponse = Http::get($url . 'roles');
-              $roles = $rolesResponse->json();
-      
-              $idRol = $user['idRol']; // Establecer el rol actual del usuario
-      
-              return view('user.edit', compact('user', 'roles', 'idRol'));
-      
-          } else {
-              // Manejo de error si la solicitud a la API no tiene éxito
-              return redirect()->back()->with('error', 'No se pudo obtener los datos del usuario');
-          }
-      }
-      
-   
-   
     public function destroy($idUser)
     {
 
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $url = env('URL_SERVER_API');
         $response = Http::delete($url . 'usuario/destroy/' . $idUser);
 
         return redirect()->route('user.index');

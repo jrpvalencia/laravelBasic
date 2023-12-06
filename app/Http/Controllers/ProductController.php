@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function index()
     {
 
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $url = env('URL_SERVER_API');
 
         $response =  Http::get($url.'productos');
 
@@ -33,7 +33,7 @@ class ProductController extends Controller
     public function catalogo()
     {
 
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $url = env('URL_SERVER_API');
 
         $response =  Http::get($url.'productos');
 
@@ -45,7 +45,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $url = env('URL_SERVER_API');
         
         // Obtener productos desde la API
         $responseProductos = Http::get($url . 'productos');
@@ -65,7 +65,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         try {
-            $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+            $url = env('URL_SERVER_API');
     
             // Verificar si se ha cargado una imagen en la solicitud
             if ($request->hasFile('image')) {
@@ -99,7 +99,7 @@ class ProductController extends Controller
                 return redirect()->route('product.index');
             } else {
                 // La solicitud no fue exitosa, manejar el error
-                return view('error')->with('error', 'Error al almacenar el producto en la API.');
+                return redirect()->back()->withErrors(['error' => 'Error al actualizar el producto en la API.']);
             }
         } catch (\Exception $e) {
             // Capturar cualquier excepción
@@ -116,7 +116,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $url = env('URL_SERVER_API');
     
         // Obtener el token de la sesión
         $token = session('auth_token');
@@ -135,7 +135,7 @@ class ProductController extends Controller
     {
 
            
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $url = env('URL_SERVER_API');
         try {
                   // Verificar si se ha cargado una imagen en la solicitud
                   if ($request->hasFile('image')) {
@@ -185,7 +185,7 @@ class ProductController extends Controller
     public function edit($idProduct)
     {
 
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $url = env('URL_SERVER_API');
 
         $response = Http::get($url . 'producto/edit/' . $idProduct);
 
@@ -210,7 +210,7 @@ class ProductController extends Controller
     public function destroy($idProduct)
     {
 
-        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+        $url = env('URL_SERVER_API');
         $response = Http::delete($url . 'producto/destroy/' . $idProduct);
 
         return redirect()->route('product.index');

@@ -31,13 +31,7 @@ class ShoppingCartController extends Controller
 
     public function agregarProducto(Request $request)
     {
-       
         try {
-
-            if (!Auth::check()) {
-                // El usuario no está autenticado, redirige a la página de inicio de sesión
-                return Redirect::route('login')->with('error', 'Debes iniciar sesión para agregar productos al carrito');
-            }
             $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
      
             // Obtener el token de la solicitud
@@ -45,32 +39,29 @@ class ShoppingCartController extends Controller
     
             // Verificar si el token existe y es válido
             if (!$token || !is_string($token)) {
-                return redirect()->back()->with('error', 'Token de autenticación no válido');
+                return redirect()->route('login')->with('error', 'Debes iniciar sesión para agregar productos al carrito');
             }
     
             // Antes de hacer la solicitud HTTP
-    
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . $token,
             ])->post($url . 'carritoDeCompra/agregarProducto', [
                 'idProduct' => $request->idProduct,
                 'product_quantity' => $request->product_quantity,
             ]);
-            
     
             if ($response->successful()) {
                 // Éxito, redirigir a una ruta específica
-                return Redirect::route('shoppingCart.index')->with('mensaje', 'Operación exitosa'); // Reemplaza 'nombre_de_la_ruta' con el nombre de tu ruta
+                return redirect()->route('shoppingCart.index')->with('mensaje', 'Operación exitosa');
             } else {
-             
                 return redirect()->back()->with('error', 'Error en la API: ' . $response->body());
             }
-        }  catch (\Exception $e) {
-       
+        } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error general: ' . $e->getMessage());
-        } 
-  
-}
+        }
+    }
+    
+    
 
 
 public function destroy($shoppingCart)
