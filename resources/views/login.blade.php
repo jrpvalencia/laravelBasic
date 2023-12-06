@@ -54,26 +54,51 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+<!-- Asegúrate de incluir jQuery antes de estos scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            // Manejar el evento de cambio en el campo de contraseña
-            $('input[name=password]').on('input', function () {
-                // Actualizar el estilo del campo
-                var isPasswordValid = $(this).val().length >= 8;
-    
-                if (isPasswordValid) {
-                    $(this).removeClass('is-invalid');
-                    $(this).addClass('is-valid');
-                    $('#passwordError').text(''); // Limpiar el mensaje de error
-                } else {
-                    $(this).removeClass('is-valid');
-                    $(this).addClass('is-invalid');
-                    $('#passwordError').text('La contraseña debe tener al menos 8 caracteres.');
-                }
-            });
+<script>
+    $(document).ready(function () {
+        // Función para validar que no haya espacios en blanco
+        function validateNoSpaces(inputField) {
+            const value = inputField.val();
+            const newValue = value.replace(/\s/g, ''); // Elimina todos los espacios en blanco
+
+            if (value !== newValue) {
+                inputField.val(newValue); // Actualiza el valor del campo sin espacios
+            }
+        }
+
+        // Validar que el campo de correo electrónico no contenga espacios al pulsar la tecla de espacio
+        $('input[name="email"]').on('keypress', function (e) {
+            if (e.which === 32) { // 32 es el código de la tecla de espacio
+                e.preventDefault(); // Evita que se escriba el espacio
+                validateNoSpaces($(this));
+            }
         });
-    </script>
+
+        // Validar el campo de contraseña, sin espacios
+        $('input[name="password"]').on('input', function () {
+            const password = $(this).val();
+            const passwordError = $('#passwordError');
+
+            // Validar que no haya espacios en la contraseña
+            validateNoSpaces($(this));
+
+            // Validar la longitud de la contraseña
+            if (password.length >= 8) {
+                passwordError.text('');
+                $(this).removeClass('is-invalid');
+                $(this).addClass('is-valid');
+            } else {
+                passwordError.text('La contraseña debe tener al menos 8 caracteres.');
+                $(this).removeClass('is-valid');
+                $(this).addClass('is-invalid');
+            }
+        });
+    });
+</script>
+
     
     
 @endsection()
