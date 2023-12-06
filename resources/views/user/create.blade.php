@@ -92,22 +92,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 @endsection()
+
 <!-- Asegúrate de incluir jQuery antes de estos scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     $(document).ready(function () {
-        // Validar que el campo de teléfono solo contenga números
+        // Función para validar que no haya espacios en blanco
+        function validateNoSpaces(inputField) {
+            const value = inputField.val();
+            const newValue = value.replace(/\s/g, ''); // Elimina todos los espacios en blanco
+
+            if (value !== newValue) {
+                inputField.val(newValue); // Actualiza el valor del campo sin espacios
+            }
+        }
+
+        // Validar que el campo de teléfono solo contenga números y no tenga espacios
         $('input[name="phone"]').on('input', function () {
             $(this).val($(this).val().replace(/[^0-9]/g, ''));
         });
 
-        // Validar que el campo de documento solo contenga números
+        // Validar que el campo de documento solo contenga números y no tenga espacios
         $('input[name="document"]').on('input', function () {
             $(this).val($(this).val().replace(/[^0-9]/g, ''));
         });
 
-        // Validar el campo de contraseña
+        // Validar el campo de contraseña, sin espacios
         $('input[name="password"]').on('input', function () {
             const password = $(this).val();
             const passwordError = $('#passwordError');
@@ -116,8 +127,18 @@
                 passwordError.text('');
                 $(this).removeClass('is-invalid');
             } else {
-                passwordError.text('La contraseña debe tener al menos 7 caracteres.');
+                passwordError.text('La contraseña debe tener al menos 8 caracteres.');
                 $(this).addClass('is-invalid');
+            }
+
+            validateNoSpaces($(this));
+        });
+
+        // Validar que otros campos no contengan espacios al pulsar la tecla de espacio
+        $('input[name="name"], input[name="lastName"], input[name="typeDocument"], input[name="email"]').on('keypress', function (e) {
+            if (e.which === 32) { // 32 es el código de la tecla de espacio
+                e.preventDefault(); // Evita que se escriba el espacio
+                validateNoSpaces($(this));
             }
         });
     });
