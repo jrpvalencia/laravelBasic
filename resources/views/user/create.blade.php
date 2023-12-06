@@ -112,7 +112,7 @@
             const password = $(this).val();
             const passwordError = $('#passwordError');
 
-            if (password.length >= 7) {
+            if (password.length >= 8) {
                 passwordError.text('');
                 $(this).removeClass('is-invalid');
             } else {
