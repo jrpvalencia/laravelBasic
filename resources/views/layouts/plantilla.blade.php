@@ -44,10 +44,7 @@
                     </li>
 
 
-                    <li class="nav-item @if (request()->is('product*')) active @endif">
-                        <a class="nav-link @if (request()->is('product*')) active-link @endif"
-                            href="{{ route('product.index') }}">Productos</a>
-                    </li>
+                    
 
                     <li class="nav-item @if (request()->is('conocenos')) active @endif">
                         <a class="nav-link @if (request()->is('conocenos')) active-link @endif"
@@ -59,18 +56,17 @@
                             href="{{ route('contactanos') }}">Contacto</a>
                     </li>
 
-                    <li class="nav-item @if (request()->is('perfil')) active @endif">
-                        <a class="nav-link @if (request()->is('perfil')) active-link @endif"
-                            href="{{ route('perfil') }}">Perfil</a>
+
+
+
+
+
+                  
+                    @if (session('isLoggedIn') && !is_null(session('userData')))
+                    <li class="nav-item @if (request()->is('product*')) active @endif">
+                        <a class="nav-link @if (request()->is('product*')) active-link @endif"
+                            href="{{ route('product.index') }}">Productos</a>
                     </li>
-
-
-                    <li class="nav-item @if (request()->is('carritoC')) active @endif">
-                        <a class="nav-link @if (request()->is('carritoC')) active-link @endif"
-                            href="{{ route('carritoC') }}"><i class="fas fa-shopping-cart"></i> Carrito</a>
-                    </li>
-
-
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle @if (request()->is('temporada*') || request()->is('pago')) active @endif"
@@ -88,7 +84,16 @@
                                 href="{{ route('user.index') }}">Usuarios</a>
                         </div>
                     </li>
-                    @if (session('isLoggedIn') && !is_null(session('userData')))
+                        <li class="nav-item @if (request()->is('carritoC')) active @endif">
+                            <a class="nav-link @if (request()->is('carritoC')) active-link @endif"
+                                href="{{ route('carritoC') }}"><i class="fas fa-shopping-cart"></i> Carrito</a>
+                        </li>
+                        <li class="nav-item @if (request()->is('perfil')) active @endif">
+                            <a class="nav-link @if (request()->is('perfil')) active-link @endif"
+                                href="{{ route('perfil') }}">Perfil</a>
+                        </li>
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="" id="loginMessage">Hi {{ session('userData')['name'] }}
                             </a>

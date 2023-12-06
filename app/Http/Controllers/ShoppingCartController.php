@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
-
+use Illuminate\Support\Facades\Auth;
 class ShoppingCartController extends Controller
 {
 
@@ -33,6 +33,11 @@ class ShoppingCartController extends Controller
     {
        
         try {
+
+            if (!Auth::check()) {
+                // El usuario no está autenticado, redirige a la página de inicio de sesión
+                return Redirect::route('login')->with('error', 'Debes iniciar sesión para agregar productos al carrito');
+            }
             $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
      
             // Obtener el token de la solicitud
