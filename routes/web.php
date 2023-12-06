@@ -101,20 +101,10 @@ Route::get('pqr',[PQRController::class, 'show'])->name('pqr.show');
 
 //RUTAS DE CARRITO DE COMPRA
 
-
-
-Route::get('carritoDeCompra/create', [ShoppingCartController::class, 'create'])->name('shoppingCart.create');
-Route::get('carritoCompra', [ShoppingCartController::class, 'indexAdmin'])->name('shoppingCart.index');
+Route::get('/carritoDeCompras', [ShoppingCartController::class, 'index'])->name('shoppingCart.index');
+Route::post('/carritoDeCompra/agregarProducto', [ShoppingCartController::class, 'agregarProducto'])->name('carrito.agregarProducto');
+Route::get('/carritoDeCompra/destroy/{shoppingCart}', [ShoppingCartController::class, 'destroy'])->name('shoppingCart.destroy');
 Route::get('carritoC', [ShoppingCartController::class, 'index'])->name('carritoC');
-Route::get('carritoDeCompra/{shoppingCart}/edit', [ShoppingCartController::class, 'edit'])->name('shoppingCart.edit');
-Route::get('carritoDeCompras', [ShoppingCartController::class, 'show'])->name('shoppingCart.show');
-Route::delete('shoppingCart/{shoppingCart}', [ShoppingCartController::class, 'destroy'])->name('shoppingCart.destroy');
-Route::post('carritoDeCompra2', [ShoppingCartController::class, 'store'])->name('shoppingCart.store');
-Route::put('carritoDeCompra/{shoppingCart}', [ShoppingCartController::class, 'update'])->name('shoppingCart.update');
-
-
-Route::post('carrito',[ShoppingCartController::class, 'añadir'])->name('shoppPre');
-
 //RUTA DEVOLUCION
 
 Route::get('devolucion/create',[ReturnsController::class, 'create'])->name('returns.create');

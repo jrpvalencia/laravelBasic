@@ -75,7 +75,7 @@
                     <td>
                         <div class="button-group">
                             <a class="delete-button" href="{{ route('user.destroy', $users['id']) }}">x </a>
-                            <a href="{{ route('user.edit', $users['id']) }}" class="edit-button"><i class='bx bxs-edit-alt'></i></a>
+                           {{--  <a href="{{ route('user.edit', $users['id']) }}" class="edit-button"><i class='bx bxs-edit-alt'></i></a> --}}
                         </div>
                     </td>
                 </tr>

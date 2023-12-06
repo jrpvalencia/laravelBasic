@@ -29,6 +29,7 @@
 
         <main>
             <div class="container-img">
+          
                 <img src="{{ $product['image'] }}" alt="Imagen"> 
             </div>
             
@@ -41,13 +42,15 @@
 
                 <div class="container-details-product">
                 </div>
-                <form action="{{ route('shoppPre') }}" method="post">
+
+
+                <form action="{{ route('carrito.agregarProducto') }}" method="post">
                     @csrf
-                    <input type="hidden" name="id_product" value="{{ $product['id'] }}">
+                    <input type="hidden" name="idProduct" value="{{ $product['id'] }}">
+                    <input type="hidden" name="auth_token" value="{{ $token }}">
                     <div class="container-add-cart">
                         <div class="container-quantity">
-                            <input type="number" placeholder="1" value="1" min="1" class="input-quantity"
-                                id="cantidad" name="cantidad" />
+                            <input type="number" placeholder="1" value="1" min="1" class="input-quantity" id="product_quantity" name="product_quantity" />
                             <div class="btn-increment-decrement">
                                 <i class="fa-solid fa-chevron-up" id="increment"></i>
                                 <i class="fa-solid fa-chevron-down" id="decrement"></i>
@@ -59,6 +62,7 @@
                         </button>
                     </div>
                 </form>
+                
 
 
 

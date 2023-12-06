@@ -62,7 +62,6 @@ class ProductController extends Controller
     
     
 
-
     public function store(Request $request)
     {
         try {
@@ -110,21 +109,26 @@ class ProductController extends Controller
     
     
 
+    
+
 
 
 
     public function show($id)
     {
-
-       
         $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
-
-        $response =  Http::get($url.'producto/show/'.$id);
-
+    
+        // Obtener el token de la sesión
+        $token = session('auth_token');
+    
+        // Obtener detalles del producto sin incluir el token
+        $response =  Http::get($url . 'producto/show/' . $id);
         $product = $response->json();
-
-        return view('product.show', compact('product'));
+    
+        // Pasar el token a la vista
+        return view('product.show', compact('product', 'token'));
     }
+    
 
    
     public function update(Request $request, )

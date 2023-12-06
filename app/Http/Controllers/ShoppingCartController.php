@@ -7,137 +7,85 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Redirect;
 
 class ShoppingCartController extends Controller
 {
-    
+
+
+
+
     public function index()
     {
-        $userID = auth()->id();
-        $shoppingCart = ShoppingCart::where('idUser', $userID)->get();
 
-        
-        return view('shoppingCart.carrito', compact('shoppingCart'));
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        $response =  Http::get($url.'carritoDeCompras');
+
+        $data = $response->json();
+
+        return view('shoppingCart.carrito', compact('data'));
+
     }
 
-    public function indexAdmin()
+    public function agregarProducto(Request $request)
     {
-        $shoppingCart = ShoppingCart::all();
-
-    
-        
-        return view('shoppingCart.index', compact('shoppingCart'));
-    
-
-        
-    }
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $shoppingCart = new ShoppingCart();
-        $shoppingCart->product_quantity=$request->product_quantity;
-        $shoppingCart->idUser=$request->idUser;
-        $shoppingCart->idProduct=$request->idProduct;
-        $shoppingCart->save();
-
-
-        return Redirect()->route('shoppingCart.index',$shoppingCart);
-    }
-    public function create()
-
-    {
-        $users = User::all();
-        $products = Product::all();
-        return view('shoppingCart.create',['products'=> $products,'users'=> $users]);
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ShoppingCart  $shoppingCart
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ShoppingCart $shoppingCart)
-    {
-        return view('shoppingCart.show');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ShoppingCart  $shoppingCart
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ShoppingCart $shoppingCart)
-    {
-        $shoppingCart->idUser = $request->idUser;
-        $shoppingCart->idProduct = $request->idProduct;
-        $shoppingCart->product_quantity = $request->product_quantity;
-    
-        $shoppingCart->save();
-
-        /* return redirect()->route('carritoC', $shoppingCart); */
-        return redirect()->route('shoppingCart.index');
-    }
-
-
-    public function edit(ShoppingCart $shoppingCart){
-
-        $users = User::all();
-        $products = Product::all();
-
-        return view('shoppingCart.edit', compact('shoppingCart','users', 'products'));
-
-
-  
        
-     }
+        try {
+            $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+     
+            // Obtener el token de la solicitud
+            $token = $request->auth_token;
+    
+            // Verificar si el token existe y es válido
+            if (!$token || !is_string($token)) {
+                return redirect()->back()->with('error', 'Token de autenticación no válido');
+            }
+    
+            // Antes de hacer la solicitud HTTP
+    
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+            ])->post($url . 'carritoDeCompra/agregarProducto', [
+                'idProduct' => $request->idProduct,
+                'product_quantity' => $request->product_quantity,
+            ]);
+            
+    
+            if ($response->successful()) {
+                // Éxito, redirigir a una ruta específica
+                return Redirect::route('shoppingCart.index')->with('mensaje', 'Operación exitosa'); // Reemplaza 'nombre_de_la_ruta' con el nombre de tu ruta
+            } else {
+             
+                return redirect()->back()->with('error', 'Error en la API: ' . $response->body());
+            }
+        }  catch (\Exception $e) {
+       
+            return redirect()->back()->with('error', 'Error general: ' . $e->getMessage());
+        } 
+  
+}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ShoppingCart  $shoppingCart
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ShoppingCart $shoppingCart)
-    {
-        $shoppingCart->delete();
 
-        //Aqui debes de tener cuidado porque funciona para carrito de compra pero no te va a servir para la vista de eliminar para usuario
-        return redirect()->route('carritoC')->with('success', 'Producto actualizado correctamente');
+public function destroy($shoppingCart)
+{
+ 
+    $token = session('auth_token');
+
+    
+    if (!$token) {
+        return response()->json(['error' => 'Token no presente'], 401);
     }
 
-    public function añadir(){
-        $id = $_POST['id_product'];
-        $product = Product::find($id);
-    
-        $cantidad  = $_POST['cantidad'];
-        $userID = auth()->id();
-    
-        $shoppingCart = new ShoppingCart();
-        $shoppingCart->product_quantity = $cantidad;
-        $shoppingCart->idUser = $userID;
-        $shoppingCart->idProduct = $id;
-        $shoppingCart->save();
-    
-        // Carga la información del producto para pasarlo a la vista
-        $product = Product::find($id);
-    
-        $shoppingCart = ShoppingCart::where('idUser', $userID)->get();
-    
-        // Pasa la información del producto a la vista
-        return view('shoppingCart.carrito', compact('shoppingCart', 'product'));
-    }
-    
-    
+    $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+   
+    $response = Http::withHeaders(['Authorization' => 'Bearer ' . $token])->delete($url . 'carritoDeCompra/destroy/' . $shoppingCart);
+
+    return redirect()->route('shoppingCart.index');
+}
+
+
+
+
 }
