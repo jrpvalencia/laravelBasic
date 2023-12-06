@@ -55,7 +55,7 @@
                     </select>
                 </div>
 
-                  <br>
+               
                 <div class="input-container">
                     <label for="Nombre" class="form-label"></label>
                     <input type="email" class="form-control" name="email" placeholder="email">
