@@ -92,3 +92,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 @endsection()
+<!-- Asegúrate de incluir jQuery antes de estos scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Validar que el campo de teléfono solo contenga números
+        $('input[name="phone"]').on('input', function () {
+            $(this).val($(this).val().replace(/[^0-9]/g, ''));
+        });
+
+        // Validar que el campo de documento solo contenga números
+        $('input[name="document"]').on('input', function () {
+            $(this).val($(this).val().replace(/[^0-9]/g, ''));
+        });
+
+        // Validar el campo de contraseña
+        $('input[name="password"]').on('input', function () {
+            const password = $(this).val();
+            const passwordError = $('#passwordError');
+
+            if (password.length >= 7) {
+                passwordError.text('');
+                $(this).removeClass('is-invalid');
+            } else {
+                passwordError.text('La contraseña debe tener al menos 7 caracteres.');
+                $(this).addClass('is-invalid');
+            }
+        });
+    });
+</script>
