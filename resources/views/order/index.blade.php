@@ -45,11 +45,13 @@
        
     </ul>
 
-</div>
-</div>
-</div>
+  
+        <a class="btn btn-danger" href="{{ route('order.destroy', $data['id']) }}">Eliminar </a>
+       
 
-
+</div>
+</div>
+</div>
 
 
 <style>

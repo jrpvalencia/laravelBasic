@@ -71,9 +71,21 @@ class OrderController extends Controller
     
 
 
-    /*  public function destroy(Order $order)
+    public function destroy($order)
     {
-        $order->delete();
-        return back()->with('succes','Registro eliminado correctamente');
-    } */
+     
+        $token = session('auth_token');
+    
+        
+        if (!$token) {
+            return response()->json(['error' => 'Token no presente'], 401);
+        }
+    
+        $url = env('URL_SERVER_API');
+       
+        $response = Http::withHeaders(['Authorization' => 'Bearer ' . $token])->delete($url . 'pedido/destroy/' . $order);
+    
+        return redirect()->route('shoppingCart.index');
+    }
+    
 }

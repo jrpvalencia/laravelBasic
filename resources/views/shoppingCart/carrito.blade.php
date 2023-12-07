@@ -43,17 +43,26 @@
                             <a class="btn btn-danger" href="{{ route('shoppingCart.destroy', $shoppingCartItem['id']) }}">Eliminar </a>
                         </div>
                     </div>
+
+
+                    
                 @empty
                     <p>No hay productos en el carrito.</p>
                 @endforelse
+              
                 <h2 class="total">Total del carrito: ${{ $totalCarrito }}</h2>
+
+                
             </div>
         </div>
+        @if(count($data) > 0) <!-- Verifica si el array $data tiene elementos -->
+        
         <div class="btnCarrito">
             <a href="{{ route('typePay.show', ['idCarrito' => $shoppingCartItem['id'], 'totalCarrito' => $totalCarrito]) }}">
                 <button class="btn btn-dark">Finalizar Compra</button>
             </a>
         </div>
+    @endif
         
         
 
