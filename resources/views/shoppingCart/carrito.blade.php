@@ -18,6 +18,8 @@
         <div class="btnCarrito">
             <a href="{{ route('catalogo.index') }}"><button class="btn btn-dark">Continuar Comprando</button></a>
         </div>
+
+        
         <div class="container">
             <div class="cart-items">
                 <?php $totalCarrito = 0; ?>
@@ -47,5 +49,14 @@
                 <h2 class="total">Total del carrito: ${{ $totalCarrito }}</h2>
             </div>
         </div>
+        <div class="btnCarrito">
+            <a href="{{ route('typePay.show', ['idCarrito' => $shoppingCartItem['id'], 'totalCarrito' => $totalCarrito]) }}">
+                <button class="btn btn-dark">Finalizar Compra</button>
+            </a>
+        </div>
+        
+        
+
+        
     </section>
 @endsection

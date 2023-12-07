@@ -78,6 +78,29 @@ Route::get('/temporada/show',[SeasonController::class, 'show'])->name('season.sh
 //FILTRO
 Route::get('/producto/temporada/{seasonId}', [SeasonController::class, 'productTemporada'])->name('temporadas');
 
+//RUTAS FORMA DE PAGO
+
+Route::post('/formaDePago/store', [TypePayController::class,'store'])->name('typePay.store');
+Route::get('/formaDePago/create',[TypePayController::class,'create'])->name('typePay.create');
+Route::get('/formaDePagos',[TypePayController::class,'index'])->name('typePay.index');
+Route::get('/formaDePago/destroy/{typePay}', [TypePayController::class, 'destroy'])->name('typePay.destroy');
+Route::get('/formaDePago/edit/{typePay}',[TypePayController::class, 'edit'])->name('typePay.edit');
+Route::post('/formaDePago/update',[TypePayController::class, 'update'])->name('typePay.update');
+Route::get('/formaDePago/show/{idCarrito}/{totalCarrito}', [TypePayController::class, 'show'])->name('typePay.show');
+
+
+//RUTAS PEDIDO
+
+Route::post('/pedido/store', [OrderController::class,'store'])->name('order.store');
+Route::get('/pedido/create',[OrderController::class,'create'])->name('order.create');
+Route::get('/pedidos',[OrderController::class,'index'])->name('order.index');
+Route::get('/pedido/destroy/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
+Route::get('/pedido/edit/{order}',[OrderController::class, 'edit'])->name('order.edit');
+Route::post('/pedido/update',[OrderController::class, 'update'])->name('order.update');
+Route::get('/pedido/show/{order}/{totalCarrito}', [OrderController::class, 'show'])->name('order.show');
+
+
+
 
 //RUTAS ROL
 
@@ -115,15 +138,6 @@ Route::get('devolucion/{returns}/edit',[ReturnsController::class, 'edit'])->name
 Route::put('devolucion/{returns}',[ReturnsController::class, 'update'])->name('returns.update');
 Route::get('devoluciones',[ReturnsController::class, 'show'])->name('returns.show');
 
-//RUTA DE FORMA DE PAGO
-
-Route::get('formaDePago/create',[TypePayController::class, 'create'])->name('typePay.create');;
-Route::post('formaDePago2',[TypePayController::class,'store'])->name('typePay.store');
-Route::get('formaDePagoS',[TypePayController::class, 'index'])->name('typePay.index');
-Route::delete('formaDePago/{typePay}', [TypePayController::class, 'destroy'])->name('typePay.destroy');
-Route::get('formaDePago/{typePay}/edit',[TypePayController::class, 'edit'])->name('typePay.edit');
-Route::put('formaDePago/{typePay}',[TypePayController::class, 'update'])->name('typePay.update');
-Route::get('formaDePago',[TypePayController::class, 'show'])->name('typePay.show');
 
 //RUTAS DE PAGO
 
@@ -135,15 +149,6 @@ Route::get('pago/{pay}/edit',[PayController::class, 'edit'])->name('pay.edit');
 Route::put('pago/{pay}',[PayController::class, 'update'])->name('pay.update');
 Route::get('pagos',[PayController::class, 'show'])->name('pay.show');
 
-//RUTAS PEDIDO
-
-Route::get('pedido/create',[OrderController::class, 'create'])->name('order.create');
-Route::post('pedido2',[OrderController::class,'store'])->name('order.store');
-Route::get('pedidos',[OrderController::class, 'index'])->name('order.index');
-Route::delete('pedido/{order}', [OrderController::class, 'destroy'])->name('order.destroy');
-Route::get('pedido/{order}/edit',[OrderController::class, 'edit'])->name('order.edit');
-Route::put('pedido/{order}',[OrderController::class, 'update'])->name('order.update');
-Route::get('pedido',[OrderController::class, 'show'])->name('order.show');
 
 //RUTAs de notificacion pedido
 

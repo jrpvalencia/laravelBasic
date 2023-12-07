@@ -1,61 +1,73 @@
 @extends('layouts.plantilla')
 
-@section('title','Pedidos')
-@section('head')
-<link rel="stylesheet" href="CSS/style.css">
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    @section('title','Contacto - Perfumería')
+    
+    @section('head')
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    
 @endsection()
 
 @section('content')
-    <main class="table">
-        <section class="table__header">
-            <h1>Registros</h1>
-            <div class="input-group">
-                <input type="search" placeholder="Search Data...">
-                <i class='bx bx-search-alt'></i>
-            </div>
-            <a href="{{ route('order.create') }}">
-                <p class="add-button">Agregar </p>
-            </a>
-            <div class="export__file">
-                <a href="{{ route('inicio') }}"><label for="export-file" class="export__file-btn"
-                        title="Export File"></label></a>
-            </div>
-        </section>
-        <section class="table__body">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="icon-arrow"> Id</th>
-                        <th class="icon-arrow"> fecha de pedido </th>
-                        <th class="icon-arrow"> id carrito de compras</th>
-                        <th class="icon-arrow"> Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($order as $orders)
-                        <tr>
-                            <div class="button-group">
-                                <td>{{ $orders->id }} </td>
-                                <td>{{ $orders->dateOrder }}</td>
-                                <td>{{ $orders->idShoppingCart }}</td>
-                              
+<link rel="stylesheet" href="{{ asset('css/carrito.css') }}">
 
-                                <td>
-                                    <div class="button-group">
-                                        <form action="{{ route('order.destroy', $orders->id) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="delete-button">x</button>
-                                        </form>
-                                        <a href="{{ route('order.edit', $orders->id) }}" class="edit-button"><i class='bx bxs-edit-alt'></i></a>
-                                    </div>
-                                </td>
-                            </div>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </section>
-    </main>
+<div class="container3">
+<div class="container">
+    <div class="cart-items1">
+
+
+    <h2>Detalles del Carrito de Compras</h2>
+
+    <ul>
+      
+        <li>Cantidad de Producto: {{ $data['shopping_cart']['product_quantity'] }}</li>
+        <li>Tipo de Pago: {{ $data['type_pay']['name'] }}</li>
+        <li>Nombre del Producto: {{ $data['shopping_cart']['product']['name'] }}</li>
+        <li>Descripción: {{ $data['shopping_cart']['product']['description'] }}</li>
+
+    </ul>
+
+    <h2>Detalles del Usuario</h2>
+
+    <ul>
+       
+        <li>Nombre: {{ $data['shopping_cart']['user']['name'] }}</li>
+        <li>Apellido: {{ $data['shopping_cart']['user']['lastName'] }}</li>
+       
+    </ul>
+
+
+    <ul>
+       
+        <h2>Total del Carrito: ${{ $totalCarrito }}</h2>
+       
+    </ul>
+
+</div>
+</div>
+</div>
+
+
+
+
+<style>
+  
+    h1, h2 {
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    
+</style>
 @endsection()

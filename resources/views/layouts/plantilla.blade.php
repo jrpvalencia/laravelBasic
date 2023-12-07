@@ -78,7 +78,10 @@
                             <a class="dropdown-item @if (request()->is('temporada*')) active-link @endif"
                                 href="{{ route('season.create') }}">Temporada</a>
                             <a class="dropdown-item @if (request()->is('pago')) active-link @endif"
-                                href="{{ route('pago') }}">Forma de pago</a>
+                                href="{{ route('typePay.index') }}">Forma de pago</a>
+
+                                <a class="dropdown-item @if (request()->is('pago')) active-link @endif"
+                                    href="{{ route('typePay.create')}}">Crud Forma De Pago</a>
 
                             <a class="dropdown-item @if (request()->is('pago')) active-link @endif"
                                 href="{{ route('user.index') }}">Usuarios</a>

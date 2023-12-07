@@ -37,6 +37,21 @@ background: linear-gradient(to right, #414345, #232526ab); /* W3C, IE 10+/ Edge,
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
+  .container3{
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+  .cart-items1{
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #8e9eaba2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3a7, #8e9eab86);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eef2f392, #8e9eab77); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    border-radius: 10px;
+    padding: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
   .cart-item {
     display: flex;
     align-items: center;

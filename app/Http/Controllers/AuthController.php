@@ -31,6 +31,8 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+
+      
         $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
         $response = Http::post($url . 'register', [

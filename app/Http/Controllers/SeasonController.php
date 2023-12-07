@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\Http;
 
 class SeasonController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index()
     {
         $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
@@ -28,14 +24,7 @@ class SeasonController extends Controller
     }
     
     
-    
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
 
     public function create()
     {
@@ -84,12 +73,6 @@ class SeasonController extends Controller
     }
     
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Season  $season
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($idSeason)
     {
 

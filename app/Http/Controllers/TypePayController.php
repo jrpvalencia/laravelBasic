@@ -5,79 +5,91 @@ namespace App\Http\Controllers;
 use App\Models\TypePay;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Http;
 class TypePayController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function show($idCarrito, $totalCarrito)
     {
-        $typePay = TypePay::all();
+    
 
-        return view('typePay.index', compact('typePay'));
+        
+        $url = env('URL_SERVER_API');
+        
+        $response = Http::get($url . 'formaDePagos');
+        $data = $response->json();
+        
+        // Cambiar los índices para que comiencen desde 1
+        $formattedData = [];
+        foreach ($data as $index => $item) {
+            $formattedData[$index + 1] = $item;
+        }
+    
+        return view('formadepago', compact('formattedData', 'idCarrito', 'totalCarrito'));
     }
-    public function create(){
+    
+    
+    
+
+ 
+    public function create()
+    {
         return view('typePay.create');
+
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $formaDePago = new TypePay();
-        $formaDePago->name=$request->name;
-        $formaDePago->save();
+        
 
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
-        return Redirect()->route('typePay.index',$formaDePago);
+        $response = Http::post($url.'formaDePago/store',[
+
+            'name' => $request->name
+
+        ]);
+       
+
+        return Redirect()->route('typePay.index'); 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\TypePay  $typePay
-     * @return \Illuminate\Http\Response
-     */
-    public function show(TypePay $typePay)
+  
+    public function update(Request $request)
     {
-        return view('typePay.show');
+
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        $response = Http::put($url.'formaDePago/update/'.$request->id,[
+
+            'name' => $request->name
+
+        ]);
+
+        return redirect()->route('typePay.index');
     }
+    
+    public function edit($typePay){
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TypePay  $typePay
-     * @return \Illuminate\Http\Response
-     */
-
-     public function edit(TypePay $typePay){
-        return view('typePay.edit',compact('typePay'));
-     }
-    public function update(Request $request, TypePay $typePay)
-    {
-        $typePay->name = $request->name;
-
-        $typePay->save();
-
-        return redirect()->route('typePay.index', $typePay);
+        $response = Http::get($url.'formaDePago/edit/'.$typePay);
+        $typePay = $response->json();
+    
+      
+        return view('typePay.edit', compact('typePay'));
     }
+    
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\TypePay  $typePay
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(TypePay $typePay)
+  
+    public function destroy($typePay)
     {
-        $typePay->delete();
-        return back()->with('succes','Registro eliminado correctamente');
+
+
+     
+        $url = env('URL_SERVER_API', 'http://127.0.0.1:8000/api/');
+
+        $response = Http::delete($url .'temporada/destroy/' . $typePay);
+
+
+        
+        return redirect()->route('typePay.index'); 
     }
 }
